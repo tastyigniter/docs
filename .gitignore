@@ -4,7 +4,7 @@
 _data
 _includes/*
 !_includes/navigation.md
-_layouts/*
+_layouts
 _site/
 bin
 js
