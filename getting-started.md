@@ -36,11 +36,3 @@ These will be used for your store's contact page.
 ## Image Settings
 ## Mail Settings
 ## Server Settings
-
-
-
-Inventory Management
-OpenCart's installation includes demonstration data to help you see how to setup your OpenCart store's inventory. This includes Categories, Manufacturers, Options, Attributes and Products and some home page Banners. These are the Apple iPods that you see when you first visit your store's frontend after installation. In order to get started with your store, you will need to replace these demo items with the actual categories, manufacturers and products your store will sell. There are two recommended ways to do this:
-
-You can manually edit these under the Catalog menu in your OpenCart store's admin.
-You can use an import tool to simplify the upload of your products in bulk. This is more practical for larger inventories or dropshippers, and will allow you to remove all existing items and replace them at the same time.

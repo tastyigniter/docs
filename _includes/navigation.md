@@ -72,6 +72,7 @@
     - [Debugging TastyIgniter]({{site.baseurl}}/developer-guide/debugging-tastyigniter)
     - [Loading files]({{site.baseurl}}/developer-guide/loading-files)
     - [Function Reference]({{site.baseurl}}/developer-guide/function-reference)
+    - [Event Hooks]({{site.baseurl}}/developer-guide/event-hooks)
     - [Developing an Extension]({{site.baseurl}}/developer-guide/developing-an-extension)
     - [Publishing an Extension]({{site.baseurl}}/developer-guide/publishing-an-extension)
     - [Migrating Extensions]({{site.baseurl}}/developer-guide/migrating-extensions)
