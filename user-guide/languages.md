@@ -1,6 +1,6 @@
 ---
-layout: page
-title: "Languages"
+layout: الصفحة
+title: "اللغة"
 ---
 
-{{site.data.alerts.callout_warning}} This section is incomplete. Please help to improve it.{{site.data.alerts.end}} 
+{{site.data.alerts.callout_warning}} هذا القسم غير مكتمل. يرجى المساعدة في تطويره.{{site.data.alerts.end}} 
