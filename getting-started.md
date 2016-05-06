@@ -19,7 +19,7 @@ Start by [setting your system settings]({{site.baseurl}}/user-guide/settings/).
 Under General Tab you will need to set your store's name, email, country, timezone, date and time format, currency, 
 default language, customer group, site logo, meta description and meta keyword.
 
-![General Tab on Settings Page]({{site.baseurl}}/images/settings-general-tab.png)
+![General Tab on Settings Page](/images/settings-general-tab.png)
 
 ## Local Settings
 
