@@ -86,8 +86,13 @@ before_logout*	 | Called just before logging the user out.     | An array of `cu
 Event	 | Description      | Payload   | File(s)
 ----------|-------------------|---------------|---------
 after_create_order	 | Called after an order is created.   | An array of one (order_id) index, where (order_id) is the ID of the just created order.	| Models\Orders_model.php   |
-before_order_update*	 | Called just prior to updating an order.   | An array of `order_id` and ‘data’, where data is all of the update information passed into the method. Note: `order_id` may be an array if the `Orders_model`'s `updateOrder()` method is called with an array as the first parameter. In this case, the order's ID may not be in the array...	| Models\Orders_model.php   |
-after_order_update*	 | Called just after updating an order.   | An array of `order_id` and ‘data’, where data is all of the update information passed into the method. Note: `order_id` may be an array if the `Orders_model`'s `updateOrder()` method is called with an array as the first parameter. In this case, the order's ID may not be in the array...	| Models\Orders_model.php   |
+before_order_update*	 | Called just prior to updating an order.   | An array of `order_id` and ‘data’, where data is all of the update information passed into the method. Note: `order_id` may be an array if the `Orders_model`'s `updateOrder()` method is called with an array as the first parameter. In this case, the order's ID may not be in the array...	| Models/Orders_model.php   |
+after_order_update*	 | Called just after updating an order.   | An array of `order_id` and ‘data’, where data is all of the update information passed into the method. Note: `order_id` may be an array if the `Orders_model`'s `updateOrder()` method is called with an array as the first parameter. In this case, the order's ID may not be in the array...	| Models/Orders_model.php   |
+
+### Cart Module
+Event	 | Description      | Payload   | File(s)
+----------|-------------------|---------------|---------
+cart_module_before_cart_totals	 | 	Called before taxes is calculated and totals is displayed | --	 | extensions/cart_module/controllers/Cart_module.php
 
 ## Using Events In Your Extensions
 
