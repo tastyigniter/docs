@@ -1,7 +1,9 @@
 ---
+title: Getting Started
 layout: page
-title: "Getting Started"
-summary: There are a number of steps required after installing TastyIgniter to get started receiving orders from your online store. This guide will help you getting started
+summary: There are a number of steps required after installing TastyIgniter to get
+  started receiving orders from your online store. This guide will help you getting
+  started
 callout: This section is incomplete. Please help to improve it.
 ---
 

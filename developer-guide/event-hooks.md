@@ -1,6 +1,6 @@
 ---
+title: Event Hooks
 layout: page
-title: "Event Hooks"
 callout: This section is incomplete. Please help to improve it.
 ---
 

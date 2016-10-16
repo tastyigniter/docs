@@ -1,6 +1,6 @@
 ---
+title: Contribution Guide
 layout: page
-title: "Contribution Guide"
 callout: This section is incomplete. Please help to improve it.
 ---
 

@@ -1,7 +1,8 @@
 ---
+title: Installation
 layout: page
-title: "Installation"
-summary: The following installation guide will help you, whether you choose the Quick '5 Minute' Installation, or require the more detailed installation guide.
+summary: The following installation guide will help you, whether you choose the Quick
+  '5 Minute' Installation, or require the more detailed installation guide.
 callout: This section is incomplete. Please help to improve it.
 ---
 

@@ -1,6 +1,6 @@
 ---
+title: Introduction
 layout: page
-title: "Introduction"
 ---
 
 {{site.data.alerts.callout_primary}} Welcome to TastyIgniter Documentation, the online manual for TastyIgniter and a living repository for TastyIgniter Documentation, maintained by the TastyIgniter community.{{site.data.alerts.end}}

@@ -1,6 +1,6 @@
 ---
+title: Manage Tables
 layout: page
-title: "Manage Tables"
 callout: This section is incomplete. Please help to improve it.
 ---
 

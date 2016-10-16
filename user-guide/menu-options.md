@@ -1,6 +1,6 @@
 ---
+title: Menu Options
 layout: page
-title: "Menu Options"
 callout: This section is incomplete. Please help to improve it.
 ---
 

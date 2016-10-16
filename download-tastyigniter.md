@@ -1,6 +1,6 @@
 ---
+title: Download TastyIgniter
 layout: page
-title: "Download TastyIgniter"
 ---
 
 # Download TastyIgniter

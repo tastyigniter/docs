@@ -1,6 +1,6 @@
 ---
+title: Manage Menus
 layout: page
-title: "Manage Menus"
 callout: This section is incomplete. Please help to improve it.
 ---
 

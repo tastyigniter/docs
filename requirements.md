@@ -1,7 +1,8 @@
 ---
+title: Requirements
 layout: page
-title: "Requirements"
-summary: When selecting a hosting company, you should check if the following requirements are provided
+summary: When selecting a hosting company, you should check if the following requirements
+  are provided
 ---
 
 # Requirements
