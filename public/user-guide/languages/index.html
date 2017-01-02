@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+
+        <title>Languages | Documentation | TastyIgniter</title>
+        <meta name="description" content="">
+        <link rel="shortcut icon" href="/images/favicon.ico">
+
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Josefin+Sans%3A400%2C600%2C700%2C400italic%2C600italic%2C700italic%7CLato%3A400%2C400italic%2C700%2C700italic%2C300%2C300italic%7CPT+Sans%3A400%2C700%2C400italic%2C700italic%7CJosefin+Sans%3A100%2C300%2C400%2C600%2C700%2C100italic%2C300italic%2C400italic%2C600italic%2C700italic%7COxygen%3A400%2C300%2C700&amp;ver=4.2.5" type="text/css" media="all">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://tastyigniter.com/assets/css/old-style.css?ver=4.2.5" type="text/css" media="all">
+        <link rel="stylesheet" href="/css/syntax.css">
+        <link rel="stylesheet" href="/css/prism.css">
+        <link rel="stylesheet" href="/css/main.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	    <script src="/js/toc.js"></script>
+	    <script src="/js/prism.js"></script>
+    </head>
+    <body>
+
+        <div id="page" class="site">
+            <header id="masthead" class="site-header" role="banner">
+                <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="row">
+            <div class="site-navigation-inner col-sm-12 col-md-12 center-block">
+                <div class="navbar-header col-xs-12 col-sm-3 col-md-4 wrap-none">
+                    <div id="logo" class="col-xs-6 col-sm-5">
+                        <a href="https://tastyigniter.com">
+                            <img scale="0" src="https://tastyigniter.com/assets/images/tastyigniter-logo.png" alt="TastyIgniter">
+                        </a>
+                    </div><!-- end of #logo -->
+                    <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="col-xs-12 col-sm-8 wrap-none collapse navbar-collapse navbar-ex1-collapse pull-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="https://tastyigniter.com/about/">About</a></li>
+                        <li><a href="https://tastyigniter.com/features/">Features</a></li>
+                        <li><a href="https://tastyigniter.com/services/">Services</a></li>
+                        <li class="dropdown active">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                                Support <span class="fa fa-angle-down"></span>
+                            </a>
+                            <ul role="menu" class="dropdown-menu">
+                                <li><a title="Forums" href="https://forum.tastyigniter.com">Forums</a></li>
+                                <li class="active"><a href="/">Documentation</a></li>
+                                <li><a target="_blank" href="https://github.com/tastyigniter">GitHub</a></li>
+                                <li><a target="_blank" href="http://translate.tastyigniter.com/">Translate</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="https://tastyigniter.com/blog/">Blog</a></li>
+                        <li><a href="https://tastyigniter.com/demo/">Demo</a></li>
+                        <li class="btn-download"><a href="https://tastyigniter.com/download/">Download</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav><!-- .site-navigation -->
+
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 center-block">
+                <h1 class="entry-title col-xs-12">Documentation</h1>
+            </div>
+        </div>
+    </div>
+</div>
+            </header>
+
+            <div class="site-content">
+                <div class="container main-content-area">
+                    <div class="row">
+                        <div class="main-content-inner col-sm-12 col-md-12 center-block">
+                            <div class="row">
+                                
+                                
+                                    <div id="content" class="col-xs-12 col-sm-9 col-md-9">
+                                        <div class="page-heading">
+    <h1 class="page-title">Languages</h1>
+</div>
+
+<div class="page-content">
+
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+
+<div id="toc"></div>
+
+
+    
+
+    <div class="bs-callout bs-callout-warning"> This section is incomplete. Please help to improve it.</div> 
+
+
+    
+
+    <!---->
+    
+
+    <div class="alert alert-default" role="alert"><i class="fa fa-github fa-lg"></i>
+        Found errors? Think you can improve this documentation? Please
+        <a target="_blank" href="https://github.com/tastyigniter/docs/edit/master/user-guide/languages.md">edit this page</a>.
+    </div>
+
+    
+    <!---->
+
+    <div class="tags">
+        <!---->
+    </div>
+
+    <!---->
+
+</div>
+                                    </div>
+
+                                    <div id="navigation" class="col-xs-12 col-sm-3 col-md-3">
+                                        <div class="well">
+                                            
+                                            
+                                            <ul>
+<li>Overview
+
+<ul>
+<li><a href="/requirements">Requirements</a></li>
+<li><a href="/download-tastyigniter">Download</a></li>
+<li><a href="/installation">Installation</a></li>
+<li><a href="/upgrade-guide">Upgrade Guide</a></li>
+<li><a href="/contribution-guide">Contribution Guide</a></li>
+<li><a href="/getting-started">Getting Started</a></li>
+</ul></li>
+<li>User Guide
+
+<ul>
+<li><a href="/user-guide/store-front">Store Front</a></li>
+<li><a href="/user-guide/dashboard">Admin Dashboard</a></li>
+<li><a href="/user-guide/#Kitchen">Kitchen</a>
+
+<ul>
+<li><a href="/user-guide/manage-menus">Manage Menus</a></li>
+<li><a href="/user-guide/menu-options">Options</a></li>
+<li><a href="/user-guide/categories">Categories</a></li>
+</ul></li>
+<li><a href="/user-guide/manage-locations">Manage Locations</a></li>
+<li><a href="/user-guide/manage-tables">Manage Tables</a></li>
+<li><a href="/user-guide/#Sales">Sales</a>
+
+<ul>
+<li><a href="/user-guide/orders">Orders</a></li>
+<li><a href="/user-guide/reservations">Reservations</a></li>
+<li><a href="/user-guide/coupons">Coupons</a></li>
+</ul></li>
+<li><a href="/user-guide/#Marketing">Marketing</a>
+
+<ul>
+<li><a href="/user-guide/reviews">Reviews</a></li>
+<li><a href="/user-guide/messages">Messages</a></li>
+</ul></li>
+<li><a href="/user-guide/#Users">Manage Users</a>
+
+<ul>
+<li><a href="/user-guide/customers">Customers</a></li>
+<li><a href="/user-guide/customer-groups">Customer Groups</a></li>
+<li><a href="/user-guide/staff">Staff</a></li>
+<li><a href="/user-guide/staff-groups">Staff Groups</a></li>
+<li><a href="/user-guide/activities">Activities</a></li>
+</ul></li>
+<li><a href="/user-guide/extensions">Extensions</a></li>
+<li><a href="/user-guide/#Design">Design</a>
+
+<ul>
+<li><a href="/user-guide/pages">Pages</a></li>
+<li><a href="/user-guide/layouts">Layouts</a></li>
+<li><a href="/user-guide/themes">Themes</a></li>
+<li><a href="/user-guide/banners">Banners</a></li>
+<li><a href="/user-guide/mail-templates">Mail Templates</a></li>
+</ul></li>
+<li><a href="/user-guide/#Localisation">Localisation</a>
+
+<ul>
+<li><a href="/user-guide/languages">Languages</a></li>
+<li><a href="/user-guide/currencies">Currencies</a></li>
+<li><a href="/user-guide/countries">Countries</a></li>
+<li><a href="/user-guide/security-questions">Security Questions</a></li>
+<li><a href="/user-guide/ratings">Ratings</a></li>
+<li><a href="/user-guide/statuses">Statuses</a></li>
+</ul></li>
+<li><a href="/user-guide/#Tools">Tools</a>
+
+<ul>
+<li><a href="/user-guide/image-manager">Image Manager</a></li>
+<li><a href="/user-guide/maintenance">Maintenance</a></li>
+</ul></li>
+<li><a href="/user-guide/#System">System</a>
+
+<ul>
+<li><a href="/user-guide/settings">Settings</a></li>
+<li><a href="/user-guide/permissions">Permissions</a></li>
+<li><a href="/user-guide/error-logs">Error Logs</a></li>
+</ul></li>
+</ul></li>
+<li><a href="/#Tutorial">Tutorial</a>
+
+<ul>
+<li><a href="/tutorial/changing-site-language">Changing site language</a></li>
+<li><a href="/tutorial/modifying-core-files">Modifying core files</a></li>
+<li><a href="/tutorial/creating-a-custom-theme">Creating A Custom Theme</a></li>
+<li><a href="/tutorial/integrating-google-analytics">Integrating Google Analytics</a></li>
+<li><a href="/tutorial/securing-tastyigniter">Securing TastyIgniter</a></li>
+<li><a href="/tutorial/using-extensions">Using Extensions</a></li>
+<li><a href="/tutorial/enabling-maintenance-mode">Enabling Maintenance Mode</a></li>
+<li><a href="/tutorial/enabling-debug-mode">Enabling Debug Mode</a></li>
+<li><a href="/tutorial/build-a-single-store">Build a Single store</a></li>
+<li><a href="/tutorial/move-to-a-new-server">Move to a new server</a></li>
+</ul></li>
+<li><a href="/#Designer-Guide">Designer Guide</a>
+
+<ul>
+<li><a href="/tutorial/creating-a-custom-theme">Creating Your First Theme</a></li>
+<li><a href="/designer-guide/styles-and-javascript">Styles and Javascript</a></li>
+<li><a href="/designer-guide/layouts">Layout</a></li>
+<li><a href="/designer-guide/media-files">Media files</a></li>
+</ul></li>
+<li><a href="/#Developer-Guide">Developer Guide</a>
+
+<ul>
+<li><a href="/developer-guide/quick-start">Quick Start</a></li>
+<li><a href="/developer-guide/mvc-pattern">MVC Pattern</a></li>
+<li><a href="/developer-guide/application-flow-chart">Application Flow Chat</a></li>
+<li><a href="/developer-guide/coding-standard">Coding Standard</a></li>
+<li><a href="/developer-guide/debugging-tastyigniter">Debugging TastyIgniter</a></li>
+<li><a href="/developer-guide/loading-files">Loading files</a></li>
+<li><a href="/developer-guide/function-reference">Function Reference</a></li>
+<li><a href="/developer-guide/event-hooks">Event Hooks</a></li>
+<li><a href="/developer-guide/developing-an-extension">Developing an Extension</a></li>
+<li><a href="/developer-guide/publishing-an-extension">Publishing an Extension</a></li>
+<li><a href="/developer-guide/migrating-extensions">Migrating Extensions</a></li>
+<li><a href="/developer-guide/developing-new-menu-feeds">Developing new menu feeds</a></li>
+<li><a href="/developer-guide/testing-tastyigniter">Testing TastyIgniter</a></li>
+</ul></li>
+<li><a href="/#API-Reference">API Reference</a></li>
+</ul>
+
+                                        </div>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+        </div>
+
+        <div id="footer-area">
+	        <footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="site-info container">
+		<div class="row">
+			<div class="social-icons col-sm-12">
+				<a href="http://twitter.com/tastyigniter" title="Follow us on Twitter" class="twitter" target="_blank">
+					<i class="social_icon fa fa-twitter"></i>
+				</a>
+				<a href="https://github.com/tastyigniter/TastyIgniter" title="Follow us on GitHub" class="github" target="_blank">
+					<i class="social_icon fa fa-github"></i>
+				</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-12 center-block">
+				<nav role="navigation" class="col-sm-7">
+					<ul id="menu-bottom" class="nav footer-nav clearfix">
+						<li><a href="https://tastyigniter.com/">Home</a></li>
+						<li><a href="https://tastyigniter.com/about/">About</a></li>
+						<li><a href="https://tastyigniter.com/features/">Features</a></li>
+						<li><a href="https://tastyigniter.com/services/">Services</a></li>
+						<li><a href="https://tastyigniter.com/licence/">Licence</a></li>
+						<li><a href="https://tastyigniter.com/documentation/">Documentation</a></li>
+						<li><a href="http://forum.tastyigniter.com">Community Forums</a></li>
+					</ul>
+				</nav>
+				<div class="copyright col-sm-5"> © Copyright TastyIgniter.com 2016. All Rights Reserved<br>TastyIgniter is a trademark of Samuel Adepoyigi.</div>
+			</div>
+		</div>
+	</div><!-- .site-info -->
+	<div style="display: block;" class="scroll-to-top"><i class="fa fa-angle-up"></i></div><!-- .scroll-to-top -->
+</footer>
+        </div>
+
+        <script>
+	        var pageUrl = 'user-guide/languages';
+            var listItems = $("#navigation li");
+            listItems.each(function(idx, li) {
+                var list = $(li);
+                var listUl = list.find('ul');
+                var link = list.children('a');
+                var linkId = link.attr('href');
+
+                $(li).parents('ul').addClass('nav');
+
+                if (listUl.length > 0 && link.length > 0) {
+
+	                listUl.attr({id: linkId.substring(linkId.lastIndexOf("#")+1, linkId.length), class: "nav collapse"});
+	                link.prepend('<span class="fa fa-control"></span>');
+                    link.attr({
+                        href: linkId,
+                        'data-toggle': "collapse",
+                        'data-parent': "#navigation .nav",
+                        'aria-expanded': "true",
+                        'aria-controls': linkId.substring(linkId.lastIndexOf("#")+1, linkId.length)
+                    });
+
+	                link.on('click', function (e) {
+                        link.removeClass('active');
+                        if (!listUl.is(':visible')) {
+			                link.addClass('active');
+		                }
+	                });
+                }
+            });
+
+	        $('#navigation li a[href="/'+pageUrl+'"]').addClass('active');
+	        $('#navigation li a[href="/'+pageUrl+'"]').parents('.collapse').parent().children('a').addClass('active');
+	        $('#navigation li a[href="/'+pageUrl+'"]').parents('.collapse').parent().children('ul').addClass('in');
+
+	        anchors.options.visible = 'always';
+            anchors.add('h2');
+
+            $(document).ready(function(){
+                $('table').addClass('table table-bordered');
+
+                //Check to see if the window is top if not then display button
+                $(window).scroll(function(){
+                    if ($(this).scrollTop() > 100) {
+                        $('.scroll-to-top').fadeIn();
+                    } else {
+                        $('.scroll-to-top').fadeOut();
+                    }
+                });
+
+                //Click event to scroll to top
+                $('.scroll-to-top').click(function(){
+                    $('html, body').animate({scrollTop : 0},800);
+                    return false;
+                });
+
+            });
+        </script>
+        
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67223820-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
+        
+    </body>
+</html>

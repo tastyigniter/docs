@@ -1,0 +1,91 @@
+source: template
+destination: public
+#plugins_dir: template/_plugins
+#layouts_dir: template/_layouts
+#data_dir: template/_data
+#includes_dir: template/_includes
+
+# Site title and subtitle. This is used in _includes/header.html
+title: 'TastyIgniter Documentation'
+subtitle: 'TastyIgniter is a free open source Restaurant Management, Reservation & Online Ordering Software.'
+
+# if you wish to integrate disqus on pages set your shortname here
+disqus_shortname: ''
+
+# if you use google analytics, add your tracking id here
+google_analytics_id: 'UA-67223820-3'
+
+# Enable/show navigation. There are there options:
+#   0 - always hide
+#   1 - always show
+#   2 - show only if posts are present
+navigation: 1
+
+# Default categories (in order) to appear in the navigation
+#sections: [
+#    ['user-guide', 'User Guide'],
+#    ['tutorial', 'Tutorial'],
+#    ['reference', 'Reference'],
+#    ['developer_guide', 'Developer Guide'],
+#    ['designer_guide', 'Designer Guide']
+#]
+
+# URL to source code, used in _includes/footer.html
+codeurl: 'tastyigniter/docs'
+github_editme_url: 'edit/master'
+
+# Keep as an empty string if served up at the root. If served up at a specific
+# path (e.g. on GitHub pages) leave off the trailing slash, e.g. /my-project
+baseurl: ''
+siteurl: 'http://cms.tastyigniter.io'
+imageurl: 'http://cms.tastyigniter.io'
+
+forumurl: 'https://forum.tastyigniter.com'
+githuburl: 'https://github.com/tastyigniter'
+translateurl: 'http://translate.tastyigniter.com'
+
+# Dates are not included in permalinks
+permalink: pretty
+
+# Syntax highlighting
+highlighter: pygments
+
+# Since these are pages, it doesn't really matter
+future: true
+
+#include: ['template/assets']
+keep_files:   ['robots.txt']
+# Exclude non-site files
+exclude: ['bin', 'site', 'README.md']
+
+# Use the redcarpet Markdown renderer
+markdown: redcarpet
+redcarpet:
+    extensions: [
+        'no_intra_emphasis',
+        'fenced_code_blocks',
+        'autolink',
+        'strikethrough',
+        'superscript',
+        'with_toc_data',
+        'tables',
+        'hardwrap'
+    ]
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: ""
+    values:
+      layout: "default"
+
+ftp_host: 'docs.tastyigniter.com'
+ftp_dir: '/docs/site2'
+ftp_passive: false
+
+# optional
+ftp_port: 21                  # default 21
+ftp_username: 'ftptasty'     # default read from stdin
+ftp_password: 'RRRack080d' # default read from stdin
+ftp_secure: false              # default false
