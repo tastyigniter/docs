@@ -1,0 +1,107 @@
+<ul class="nav {{ include.css_class }}">
+    {% include navigation/main.htm %}
+    <li>
+        <span class="user-guide">User Guide</span>
+
+        <ul class="nav {{ include.css_class }}">
+            <li><a href="/user-guide/store-front">Store Front</a></li>
+            <li><a href="/user-guide/dashboard">Admin Dashboard</a></li>
+            <li>
+                <a data-toggle="collapse" aria-controls="Kitchen" aria-expanded="true" data-target="#navigation #Kitchen">
+                    <span class="fa fa-control"></span>Kitchen
+                </a>
+
+                <ul class="nav collapse" id="Kitchen">
+                    <li><a href="/user-guide/manage-menus">Manage Menus</a></li>
+                    <li><a href="/user-guide/menu-options">Options</a></li>
+                    <li><a href="/user-guide/categories">Categories</a></li>
+                </ul>
+            </li>
+            <li><a href="/user-guide/manage-locations">Manage Locations</a></li>
+            <li><a href="/user-guide/manage-tables">Manage Tables</a></li>
+            <li>
+                <a aria-controls="Sales" aria-expanded="true" data-toggle="collapse" data-target="#navigation #Sales">
+                    <span class="fa fa-control"></span>Sales
+                </a>
+
+                <ul class="nav collapse" id="Sales">
+                    <li><a href="/user-guide/orders">Orders</a></li>
+                    <li><a href="/user-guide/reservations">Reservations</a></li>
+                    <li><a href="/user-guide/coupons">Coupons</a></li>
+                </ul>
+            </li>
+            <li>
+                <a aria-controls="Marketing" aria-expanded="true" data-toggle="collapse" data-target="#navigation #Marketing">
+                    <span class="fa fa-control"></span>Marketing
+                </a>
+
+                <ul class="nav collapse" id="Marketing">
+                    <li><a href="/user-guide/reviews">Reviews</a></li>
+                    <li><a href="/user-guide/messages">Messages</a></li>
+                </ul>
+            </li>
+            <li>
+                <a aria-controls="Users" aria-expanded="true" data-toggle="collapse" data-target="#navigation #Users">
+                    <span class="fa fa-control"></span>Manage Users
+                </a>
+
+                <ul class="nav collapse" id="Users">
+                    <li><a href="/user-guide/customers">Customers</a></li>
+                    <li><a href="/user-guide/customer-groups">Customer Groups</a></li>
+                    <li><a href="/user-guide/staff">Staff</a></li>
+                    <li><a href="/user-guide/staff-groups">Staff Groups</a></li>
+                    <li><a href="/user-guide/activities">Activities</a></li>
+                </ul>
+            </li>
+            <li><a href="/user-guide/extensions">Extensions</a></li>
+            <li>
+                <a aria-controls="Design" aria-expanded="true" data-toggle="collapse" data-target="#navigation #Design">
+                    <span class="fa fa-control"></span>Design
+                </a>
+
+                <ul class="nav collapse" id="Design">
+                    <li><a href="/user-guide/pages">Pages</a></li>
+                    <li><a href="/user-guide/layouts">Layouts</a></li>
+                    <li><a href="/user-guide/themes">Themes</a></li>
+                    <li><a href="/user-guide/banners">Banners</a></li>
+                    <li><a href="/user-guide/mail-templates">Mail Templates</a></li>
+                </ul>
+            </li>
+            <li>
+                <a aria-controls="Localisation" aria-expanded="true" data-toggle="collapse" data-target="#navigation #Localisation">
+                    <span class="fa fa-control"></span>Localisation
+                </a>
+
+                <ul class="nav collapse" id="Localisation">
+                    <li><a href="/user-guide/languages">Languages</a></li>
+                    <li><a href="/user-guide/currencies">Currencies</a></li>
+                    <li><a href="/user-guide/countries">Countries</a></li>
+                    <li><a href="/user-guide/security-questions">Security Questions</a></li>
+                    <li><a href="/user-guide/ratings">Ratings</a></li>
+                    <li><a href="/user-guide/statuses">Statuses</a></li>
+                </ul>
+            </li>
+            <li>
+                <a aria-controls="Tools" aria-expanded="true" data-toggle="collapse" data-target="#navigation #Tools">
+                    <span class="fa fa-control"></span>Tools
+                </a>
+
+                <ul class="nav collapse" id="Tools">
+                    <li><a href="/user-guide/image-manager">Image Manager</a></li>
+                    <li><a href="/user-guide/maintenance">Maintenance</a></li>
+                </ul>
+            </li>
+            <li>
+                <a aria-controls="System" aria-expanded="true" data-toggle="collapse" data-target="#navigation #System">
+                    <span class="fa fa-control"></span>System
+                </a>
+
+                <ul class="nav collapse" id="System">
+                    <li><a href="/user-guide/settings">Settings</a></li>
+                    <li><a href="/user-guide/permissions">Permissions</a></li>
+                    <li><a href="/user-guide/error-logs">Error Logs</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>

@@ -1,6 +1,0 @@
-Options +MultiViews
-
-# Prevent Directoy listing
-Options -Indexes
-
-Options +FollowSymlinks
