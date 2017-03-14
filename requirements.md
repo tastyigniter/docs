@@ -2,12 +2,13 @@
 layout: page
 section: user-guide
 title: "Requirements"
-summary: When selecting a hosting company, you should check if the following requirements are provided
 ---
 
 # Requirements
 
 ## Your Host Environment
+
+When selecting a hosting company, you should check if the following requirements are provided
 
 There are three core requirements for your host to run TastyIgniter:
 
