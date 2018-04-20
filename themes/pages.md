@@ -1,6 +1,6 @@
 ---
 layout: page
-section: developer-guide
-title: "Function Reference"
+section: designer-guide
+title: "Pages"
 callout: This section is incomplete. Please help to improve it.
 ---

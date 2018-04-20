@@ -1,6 +1,6 @@
 ---
 layout: page
-section: designer-guide
-title: "Layout"
+section: admin
+title: "Lists Widgets"
 callout: This section is incomplete. Please help to improve it.
 ---

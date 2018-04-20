@@ -1,6 +1,6 @@
 ---
 layout: page
-section: user-guide
-title: "Store Front"
+section: admin
+title: "Controllers"
 callout: This section is incomplete. Please help to improve it.
 ---

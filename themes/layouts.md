@@ -1,6 +1,6 @@
 ---
 layout: page
-section: developer-guide
-title: "MVC Pattern"
+section: designer-guide
+title: "Layouts"
 callout: This section is incomplete. Please help to improve it.
 ---

@@ -1,12 +1,11 @@
 ---
 layout: page
-section: user-guide
-title: "Getting Started"
+title: "Administration"
 summary: There are a number of steps required after installing TastyIgniter to get started receiving orders from your online store. This guide will help you getting started
 callout: This section is incomplete. Please help to improve it.
 ---
 
-## Get Started
+## Administration
 
 This guide will primarily focus on Admin interface functions and settings. 
 These settings should be tested on the frontend before your site is launched. 
