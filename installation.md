@@ -32,12 +32,54 @@ These are the requirements for your  web hosting to run TastyIgniter:
 ### Command-line installation
 
 ```
-    composer create-project tastyigniter/tastyigniter mysite
+composer create-project tastyigniter/tastyigniter mysite
 ```
 
-### Enjoy
+After running the above command, run the install command
 
-You can now login on /admin/login with your username and password asked during the setup process. After you've logged in you'll be able to access the administration panel to configure your site.
+```
+php artisan igniter:install
+```
+
+The install command will guide you through the process of setting up TastyIgniter for the first time. It will ask for the database configuration, application URL and administrator details.
+
+## URL Rewriting
+
+### Apache
+
+TastyIgniter includes a `.htaccess` file – make sure it’s been uploaded correctly. If you’re using shared hosting, confirm with your hosting provider that `mod_rewrite` is enabled. You may need to add the following to your Apache configuration:
+
+```
+<Directory "/path/to/your/tastyigniter">
+    AllowOverride All
+</Directory>
+```
+
+### Nginx
+
+Add the following lines to your server’s configuration block:
+
+```
+/etc/nginx/sites-available/default
+```
+
+Use the following code in **server** section. If you have installed TastyIgniter into a subdirectory, replace the first `/` in location directives with the directory TastyIgniter was installed under:
+
+```
+location / { try_files $uri $uri/ /index.php?$query_string; }
+
+# Pass the PHP scripts to FastCGI server
+location ~ ^/index.php {
+    # Write your FPM configuration here
+
+}
+```
+
+
+
+## Getting Started
+
+You can access the administrator panel from `/admin` with your username and password asked during the setup process. After you've logged in you'll be able to access the administration panel to configure your site.
 
 ## Getting help
 
