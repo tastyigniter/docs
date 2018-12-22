@@ -20,10 +20,10 @@ These are the requirements for your  web hosting to run TastyIgniter:
 
 ## Install TastyIgniter
 
-### Quick Installation:
+### Quick Installation
 
-1. [Download]({{site.siteUrl}}/download) and unzip the TastyIgniter package into an empty directory on your server.
-2. Create a MySQL user database for TastyIgniter on your web server.
+1. [Download]({{site.siteUrl}}/download) and unzip the TastyIgniter installer into an empty directory on your server.
+2. Create a MySQL user database for TastyIgniter on your database server.
 3. Upload the TastyIgniter folders and files to your server. Normally the setup.php file will be at the web root directory.
 4. Grant write permissions on the setup directory, its subdirectories and files.
 4. Run the TastyIgniter setup script by accessing setup.php in your web browser. Example, http://example.com/setup.php or http://example.com/folder/setup.php
@@ -31,13 +31,13 @@ These are the requirements for your  web hosting to run TastyIgniter:
 
 ### Command-line installation
 
-```
+```bash
 composer create-project tastyigniter/tastyigniter mysite
 ```
 
 After running the above command, run the install command
 
-```
+```bash
 php artisan igniter:install
 ```
 
@@ -59,13 +59,13 @@ TastyIgniter includes a `.htaccess` file – make sure it’s been uploaded corr
 
 Add the following lines to your server’s configuration block:
 
-```
+```html
 /etc/nginx/sites-available/default
 ```
 
 Use the following code in **server** section. If you have installed TastyIgniter into a subdirectory, replace the first `/` in location directives with the directory TastyIgniter was installed under:
 
-```
+```html
 location / { try_files $uri $uri/ /index.php?$query_string; }
 
 # Pass the PHP scripts to FastCGI server
@@ -81,14 +81,16 @@ location ~ ^/index.php {
 
 You can access the administrator panel from `/admin` with your username and password asked during the setup process. After you've logged in you'll be able to access the administration panel to configure your site.
 
+> Follow the getting started steps on the administration panel dashboard.
+
 ## Getting help
 
-- If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/tastyigniter/TastyIgniter/issues), or better yet, fork the repo and submit a pull request.
-- If you have feedback to share, ideas you would like implemented, by all means share them on the [TastyIgniter Community Forums](https://forum.tastyigniter.com).
-- [Join us on our Slack channel](http://slack.tastyigniter.com/) to chat with us.
+- If you believe you have found a bug, please report it using the <a href="https://github.com/tastyigniter/TastyIgniter/issues" target="_blank">GitHub issue tracker</a>, or better yet, fork the repo and submit a pull request.
+- If you have feedback to share, ideas you would like implemented, by all means, share them on the <a href="https://forum.tastyigniter.com" target="_blank">TastyIgniter Community Forums</a>.
+- <a href="http://slack.tastyigniter.com/" target="_blank">Join us on our Slack channel</a> to chat with us.
 
 ## Troubleshooting
 1. **A 404 error page is displayed:** This could be a result of the mod_rewrite module not being activated/installed or configured properly. Activate mod_rewrite for the Apache web-server.
-If its already activated, check the root htaccess file in `/.htaccess`, to make sure the `RewriteBase` value is configured poroperly.
+If it is already activated, check the root htaccess file in `/.htaccess`, to make sure the `RewriteBase` value is configured properly.
 2. **A blank screen is displayed when opening the application:** Check the file permissions are set correctly on the files and folders to 777.
 3. **Setup successful but storefront links are not working:** Check that the theme's required extensions are all installed.

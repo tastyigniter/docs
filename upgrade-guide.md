@@ -1,17 +1,9 @@
 ---
 layout: page
-section: user-guide
 title: "Upgrade Guide"
-callout: This section is incomplete. Please help to improve it.
 ---
 
-{{site.data.alerts.callout_primary | markdownify }} You should always update TastyIgniter to the [latest version]({{site.siteUrl}}/download). {{site.data.alerts.end}}
-
-{{site.data.alerts.warning}}The upgrade process will affect all files and folders included in the TastyIgniter installation. This includes all the core files used to run TastyIgniter. If you have made any modifications to those files, your changes will be lost.{{site.data.alerts.end}} 
-
-As of TastyIgniter 2.0 or later, When a new version of TastyIgniter is available you will receive an update message in your TastyIgniter Admin Panel. 
-All you have to do to update TastyIgniter is to click the **Update** notification button at the right top. 
-After that you will be redirected to the **Update Center** page.
+> As of TastyIgniter 2.0 or later, When a new version of TastyIgniter is available you will receive an update message in your TastyIgniter Admin Panel. All you have to do to update TastyIgniter is to click the **Update** notification button at the right top. After that you will be redirected to the **Update Center** page.
 
 There are two methods for updating - the easiest is through the **Update Center**, which will work in most cases. 
 If it doesn't work, or you just prefer to be more hands-on, you can follow the manual update process.
@@ -26,6 +18,8 @@ Visit your TastyIgniter admin page at /admin. Go to `Maintenance` under `System 
 ### Backing Up Your TastyIgniter Site
 Backup your files using FTP clients or cPanel filemanager to copy or create a zip of all the existing TastyIgniter files and folders.
 
+{{site.data.alerts.warning}}The upgrade process will affect all files and folders included in the TastyIgniter installation. This includes all the core files used to run TastyIgniter. If you have made any modifications to those files, your changes will be lost.{{site.data.alerts.end}} 
+
 ### Restoring Your Database From Backup
 Visit your TastyIgniter admin maintenance page. Under `Exisiting Backups` tab click the `Restore` button next to the database backup you wish to restore.
 
@@ -36,9 +30,9 @@ If the one-click upgrade doesn't work for you, don't panic! Just try a manual up
 ### **Step 1:** Replace TastyIgniter files
 1. Get the [latest TastyIgniter](https://tastyigniter.com/download) zip file
 2. Unpack the downloaded zip file
-3. Open the unpacked folder `TastyIgniter-x.x.x`
+3. Open the unpacked folder `TastyIgniter-2.x.x`
 4. Locate and `delete` the `database.php` file in `system/tastyigniter/config/` folder
-5. Using your FTP client, upload all the files and folders inside the `TastyIgniter-x.x.x` folder to your web host. Uploading all the files might take a few minutes on the FTP client.
+5. Using your FTP client, upload all the files and folders inside the `TastyIgniter-2.x.x` folder to your web host. Uploading all the files might take a few minutes on the FTP client.
 6. Do NOT replace/overwrite your existing `system/tastyigniter/config/database.php` file.
 
 ### **Step 2:** Update your installation

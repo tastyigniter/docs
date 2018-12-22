@@ -1,6 +1,6 @@
 ---
 layout: page
-section: tutorial
-title: "Build a Single store"
+section: advanced
+title: "Scheduling Automated Tasks"
 callout: This section is incomplete. Please help to improve it.
 ---

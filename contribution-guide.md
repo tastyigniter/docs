@@ -1,12 +1,18 @@
 ---
 layout: page
-section: user-guide
 title: "Contribution Guide"
-callout: This section is incomplete. Please help to improve it.
-summary: Please follow the complete guide [here](https://github.com/tastyigniter/TastyIgniter/blob/master/CONTRIBUTING.md)
 ---
 
-## Setting up
+## Development setup
+
+### Which branch?
+
+- Current default branch (develop),
+- Next major release: master branch.
+
+## Development Workflow
+
+Follow these steps:
 
 - Fork the tastyigniter/TastyIgniter repository,
 - Clone your fork,
@@ -15,14 +21,13 @@ summary: Please follow the complete guide [here](https://github.com/tastyigniter
 - Run ./vendor/bin/phpunit
 - Send in the pull request if all is green
 
-## Coding Style
+## Coding style
 TastyIgniter follows PSR-1 and PSR-2.
 
-## Which Branch?
+## Development Tools
 
-- Current default branch (dev/3.x) if you're sending something for version 3.0,
-- Next major release: - branch.
+Most TastyIgniter contributors develop with <a href="https://www.jetbrains.com/phpstorm/download/" target="_blank">PHPStorm</a>. However, feel free to use your preferred IDE.
 
-## Making Changes
+To serve a local TastyIgniter website, <a href="https://laravel.com/docs/master/valet" target="_blank">Laravel Valet</a> (Mac), <a href="https://www.apachefriends.org/index.html" target="_blank">XAMPP</a> (Windows), and <a href="https://github.com/ThisIsQasim/TastyIgniter" target="_blank">TastyIgniter Docker</a> (Linux) are popular choices.
 
-## Security Vulnerabilities
+> For more information on contributing, read the guide <a href="https://github.com/tastyigniter/TastyIgniter/blob/master/CONTRIBUTING.md" target="_blank">here</a>
