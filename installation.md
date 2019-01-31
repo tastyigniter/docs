@@ -9,8 +9,7 @@ There are two ways you can install TastyIgniter, either using the Quick or Comma
 
 These are the requirements for your  web hosting to run TastyIgniter:
 
-- PHP (at least 7.0)
-- MySQL version 5.5 or higher
+- PHP (at least 7.1)
 - PDO PHP Extension
 - cURL PHP Extension
 - OpenSSL PHP Extension
@@ -22,7 +21,7 @@ These are the requirements for your  web hosting to run TastyIgniter:
 
 ### Quick Installation
 
-1. [Download](https://github.com/tastyigniter/setup/archive/master.zip) and unzip the TastyIgniter installer into an empty directory on your server.
+1. [Download](https://github.com/tastyigniter/setup/archive/master.zip) and unzip the TastyIgniter setup wizard into an empty directory on your server.
 2. Create a MySQL user database for TastyIgniter on your database server.
 3. Upload the TastyIgniter folders and files to your server. Normally the setup.php file will be at the web root directory.
 4. Grant write permissions on the setup directory, its subdirectories and files.
