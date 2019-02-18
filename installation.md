@@ -21,7 +21,7 @@ These are the requirements for your  web hosting to run TastyIgniter:
 
 ### Quick Installation
 
-1. [Download](https://github.com/tastyigniter/setup/archive/master.zip) and unzip the TastyIgniter setup wizard into an empty directory on your server.
+1. [Download](https://tastyigniter.com/download) and unzip the TastyIgniter setup wizard into an empty directory on your server.
 2. Create a MySQL user database for TastyIgniter on your database server.
 3. Upload the TastyIgniter folders and files to your server. Normally the setup.php file will be at the web root directory.
 4. Grant write permissions on the setup directory, its subdirectories and files.

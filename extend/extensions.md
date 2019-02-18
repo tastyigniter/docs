@@ -102,7 +102,7 @@ class Extension extends \System\Classes\BaseExtension
             'name' => 'The extension name',
             'author' => 'The extension author name',
             'description' => 'The extension description',
-            'icon' => 'The extension icon. Any FontAwesome icon name, for example: `fa-plug`',
+            'icon' => 'The extension icon. Any FontAwesome icon name, for example: `fa-puzzle-piece`',
             'version' => 'The extension version'
         ];
     }
