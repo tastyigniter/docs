@@ -8,6 +8,18 @@ title: "Upgrade Guide"
 There are two methods for updating - the easiest is through the **Update Center**, which will work in most cases. 
 If it doesn't work, or you just prefer to be more hands-on, you can follow the manual update process.
 
+## Upgrading TastyIgniter v2.1.x to v3.x.x
+
+This is a huge release. It contains a massive change in the codebase frrom CodeIgniter to Laravel with some new features and plenty bug fixes.
+
+Listing all the improvements in v3 would be great but I hardly kept track. So straight to upgrade!
+
+
+
+## Upgrading TastyIgniter v2.0.x to v2.1.x
+
+{{site.data.alerts.callout_info}}After UPDATE make sure your layout modules are displaying on the storefront. You can use the new layout modules drag and drop under Design > Layouts.{{site.data.alerts.end}} 
+
 ## Back up TastyIgniter
 
 Before you get started, it's a good idea to back up your website. This means if there are any issues you can restore your website. 
@@ -49,9 +61,6 @@ Your TastyIgniter installation is successfully updated..
 {{site.data.alerts.warning}}If you experience any issue, you should restore your most recent database & file backup and try again{{site.data.alerts.end}}
 
 {{site.data.alerts.note}}THIS IS FOR UPGRADE ON EXISTING INSTALLS ONLY! IF INSTALLING NEW, BE SURE TO READ THE README.md FILE INSTEAD{{site.data.alerts.end}}
-
-## Upgrading TastyIgniter v2.0.x to v2.1.x
-{{site.data.alerts.callout_info}}After UPDATE make sure your layout modules are displaying on the storefront. You can use the new layout modules drag and drop under Design > Layouts.{{site.data.alerts.end}} 
 
 
 ## Upgrading TastyIgniter v1.4.x to 2.0.x

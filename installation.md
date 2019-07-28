@@ -3,7 +3,7 @@ layout: page
 title: "Installation"
 ---
 
-There are two ways you can install TastyIgniter, either using the Quick or Command-line installation instructions. Before you proceed, you should check that your server meets the minimum system requirements.
+Before you proceed with installing TastyIgniter, you should check that your server meets the minimum system requirements.
 
 ## Minimum Requirements
 
@@ -19,6 +19,8 @@ These are the requirements for your  web hosting to run TastyIgniter:
 
 ## Install TastyIgniter
 
+There are two ways you can install TastyIgniter, either using the Quick or Command-line installation instructions. 
+
 ### Quick Installation
 
 1. [Download](https://tastyigniter.com/download) and unzip the TastyIgniter setup wizard into an empty directory on your server.
@@ -30,11 +32,13 @@ These are the requirements for your  web hosting to run TastyIgniter:
 
 ### Command-line installation
 
+TastyIgniter also uses <a href="https://getcomposer.org/" target="_blank">composer</a> to manage its dependencies, you'll need to have composer installed on your machine before using the TastyIgniter command-line installation. Run this command in an empty location that you want TastyIgniter to be installed in:
+
 ```bash
 composer create-project tastyigniter/tastyigniter .
 ```
 
-After running the above command, run the install command
+After running the above command, run the install command and follow the instructions to complete installation
 
 ```bash
 php artisan igniter:install
