@@ -35,7 +35,7 @@ There are two ways you can install TastyIgniter, either using the Quick or Comma
 TastyIgniter also uses <a href="https://getcomposer.org/" target="_blank">composer</a> to manage its dependencies, you'll need to have composer installed on your machine before using the TastyIgniter command-line installation. Run this command in an empty location that you want TastyIgniter to be installed in:
 
 ```bash
-composer create-project tastyigniter/tastyigniter .
+composer create-project tastyigniter/tastyigniter:dev-master .
 ```
 
 After running the above command, run the install command and follow the instructions to complete installation
@@ -45,6 +45,31 @@ php artisan igniter:install
 ```
 
 The install command will guide you through the process of setting up TastyIgniter for the first time. It will ask for the database configuration, application URL and administrator details.
+
+## Post-installation steps
+
+For security reasons, if you used the [Quick Installation Setup Wizard](#quick-installation), you should delete the setup files. TastyIgniter will never automatically delete files from your system, so these files and directories should be deleted manually: 
+
+```yaml
+setup/      		<== Setup directory
+setup.php       <== Setup script
+```
+
+### Setting up the task scheduler
+
+You should add the following Cron entry to your server for scheduled tasks to function properly. Crontab editing is usually done with the command `crontab -e`. 
+
+```
+* * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
+```
+
+Be sure to replace `/path/to/artisan` with the absolute path to the artisan file in your TastyIgniter root directory . This Cron will call the command scheduler every minute. When executing the `schedule:run` command, TastyIgniter will assess your scheduled tasks and run the tasks that are due. 
+
+> Task Scheduling is how scheduling time-based tasks are managed in TastyIgniter. Several core features of TastyIgniter, such as checking for updates, use the scheduler. 
+
+### Setting up queue workers
+
+Optionally, you can set up an external queue to process **queued jobs**, which will be handled by the platform asynchronously by default. By setting the default parameter in the `config/queue.php`, this behaviour can be altered. 
 
 ## URL Rewriting
 
@@ -77,8 +102,6 @@ location ~ ^/index.php {
 
 }
 ```
-
-
 
 ## Getting Started
 

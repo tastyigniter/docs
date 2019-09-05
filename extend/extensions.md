@@ -136,7 +136,9 @@ The following methods are supported in the extension registration class:
 | **registerSettings()**         | registers any [admin settings page](#registering-settings-link) supplied by this extension. |
 | **registerDashboardWidgets()** | registers any [admin dashboard widgets]({{site.baseurl}}/extend/widgets#dashboard-widget), supplied by this extension. |
 | **registerFormWidgets()**      | registers any [admin form widgets]({{site.baseurl}}/extend/widgets#form-widget) supplied by this extension. |
+| **registerMailLayouts()**      | registers any mail view layouts supplied by this extension.  |
 | **registerMailTemplates()**    | registers any mail view templates supplied by this extension, see below for example. |
+| **registerMailPartials()**     | registers any mail view partials supplied by this extension. |
 | **registerPaymentGateways()**  | registers any [payment gateways]({{site.baseurl}}/advanced/payment-gateways) supplied by this extension. |
 
 An example registering **mail templates view** file `extensions/igniter/frontend/views/mail/contact`:
