@@ -11,66 +11,11 @@ TastyIgniter adds a number of directives and variables to the [Blade template en
 
 ### $this->page
 
-```php+HTML
-{% raw %}{{ $this->page->id }}{% endraw %}
-```
-
-
-
-```php+HTML
-{% raw %}{{ $this->page->layout }}{% endraw %}
-```
-
-
-
-```php+HTML
-{% raw %}{{ $this->page->title }}{% endraw %}
-```
-
-
-
-```php+HTML
-{% raw %}{{ $this->page->description }}{% endraw %}
-```
-
-
-
-```php+HTML
-{% raw %}{{ $this->page->fileName }}{% endraw %}
-```
-
-
-
-```php+HTML
-{% raw %}{{ $this->page->baseFileName }}{% endraw %}
-```
-
-
-
-```php+HTML
-{% raw %}{{ $this->page->id }}{% endraw %}
-```
-
 ### $this->layout
-
-```php+HTML
-{% raw %}{{ $this->layout->id }}{% endraw %}
-```
-
-
-
-```php+HTML
-{% raw %}{{ $this->layout->description }}{% endraw %}
-```
 
 ### $this->theme
 
-```php+HTML
-{% raw %}{{ $this->theme->id }}{% endraw %}
-```
-
 ### $this->param
-
 
 
 ## Blade Directives
