@@ -136,7 +136,7 @@ The `@page` tag renders the contents of a page into a layout template.
 @inject('metrics', 'App\Services\MetricsService')
 
 <div>
-    Monthly Revenue: {{ $metrics->monthlyRevenue() }}.
+    Monthly Revenue: {% raw %}{{ $metrics->monthlyRevenue() }}{% endraw %}.
 </div>
 ```
 
