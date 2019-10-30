@@ -19,10 +19,10 @@ Here is an example of the extension `language` directory:
 ```yaml
 extensions/
   igniter/
-    demo/             <=== Extension directory
-      language/       <=== Localization directory
-        en/           <=== Language directory
-          lang.php    <=== Locale file
+    demo/             				<=== Extension directory
+      language/       				<=== Localization directory
+        en/           				<=== Language directory
+          lang.php    				<=== Locale file
         es/
           lang.php
 ```
@@ -58,12 +58,14 @@ echo lang('igniter.demo::lang.alert.success');
 
 System users can override extension locale strings without altering the extension files to modify these strings. For example, you should create the locale file `lang.php` at the following location to override the locale string `sample_key` within the `lang.php` file of the `igniter/demo`  extension: 
 
+> You can also easily edit core and/or extension locale strings from the admin interface on the **Localization > Languages > Translations** page
+
 ```yaml
-language/				<=== Localization directory
-  en/					<=== Language directory
+language/                 <=== Localization directory
+  en/                     <=== Language directory
     igniter/
-      demo/          	<=== Extension directory
-        lang.php    	<=== Locale override file
+      demo/               <=== Extension directory
+        lang.php          <=== Locale override file
 ```
 
 You should only define the locale strings you want to override in this file. Any locale strings you do not override are still loaded from the original locale files of the extension.
@@ -78,15 +80,65 @@ return [
 
 ## Making your site multilingual
 
-Easily create a multilingual site using extensions developed by the TastyIgniter community. In this section of the article, you will find a complete overview of the steps involved in the creation of a multilingual TastyIgniter site.
+In this section of the article, you will find a complete overview of the steps involved in the creation of a multilingual TastyIgniter site.
 
-### Installing a language pack
+### Manually download a Language Pack
 
-In the admin interface, you can easily install your desired language on the **Localization > Languages > Browse Languages** page.
+Follow these steps to manually download a community translated language pack.
 
-### Setting the default admin language
+- Join our translations [Crowdin project page](https://translate.tastyigniter.com).
+- Choose the language you wish to install. For example, let's choose **Spanish (ES)**.
+- Download and unzip the language pack. To download, you need to click on the button at the top right of the Crowdin language page.
+- The folder and file structure of the extracted language pack should look like this.
 
-You can select the default language for your site and the administrator interface after the installation is complete on the **Localization > Languages** page.
+
+
+```yaml
+TastyIgniter (es)/
+  master/
+    es-ES/                    <=== Language directory
+      master/                 <=== Branch directory
+        app/                  <=== Namespaced directory
+          admin/
+            lang.php          <=== Locale file
+          main/
+          system/
+        extensions/           <=== Namespaced directory
+          igniter/
+            demo/
+              lang.php        <=== Locale file
+```
+
+
+
+- Copy the files and folders within the `Namespaced directory` into your TastyIgniter `language` directory, `see below`.
+
+  
+
+```yaml
+language/
+  es-ES/                       <=== Language directory
+    admin/
+      lang.php                 <=== Locale file
+    main/
+    system/
+    igniter/
+      demo/
+        lang.php               <=== Locale file
+```
+
+### Installing a Language Pack
+
+After downloading a language pack, you must create a new language in the admin interface to register the language into the system.
+
+1. Create a new language from the **Localisation > Languages** page of the admin interface.
+2. Fill in the form. The value of the `idiom` field must match the language directory name. Using the example above, the idiom will be `es-ES`
+3. Lastly, toggle the **Status** switch to `Enabled` then save the form.
+4. Ensure the language appears under `Supported Languages` field on the **System > Settings > General** page of the admin interface
+
+### Setting the Default Language
+
+You may want to set the installed language pack as the default language for new users and visitors once you are sure it works. You can do this on the **System > Settings > General** page of the admin interface, under the **Site** tab select the language you want to use as your default.
 
 ### Enabling language detection
 
@@ -94,3 +146,9 @@ TastyIgniter includes support for language negotiation out-the-box using a varie
 
 - Determine the language from the **request/session** parameter.
 - Determine the language from the user browser's language settings.
+
+## Third-Party Extensions
+
+While language packs downloaded from the **Browse Languages** page of the admin interface website may usually provide translations for all recommended extensions bundled with TastyIgniter, as a rule, they will not cover any third party extensions that you may have installed. Developers are responsible for providing and maintaining translations of their extensions.
+
+So before you install a third-party extension, you should check to make sure it includes translations for each language pack you have installed. If you find that an extension doesn’t support a language you need, please contact the developer directly and arrange to have the necessary translations added.
