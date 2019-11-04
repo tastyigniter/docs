@@ -111,13 +111,13 @@ TastyIgniter (es)/
 
 
 
-- Copy the files and folders within the `Namespaced directory` into your TastyIgniter `language` directory, `see below`.
+- Copy the files and folders within the `Namespaced directory` into your TastyIgniter `language` directory, `see below`. If you don't have a `language` directory in your application root, create a new one.
 
   
 
 ```yaml
 language/
-  es-ES/                       <=== Language directory
+  es_ES/                       <=== Language directory
     admin/
       lang.php                 <=== Locale file
     main/
@@ -127,12 +127,14 @@ language/
         lang.php               <=== Locale file
 ```
 
+> Notice the language directory name uses **underscore** instead of an hypen (e.g. “es_ES”).
+
 ### Installing a Language Pack
 
 After downloading a language pack, you must create a new language in the admin interface to register the language into the system.
 
 1. Create a new language from the **Localisation > Languages** page of the admin interface.
-2. Fill in the form. The value of the `idiom` field must match the language directory name. Using the example above, the idiom will be `es-ES`
+2. Fill in the form. The value of the `Locale Ccode` field must match the language directory name. Using the example above, the value will be `es_ES`
 3. Lastly, toggle the **Status** switch to `Enabled` then save the form.
 4. Ensure the language appears under `Supported Languages` field on the **System > Settings > General** page of the admin interface
 
