@@ -1,7 +1,7 @@
 ---
-layout: page
-section: extending
 title: "Extensions"
+section: extend
+sortOrder: 200
 ---
 
 ## Introduction

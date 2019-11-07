@@ -1,6 +1,7 @@
 ---
-layout: page
 title: "Installation"
+section: "getting-started"
+sortOrder: 10
 ---
 
 Before you proceed with installing TastyIgniter, you should check that your server meets the minimum system requirements.

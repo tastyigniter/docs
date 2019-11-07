@@ -1,7 +1,7 @@
 ---
-layout: page
-section: extending
 title: "Layouts"
+section: customize
+sortOrder: 120
 ---
 
 ## Introduction

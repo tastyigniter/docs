@@ -1,7 +1,7 @@
 ---
-layout: page
-section: extending
 title: "Localization"
+section: advanced
+sortOrder: 300
 ---
 
 ## Introduction

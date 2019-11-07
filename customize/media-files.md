@@ -1,7 +1,7 @@
 ---
-layout: page
-section: extending
 title: "Media files"
+section: customize
+sortOrder: 150
 callout: This section is incomplete. Please help to improve it.
 ---
 

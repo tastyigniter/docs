@@ -1,6 +1,7 @@
 ---
-layout: page
 title: "Markup Guide"
+section: customize
+sortOrder: 170
 ---
 
 ## Introduction

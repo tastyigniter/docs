@@ -1,7 +1,7 @@
 ---
-layout: page
-section: extending
 title: "Components"
+section: customize
+sortOrder: 140
 ---
 
 ## Introduction

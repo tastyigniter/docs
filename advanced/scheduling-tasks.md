@@ -1,7 +1,7 @@
 ---
-layout: page
-section: advanced
 title: "Scheduling Automated Tasks"
+section: advanced
+sortOrder: 330
 ---
 
 ## Introduction

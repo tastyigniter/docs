@@ -1,6 +1,7 @@
 ---
-layout: page
 title: "Developer Guide"
+section: "getting-started"
+sortOrder: 50
 callout: This section is incomplete. Please help to improve it.
 ---
 

@@ -1,7 +1,7 @@
 ---
-layout: page
-section: extending
 title: "Creating a Widget"
+section: extend
+sortOrder: 230
 callout: This section is incomplete. Please help to improve it.
 ---
 

@@ -1,6 +1,7 @@
 ---
-layout: page
 title: "Contribution Guide"
+section: "getting-started"
+sortOrder: 40
 ---
 
 ## Development setup

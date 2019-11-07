@@ -1,6 +1,7 @@
 ---
-layout: page
 title: "Upgrade Guide"
+section: "getting-started"
+sortOrder: 30
 ---
 
 > As of TastyIgniter 2.0 or later, When a new version of TastyIgniter is available you will receive an update message in your TastyIgniter Admin Panel. All you have to do to update TastyIgniter is to click the **Update** notification button at the right top. After that you will be redirected to the **Update Center** page.

@@ -1,7 +1,7 @@
 ---
-layout: page
-section: extending
 title: "Controllers"
+section: extend
+sortOrder: 220
 callout: This section is incomplete. Please help to improve it.
 ---
 

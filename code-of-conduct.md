@@ -1,6 +1,7 @@
 ---
-layout: page
 title: "Code Of Conduct"
+section: "getting-started"
+sortOrder: 20
 ---
 
 ## Welcome to the TastyIgniter Community

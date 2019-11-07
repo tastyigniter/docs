@@ -1,7 +1,7 @@
 ---
-layout: page
-section: extending
 title: "Permissions"
+section: customize
+sortOrder: 160
 callout: This section is incomplete. Please help to improve it.
 ---
 

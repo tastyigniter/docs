@@ -1,7 +1,7 @@
 ---
-layout: page
-section: extending
 title: "Building a Component"
+section: extend
+sortOrder: 210
 ---
 
 ## Introduction

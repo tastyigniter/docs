@@ -1,7 +1,7 @@
 ---
-layout: page
-section: extending
 title: "Themes"
+section: customize
+sortOrder: 100
 ---
 
 ## Introduction
