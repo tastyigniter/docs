@@ -7,7 +7,7 @@ callout: This section is incomplete. Please help to improve it.
 
 # Upgrade Guide
 
-{{site.data.alerts.callout_primary | markdownify }} You should always update TastyIgniter to the [latest version]({{site.siteurl}}/download). {{site.data.alerts.end}}
+{{site.data.alerts.callout_primary}} You should always update TastyIgniter to the [latest version]({{site.siteurl}}/download). {{site.data.alerts.end}}
 
 {{site.data.alerts.warning}}The upgrade process will affect all files and folders included in the TastyIgniter installation. This includes all the core files used to run TastyIgniter. If you have made any modifications to those files, your changes will be lost.{{site.data.alerts.end}} 
 

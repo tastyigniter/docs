@@ -27,7 +27,7 @@ default language, customer group, site logo, meta description and meta keyword.
 Under [Local Settings]({{site.baseurl}}/user-guide/settings/) you will need to set your address, optional google maps api key and distance unit. 
 These will be used for your store's contact page.
 
-{{site.data.alerts.callout_info | markdownify}} You do not require the API key for Google Maps API, however if you encounter any problem is it suggested that you [register for a free API key](https://developers.google.com/maps/documentation/javascript/tutorial#api_key). {{site.data.alerts.end}}
+{{site.data.alerts.callout_info}} You do not require the API key for Google Maps API, however if you encounter any problem is it suggested that you [register for a free API key](https://developers.google.com/maps/documentation/javascript/tutorial#api_key). {{site.data.alerts.end}}
 
 ![Local Tab on Settings Page]({{site.baseurl}}/images/settings-local-tab.png)
 
