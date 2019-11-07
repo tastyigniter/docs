@@ -19,7 +19,7 @@ Listing all the improvements in v3 would be great but I hardly kept track. So st
 
 ## Upgrading TastyIgniter v2.0.x to v2.1.x
 
-{{site.data.alerts.callout_info}}After UPDATE make sure your layout modules are displaying on the storefront. You can use the new layout modules drag and drop under Design > Layouts.{{site.data.alerts.end}} 
+{{alerts.callout_info}}After UPDATE make sure your layout modules are displaying on the storefront. You can use the new layout modules drag and drop under Design > Layouts.{{alerts.end}} 
 
 ## Back up TastyIgniter
 
@@ -31,7 +31,7 @@ Visit your TastyIgniter admin page at /admin. Go to `Maintenance` under `System 
 ### Backing Up Your TastyIgniter Site
 Backup your files using FTP clients or cPanel filemanager to copy or create a zip of all the existing TastyIgniter files and folders.
 
-{{site.data.alerts.warning}}The upgrade process will affect all files and folders included in the TastyIgniter installation. This includes all the core files used to run TastyIgniter. If you have made any modifications to those files, your changes will be lost.{{site.data.alerts.end}} 
+{{alerts.warning}}The upgrade process will affect all files and folders included in the TastyIgniter installation. This includes all the core files used to run TastyIgniter. If you have made any modifications to those files, your changes will be lost.{{alerts.end}} 
 
 ### Restoring Your Database From Backup
 Visit your TastyIgniter admin maintenance page. Under `Exisiting Backups` tab click the `Restore` button next to the database backup you wish to restore.
@@ -51,7 +51,7 @@ If the one-click upgrade doesn't work for you, don't panic! Just try a manual up
 ### **Step 2:** Update your installation
 After uploading the files of the new version to your web host, visit the setup page at "/setup" like: www.myrestaurant.com/setup. Following the instructions on the setup page will update your database to be compatible with the latest code.
 
-{{site.data.alerts.warning}}Warning: DO NOT proceed if you see the Database page asking you to enter your database details, this means your old database.php file has changed. Fix this by restoring your old database.php file then return to Step 1{{site.data.alerts.end}}
+{{alerts.warning}}Warning: DO NOT proceed if you see the Database page asking you to enter your database details, this means your old database.php file has changed. Fix this by restoring your old database.php file then return to Step 1{{alerts.end}}
 
 
 ### **Step 3:** Do something nice for yourself
@@ -59,9 +59,9 @@ Clear your site (if enabled) and browser cache at this point so the changes will
 
 Your TastyIgniter installation is successfully updated..
 
-{{site.data.alerts.warning}}If you experience any issue, you should restore your most recent database & file backup and try again{{site.data.alerts.end}}
+{{alerts.warning}}If you experience any issue, you should restore your most recent database & file backup and try again{{alerts.end}}
 
-{{site.data.alerts.note}}THIS IS FOR UPGRADE ON EXISTING INSTALLS ONLY! IF INSTALLING NEW, BE SURE TO READ THE README.md FILE INSTEAD{{site.data.alerts.end}}
+{{alerts.note}}THIS IS FOR UPGRADE ON EXISTING INSTALLS ONLY! IF INSTALLING NEW, BE SURE TO READ THE README.md FILE INSTEAD{{alerts.end}}
 
 
 ## Upgrading TastyIgniter v1.4.x to 2.0.x

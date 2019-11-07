@@ -6,7 +6,7 @@ sortOrder: 210
 
 ## Introduction
 
-In this section, you will learn how to build component and not how to attach [components]({{site.baseurl}}/customize/components) to theme templates. Building a component involves creating the class of your component by extending the `BaseComponent` class and some of its methods, then [**registering your component**](#component-registration) to be displayed on your site and available from the Admin Interface.
+In this section, you will learn how to build component and not how to attach [components](../customize/components) to theme templates. Building a component involves creating the class of your component by extending the `BaseComponent` class and some of its methods, then [**registering your component**](#component-registration) to be displayed on your site and available from the Admin Interface.
 
 Components live in the **/components** subdirectory of an extension directory.
 
@@ -59,7 +59,7 @@ The component properties and methods are available on the page or layout its att
 
 ### Component registration
 
-Components must be registered by overriding the `registerComponents` method within the [Extension registration class]({{site.baseurl}}/extend/extensions#registration). This lets the app know about the component and gives it an **alias name** for its use within themes. To register the `Block` component with the default alias name **helloBlock**, you may override the `registerComponents` method:
+Components must be registered by overriding the `registerComponents` method within the [Extension registration class](extensions#registration). This lets the app know about the component and gives it an **alias name** for its use within themes. To register the `Block` component with the default alias name **helloBlock**, you may override the `registerComponents` method:
 
 ```php
 public function registerComponents()
@@ -74,7 +74,7 @@ public function registerComponents()
 }
 ```
 
-> More information on using components can be found in the [Components article]({{site.baseurl}}/customize/components).
+> More information on using components can be found in the [Components article](../customize/components).
 
 ### Component properties
 
@@ -209,7 +209,7 @@ public function onRun()
 }
 ```
 
-Handler functions can be defined in the layout and page [PHP code section]({{site.baseurl}}/customize/themes#php-code-section) and component classes. These handlers are executed in the following sequence:
+Handler functions can be defined in the layout and page [PHP code section](../customize/themes#php-code-section) and component classes. These handlers are executed in the following sequence:
 
 - `onInit` layout method.
 - `onInit` page method
@@ -222,7 +222,7 @@ Handler functions can be defined in the layout and page [PHP code section]({{sit
 
 ## Defining AJAX handlers
 
-Components class can define AJAX event handlers can be defined in the component class as they can be defined in the page or layout [PHP code section]({{site.baseurl}}/customize/themes#php-code-section).
+Components class can define AJAX event handlers can be defined in the component class as they can be defined in the page or layout [PHP code section](../customize/themes#php-code-section).
 
 ```php
 public function onAddItem()
@@ -235,7 +235,7 @@ public function onAddItem()
 
 If the alias for this component was `helloBlock` this handler can be accessed by `helloBlock::onAddItem`. 
 
-> Please see the [Handling AJAX Requests]({{site.baseurl}}/advanced/ajax-request) article for more details.
+> Please see the [Handling AJAX Requests](../advanced/ajax-request) article for more details.
 
 ## Inject page assets
 

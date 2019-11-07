@@ -100,7 +100,7 @@ permalink: "/pages/:title*/:slug" - this will match /pages/page-title/child/page
 
 In the PHP code section of pages and layouts there are specific functions: `onInit`, `onStart` and `onEnd`. 
 
-The function `onInit` is executed when all [components]({{site.baseurl}}/customize/components) are initialized and before AJAX requests are handled. The `onStart` function is executed at the start of the execution of the page. The `onEnd` function is executed before the page is rendered and the page components are executed. 
+The function `onInit` is executed when all [components](../customize/components) are initialized and before AJAX requests are handled. The `onStart` function is executed at the start of the execution of the page. The `onEnd` function is executed before the page is rendered and the page components are executed. 
 
 ```php+HTML
 ---
@@ -160,7 +160,7 @@ function onStart()
 ---
 ```
 
-In order to output the injected assets on pages or [layouts]({{site.baseurl}}/customize/layouts) use the `<?= get_style_tags(); ?>` and `<?= get_script_tags(); ?>` tags. Example:
+In order to output the injected assets on pages or [layouts](../customize/layouts) use the `<?= get_style_tags(); ?>` and `<?= get_script_tags(); ?>` tags. Example:
 
 ```php+HTML
 <head>

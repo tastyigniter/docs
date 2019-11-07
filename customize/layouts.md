@@ -76,7 +76,7 @@ food: "Pizza"
 
 Specific functions can be defined in the layouts PHP code section for handling the page execution life cycle: `onInit`, `onStart` and `onEnd`. 
 
-The `onInit` function is executed when all [components]({{site.baseurl}}/customize/components) are initialized and before AJAX requests are handled. The `onStart` function is executed at the start of the execution of the page. The `onEnd` function is executed after the page is rendered.
+The `onInit` function is executed when all [components](../customize/components) are initialized and before AJAX requests are handled. The `onStart` function is executed at the start of the execution of the page. The `onEnd` function is executed after the page is rendered.
 
 ```php+HTML
 ---

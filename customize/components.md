@@ -8,9 +8,9 @@ sortOrder: 140
 
 TastyIgniter Components implements content and features that extend your website. They can be added, removed, and rearranged from **Design > Themes > Editor** in the Administration Panel.
 
-Other than displaying HTML markup on a page, components can implement the handling of [AJAX requests]({{site.baseurl}}/advanced/ajax-request), the handling of postbacks and the handling of the page execution life cycle, which enables pages to be injected.
+Other than displaying HTML markup on a page, components can implement the handling of [AJAX requests](../advanced/ajax-request), the handling of postbacks and the handling of the page execution life cycle, which enables pages to be injected.
 
-This article describes using components within themes and does not explain [building components]({{site.baseurl}}/extend/building-components) as part of extensions.
+This article describes using components within themes and does not explain [building components](../extend/building-components) as part of extensions.
 
 ## Attaching components
 

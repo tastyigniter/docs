@@ -8,7 +8,7 @@ sortOrder: 100
 
 TastyIgniter themes are files that work together to create a TastyIgniter site's design and functionality. Each theme can be different, offering site owners many choices to change their website look instantly. This article is about developing themes for TastyIgniter. 
 
-Themes are by default subdirectories in the **/themes** directory. The subdirectory of the theme contains all the [pages]({{site.baseurl}}/customize/pages), [partials]({{site.baseurl}}/customize/partials), [layouts]({{site.baseurl}}/customize/layouts) and [assets]({{site.baseurl}}/customize/media-files) files and optional theme PHP file (theme.php).
+Themes are by default subdirectories in the **/themes** directory. The subdirectory of the theme contains all the [pages](../customize/pages), [partials](../customize/partials), [layouts](../customize/layouts) and [assets](../customize/media-files) files and optional theme PHP file (theme.php).
 
 > The active theme is set in the config/system.php file with the defaultTheme parameter or in the **Design > Themes** Admin page with the Theme Selector. 
 
@@ -177,8 +177,8 @@ To load a partial or content file from another template file, you can use `parti
 | VARIABLE       | DESCRIPTION                                                  |
 | -------------- | ------------------------------------------------------------ |
 | **theme**      | Theme object `$this->theme` for reading customization settings. |
-| **page**       | Page object `$this->page`. Custom variables set via front matter in [pages]({{site.baseurl}}/customize/pages) will be available here. |
-| **layout**     | Layout object `$this->layout`. Custom variables set via front matter in [layouts]({{site.baseurl}}/customize/layouts) will be available here. |
+| **page**       | Page object `$this->page`. Custom variables set via front matter in [pages](../customize/pages) will be available here. |
+| **layout**     | Layout object `$this->layout`. Custom variables set via front matter in [layouts](../customize/layouts) will be available here. |
 | **controller** | Access the underlying controller object `$this->controller`. |
 
 ## Customization API

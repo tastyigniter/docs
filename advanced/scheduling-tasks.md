@@ -10,13 +10,13 @@ For each task you needed to schedule on your server, you may have generated a Cr
 
 The command scheduler allows you to define your command schedule within the application itself fluently and expressively. Only one single Cron entry is required on your server when using the scheduler. 
 
-> **Note**: See the [installation guide]({{site.baseurl}}/installation) for instructions on how to set up the task scheduler.
+> **Note**: See the [installation guide](../installation) for instructions on how to set up the task scheduler.
 
 Task Scheduling is how scheduling time-based tasks are managed in TastyIgniter. Several core features of TastyIgniter, such as checking for updates, use the scheduler. 
 
 ## Defining Schedules
 
-You may define all of your scheduled tasks by overriding the `registerSchedule` method within the [Extension registration class]({{site.baseurl}}/extend/extensions#registration). The method takes a single argument for `$schedule` and is used together with their frequency to define commands. 
+You may define all of your scheduled tasks by overriding the `registerSchedule` method within the [Extension registration class](../extend/extensions#registration). The method takes a single argument for `$schedule` and is used together with their frequency to define commands. 
 
 To get started, let's look at an example of how to schedule a task. In this example, we schedule to call a closure at midnight every day. We will execute a database query within the `Closure` to clear a table: 
 

@@ -37,7 +37,7 @@ This section of the article covers the steps you need to take – and some thing
 
 ### Naming your extension
 
-The first step in creating an extension is to select a **Namespace** and **Short Name** for it. This extension name **Namespace.ShortName** is used to refer to your extension by core TastyIgnier. The namespace will be used as your author code when publishing your extensions on the [TastyIgniter marketplace]({{site.siteUrl}}/marketplace). 
+The first step in creating an extension is to select a **Namespace** and **Short Name** for it. This extension name **Namespace.ShortName** is used to refer to your extension by core TastyIgnier. The namespace will be used as your author code when publishing your extensions on the [TastyIgniter marketplace](https://tastyigniter.com/marketplace). 
 
 Both namespace and extension name must follow these important rules: 
 
@@ -79,11 +79,11 @@ An `extension.json` manifest file is an important part of the TastyIgniter exten
 
 ### Readme file
 
-If you want to publish your extension on the [TastyIgniter marketplace]({{site.siteUrl}}/marketplace), you must create a **readme.md** file in a standardized format in your extension directory.
+If you want to publish your extension on the [TastyIgniter marketplace](https://tastyigniter.com/marketplace), you must create a **readme.md** file in a standardized format in your extension directory.
 
 ### Routes file
 
-Extensions can also provide a file named **routes.php** with custom routing logic as described in the [routing article]({{site.baseurl}}/advanced/routing).
+Extensions can also provide a file named **routes.php** with custom routing logic as described in the [routing article](../advanced/routing).
 
 ## Registration
 
@@ -130,16 +130,16 @@ The following methods are supported in the extension registration class:
 | **register()**                 | register method, called when the plugin is first registered. |
 | **boot()**                     | boot method, called right before the request route.          |
 | **extensionMeta()**            | returns metadata about the extension, when an extension.json is not supplied. |
-| **registerComponents()**       | registers any [front-end components]({{site.baseurl}}/customize/components) supplied by this extension. |
+| **registerComponents()**       | registers any [front-end components](../customize/components) supplied by this extension. |
 | **registerNavigation()**       | registers admin navigation menu items for this extension, see below for example. |
-| **registerPermissions()**      | registers any [staff permissions]({{site.baseurl}}/customize/permissions#registering=permissions) supplied by this extension. |
+| **registerPermissions()**      | registers any [staff permissions](../customize/permissions#registering=permissions) supplied by this extension. |
 | **registerSettings()**         | registers any [admin settings page](#registering-settings-link) supplied by this extension. |
-| **registerDashboardWidgets()** | registers any [admin dashboard widgets]({{site.baseurl}}/extend/widgets#dashboard-widget), supplied by this extension. |
-| **registerFormWidgets()**      | registers any [admin form widgets]({{site.baseurl}}/extend/widgets#form-widget) supplied by this extension. |
+| **registerDashboardWidgets()** | registers any [admin dashboard widgets](../extend/widgets#dashboard-widget), supplied by this extension. |
+| **registerFormWidgets()**      | registers any [admin form widgets](../extend/widgets#form-widget) supplied by this extension. |
 | **registerMailLayouts()**      | registers any mail view layouts supplied by this extension.  |
 | **registerMailTemplates()**    | registers any mail view templates supplied by this extension, see below for example. |
 | **registerMailPartials()**     | registers any mail view partials supplied by this extension. |
-| **registerPaymentGateways()**  | registers any [payment gateways]({{site.baseurl}}/advanced/payment-gateways) supplied by this extension. |
+| **registerPaymentGateways()**  | registers any [payment gateways](../advanced/payment-gateways) supplied by this extension. |
 
 An example registering **mail templates view** file `extensions/igniter/frontend/views/mail/contact`:
 
