@@ -29,7 +29,7 @@ Before you get started, it's a good idea to back up your website. This means if 
 Visit your TastyIgniter admin page at /admin. Go to `Maintenance` under `System -> Tools` and `Select tables to backup` then click the `Backup` button. On the next page, make sure `Add DROP TABLE statement` is `No`, click the `Backup` button again and your backed up database file will appear under the `Exisiting Backups` Tab. You can download and keep the file on your computer.
 
 ### Backing Up Your TastyIgniter Site
-Backup your files using FTP clients or cPanel filemanager to copy or create a zip of all the existing TastyIgniter files and folders.
+Backup your files using FTP clients or cPanel file manager to copy or create a zip of all the existing TastyIgniter files and folders.
 
 {{alerts.warning}}The upgrade process will affect all files and folders included in the TastyIgniter installation. This includes all the core files used to run TastyIgniter. If you have made any modifications to those files, your changes will be lost.{{alerts.end}} 
 
