@@ -111,7 +111,7 @@ TastyIgniter (es)/
 
 
 
-- Copy the files and folders within the `Namespaced directory` into your TastyIgniter `language` directory, `see below`. If you don't have a `language` directory in your application root, create a new one.
+- Copy the files and folders within the `Namespaced` directories into your TastyIgniter `language` directory, `see below`. If you don't have a `language` directory in your application root, create a new one.
 
   
 

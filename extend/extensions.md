@@ -254,7 +254,7 @@ There are two ways to configure extensions – with admin settings (database set
 
 Settings models, like any other models, resides in the **/models** subdirectory of the extension directory.
 
-```
+```yaml
 extensions/
   igniter/
     helloworld/

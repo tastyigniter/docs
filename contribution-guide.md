@@ -48,7 +48,7 @@ Please be very clear on your commit messages and pull request, duplicate or empt
 
 ## Which Branch?
 
-> **Note:** This section applies specifically to those sending pull requests to all repositories under the [tastyigniter](https://github.com/tastyigniter) organization.
+> **Note:** This section applies specifically to those sending pull requests to any repositories under the [tastyigniter](https://github.com/tastyigniter) organization.
 
 **All** bug fixes should be sent to the latest stable branch. Bug fixes should **never** be sent to the `master` branch.
 
