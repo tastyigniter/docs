@@ -10,7 +10,7 @@ Before you proceed with installing TastyIgniter, you should check that your serv
 
 These are the requirements for your  web hosting to run TastyIgniter:
 
-- PHP (at least 7.1)
+- PHP (at least 7.2)
 - PDO PHP Extension
 - cURL PHP Extension
 - OpenSSL PHP Extension
