@@ -12,11 +12,13 @@ Superadmins have access to everything in the system and can only be managed by t
 
 ## How Permissions Work
 
-Permissions are string keys in the form of `Author.Extension.Permission` name which are given to an administrator by inheritance through the staff's group.
+Permissions are string keys in the form of `Author.Extension.Permission` name which are given to an administrator by inheritance through the staff's Role.
 
-When determining whether an administrator has a specific permission, the permission settings for that staff's group will be applied. For example, if administrator **Sam** belongs to **Chef** group, and group **Chef** has `manage_order` permission, then **Sam** will get to `manage_order`.
+When determining whether a staff has a specific permission, the permission settings for that staff's role will be applied. For example, if administrator **Sam** belongs to **Chef** role, and role **Chef** has `manage_order` permission, then **Sam** will get to `manage_order`.
 
-Groups are categories of permissions with a name used to identify the role of an administrator. Only one group can be assigned to an Administrator at once. Multiple administrators may be assigned a group. TastyIgniter ships with four system groups by default; `owner`, `manager`, `waiter` and `delivery`. Any number of custom groups can be created and applied to administrators with their own combinations of permissions.
+Staff Roles are groups of permissions with a name used to identify the role of an administrator. Only one role can be assigned to a staff at once. Multiple staff may be assigned a role. TastyIgniter ships with four system roles by default; `owner`, `manager`, `waiter` and `delivery`. Any number of custom roles can be created and applied to administrators with their own combinations of permissions.
+
+Staff Groups have nothing to do with permissions and are strictly an administrative tool for grouping administrators. For instances, groups can be used to assign an order to all administrators in the Kitchen.
 
 ## Registering permissions
 
