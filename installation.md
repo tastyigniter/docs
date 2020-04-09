@@ -36,7 +36,7 @@ There are two ways you can install TastyIgniter, either using the Quick or Comma
 TastyIgniter also uses <a href="https://getcomposer.org/" target="_blank">composer</a> to manage its dependencies, you'll need to have composer installed on your machine before using the TastyIgniter command-line installation. Run this command in an empty location that you want TastyIgniter to be installed in:
 
 ```bash
-composer create-project tastyigniter/tastyigniter:dev-master .
+composer create-project tastyigniter/tastyigniter . --stability=beta
 ```
 
 After running the above command, run the install command and follow the instructions to complete installation
