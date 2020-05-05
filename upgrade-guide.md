@@ -13,7 +13,13 @@ If it doesn't work, or you just prefer to be more hands-on, you can follow the m
 
 This is a huge release. It contains a massive change in the codebase frrom CodeIgniter to Laravel with some new features and plenty bug fixes.
 
-Listing all the improvements in v3 would be great but I hardly kept track. So straight to upgrade!
+Listing all the improvements in v3 would be great but its a lot I lost track. So straight to upgrade!
+
+1. Follow the back up TastyIgniter steps below to back up your files and database.
+2. Delete all your existing v2+ files
+3. Follow the [quick installation](installation#quick-installation) instructions to install a fresh instance of v3.x.x
+4. Make sure you enter the credentials for the database where your v2 data are stored, to upgrade the data structure.
+5. Access your newly upgraded website.
 
 
 

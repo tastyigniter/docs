@@ -72,19 +72,32 @@ Be sure to replace `/path/to/artisan` with the absolute path to the artisan file
 
 Optionally, you can set up an external queue to process **queued jobs**, which will be handled by the platform asynchronously by default. By setting the default parameter in the `config/queue.php`, this behaviour can be altered. 
 
-## URL Rewriting
+## Web server configuration
 
-### Apache
+TastyIgniter has basic configuration that should be applied to your webserver. Common webservers and their configuration can be found below.
 
-TastyIgniter includes a `.htaccess` file – make sure it’s been uploaded correctly. If you’re using shared hosting, confirm with your hosting provider that `mod_rewrite` is enabled. You may need to add the following to your Apache configuration:
+### Apache configuration
 
+There are some extra system requirements if your webserver is running Apache, `mod_rewrite` should be installed and enabled and the `AllowOverride` option should be switched on.
+
+TastyIgniter includes a `.htaccess` file – make sure it’s been uploaded correctly.
+
+You will need to uncomment this line in the `.htaccess` file in some cases: 
+
+```html
+## !IMPORTANT! You may need to uncomment the following line for some hosting environments,
+## If your installation resides in a subdirectory, enter the name here also
+##
+# RewriteBase /
 ```
-<Directory "/path/to/your/tastyigniter">
-    AllowOverride All
-</Directory>
+
+If you've created a subdirectory, you can add the subdirectory name as well:
+
+```html
+RewriteBase /mysubdirectory/
 ```
 
-### Nginx
+### Nginx configuration
 
 Add the following lines to your server’s configuration block:
 
@@ -102,6 +115,75 @@ location ~ ^/index.php {
     # Write your FPM configuration here
 
 }
+
+# Whitelist
+## Let TastyIgniter handle if static file does not exists
+location ~ ^/favicon\.ico { try_files $uri /index.php; }
+location ~ ^/sitemap\.xml { try_files $uri /index.php; }
+location ~ ^/robots\.txt { try_files $uri /index.php; }
+location ~ ^/humans\.txt { try_files $uri /index.php; }
+
+## Let nginx return 404 if static file does not exists
+location ~ ^/assets/media { try_files $uri 404; }
+location ~ ^/storage/temp/public { try_files $uri 404; }
+
+location ~ ^/app/.*/assets { try_files $uri 404; }
+location ~ ^/app/.*/actions/.*/assets { try_files $uri 404; }
+location ~ ^/app/.*/dashboardwidgets/.*/assets { try_files $uri 404; }
+location ~ ^/app/.*/formwidgets/.*/assets { try_files $uri 404; }
+location ~ ^/app/.*/widgets/.*/assets { try_files $uri 404; }
+
+location ~ ^/extensions/.*/.*/assets { try_files $uri 404; }
+location ~ ^/extensions/.*/.*/actions/.*/assets { try_files $uri 404; }
+location ~ ^/extensions/.*/.*/dashboardwidgets/.*/assets { try_files $uri 404; }
+location ~ ^/extensions/.*/.*/formwidgets/.*/assets { try_files $uri 404; }
+location ~ ^/extensions/.*/.*/widgets/.*/assets { try_files $uri 404; }
+
+location ~ ^/themes/.*/assets { try_files $uri 404; }
+```
+
+## Application configuration
+
+### Debug mode
+
+The debug setting is found in the `config/app.php` configuration file with the `debug` parameter, and is enabled by default.
+
+When enabled, this setting will display detailed error messages when they occur along with other debugging functions. Debug mode should always be disabled in a live production site. This prevents the display of potentially sensitive information to the end user.
+
+### CSRF protection
+
+TastyIgniter offers an simple method to protect your application from cross-site request forgeries. 
+
+For every active user session managed by the application, TastyIgniter automatically generates a CSRF "token." This token is used to check that the authenticated user is the one who actually makes the client requests.
+
+Although CSRF security is enabled by default, you can disable it in the `config/system.php` configuration file using the `enableCsrfProtection` parameter.
+
+### Bleeding edge updates
+
+TastyIgniter core and some marketplace extensions will introduce changes in two stages to ensure overall stability and integrity of the codebase. This means that besides the regular stable versions, they do have a test version.
+
+By modifying the `edgeUpdates` parameter in the `config/system.php` configuration file you can instruct the application to choose test versions from the marketplace.
+
+```php
+/*
+|--------------------------------------------------------------------------
+| Bleeding edge updates
+|--------------------------------------------------------------------------
+|
+| If you are developing with TastyIgniter, it is important to have the latest
+| code base, set this value to 'true' to tell the platform to download
+| and use the development copies of core files and extensions.
+|
+*/
+
+'edgeUpdates' => false,
+```
+
+When you are using Composer to handle updates, then replace the default TastyIgniter requirements in your `composer.json` file with the following to receive updates from the develop branch directly.
+
+```json
+"tastyigniter/flame": "dev-develop as 1.0",
+"laravel/framework": "5.8.*@dev",
 ```
 
 ## Getting Started

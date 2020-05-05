@@ -22,7 +22,7 @@ Staff Groups have nothing to do with permissions and are strictly an administrat
 
 ## Registering permissions
 
-Administrator permissions can be registered by extensions by overriding the `registerPermissions` method within the [Extension registration class](extend/extensions#registration). The permissions are defined as an array with keys that match the permission keys and the values holding the permission group & descriptions. The permission keys consist of the name of the author, the name of the extension and the name of the function. Here is an example:
+Administrator permissions can be registered by extensions by overriding the `registerPermissions` method within the [Extension registration class](../extend/extensions#registration). The permissions are defined as an array with keys that match the permission keys and the values holding the permission group & descriptions. The permission keys consist of the name of the author, the name of the extension and the name of the function. Here is an example:
 
 ```yaml
 Igniter.Cart.Manage

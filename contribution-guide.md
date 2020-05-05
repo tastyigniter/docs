@@ -4,6 +4,14 @@ section: "getting-started"
 sortOrder: 40
 ---
 
+Interested in contributing to the development of TastyIgniter? That is fantastic! All contributions are appreciated and welcome: from opening a bug report to creating a pull request.
+
+Before contributing, please read the [code of conduct](code-of-conduct).
+
+To order to learn a little more about how TastyIgniter operates, we suggest that you read the documentation, if you're just beginning.
+
+This article is a guide for developers interested in contributing code to TastyIgniter.
+
 ## Writing documentation
 
 You are very welcome to contribute to the TastyIgniter documentation. Please follow these rules if you want to contribute. Here's how styling perfect TastyIgniter documentation pages is done:
@@ -25,7 +33,7 @@ If you have a feature idea, the TastyIgniter forum is the best place to suggest 
 
 Use GitHub only if you plan to contribute and develop a new feature. If you'd like to discuss your idea first, you can always join us on [Slack](http://slack.tastyigniter.com/) before posting it "officially" anywhere. 
 
-## Bugs
+## Reporting bugs
 
 > Please don't use the main GitHub for reporting issues with extensions or themes. If you have found a bug in an extension or theme, the best place to report it is with the [author](https://tastyigniter.com/marketplace).
 
@@ -56,23 +64,37 @@ Please be very clear on your commit messages and pull request, duplicate or empt
 
 **Major** new features should always be sent to the `master` branch, which contains the upcoming TastyIgniter release.
 
+If you are planning to send pull requests via GitHub to the TastyIgniter repository, we suggest sending them  to the `develop` branch where all the latest updates and bug fixes take place.
+
 ## Coding style
 
-TastyIgniter follows PSR-1 and PSR-2. The following coding standards should be observed in addition to the PSR-1 and PSR-2 standards: 
+To keep the TastyIgniter codebase clean and consistent, we follow a number of coding style guidelines. Read source code if in doubt.
 
-- The opening bracket `{` of a class MUST be on the same line as the name of the class.
-- Allman type braces MUST be used for functions and control structures.
-- Use tabs to indent and spaces to align.
+Do not worry if the style of your code isn't great! After pull requests are merged, StyleCI will automatically merge any style fixes into TastyIgniter repositories. This helps us to focus on what matters.
 
 ## Reporting security issues
 
-If you wish to contact us about any security vulnerability in TastyIgniter you may find, please send an e-mail to Samuel Adepoyigi at sam@sampoyigi.com
+If you wish to contact us about any security vulnerability in TastyIgniter you may find, please send an e-mail to support@tastyigniter.com
 
 ## Development setup
 
+[tastyigniter/TastyIgniter](https://github.com/tastyigniter/TastyIgniter) is the core application for installing [tastyigniter/flame](https://github.com/tastyigniter/flame) using Composer. We suggest forking them and cloning them into a [Composer path repository](https://getcomposer.org/doc/05-repositories.md#path) to work on these:
 
+```bash
+git clone https://github.com/tastyigniter/TastyIgniter.git
+cd TastyIgniter
 
-## Development Workflow
+# Set up a Composer path repository for TastyIgniter packages
+composer config repositories.0 path "packages/*"
+git clone https://github.com/tastyigniter/flame.git packages/flame
+git clone https://github.com/tastyigniter/ti-ext-frontend.git packages/frontend # etc
+```
+
+Next, make sure Composer accepts unstable releases from your local copies by adjusting the value of `minimum-stability` in `composer.json` to `dev`.
+
+Finally, run `composer install` to complete the installation from the path repositories.
+
+## Development workflow
 
 Follow these steps:
 
@@ -83,7 +105,7 @@ Follow these steps:
 - Run ./vendor/bin/phpunit to **test** your code
 - Submit in the **pull request** if all is green
 
-## Development Tools
+## Development tools
 
 Most TastyIgniter contributors develop with <a href="https://www.jetbrains.com/phpstorm/download/" target="_blank">PHPStorm</a>. However, feel free to use your preferred IDE.
 
