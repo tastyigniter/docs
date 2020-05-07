@@ -34,7 +34,7 @@ class Extension extends \System\Classes\BaseExtension
 }
 ```
 
-In addition to scheduling `Closure` calls, you may also schedule [console commands](https://laravel.com/docs/artisan) and operating system commands. For example, to schedule a console command, you can use the `command` method: 
+In addition to scheduling `Closure` calls, you may also schedule <a href="https://laravel.com/docs/artisan" targer="_blank">console commands</a> and operating system commands. For example, to schedule a console command, you can use the `command` method: 
 
 ```php
 $schedule->command('cache:clear')->daily();
@@ -46,4 +46,4 @@ The `exec` method may be used to issue a command to the operating system:
 $schedule->exec('node /home/acme/script.js')->daily();
 ```
 
-More information on task scheduling can be found on the [Laravel Task Scheduling docs](https://laravel.com/docs/scheduling).
+More information on task scheduling can be found on the <a href="https://laravel.com/docs/scheduling" targer="_blank">Laravel Task Scheduling docs</a>.

@@ -19,7 +19,7 @@ Define options under **assets.media** within the **config/system.php** file to c
 
 Additional options can be configured from **System > Settings > Media** in the Admin interface.
 
-For more information on configuring external storage, check out [laravel's filesystem docs](https://laravel.com/docs/filesystem#configuration).
+For more information on configuring external storage, check out <a href="https://laravel.com/docs/filesystem#configuration" targer="_blank">laravel's filesystem docs</a>.
 
 ## Working with Media files
 

@@ -27,7 +27,7 @@ extensions/
           lang.php
 ```
 
-> Each language directory should be named using the [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code for the language it contains.
+> Each language directory should be named using the <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" targer="_blank">ISO 639-1</a> code for the language it contains.
 
 ## Defining locale strings
 
@@ -86,7 +86,7 @@ In this section of the article, you will find a complete overview of the steps i
 
 Follow these steps to manually download a community translated language pack.
 
-- Join our translations [Crowdin project page](https://translate.tastyigniter.com).
+- Join our translations <a href="https://tastyigniter.com/translate" targer="_blank">Crowdin project page</a>.
 - Choose the language you wish to install. For example, let's choose **Spanish (ES)**.
 - Download and unzip the language pack. To download, you need to click on the button at the top right of the Crowdin language page.
 - The folder and file structure of the extracted language pack should look like this.

@@ -6,7 +6,7 @@ sortOrder: 170
 
 ## Introduction
 
-TastyIgniter adds a number of directives and variables to the [Blade template engine](https://laravel.com/docs/blade). 
+TastyIgniter adds a number of directives and variables to the <a href="https://laravel.com/docs/blade" targer="_blank">Blade template engine</a>. 
 
 ## Variables
 

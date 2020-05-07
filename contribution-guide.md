@@ -31,7 +31,7 @@ You are very welcome to contribute to the TastyIgniter documentation. Please fol
 
 If you have a feature idea, the TastyIgniter forum is the best place to suggest it. Please do not use GitHub issues to suggest a new feature.
 
-Use GitHub only if you plan to contribute and develop a new feature. If you'd like to discuss your idea first, you can always join us on [Slack](http://slack.tastyigniter.com/) before posting it "officially" anywhere. 
+Use GitHub only if you plan to contribute and develop a new feature. If you'd like to discuss your idea first, you can always join us on <a href="https://tastyigniter.com/slack" target="_blank">Slack</a> before posting it "officially" anywhere. 
 
 ## Reporting bugs
 
@@ -56,7 +56,7 @@ Please be very clear on your commit messages and pull request, duplicate or empt
 
 ## Which Branch?
 
-> **Note:** This section applies specifically to those sending pull requests to any repositories under the [tastyigniter](https://github.com/tastyigniter) organization.
+> **Note:** This section applies specifically to those sending pull requests to any repositories under the <a href="https://github.com/tastyigniter" target="_blank">Slack</a> organization.
 
 **All** bug fixes should be sent to the latest stable branch. Bug fixes should **never** be sent to the `master` branch.
 
@@ -78,7 +78,8 @@ If you wish to contact us about any security vulnerability in TastyIgniter you m
 
 ## Development setup
 
-[tastyigniter/TastyIgniter](https://github.com/tastyigniter/TastyIgniter) is the core application for installing [tastyigniter/flame](https://github.com/tastyigniter/flame) using Composer. We suggest forking them and cloning them into a [Composer path repository](https://getcomposer.org/doc/05-repositories.md#path) to work on these:
+<a href="https://github.com/tastyigniter/TastyIgniter" target="_blank">tastyigniter/TastyIgniter</a> is the core application for installing 
+<a href="https://github.com/tastyigniter/flame" target="_blank">tastyigniter/flame</a> using Composer. We suggest forking them and cloning them into a <a href="https://getcomposer.org/doc/05-repositories.md#path" target="_blank">Composer path repository</a> to work on these:
 
 ```bash
 git clone https://github.com/tastyigniter/TastyIgniter.git

@@ -49,4 +49,4 @@ Technical and social disagreements are commonplace in the world and within the T
 
 You can’t force people to have the same opinions as you, even if they are wrong. Remember that humans make errors. We can’t be a progressive community if we just end up pointing the finger at one another and passing blame. Always aim, rather, to help with the resolution of these issues and learn how to do things differently and better.
 
-The above are sections taken from the [Drupal Code of Conduct](https://www.drupal.org/dcoc) and the [Django Code of Conduct](https://www.djangoproject.com/conduct/).
+The above are sections taken from the <a href="https://www.drupal.org/dcoc" target="_blank">Drupal Code of Conduct</a> and the <a href="https://www.djangoproject.com/conduct/" target="_blank">Django Code of Conduct</a>.
