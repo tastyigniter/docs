@@ -10,15 +10,15 @@ One of our main goals, as an expanding community is to include as many contribut
 
 Whether you are using the TastyIgniter forum, GitHub, Slack chat or an alternative means of communication outside of our community, this code of conduct is applicable.
 
-**Always exercise patience and have a friendly attitude**
+### Always exercise patience and have a friendly attitude
 
 We aren’t always going to agree with one another. That doesn’t mean we should fight or forget the manners our moms and dads taught us. Don’t throw tantrums, just because you are frustrated at someone. It wouldn’t be a healthy community if there were members who felt unwelcome or threatened.
 
-**Always Be Considerate**
+### Always Be Considerate
 
 Remember that as you use other’s work, they will use yours. Therefore, any decisions you make will impact colleagues and members, so always take the ramifications of those decisions into consideration when making them. TastyIgniter is a global community, so you may not always be communicating with individuals who speak the same language as you.
 
-**Make All Responses Count**
+### Make All Responses Count
 
 Obviously, if you are participating in discussions, you are making effort and time to do so, in the hope other members will look at your suggestions and consider them. So, make the most of it.
 
@@ -31,7 +31,7 @@ Obviously, if you are participating in discussions, you are making effort and ti
 
 We want everything to be light and breezy, where possible, so you will find that smart comments and jokes are welcomed. However, the discussions need to be effective and productive too, so avoid disrupting discussions completely with unrelated wise-ass statements.
 
-**Choose your words very carefully**
+### Choose your words very carefully
 
 This is a professional community and we act in a professional manner. Always be kind and avoid putting down or insulting other users. We will not tolerate exclusionary behavior or harassment between users. 
 
@@ -43,7 +43,7 @@ To be clear, we consider this type of behavior to include:
 - Directing violent language and threats at other people
 - Try to understand why disagreements happen.
 
-**When we disagree, try to understand why.**
+### When we disagree, try to understand why.
 
 Technical and social disagreements are commonplace in the world and within the TastyIgniter community we are not immune to these. Therefore, it is imperative that we constructively and productively resolve differing viewpoints and disagreements. We are all different and one of the biggest strengths of our community is the fact that we come from different backgrounds. 
 
