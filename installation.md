@@ -60,7 +60,7 @@ setup.php       <== Setup script
 
 You should add the following Cron entry to your server for scheduled tasks to function properly. Crontab editing is usually done with the command `crontab -e`. 
 
-```
+```bash
 * * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1
 ```
 
