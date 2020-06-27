@@ -12,21 +12,6 @@ To order to learn a little more about how TastyIgniter operates, we suggest that
 
 This article is a guide for developers interested in contributing code to TastyIgniter.
 
-## Writing documentation
-
-You are very welcome to contribute to the TastyIgniter documentation. Please follow these rules if you want to contribute. Here's how styling perfect TastyIgniter documentation pages is done:
-
-- Try not to use H1 headers. 
-- A TOC list would be generated automatically for each page with at least one H2 header. The TOC would have links to all of the page's H2 headers. 
-- The introductory text would be displayed below the TOC.
-- Try to use only H2 and H3 headers.
-- Each H2 and H3 header could have a link defined as `<a name="event-handlers"></a>` or have it generated automatically.
-- Avoid short, 1 sentence paragraphs. Combine short paragraphs and try to be a bit more verbose.
-- Avoid short paragraphs hanging below code sections. Combine these paragraphs with the text above the code blocks.
-- Use the inline code tags for all code-related - variable names, function names, syntax examples, etc.
-- Don't hesitate to make cross links to other documentation articles. There is no need to add links to the same article in the same paragraph.
-- For your reference, see the pages.md or themes.md files.
-
 ## New features
 
 If you have a feature idea, the TastyIgniter forum is the best place to suggest it. Please do not use GitHub issues to suggest a new feature.
@@ -66,16 +51,6 @@ Please be very clear on your commit messages and pull request, duplicate or empt
 
 If you are planning to send pull requests via GitHub to the TastyIgniter repository, we suggest sending them  to the `develop` branch where all the latest updates and bug fixes take place.
 
-## Coding style
-
-To keep the TastyIgniter codebase clean and consistent, we follow a number of coding style guidelines. Read source code if in doubt.
-
-Do not worry if the style of your code isn't great! After pull requests are merged, StyleCI will automatically merge any style fixes into TastyIgniter repositories. This helps us to focus on what matters.
-
-## Reporting security issues
-
-If you wish to contact us about any security vulnerability in TastyIgniter you may find, please send an e-mail to support@tastyigniter.com
-
 ## Development setup
 
 <a href="https://github.com/tastyigniter/TastyIgniter" target="_blank">tastyigniter/TastyIgniter</a> is the core application for installing 
@@ -99,12 +74,40 @@ Finally, run `composer install` to complete the installation from the path repos
 
 Follow these steps:
 
-- **Clone** the tastyigniter/TastyIgniter repository
-- **Branch** off the approprite branch into a new feature branch.
+- **Clone** the <a href="https://github.com/tastyigniter/TastyIgniter" target="_blank">tastyigniter/TastyIgniter</a> repository
+- **Branch** off the **develop** branch into a new feature branch.
 - Run **composer** install
 - Make your **changes**
 - Run ./vendor/bin/phpunit to **test** your code
-- Submit in the **pull request** if all is green
+- **Commit** your code with a descriptive message.
+- Submit in the **pull request** on Github
+
+## Reporting security issues
+
+If you wish to contact us about any security vulnerability in TastyIgniter you may find, please send an e-mail to support@tastyigniter.com
+
+## Coding style
+
+To keep the TastyIgniter codebase clean and consistent, we follow a number of coding style guidelines. Read source code when in doubt.
+
+Do not worry if the style of your code isn't great! After pull requests are merged, StyleCI will automatically merge any style fixes into TastyIgniter repositories. This helps us to focus on what matters.
+
+TastyIgniter follows the PSR-2 coding and the PSR-4 autoloading standard. We do comply with a range of other style rules. Where possible, we use PHP 7 type hinting and return type declarations, and PHPDoc for inline documentation. Try to imitate the style used by the rest of the codebase.
+
+## Writing documentation
+
+You are very welcome to contribute to the TastyIgniter documentation. Please follow these rules if you want to contribute. Here's how styling perfect TastyIgniter documentation pages is done:
+
+- Try not to use H1 headers. 
+- A TOC list would be generated automatically for each page with at least one H2 header. The TOC would have links to all of the page's H2 headers. 
+- The introductory text would be displayed below the TOC.
+- Try to use only H2 and H3 headers.
+- Each H2 and H3 header could have a link defined as `<a name="event-handlers"></a>` or have it generated automatically.
+- Avoid short, 1 sentence paragraphs. Combine short paragraphs and try to be a bit more verbose.
+- Avoid short paragraphs hanging below code sections. Combine these paragraphs with the text above the code blocks.
+- Use the inline code tags for all code-related - variable names, function names, syntax examples, etc.
+- Don't hesitate to make cross links to other documentation articles. There is no need to add links to the same article in the same paragraph.
+- For your reference, see the [pages.md](https://github.com/tastyigniter/docs/blob/master/customize/pages.md) or [themes.md](https://github.com/tastyigniter/docs/blob/master/customize/themes.md) files.
 
 ## Development tools
 

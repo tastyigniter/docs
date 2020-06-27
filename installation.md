@@ -183,7 +183,7 @@ When you are using Composer to handle updates, then replace the default TastyIgn
 
 ```json
 "tastyigniter/flame": "dev-develop as 1.0",
-"laravel/framework": "5.8.*@dev",
+"laravel/framework": "6.0.*@dev",
 ```
 
 ## Getting Started
