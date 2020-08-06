@@ -68,9 +68,15 @@ Be sure to replace `/path/to/artisan` with the absolute path to the artisan file
 
 > Task Scheduling is how scheduling time-based tasks are managed in TastyIgniter. Several core features of TastyIgniter, such as checking for updates, use the scheduler. 
 
-### Setting up queue workers
+### Setting up the queue daemon
 
-Optionally, you can set up an external queue to process **queued jobs**, which will be handled by the platform asynchronously by default. By setting the default parameter in the `config/queue.php`, this behaviour can be altered. 
+By default the queue in TastyIgniter is asynchronous and stores pending tasks in the `jobs` database table. This behaviour can be altered by setting the default parameter in the `config/queue.php`, and alternative queue methods used. You can also set the queue to process synchronously by setting the value to `sync`.
+
+If you are using the default value, you need to run the queue process as a daemon service. Use the following command:
+`php /path/to/artisan queue:work &`
+
+It is strongly advised that you run this command on system start up.  If Cron is available, this can be achieved using the following format:
+`@reboot php /path/to/artisan queue:work &`
 
 ## Web server configuration
 
