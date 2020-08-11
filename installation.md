@@ -70,9 +70,9 @@ Be sure to replace `/path/to/artisan` with the absolute path to the artisan file
 
 ### Setting up the queue daemon
 
-By default the queue in TastyIgniter is asynchronous and stores pending tasks in the `jobs` database table. This behaviour can be altered by setting the default parameter in the `config/queue.php`, and alternative queue methods used. You can also set the queue to process synchronously by setting the value to `sync`.
+By default the queue in TastyIgniter is synchronous and will attempt to run tasks such as sending emails in real time. This behaviour can be set to an asynchronous method by changing the `default` parameter in the `config/queue.php`.
 
-If you are using the default value, you need to run the queue process as a daemon service. Use the following command:
+If you are using the `database` queue, you need to run the queue process as a daemon service. Use the following command:
 `php /path/to/artisan queue:work &`
 
 It is strongly advised that you run this command on system start up.  If Cron is available, this can be achieved using the following format:
