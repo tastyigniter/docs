@@ -134,7 +134,7 @@ language/
 After downloading a language pack, you must create a new language in the admin interface to register the language into the system.
 
 1. Create a new language from the **Localisation > Languages** page of the admin interface.
-2. Fill in the form. The value of the `Locale Ccode` field must match the language directory name. Using the example above, the value will be `es_ES`
+2. Fill in the form. The value of the `Locale Code` field must match the language directory name. Using the example above, the value will be `es_ES`
 3. Lastly, toggle the **Status** switch to `Enabled` then save the form.
 4. Ensure the language appears under `Supported Languages` field on the **System > Settings > General** page of the admin interface
 
