@@ -90,9 +90,11 @@ If you wish to contact us about any security vulnerability in TastyIgniter you m
 
 To keep the TastyIgniter codebase clean and consistent, we follow a number of coding style guidelines. Read source code when in doubt.
 
-Do not worry if the style of your code isn't great! After pull requests are merged, StyleCI will automatically merge any style fixes into TastyIgniter repositories. This helps us to focus on what matters.
+TastyIgniter follows the [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) coding and the [PSR-4](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md) autoloading standard. 
 
-TastyIgniter follows the PSR-2 coding and the PSR-4 autoloading standard. We do comply with a range of other style rules. Where possible, we use PHP 7 type hinting and return type declarations, and PHPDoc for inline documentation. Try to imitate the style used by the rest of the codebase.
+We do comply with a range of other style rules. Where possible, we use PHP 7 type hinting and return type declarations, and PHPDoc for inline documentation. Try to imitate the style used by the rest of the codebase.
+
+Do not worry if the style of your code isn't great! After pull requests are merged, StyleCI will automatically merge any style fixes into TastyIgniter repositories. This helps us to focus on what matters.
 
 ## Writing documentation
 
