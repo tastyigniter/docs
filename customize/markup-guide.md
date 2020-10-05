@@ -21,13 +21,13 @@ TastyIgniter adds a number of directives and variables to the <a href="https://l
 
 ## Blade Directives
 
-### @content
+### @page
+
+The `@page` tag renders the contents of a page into a layout template.
 
 ```php+HTML
-@content('welcome.htm')
+@page
 ```
-
-
 
 ### @partial
 
@@ -53,19 +53,19 @@ TastyIgniter adds a number of directives and variables to the <a href="https://l
 @partial('cart::cartBox')
 ```
 
-### @page
-
-The `@page` tag renders the contents of a page into a layout template.
-
-```php+HTML
-@page
-```
-
 ### @hasComponent
 
 ```php+HTML
 @hasComponent('cartBox')
 ```
+
+### @content
+
+```php+HTML
+@content('welcome.htm')
+```
+
+
 
 ### @stack
 
@@ -89,20 +89,6 @@ The `@page` tag renders the contents of a page into a layout template.
 @endprepend
 ```
 
-### @placeholder
-
-```php+HTML
-@placeholder('name')
-```
-
-### 
-
-```php+HTML
-@push('name')
-		This is a placeholder content
-@endpush
-```
-
 ### @styles
 
 ```php+HTML
@@ -120,7 +106,7 @@ The `@page` tag renders the contents of a page into a layout template.
 ### @scripts
 
 ```php+HTML
-@partial('footer')
+@stack('footer')
 ```
 
 
@@ -141,27 +127,27 @@ The `@page` tag renders the contents of a page into a layout template.
 </div>
 ```
 
-### @include
 
-```php+HTML
-@include('view.name', ['some' => 'data'])
+
+## Unsupported Directives
+
+### 
+
+| Directive          | Equivalent |
+| ------------------ | ---------- |
+| `@extends`           | Use [Theme Layouts]() |
+| `@include`           | Use `@partial`           |
+| `@includeIf`         | Use `@partial`           |
+| `@includeWhen`       | Use `@partial`           |
+| `@includeUnless`     | Use `@partial`           |
+| `@includeFirst`      | Use `@partial`           |
+| `@include`           | Use `@partial`           |
+| `@endcomponent`      | Use `@component` |
+| `@componentfirst`    | Use `@component` |
+| `@endcomponentfirst` | Use `@`component` |
+
+
+
 ```
 
-### @includeIf
-
-```php+HTML
-@includeIf('view.name', ['some' => 'data'])
 ```
-
-### @includeWhen
-
-```php+HTML
-@includeWhen($boolean, 'view.name', ['some' => 'data'])
-```
-
-### @includeFirst
-
-```php+HTML
-@includeFirst(['custom.admin', 'admin'], ['some' => 'data'])
-```
-

@@ -183,7 +183,7 @@ By modifying the `edgeUpdates` parameter in the `config/system.php` configuratio
 |
 */
 
-'edgeUpdates' => false,
+'edgeUpdates' => true,
 ```
 
 When you are using Composer to handle updates, then replace the default TastyIgniter requirements in your `composer.json` file with the following to receive updates from the develop branch directly.
@@ -208,5 +208,9 @@ You can access the administrator panel from `/admin` with your username and pass
 ## Troubleshooting
 1. **A 404 error page is displayed:** This could be a result of the mod_rewrite module not being activated/installed or configured properly. Activate mod_rewrite for the Apache web-server.
 If it is already activated, check the root htaccess file in `/.htaccess`, to make sure the `RewriteBase` value is configured properly.
-2. **A blank screen is displayed when opening the application:** Check the file permissions are set correctly on the files and folders to 777.
+2. **A blank screen is displayed when opening the application:** Check the file permissions are set correctly on the `/storage` files and folders and writable for the web server.
 3. **Setup successful but storefront links are not working:** Check that the theme's required extensions are all installed.
+
+
+
+> **Note:** A detailed installation log can be found in the `setup/setup.log` file.
