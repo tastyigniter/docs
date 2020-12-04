@@ -279,7 +279,7 @@ class CartSettings extends Model
     public $settingsCode = 'igniter_cart_settings';
 
     // Reference to form field model config file, without the .php extension. 
-    // Should matach the model class name
+    // Should match the model class name
     public $settingsFieldsConfig = 'cartsettings';
 }
 ```
