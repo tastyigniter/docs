@@ -19,7 +19,9 @@ TastyIgniter adds a number of directives and variables to the <a href="https://l
 ### $this->param
 
 
-## Blade Directives
+## Directives
+
+Directives are a unique feature to Laravel Blade and are wrapped with `{{ }}` characters or prefixed with `@` character.
 
 ### @page
 
@@ -41,22 +43,12 @@ The `@page` tag renders the contents of a page into a layout template.
 @component('cartBox')
 ```
 
-
-
 ```php+HTML
 @component('cartBox', ['checkStockCheckout' => TRUE])
 ```
 
-
-
 ```php+HTML
 @partial('cart::cartBox')
-```
-
-### @hasComponent
-
-```php+HTML
-@hasComponent('cartBox')
 ```
 
 ### @content
@@ -65,7 +57,23 @@ The `@page` tag renders the contents of a page into a layout template.
 @content('welcome.htm')
 ```
 
+### @partialIf
 
+```php+HTML
+@partialIf('cartBox')
+```
+
+### @hasComponent
+
+```php+HTML
+@hasSection('navigation')
+    <div class="pull-right">
+        @yield('navigation')
+    </div>
+
+    <div class="clearfix"></div>
+@endif
+```
 
 ### @stack
 
@@ -75,17 +83,19 @@ The `@page` tag renders the contents of a page into a layout template.
 @endpush
 ```
 
-
-
 ```php+HTML
 @stack('sidebar')
 ```
 
-### @prepend
-
 ```php+HTML
-@prepend('sidebar')	
-	Add this content as the first
+@push('scripts')
+    This will be second...
+@endpush
+
+// Later...
+
+@prepend('scripts')
+    This will be first...
 @endprepend
 ```
 
@@ -95,26 +105,104 @@ The `@page` tag renders the contents of a page into a layout template.
 @styles
 ```
 
-### 
+```
+function onStart()
+{
+    $this->addCss('assets/css/style.css');
+}
+```
 
 ```php+HTML
 @push('styles')
-		<link rel="stylesheet" href="/css/app.css">
+		<link rel="stylesheet" href="assets/css/app.css">
 @endpush
 ```
 
 ### @scripts
 
 ```php+HTML
-@stack('footer')
+@scripts
 ```
 
-
+```
+function onStart()
+{
+    $this->addJs('assets/js/script.js');
+}
+```
 
 ```php+HTML
-@push('styles')
-		<link rel="stylesheet" href="/css/app.css">
+@push('scripts')
+		<script src="assets/js/app.js"></script>
 @endpush
+```
+
+### @verbatim
+
+```php+HTML
+Hello, @{{ name }}.
+```
+
+```php+HTML
+@verbatim
+    <div class="container">
+        Hello, {{ name }}.
+    </div>
+@endverbatim
+```
+
+### @if
+
+```php+HTML
+@if (count($categories) === 1)
+    I have one category!
+@elseif (count($categories) > 1)
+    I have multiple categories!
+@else
+    I don't have any categories!
+@endif
+```
+
+### @auth
+
+```php+HTML
+@auth
+    // The user is authenticated...
+@endauth
+
+@guest
+    // The user is not authenticated...
+@endguest
+```
+
+### @unless
+
+```php+HTML
+@unless (Cart::content())
+    Cart is empty.
+@endunless
+```
+
+### @for
+
+```php+HTML
+@for ($i = 0; $i < 10; $i++)
+    The current value is {{ $i }}
+@endfor
+
+@foreach ($categories as $category)
+    <p>This is category {{ $category->name }}</p>
+@endforeach
+
+@forelse ($categories as $category)
+    <li>{{ $category->name }}</li>
+@empty
+    <p>No categories</p>
+@endforelse
+
+@while (true)
+    <p>I'm looping forever.</p>
+@endwhile
 ```
 
 ### @inject
@@ -123,7 +211,7 @@ The `@page` tag renders the contents of a page into a layout template.
 @inject('metrics', 'App\Services\MetricsService')
 
 <div>
-    Monthly Revenue: {% raw %}{{ $metrics->monthlyRevenue() }}{% endraw %}.
+    Monthly Revenue: {{ $metrics->monthlyRevenue() }}.
 </div>
 ```
 
@@ -137,11 +225,10 @@ The `@page` tag renders the contents of a page into a layout template.
 | ------------------ | ---------- |
 | `@extends`           | Use [Theme Layouts]() |
 | `@include`           | Use `@partial`           |
-| `@includeIf`         | Use `@partial`           |
-| `@includeWhen`       | Use `@partial`           |
-| `@includeUnless`     | Use `@partial`           |
-| `@includeFirst`      | Use `@partial`           |
-| `@include`           | Use `@partial`           |
+| `@includeIf`         | Use `@partialIf`         |
+| `@includeWhen`       | Use `@partialWhen`       |
+| `@includeUnless`     | Use `@partialUnless`     |
+| `@includeFirst`      | Use `@partialFirst`      |
 | `@endcomponent`      | Use `@component` |
 | `@componentfirst`    | Use `@component` |
 | `@endcomponentfirst` | Use `@`component` |
