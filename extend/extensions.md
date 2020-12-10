@@ -310,7 +310,7 @@ $abandonedCart = CartSettings::get('abandoned_cart', true);
 
 ### Using the file-based configuration
 
-Plugins can have a `config.php` configuration file in the extension directory `config` subdirectory. Configuration files are PHP scripts that define and return an array, e.g. `/extensions/igniter/cart/config/config.php` configuration file:
+Extensions can have a `config.php` configuration file in the extension directory `config` subdirectory. Configuration files are PHP scripts that define and return an array, e.g. `/extensions/igniter/cart/config/config.php` configuration file:
 
 ```php
 <?php
@@ -327,7 +327,7 @@ Use the `Config` class to access the configuration values defined in the configu
 use Config;
 
 // Get a value and return a default value if it doesn't exist
-$cartSessionTtl = Config::get('cartSessionTtl', 120);
+$cartSessionTtl = Config::get('igniter.cart::config.cartSessionTtl', 120);
 ```
 
 ### Registering settings link
