@@ -21,7 +21,7 @@ TastyIgniter adds a number of directives and variables to the <a href="https://l
 
 ## Directives
 
-Directives are a unique feature to Laravel Blade and are wrapped with `{{ }}` characters or prefixed with `@` character.
+Directives are a unique feature to Laravel Blade and are wrapped with `{{ '{{ }}' }}` characters or prefixed with `@` character.
 
 ### @page
 
@@ -105,7 +105,7 @@ The `@page` tag renders the contents of a page into a layout template.
 @styles
 ```
 
-```
+```php
 function onStart()
 {
     $this->addCss('assets/css/style.css');
@@ -124,7 +124,7 @@ function onStart()
 @scripts
 ```
 
-```
+```php
 function onStart()
 {
     $this->addJs('assets/js/script.js');
@@ -187,15 +187,15 @@ Hello, @{{ name }}.
 
 ```php+HTML
 @for ($i = 0; $i < 10; $i++)
-    The current value is {{ $i }}
+    The current value is {{ '{{ $i }}' }}
 @endfor
 
 @foreach ($categories as $category)
-    <p>This is category {{ $category->name }}</p>
+    <p>This is category {{ '{{ $category->name }}' }}</p>
 @endforeach
 
 @forelse ($categories as $category)
-    <li>{{ $category->name }}</li>
+    <li>{{ '{{ $category->name }}' }}</li>
 @empty
     <p>No categories</p>
 @endforelse
@@ -211,7 +211,7 @@ Hello, @{{ name }}.
 @inject('metrics', 'App\Services\MetricsService')
 
 <div>
-    Monthly Revenue: {{ $metrics->monthlyRevenue() }}.
+    Monthly Revenue: {{ '{{ $metrics->monthlyRevenue() }}' }}.
 </div>
 ```
 
@@ -234,7 +234,3 @@ Hello, @{{ name }}.
 | `@endcomponentfirst` | Use `@`component` |
 
 
-
-```
-
-```
