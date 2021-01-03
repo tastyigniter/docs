@@ -167,7 +167,7 @@ public function registerNavigation()
             'child' => [
                 'banners' => [
                     'priority' => 500,
-                    'title' => 'Banners'
+                    'title' => 'Banners',
                     'href' => admin_url('igniter/helloworld/banners'),
                     'permission' => ['Igniter.HelloWorld.Banners'],
                 ],
