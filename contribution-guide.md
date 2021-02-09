@@ -41,7 +41,7 @@ Please be very clear on your commit messages and pull request, duplicate or empt
 
 ## Which Branch?
 
-> **Note:** This section applies specifically to those sending pull requests to any repositories under the <a href="https://github.com/tastyigniter" target="_blank">Slack</a> organization.
+> **Note:** This section applies specifically to those sending pull requests to any repositories under the <a href="https://github.com/tastyigniter" target="_blank">TastyIgniter</a> organization.
 
 **All** bug fixes should be sent to the latest stable branch. Bug fixes should **never** be sent to the `master` branch.
 

@@ -22,9 +22,9 @@ extensions/
     demo/             				<=== Extension directory
       language/       				<=== Localization directory
         en/           				<=== Language directory
-          lang.php    				<=== Locale file
+          default.php    				<=== Locale file
         es/
-          lang.php
+          default.php
 ```
 
 > Each language directory should be named using the <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" targer="_blank">ISO 639-1</a> code for the language it contains.
@@ -65,7 +65,7 @@ language/                 <=== Localization directory
   en/                     <=== Language directory
     igniter/
       demo/               <=== Extension directory
-        lang.php          <=== Locale override file
+        default.php          <=== Locale override file
 ```
 
 You should only define the locale strings you want to override in this file. Any locale strings you do not override are still loaded from the original locale files of the extension.
@@ -106,7 +106,7 @@ TastyIgniter (es)/
         extensions/           <=== Namespaced directory
           igniter/
             demo/
-              lang.php        <=== Locale file
+              default.php        <=== Locale file
 ```
 
 
@@ -124,7 +124,7 @@ language/
     system/
     igniter/
       demo/
-        lang.php               <=== Locale file
+        default.php               <=== Locale file
 ```
 
 > Notice the language directory name uses **underscore** instead of an hypen (e.g. “es_ES”).
