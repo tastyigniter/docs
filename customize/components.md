@@ -22,16 +22,16 @@ title: My first page
 permalink: "/page"
 
 '[cartBox]':
-  showCartItemThumb: 1
+    showCartItemThumb: 1
 ---
 ```
 
-The **cartBox** component in the above example initializes the property **showCartItemThumb** with value **1**.
+The **cartBox** component in the above example initializes the property **showCartItemThumb** with value **1**. 
 
 When you attach a component, a page variable that matches the component name is automatically created (`$cartBox` in the previous example). Render components HTML markup on a page or layout as follows:
 
-```php+HTML
-@component('cartBox')
+```php
+<?= component('cartBox') ?>
 ```
 
 ### Using multiple instances of the same component
@@ -40,43 +40,45 @@ If two components with the same name are assigned to a page and layout together,
 
 You can attach components of the same name registered within two extensions by using its fully qualified class name and assigning it an *alias*:
 
-```php+HTML
+```yaml
 '[Igniter\Cart\Components\CartBox cartBox]':
     showCartItemThumb: 1
 
 '[Igniter\Local\Components\CartBox localCartBox]':
     showCartItemThumb: 1
 ---
-@component('cartBox')
+<?= component('cartBox') ?>
 
-@component('localCartBox')
+<?= component('localCartBox') ?>
 ```
 
 Define multiple instances of a same component:
 
-```php+HTML
+```yaml
 '[cartBox cartBoxA]':
     showCartItemThumb: 1
 
 '[cartBox cartBoxB]':
     showCartItemThumb: 1
 ---
-@component('cartBoxA')
+<?= component('cartBoxA') ?>
 
-@component('cartBoxB')
+<?= component('cartBoxB') ?>
 ```
 
 ## Component variables
 
-The  `@component('cartBox')` tag accepts an array of variables as its second parameter. The specifed variables will be available at the time of rendering and will explicitly override the component property values:
+The  `<?= component('cartBox') ?>` tag accepts an array of variables as its second parameter. The specifed variables will be available at the time of rendering and will explicitly override the component property values:
 
-```php+HTML
-@component('cartBox', ['showCartItemThumb' => 0])
+```php
+<?= component('cartBox', [
+    'showCartItemThumb' => 0
+]) ?>
 ```
 
 The **showCartItemThumb** property value of the component will be set to **0** when the component is being rendered.
 
 ## Overriding component partials
 
-All component partials can be overridden by creating theme partials. A component defined with alias **cartBox** can have its **control.blade.php** partial overridden by creating a theme file called **_partials/cartBox/control.blade.php**
+All component partials can be overridden by creating theme partials. A component defined with alias **cartBox** can have its **control.php** partial overridden by creating a theme file called **_partials/cartBox/control.php**
 

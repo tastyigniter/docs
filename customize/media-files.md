@@ -7,7 +7,7 @@ callout: This section is incomplete. Please help to improve it.
 
 ## Introduction
 
-By default, Media Manager works with the `/assets/media` directory. It is possible to use external storages such as Amazon S3 or Rackspace CDN.
+By default Media Manager works with the `/assets/media` directory. It is possible to use external storages such as Amazon S3 or Rackspace CDN.
 
 > The [Drivers extension](http://tastyigniter.com/marketplace/item/igniter-drivers) must be installed before you can use Amazon S3 or Rackspace CDN.
 
@@ -15,11 +15,11 @@ Reset the Media Manager cache, once you change its configuration.
 
 ## Media configuration options
 
-Define options under **assets.media** within the **config/system.blade.php** file to configure the Media Manager according to your preference.
+Define options under **assets.media** within the **config/system.php** file to configure the Media Manager according to your preference. 
 
 Additional options can be configured from **System > Settings > Media** in the Admin interface.
 
-For more information on configuring external storage, check out <a href="https://laravel.com/docs/filesystem#configuration" targer="_blank">Laravel's filesystem docs</a>.
+For more information on configuring external storage, check out <a href="https://laravel.com/docs/filesystem#configuration" targer="_blank">laravel's filesystem docs</a>.
 
 ## Working with Media files
 

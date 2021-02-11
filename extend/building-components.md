@@ -16,8 +16,8 @@ extensions/
     helloworld/         		<=== Extension directory
       components/				<=== Components subdirectory
         block/       			<=== Component partials directory
-          default.blade.php        	<=== Component default partial (optional)
-        HelloBlock.blade.php    		<=== Component class file
+          default.php        	<=== Component default partial (optional)
+        HelloBlock.php    		<=== Component class file
 ```
 
 ## Defining the component
@@ -49,14 +49,12 @@ class Block extends \System\Classes\BaseComponent
 }
 ```
 
-The component properties and methods are available on the page or layout its attached through the component variable
-which corresponds to the alias of the component. For example, if the `HelloBlock` component was defined on a page or
-layout as `'[helloBlock]'`, you will be able to access its `alerts` through the `$helloBlock` variable:
+The component properties and methods are available on the page or layout its attached through the component variable which corresponds to the alias of the component. For example, if the `HelloBlock` component was defined on a page or layout as `'[helloBlock]'`, you will be able to access its `alerts` through the `$helloBlock` variable:
 
-```php+HTML
-@foreach ($helloBlock->alerts() as $message) {
-    <p>{{ $message }}</p>
-@endforeach
+```php
+<?php foreach ($helloBlock->alerts() as $message) { ?>
+    <p><?= $message; ?></p>
+<?php } ?>
 ```
 
 ### Component registration
@@ -101,11 +99,12 @@ The method should return an array with the property keys as indexes and the prop
 | Key             | Description                                                  |
 | --------------- | ------------------------------------------------------------ |
 | **label**       | required, the property label, it is used by the component Selector in the Admin Interface. |
-| **type**        | optional, specifies the property type. The type defines the form field type. Currently supported types are **<br/>text**, **number**, **checkbox**, **radio**, **select** and **selectlist**. Default value: **text**. |
+| **type**        | optional, specifies the property type. The type defines the form field type. Currently supported types are **text**, **number**, **checkbox**, **radio**, **select** and **selectlist**. Default value: **text**. |
 | **default**     | optional, the default property value.                        |
 | **comment**     | optional, the property description, it is used by the component Selector in the Admin Interface. |
 | **placeholder** | optional placeholder for text and select properties.         |
 | **options**     | optional array of options for checkbox, radio, select, selectlist properties. |
+
 The **options** property key can be static or dynamic. Using the `maxItems` property, let's define static options:
 
 ```php
@@ -175,11 +174,11 @@ extensions/
     helloworld/
       components/
         partials/				<=== Component shared partials directory
-          shared.blade.php			<=== Component shared partial file
+          shared.php			<=== Component shared partial file
         block/ 
-          default.blade.php
-          pagination.blade.php        <=== Component additional partial
-        HelloBlock.blade.php    		<=== Component class file
+          default.php
+          pagination.php        <=== Component additional partial
+        HelloBlock.php    		<=== Component class file
 ```
 
 > Components can share partial files by placing them in the **components/partials** subdirectory of the extension directory. 
@@ -234,7 +233,7 @@ public function onAddItem()
 }
 ```
 
-If the alias for this component was `helloBlock` this handler can be accessed by `helloBlock::onAddItem`.
+If the alias for this component was `helloBlock` this handler can be accessed by `helloBlock::onAddItem`. 
 
 > Please see the [Handling AJAX Requests](../advanced/ajax-request) article for more details.
 
@@ -252,4 +251,3 @@ public function onRun()
     $this->addJs('assets/js/controls.js');
 }
 ```
-

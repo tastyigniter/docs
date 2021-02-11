@@ -6,11 +6,11 @@ sortOrder: 100
 
 ## Introduction
 
-TastyIgniter themes are files that work together to create a TastyIgniter site's design and functionality. Each theme can be different, offering site owners many choices to change their website look instantly. This article is about developing themes for TastyIgniter.
+TastyIgniter themes are files that work together to create a TastyIgniter site's design and functionality. Each theme can be different, offering site owners many choices to change their website look instantly. This article is about developing themes for TastyIgniter. 
 
 Themes are by default subdirectories in the **/themes** directory. The subdirectory of the theme contains all the [pages](../customize/pages), [partials](../customize/partials), [layouts](../customize/layouts) and [assets](../customize/media-files) files and optional theme PHP file (theme.php).
 
-> The active theme is set in the config/system.php file with the defaultTheme parameter or in the **Design > Themes** Admin page with the Theme Selector.
+> The active theme is set in the config/system.php file with the defaultTheme parameter or in the **Design > Themes** Admin page with the Theme Selector. 
 
 ## Directory structure
 
@@ -121,7 +121,7 @@ function onStart()
 ?>
 ---
 <div>
-    @component('cartBox')
+    <?= component('cartBox') ?>
 </div>
 ```
 
@@ -129,7 +129,7 @@ function onStart()
 
 The front matter must be the first thing in the file and must take the form of a valid YAML set between triple-dashed lines. You can set predefined variables between these triple-dashed lines (see below for a reference) or even create custom ones of your own. These variables will then be available to you to access using PHP tags both further down in the file and also in any template referenced. Here is a basic example:
 
-```php+HTML
+```yaml
 ---
 title: "Menu Items"
 permalink: "/menus"
@@ -142,9 +142,7 @@ layout: "default"
 
 ### PHP code section
 
-The code within the PHP section is executed each time before the template is rendered. The PHP section is optional and
-the content depends on the type of template it is defined within. The PHP open and close tags should always be set
-within the section separator `---` on a different line. For example:
+The code within the PHP section is executed each time before the template is rendered. The PHP section is optional and the content depends on the type of template it is defined within. The PHP open and close tags should always be set within the section separator `---` on a different line. For example:
 
 ```php+HTML
 ---
@@ -158,9 +156,9 @@ function onStart() {
 ---
 <h3>Categories</h3>
 <ul>
-    @foreach ($categories as $category) {
-	    <li>{{ $category->name }}</li>
-	@endforeach
+    <?php foreach ($categories as $category) { ?>
+	    <li><?= $category->name; ?></li>
+	<?php } ?>
 </ul>
 ```
 
@@ -182,6 +180,7 @@ To load a partial or content file from another template file, you can use `parti
 | **page**       | Page object `$this->page`. Custom variables set via front matter in [pages](../customize/pages) will be available here. |
 | **layout**     | Layout object `$this->layout`. Custom variables set via front matter in [layouts](../customize/layouts) will be available here. |
 | **controller** | Access the underlying controller object `$this->controller`. |
+
 ## Customization API
 
 The Theme Customization feature is available by default for almost all TastyIgniter themes from **Design > Themes**. The Theme Customization Admin page is automatically populated with form fields that a theme registers using the `_meta/fields.php` file.
@@ -210,7 +209,7 @@ return [
 The value can then be accessed inside any of the Theme templates:
 
 ```php+HTML
-<h1>Welcome to {{ $this->theme->font_family }}!</h1>
+<h1>Welcome to <?= $this->theme->font_family; ?>!</h1>
 ```
 
 ## Best Practices
