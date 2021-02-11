@@ -164,7 +164,7 @@ $properties = $this->getProperties();
 Accessing the property value from a **component partial**:
 
 ```php
-<?= $__SELF__->property('maxItems'); ?>
+{{ $__SELF__->property('maxItems') }}
 ```
 
 ### Component partials

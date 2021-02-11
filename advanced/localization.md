@@ -49,9 +49,9 @@ return [
 You can use the `lang` helper function to get strings from locale files. The method accepts the file and key of the locale string as its first argument. For example, let's the `sample_key` locale string from the locale file `extensions/igniter/demo/language/en/lang.php`:
 
 ```php
-echo lang('igniter.demo::lang.sample_key');
+@lang('igniter.demo::lang.sample_key')
 
-echo lang('igniter.demo::lang.alert.success');
+@lang('igniter.demo::lang.alert.success')
 ```
 
 ## Overriding locale strings

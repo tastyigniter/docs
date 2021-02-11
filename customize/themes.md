@@ -20,15 +20,15 @@ Below is an example of a theme directory structure. Every TastyIgniter theme is 
 themes/
   your-theme/           <=== Theme starts here
     _layouts/         	<=== Layouts directory
-      default.php
+      default.blade.php
     _pages/           	<=== Pages directory contains the website pages
-      home.php
+      home.blade.php
 	_partials/        	<=== Partials directory contains reusable HTML chucks
-      sidebar.php
+      sidebar.blade.php
     _meta/        		<=== Meta directory
       assets.json			<=== Registers global css, js files and HTML meta tags 
     _content/         	<=== Content directory contains reusable HTML blocks
-      cta.php
+      cta.blade.php
     assets/          	<=== Assets directory contains images, CSS and JavaScript files.
       css/
       js/
