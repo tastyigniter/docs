@@ -16,7 +16,7 @@ This article is a guide for developers interested in contributing code to TastyI
 
 If you have a feature idea, the TastyIgniter forum is the best place to suggest it. Please do not use GitHub issues to suggest a new feature.
 
-Use GitHub only if you plan to contribute and develop a new feature. If you'd like to discuss your idea first, you can always join us on <a href="https://tastyigniter.com/slack" target="_blank">Slack</a> before posting it "officially" anywhere. 
+Use GitHub only if you plan to contribute and develop a new feature. If you'd like to discuss your idea first, you can always join us on <a href="https://tastyigniter.com/dscord" target="_blank">Discord</a> before posting it "officially" anywhere. 
 
 ## Reporting bugs
 

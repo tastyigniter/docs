@@ -32,6 +32,8 @@ There are two ways you can install TastyIgniter, either using the Quick or Comma
 4. Run the TastyIgniter setup script by accessing setup.php in your web browser. Example, http://example.com/setup.php or http://example.com/folder/setup.php
 5. Follow all onscreen instructions and make sure all installation requirements are checked.
 
+![screenshot](https://tastyigniter.com/assets/ui/images/mockups/SetupWizard.png)
+
 ### Command-line installation
 
 TastyIgniter also uses <a href="https://getcomposer.org/" target="_blank">composer</a> to manage its dependencies, you'll need to have composer installed on your machine before using the TastyIgniter command-line installation. Run this command in an empty location that you want TastyIgniter to be installed in:
@@ -203,7 +205,7 @@ You can access the administrator panel from `/admin` with your username and pass
 
 - If you believe you have found a bug, please report it using the <a href="https://github.com/tastyigniter/TastyIgniter/issues" target="_blank">GitHub issue tracker</a>, or better yet, fork the repo and submit a pull request.
 - If you have feedback to share, ideas you would like implemented, by all means, share them on the <a href="https://forum.tastyigniter.com" target="_blank">TastyIgniter Community Forums</a>.
-- <a href="http://slack.tastyigniter.com/" target="_blank">Join us on our Slack channel</a> to chat with us.
+- <a href="https://tastyigniter.com/discord" target="_blank">Join us on Discord</a> to chat with us.
 
 ## Troubleshooting
 1. **A 404 error page is displayed:** This could be a result of the mod_rewrite module not being activated/installed or configured properly. Activate mod_rewrite for the Apache web-server.
