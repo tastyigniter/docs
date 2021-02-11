@@ -6,22 +6,21 @@ sortOrder: 170
 
 ## Introduction
 
-TastyIgniter adds a number of directives and variables to the <a href="https://laravel.com/docs/blade" targer="_blank">Blade template engine</a>. 
+TastyIgniter adds a number of directives and variables to the <a href="https://laravel.com/docs/blade" target="_blank">
+Blade template engine</a>.
 
 ## Variables
 
-### $this->page
-
-### $this->layout
-
-### $this->theme
-
-### $this->param
-
+|                 |
+| --------------- |
+| `$this->page`   |
+| `$this->layout` |
+| `$this->theme`  |
+| `$this->param`  |
 
 ## Directives
 
-Directives are a unique feature to Laravel Blade and are wrapped with `{{ '{{ }}' }}` characters or prefixed with `@` character.
+Directives are a unique feature to Laravel Blade and are wrapped with `{{ }}` characters or prefixed with `@` character.
 
 ### @page
 
@@ -215,11 +214,9 @@ Hello, @{{ name }}.
 </div>
 ```
 
-
-
 ## Unsupported Directives
 
-### 
+###   
 
 | Directive          | Equivalent |
 | ------------------ | ---------- |
@@ -231,6 +228,6 @@ Hello, @{{ name }}.
 | `@includeFirst`      | Use `@partialFirst`      |
 | `@endcomponent`      | Use `@component` |
 | `@componentfirst`    | Use `@component` |
-| `@endcomponentfirst` | Use `@`component` |
+| `@endcomponentfirst` | Use `@component` |
 
 

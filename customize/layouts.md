@@ -6,18 +6,18 @@ sortOrder: 120
 
 ## Introduction
 
-Layouts are templates that wrap around your content. They allow you to have your template source code in one place so that you don't have to repeat things like your header and footer on every page. 
+Layouts are templates that wrap around your content. They allow you to have your template source code in one place so that you don't have to repeat things like your header and footer on every page.
 
-Layouts files live in the **/_layouts** subdirectory of a theme directory. 
+Layout files live in the **/_layouts** subdirectory of a theme directory.
 
 ```yaml
 themes/
   your-theme/           <=== Theme directory
     _layouts/         	<=== Layouts subdirectory
-      default.php		<=== Layout template file
+      default.blade.php		<=== Layout template file
 ```
 
-The convention is to have a basic layout called `default.php` and be used by other pages as required. Within the layout file, you should use the `<?= page(); ?>`  tag to display the content of the page.
+The convention is to have a basic layout called `default.blade.php` and be used by other pages as required. Within the layout file, you should use the `@page`  tag to display the content of the page.
 
 ```php+HTML
 <!DOCTYPE html>
@@ -26,14 +26,14 @@ The convention is to have a basic layout called `default.php` and be used by oth
         <!-- -->
     </head>
     <body>
-        <?= page(); ?>
+        @page
     </body>
 </html>
 ```
 
 Next you need to specify what layout to use in your page's front matter.
 
-```yaml
+```php+HTML
 ---
 permalink: "/page"
 layout: default
@@ -45,7 +45,7 @@ layout: default
 
 The front matter section is optional for layouts. The optional front matter parameters are `name` and `description` and are used in the Admin user interface. For example:
 
-```yaml
+```php+HTML
 ---
 name: My First Layout
 description: My first layout example
@@ -56,9 +56,9 @@ description: My first layout example
         <!-- -->
     </head>
     <body>
-        <?= page(); ?>
+        @page
     </body>
-</html>>
+</html>
 ```
 
 You can set the front matter in layouts, the only difference is you use the layout object instead of the page. For example:
@@ -67,14 +67,14 @@ You can set the front matter in layouts, the only difference is you use the layo
 ---
 food: "Pizza"
 ---
-<p><?= $this->layout->food; ?></p>
+<p>{{ $this->layout->food }}</p>
 
-<?= page(); ?>
+@page
 ```
 
 ## Execution life cycle
 
-Specific functions can be defined in the layouts PHP code section for handling the page execution life cycle: `onInit`, `onStart` and `onEnd`. 
+Specific functions can be defined in the layouts PHP code section for handling the page execution life cycle: `onInit`, `onStart` and `onEnd`.
 
 The `onInit` function is executed when all [components](../customize/components) are initialized and before AJAX requests are handled. The `onStart` function is executed at the start of the execution of the page. The `onEnd` function is executed after the page is rendered.
 
@@ -90,7 +90,5 @@ function onStart()
 }
 ?>
 ---
-<h3><?= $this->layout->hello; ?></h3>
+<h3>{{ $this->layout->hello }}</h3>
 ```
-
-## 

@@ -13,9 +13,9 @@ Partial files live in the **/_partials** subdirectory of a theme directory.
 
 ```yaml
 themes/
-  your-theme/           <=== Theme directory
-    _partials/         	<=== Partials subdirectory
-      sidebar.php		<=== Partial template file
+	your-theme/           <=== Theme directory
+		_partials/         	  <=== Partials subdirectory
+			sidebar.blade.php     <=== Partial template file
 ```
 
 ## Rendering partials
@@ -40,7 +40,7 @@ You may pass variables to partials by defining them in the `@partial` directive 
 
 You can access variables within the partial like any other markup variable: 
 
-```
+```php+HTML
 <ul>
 	@foreach($pages as $page)
 		<li>{{ $page->name }}</li>

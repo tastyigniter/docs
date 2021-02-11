@@ -6,9 +6,9 @@ sortOrder: 160
 
 ## Introduction
 
-The Permissions system controls access and restriction to all parts of a TastyIgniter application. There are Super Admins at the lowest level (users with the `super_user` flag set to `true`), and Administrators (staff), and permissions. The `\Admin\Models\Staffs_model` and `\Admin\Models\Users_model` models are the containers that hold all the important information about an administrator.
+The Permissions' system controls access and restriction to all parts of a TastyIgniter application. There are Super Admins at the lowest level (users with the `super_user` flag set to `true`), and Administrators (staff), and permissions. The `\Admin\Models\Staffs_model` and `\Admin\Models\Users_model` models are the containers that hold all the important information about an administrator.
 
-Superadmins have access to everything in the system and can only be managed by themselves or by other superadmins; they are not accessible to or editable by regular administrators, even if an administrator has the `Admin.Staff` permission.
+Super admins have access to everything in the system and can only be managed by themselves or by other super admins; they are not accessible to or editable by regular administrators, even if an administrator has the `Admin.Staff` permission.
 
 ## How Permissions Work
 
@@ -65,7 +65,7 @@ public $requiredPermissions = ['Igniter.Pages.*'];
 
 ## Restricting access to features
 
-The admin `\Admin\Models\Users_model` user model has method `hasPermission` for determining whether the administrator has specific permissions. To restrict the functionality of the admin user interface, you can use this feature. This method takes two parameters: the permission key string (or an array of key strings) and the optional parameter specifying that all permissions specified with the first parameters are required. 
+The admin `\Admin\Models\Users_model` user model has method `hasPermission` for determining whether the administrator has specific permissions. To restrict the functionality of the admin user interface, you can use this feature. This method takes two parameters: the permission key string (or an array of key strings) and the optional parameter specifying that all permissions specified with the first parameters are required.
 
 The `hasPermission` method returns `true` for any permission if the administrator is a superadmin (`super_user` set to `true`) or if the administrator does have the specified permissions through their group. The example below illustrates how to use the methods in the controller code:
 
@@ -81,3 +81,4 @@ if ($this->user->hasPermission([
     // ...
 }
 ```
+
