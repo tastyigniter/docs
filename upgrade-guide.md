@@ -11,7 +11,8 @@ If it doesn't work, or you just prefer to be more hands-on, you can follow the m
 
 ## Upgrading TastyIgniter v2.1.x to v3.x.x
 
-This is a huge release. It contains a massive change in the codebase frrom CodeIgniter to Laravel with some new features and plenty bug fixes.
+This is a huge release. It contains a massive change in the codebase from CodeIgniter to Laravel with some new features
+and plenty bug fixes.
 
 Listing all the improvements in v3 would be great but its a lot I lost track. So straight to upgrade!
 
