@@ -11,17 +11,10 @@ requirements.
 
 These are the requirements for your web hosting to run TastyIgniter:
 
-- Apache (with mod_rewrite enabled) or Nginx
-- MySQL 5.7+ or MariaDB 10.0.5+
-- PHP 7.3+ with the following extensions:
-- PDO PHP Extension
-- cURL PHP Extension
-- OpenSSL PHP Extension
-- GD PHP Extension
-- Mcrypt PHP Extension
-- Mbstring PHP Extension
-- JSON PHP Extension
-- Tokenizer PHP Extension
+- **Apache** (with mod_rewrite enabled) or **Nginx**
+- **MySQL 5.7+** or **MariaDB 10.0.5+**
+- **PHP 7.3+** with the following extensions: pdo_mysql, curl, openssl, dom, gd, mbstring, json, pdo_mysql, tokenizer,
+  zip
 
 ## Install TastyIgniter
 
@@ -39,7 +32,7 @@ There are two ways you can install TastyIgniter, either using the Quick or Comma
    or http://example.com/folder/setup.php
 5. Follow all onscreen instructions and make sure all installation requirements are checked.
 
-![screenshot](https://tastyigniter.com/assets/ui/images/mockups/SetupWizard.png)
+<img src="https://tasty-cms.wip/assets/ui/images/mockups/SetupWizard.png" alt="TastyIgniter setup wizard screenshot" style="max-height:250px" />
 
 ### Command-line installation
 
@@ -67,8 +60,8 @@ setup files. TastyIgniter will never automatically delete files from your system
 be deleted manually:
 
 ```yaml
-setup/      		<== Setup directory
-setup.php       <== Setup script
+setup/      	<== Setup directory
+  setup.php     <== Setup script
 ```
 
 ### Setting up the task scheduler
@@ -88,15 +81,21 @@ assess your scheduled tasks and run the tasks that are due.
 
 ### Setting up the queue daemon
 
-By default the queue in TastyIgniter is synchronous and will attempt to run tasks such as sending emails in real time.
+By default, the queue in TastyIgniter is synchronous and will attempt to run tasks such as sending emails in real time.
 This behaviour can be set to an asynchronous method by changing the `default` parameter in the `config/queue.php`.
 
-If you are using the `database` queue, you need to run the queue process as a daemon service. Use the following command:
-`php /path/to/artisan queue:work &`
+If you are using the `database` queue, it is a good idea to run the queue process as a daemon service. Use the following
+command:
 
-It is strongly advised that you run this command on system start up. If Cron is available, this can be achieved using
-the following format:
-`@reboot php /path/to/artisan queue:work &`
+```bash
+php /path/to/artisan queue:work
+```
+
+You can use Supervisor process monitor to automatically restart the `queue:work`
+command if it fails.
+
+For more information on configuring Supervisor and using Queues, consult
+the <a href="https://laravel.com/docs/queues#running-the-queue-listener" target="_blank">Laravel Queue docs</a>.
 
 ## Web server configuration
 
@@ -175,16 +174,18 @@ location ~ ^/themes/.*/assets { try_files $uri 404; }
 
 ### Debug mode
 
-The debug setting is found in the `config/app.php` configuration file with the `debug` parameter, and is enabled by
+The debug setting is found in the `config/app.php` configuration file with the `debug` parameter, and is disabled by
 default.
 
 When enabled, this setting will display detailed error messages when they occur along with other debugging functions.
 Debug mode should always be disabled in a live production site. This prevents the display of potentially sensitive
 information to the end user.
 
+> Important: Always set the `APP_DEBUG` setting to false in production environments.
+
 ### CSRF protection
 
-TastyIgniter offers an simple method to protect your application from cross-site request forgeries.
+TastyIgniter offers a simple method to protect your application from cross-site request forgeries.
 
 For every active user session managed by the application, TastyIgniter automatically generates a CSRF "token." This
 token is used to check that the authenticated user is the one who actually makes the client requests.
@@ -245,7 +246,8 @@ After you've logged in you'll be able to access the administration panel to conf
    configured properly. Activate mod_rewrite for the Apache web-server. If it is already activated, check the root
    htaccess file in `/.htaccess`, to make sure the `RewriteBase` value is configured properly.
 2. **A blank screen is displayed when opening the application:** Check the file permissions are set correctly on
-   the `/storage` files and folders and writable for the web server.
+   the `/storage` files and folders and writable for the web server. Also check that your files are owned by the correct
+   group and user.
 3. **Setup successful but storefront links are not working:** Check that the theme's required extensions are all
    installed.
 
