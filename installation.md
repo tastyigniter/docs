@@ -41,7 +41,7 @@ you'll need to have composer installed on your machine before using the TastyIgn
 command in an empty location that you want TastyIgniter to be installed in:
 
 ```bash
-composer create-project tastyigniter/tastyigniter . --stability=beta
+composer create-project tastyigniter/tastyigniter .
 ```
 
 After running the above command, run the install command and follow the instructions to complete installation
