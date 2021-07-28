@@ -126,48 +126,11 @@ RewriteBase /mysubdirectory/
 
 ### Nginx configuration
 
-Add the following lines to your server’s configuration block:
+Make sure that `.nginx.conf` file included with TastyIgniter has been uploaded correctly. Then, assuming you have Nginx
+setup, add the following to your server’s configuration block:
 
 ```html
-/etc/nginx/sites-available/default
-```
-
-Use the following code in **server** section. If you have installed TastyIgniter into a subdirectory, replace the
-first `/` in location directives with the directory TastyIgniter was installed under:
-
-```html
-location / { try_files $uri $uri/ /index.php?$query_string; }
-
-# Pass the PHP scripts to FastCGI server
-location ~ ^/index.php {
-# Write your FPM configuration here
-
-}
-
-# Whitelist
-## Let TastyIgniter handle if static file does not exists
-location ~ ^/favicon\.ico { try_files $uri /index.php; }
-location ~ ^/sitemap\.xml { try_files $uri /index.php; }
-location ~ ^/robots\.txt { try_files $uri /index.php; }
-location ~ ^/humans\.txt { try_files $uri /index.php; }
-
-## Let nginx return 404 if static file does not exists
-location ~ ^/assets/media { try_files $uri 404; }
-location ~ ^/storage/temp/public { try_files $uri 404; }
-
-location ~ ^/app/.*/assets { try_files $uri 404; }
-location ~ ^/app/.*/actions/.*/assets { try_files $uri 404; }
-location ~ ^/app/.*/dashboardwidgets/.*/assets { try_files $uri 404; }
-location ~ ^/app/.*/formwidgets/.*/assets { try_files $uri 404; }
-location ~ ^/app/.*/widgets/.*/assets { try_files $uri 404; }
-
-location ~ ^/extensions/.*/.*/assets { try_files $uri 404; }
-location ~ ^/extensions/.*/.*/actions/.*/assets { try_files $uri 404; }
-location ~ ^/extensions/.*/.*/dashboardwidgets/.*/assets { try_files $uri 404; }
-location ~ ^/extensions/.*/.*/formwidgets/.*/assets { try_files $uri 404; }
-location ~ ^/extensions/.*/.*/widgets/.*/assets { try_files $uri 404; }
-
-location ~ ^/themes/.*/assets { try_files $uri 404; }
+include /path/to/tastyigniter/.nginx.conf;
 ```
 
 ## Application configuration
