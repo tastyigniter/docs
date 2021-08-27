@@ -1,5 +1,7 @@
 ---
-layout: page section: user-guide title: "Download TastyIgniter"
+layout: page 
+section: user-guide 
+title: "Download TastyIgniter"
 ---
 
 # Download TastyIgniter
