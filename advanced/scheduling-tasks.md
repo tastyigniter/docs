@@ -51,3 +51,7 @@ More information on task scheduling can be found on the <a href="https://laravel
 ## Creating commands
 
 TastyIgniter does not support generation of commands by `php artisan make:command`, instead use `php artisan create:command Vendor.Extension CommandName`. For example running `php artisan create:command Igniter.Cart ClearSessions` will create a command stub in the `extensions/igniter/cart/console` folder.
+
+You should then register the command in your extension `register()` method to make it available to artisan, e.g. `$this->registerConsoleCommand('my.command', \Vendor\Extension\Console\MyCommand::class);`
+
+
