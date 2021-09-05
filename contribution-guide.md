@@ -130,7 +130,7 @@ contribute. Here's how styling perfect TastyIgniter documentation pages is done:
 - Avoid short, 1 sentence paragraphs. Combine short paragraphs and try to be a bit more verbose.
 - Avoid short paragraphs hanging below code sections. Combine these paragraphs with the text above the code blocks.
 - Use the inline code tags for all code-related - variable names, function names, syntax examples, etc.
-- Don't hesitate to make cross links to other documentation articles. There is no need to add links to the same article
+- Don't hesitate to make cross-links to other documentation articles. There is no need to add links to the same article
   in the same paragraph.
 - For your reference, see the [pages.md](https://github.com/tastyigniter/docs/blob/master/customize/pages.md)
   or [themes.md](https://github.com/tastyigniter/docs/blob/master/customize/themes.md) files.
