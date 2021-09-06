@@ -67,7 +67,7 @@ Components must be registered by overriding the `registerComponents` method with
 public function registerComponents()
 {
     return [
-        Igniter\HelloWorld\Components\Block::class => [
+        'Igniter\HelloWorld\Components\Block' => [
             'code' => 'helloBlock',
             'name' => 'Name of the hello block component',
             'description' => 'Description of the hello block component',
