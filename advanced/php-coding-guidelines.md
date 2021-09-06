@@ -4,8 +4,6 @@ section: advanced
 sortOrder: 360
 ---
 
-## PHP Coding guidelines and standards
-
 Consistency is key
 
 Coding Standards are critical for achieving high code quality. We can produce a homogeneous code that is easy to read and maintain by using a consistent visual style, naming conventions, and other technical settings.

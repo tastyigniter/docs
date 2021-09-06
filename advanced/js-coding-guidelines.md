@@ -4,8 +4,6 @@ section: advanced
 sortOrder: 370
 ---
 
-## Javascript Coding guidelines and standards
-
 [Prettier](https://prettier.io/) determines our code style. While Prettier's output isn't always the prettiest, it's consistent and removes all (meaningless) discussion about code style.
 
 We try to stick to Prettier's defaults, but have a few overrides to keep our JavaScript code style consistent with PHP.
