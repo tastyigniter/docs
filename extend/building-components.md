@@ -54,7 +54,7 @@ which corresponds to the alias of the component. For example, if the `HelloBlock
 layout as `'[helloBlock]'`, you will be able to access its `alerts` through the `$helloBlock` variable:
 
 ```php+HTML
-@foreach ($helloBlock->alerts() as $message) {
+@foreach ($helloBlock->alerts() as $message)
     <p>{{ $message }}</p>
 @endforeach
 ```
