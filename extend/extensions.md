@@ -273,7 +273,7 @@ use Model;
 
 class CartSettings extends Model
 {
-    public $implement = [System\Actions\SettingsModel::class];
+    public $implement = [\System\Actions\SettingsModel::class];
 
     // A unique code used for saving the settings to the database
     public $settingsCode = 'igniter_cart_settings';
@@ -342,7 +342,7 @@ public function registerSettings()
             'label' => 'Cart Settings',
             'description' => 'Manage cart settings.',
             'icon' => 'fa fa-cart-plus',
-            'model' => Igniter\Cart\Models\CartSettings::class,
+            'model' => \Igniter\Cart\Models\CartSettings::class,
             'permissions' => ['Module.Cart'],
         ],
     ];
