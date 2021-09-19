@@ -844,5 +844,5 @@ $users = User::all()
 ```
 
 
----
+___
 The above are sections taken from the [Spatie PHP Code Guidelines](https://spatie.be/guidelines/laravel-php).
