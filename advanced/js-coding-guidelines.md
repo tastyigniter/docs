@@ -252,4 +252,5 @@ function uploader({
 }
 ```
 
+---
 The above are sections taken from the [Spatie Javascript Code Guidelines](https://spatie.be/guidelines/javascript).
