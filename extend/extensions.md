@@ -54,7 +54,7 @@ Given the above example **Igniter.HelloWorld**, creating an extension is pretty 
 php artisan create:extension Igniter.HelloWorld
 ```
 
-> We strongly recommend that you follow the [TastyIgniter coding standards](../code-of-conduct) when creating your own extensions. It is a requirement for any changes to the TastyIgniter core code.
+> We strongly recommend that you follow the [TastyIgniter coding standards](../advanced/php-coding-guidelines) when creating your own extensions. It is a requirement for any changes to the TastyIgniter core code.
 
 ### Extension manifest file
 
