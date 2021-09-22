@@ -12,7 +12,7 @@ This extension includes two components: Static Page and Static Menu.
 
 ## Installation
 
-To install this extension, click on the **Add to Site** button on the TastyIgniter marketplace item page or search for **Igniter.Local** in **Admin System > Updates > Browse Extensions**
+To install this extension, click on the **Add to Site** button on the TastyIgniter marketplace item page or search for **Igniter.Pages** in **Admin System > Updates > Browse Extensions**
 
 ## Admin Panel
 

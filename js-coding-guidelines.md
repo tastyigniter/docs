@@ -1,6 +1,6 @@
 ---
 title: "Javascript Coding Guidelines"
-section: advanced
+section: "getting-started"
 sortOrder: 370
 ---
 
