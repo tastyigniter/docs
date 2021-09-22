@@ -43,7 +43,7 @@ Selecting a language is optional. Please follow the instructions on the settings
 | Slider | `@component('slider')` | Displays carousel slider              |
 | Captcha | `@component('captcha')` | Displays Google reCAPTCHA             |
 
-## Banners Component
+### Banners Component
 
 **Properties**
 
@@ -98,7 +98,7 @@ Selecting a language is optional. Please follow the instructions on the settings
 ...
 ```
 
-## Contact Component
+### Contact Component
 
 **Properties**
 
@@ -120,7 +120,7 @@ permalink: /contact
 ...
 ```
 
-## Featured Items Component
+### Featured Items Component
 
 **Properties**
 
@@ -162,7 +162,7 @@ permalink: /
 ...
 ```
 
-## Newsletter Component
+### Newsletter Component
 
 **Example:**
 
@@ -175,7 +175,7 @@ permalink: /
 ...
 ```
 
-## Slider Component
+### Slider Component
 
 **Example:**
 
@@ -188,7 +188,7 @@ permalink: /
 ...
 ```
 
-## Captcha Component
+### Captcha Component
 
 Using the captcha is as easy as possible: simply place the captcha component anywhere between `< form >` and `</form >` on your pages. Of course, you can also use the captcha component on multiple pages.
 

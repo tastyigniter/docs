@@ -6,7 +6,7 @@ sortOrder: 60
 
 ## Introduction
 
-## Features:
+## Features
 - Search nearby location
 - Delivery areas (zones) boundary
 - Location opening hours

@@ -33,7 +33,7 @@ In the admin user interface you can manage the cart conditions.
 | OrderPage | `@component('orderPage')` | Displays a single order on the page               |
 | Orders | `@component('orders')` | Displays a list of orders on the page               |
 
-## CartBox Component
+### CartBox Component
 
 **Properties**
 
@@ -74,7 +74,7 @@ permalink: /checkout
 ...
 ```
 
-## Checkout Component
+### Checkout Component
 
 **Properties**
 
