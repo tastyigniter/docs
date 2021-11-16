@@ -32,7 +32,7 @@ There are two ways you can install TastyIgniter, either using the Quick or Comma
    or http://example.com/folder/setup.php
 5. Follow all onscreen instructions and make sure all installation requirements are checked.
 
-<img src="https://tasty-cms.wip/assets/ui/images/mockups/SetupWizard.png" alt="TastyIgniter setup wizard screenshot" style="max-height:250px" />
+<img src="https://tastyigniter.com/assets/ui/images/mockups/SetupWizard.png" alt="TastyIgniter setup wizard screenshot" style="max-height:250px" />
 
 ### Command-line installation
 
