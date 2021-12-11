@@ -53,6 +53,37 @@ php artisan igniter:install
 The install command will guide you through the process of setting up TastyIgniter for the first time. It will ask for
 the database configuration, application URL and administrator details.
 
+### Unattended Installation
+
+Some installations require an unattended mode so that the application can easily be built into automated infrastructure
+pipelines and build tools, e.g. Docker.
+
+To run this, its similar to the above command, just instead we provide all of the option values up front
+
+```bash
+php artisan igniter:install-unattended \
+    --force \                             # Force install over an existing database
+    --with-demo-data \                    # Install the application with demo data
+    --site-name="TastyIgniter" \          # Site Name [default: "TastyIgniter"]
+    --site-url="http://localhost/" \      # Site URL [default: "http://localhost/"]
+    --admin-email="admin@domain.tld" \    # Admin Email [default: "admin@domain.tld"]
+    --admin-name="Chef Admin" \           # Admin Name [default: "Chef Admin"]
+    --admin-username="admin" \            # Admin Username [default: "admin"]
+    --admin-password="123456" \           # Admin Password [default: "123456"]
+    --mysql-host="127.0.0.1" \            # MySQL hostname for the primary DB [default: "127.0.0.1"]
+    --mysql-port="3306" \                 # MySQL port for the primary DB [default: "3306"]
+    --mysql-database="forge" \            # MySQL database name for the primary DB [default: "forge"]
+    --mysql-username="forge" \            # MySQL username for the primary DB [default: "forge"]
+    --mysql-password="password" \         # MySQL password for the primary DB [default: false]
+    --mysql-table-prefix="ti_"            # MySQL password for the primary DB [default: "ti_"]
+```
+
+For a complete list of options and their default values, you may run
+
+```bash
+php artisan igniter:install-unattended --help
+```
+
 ## Post-installation steps
 
 For security reasons, if you used the [Quick Installation Setup Wizard](#quick-installation), you should delete the
