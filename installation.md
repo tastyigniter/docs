@@ -53,7 +53,7 @@ php artisan igniter:install
 The install command will guide you through the process of setting up TastyIgniter for the first time. It will ask for
 the database configuration, application URL and administrator details.
 
-### Unattended Installation
+### Command-line unattended installation
 
 Some installations require an unattended mode so that the application can easily be built into automated infrastructure
 pipelines and build tools, e.g. Docker.
