@@ -13,7 +13,7 @@ These are the requirements for your web hosting to run TastyIgniter:
 
 - **Apache** (with mod_rewrite enabled) or **Nginx**
 - **MySQL 5.7+** or **MariaDB 10.0.5+**
-- **PHP 7.3+** with the following extensions: pdo_mysql, curl, openssl, dom, gd, mbstring, json, pdo_mysql, tokenizer,
+- **PHP 7.4+** with the following extensions: pdo_mysql, curl, openssl, dom, gd, mbstring, json, pdo_mysql, tokenizer,
   zip
 
 ## Install TastyIgniter
