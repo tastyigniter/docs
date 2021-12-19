@@ -94,24 +94,17 @@ A `composer.json` file is essential for storing metadata about the extension.
 
 | Field           | Description                                                  |
 | --------------- | ------------------------------------------------------------ |
-| **
-name**        | the Composer package's name in vendor/package format, required. You should use a vendor name that is unique to you, such as your GitHub username. You should prefix the package part with `ti-ext-` to indicate that your package is intended for use with TastyIgniter.   |
-| **
-type**        | MUST be set to `tastyigniter-extension`. ensures that your extension will be installed as such when someone "requires" it, required.       |
+| **name**        | the Composer package's name in vendor/package format, required. You should use a vendor name that is unique to you, such as your GitHub username. You should prefix the package part with `ti-ext-` to indicate that your package is intended for use with TastyIgniter.   |
+| **type**        | MUST be set to `tastyigniter-extension`. ensures that your extension will be installed as such when someone "requires" it, required.       |
 | **description**  | a one-sentence summary of what the extension does, required. (max. char: 130)  |
 | **authors**        | an object to specify the name of the extension author, required.                          |
-| **
-extra.tastyigniter-extension**        | holds TastyIgniter-specific extension metadata, such as your extension's display name and icon style.                          |
+| **extra.tastyigniter-extension**        | holds TastyIgniter-specific extension metadata, such as your extension's display name and icon style.                          |
 | **extra.tastyigniter-extension.code**        | the extension unique identifier code, required.        |
-| **
-extra.tastyigniter-extension.name**        | specifies the extension name, required. The value is used as the extension display name.             |
+| **extra.tastyigniter-extension.name**        | specifies the extension name, required. The value is used as the extension display name.             |
 | **extra.tastyigniter-extension.icon**        | an object that defines the icon for your extension. The **
 name** property is the name of a [Font Awesome icon class](https://fontawesome.com/icons). All other properties are used as the style attribute for your extension's icon.                         |
-| **
-extra.tastyigniter-extension.homepage**        | specifies the extension website URL, optional.                          |
-| **
-extra.tastyigniter-extension.require**        | defines other TastyIgniter extensions your extension depends on, optional. In the example above, **
-igniter.cart** extension depends on the **igniter.local** extension.                         |
+| **extra.tastyigniter-extension.homepage**        | specifies the extension website URL, optional.                          |
+| **extra.tastyigniter-extension.require**        | defines other TastyIgniter extensions your extension depends on, optional. In the example above, **igniter.cart** extension depends on the **igniter.local** extension.                         |
 
 See [the composer.json schema](https://getcomposer.org/doc/04-schema.md) documentation for information about other
 properties you can add to composer.json.
