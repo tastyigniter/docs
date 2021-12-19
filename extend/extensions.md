@@ -101,8 +101,7 @@ A `composer.json` file is essential for storing metadata about the extension.
 | **extra.tastyigniter-extension**        | holds TastyIgniter-specific extension metadata, such as your extension's display name and icon style.                          |
 | **extra.tastyigniter-extension.code**        | the extension unique identifier code, required.        |
 | **extra.tastyigniter-extension.name**        | specifies the extension name, required. The value is used as the extension display name.             |
-| **extra.tastyigniter-extension.icon**        | an object that defines the icon for your extension. The **
-name** property is the name of a [Font Awesome icon class](https://fontawesome.com/icons). All other properties are used as the style attribute for your extension's icon.                         |
+| **extra.tastyigniter-extension.icon**        | an object that defines the icon for your extension. The **name** property is the name of a [Font Awesome icon class](https://fontawesome.com/icons). All other properties are used as the style attribute for your extension's icon.                         |
 | **extra.tastyigniter-extension.homepage**        | specifies the extension website URL, optional.                          |
 | **extra.tastyigniter-extension.require**        | defines other TastyIgniter extensions your extension depends on, optional. In the example above, **igniter.cart** extension depends on the **igniter.local** extension.                         |
 
