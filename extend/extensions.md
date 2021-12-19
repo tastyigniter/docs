@@ -20,13 +20,13 @@ Extensions live in the **/extensions** subdirectory of the application directory
 
 ```yaml
 extensions/
-  igniter/           		<=== Author name (namespace)
-    helloworld/         	<=== Extension name
+acme/           		    <=== Author name (namespace)
+helloworld/         	<=== Extension name
       components/
       controllers/
-      models/
-      extension.json		<=== Extension manifest file
-      Extension.php			<=== Extension registration file
+models/
+composer.json		    <=== Contains extension metadata
+Extension.php			<=== Extension registration file
       README.md				<=== Extension readme file
       routes.php			<=== Extension routes file
 ```
@@ -37,18 +37,21 @@ This section of the article covers the steps you need to take – and some thing
 
 ### Naming your extension
 
-The first step in creating an extension is to select a **Namespace** and **Short Name** for it. This extension name **Namespace.ShortName** is used to refer to your extension by core TastyIgnier. The namespace will be used as your author code when publishing your extensions on the [TastyIgniter marketplace](https://tastyigniter.com/marketplace). 
+The first step in creating an extension is to select a **Namespace** and **Short Name** for it. This extension name **
+Namespace.ShortName** is used to refer to your extension by core TastyIgniter. The namespace will be used as your author
+code when publishing your extensions on the [TastyIgniter marketplace](https://tastyigniter.com/marketplace).
 
-Both namespace and extension name must follow these important rules: 
+Both namespace and extension name must follow these important rules:
 
 - Only letters must be provided. 
 - Folder names must be lowercase, as shown in the directory structure example.
 - Should not contain spaces.
 - Must be unique. The name of your extension should not be the same with any other extension or theme.
 
-Here's an example: **Igniter.HelloWorld**
+Here's an example: **Acme.HelloWorld**
 
-Given the above example **Igniter.HelloWorld**, creating an extension is pretty simple and straightforward, simply call the following command from the application directory to generate a basic extension directory and files:
+Given the above example **Acme.HelloWorld**, creating an extension is pretty simple and straightforward, simply call the
+following command from the application directory to generate a basic extension directory and files:
 
 ```bash
 php artisan create:extension Igniter.HelloWorld
@@ -56,34 +59,72 @@ php artisan create:extension Igniter.HelloWorld
 
 > We strongly recommend that you follow the [TastyIgniter coding standards](../advanced/php-coding-guidelines) when creating your own extensions. It is a requirement for any changes to the TastyIgniter core code.
 
-### Extension manifest file
+### Extension manifest file (composer.json)
 
-An `extension.json` manifest file is an important part of the TastyIgniter extension for storing metadata about the extension. The manifest file can be used to define the extension dependencies.
+A `composer.json` file is essential for storing metadata about the extension.
 
 ```json
 {
-  "code": "Igniter.Cart",
-  "name": "Cart",
-  "description": "Easily add a shopping cart to your site. The most powerful way to sell your menu items.",
-  "version": "2.0.0-beta.2",
-  "author": "SamPoyigi",
-  "icon": "fa-shopping-cart",
-  "homepage": "https://github.com/tastyigniter/ti-ext-cart",
-  "require": {
-    "igniter.local": "*"
+  "name": "acme/ti-ext-helloworld",
+  "type": "tastyigniter-extension",
+  "description": "Say hello to the rest of the world..",
+  "authors": [
+    {
+      "name": "Acme Labs"
+    }
+  ],
+  "extra": {
+    "tastyigniter-extension": {
+      "code": "acme.helloworld",
+      "name": "Hello World",
+      "icon": {
+        "class": "fa fa-puzzle-piece",
+        "color": "#FFF",
+        "backgroundColor": "#ED561A"
+      },
+      "require": {
+        "igniter.local": "*",
+        "igniter.user": "*",
+        "igniter.payregister": "*"
+      }
+    }
   }
 }
 ```
 
-> The `require` parameter of an extension manifest file defines the dependencies of the extension. In the example above, **igniter.cart** extension depends on the **igniter.local** extension.
+| Field           | Description                                                  |
+| --------------- | ------------------------------------------------------------ |
+| **
+name**        | the Composer package's name in vendor/package format, required. You should use a vendor name that is unique to you, such as your GitHub username. You should prefix the package part with `ti-ext-` to indicate that your package is intended for use with TastyIgniter.   |
+| **
+type**        | MUST be set to `tastyigniter-extension`. ensures that your extension will be installed as such when someone "requires" it, required.       |
+| **description**  | a one-sentence summary of what the extension does, required. (max. char: 130)  |
+| **authors**        | an object to specify the name of the extension author, required.                          |
+| **
+extra.tastyigniter-extension**        | holds TastyIgniter-specific extension metadata, such as your extension's display name and icon style.                          |
+| **extra.tastyigniter-extension.code**        | the extension unique identifier code, required.        |
+| **
+extra.tastyigniter-extension.name**        | specifies the extension name, required. The value is used as the extension display name.             |
+| **extra.tastyigniter-extension.icon**        | an object that defines the icon for your extension. The **
+name** property is the name of a [Font Awesome icon class](https://fontawesome.com/icons). All other properties are used as the style attribute for your extension's icon.                         |
+| **
+extra.tastyigniter-extension.homepage**        | specifies the extension website URL, optional.                          |
+| **
+extra.tastyigniter-extension.require**        | defines other TastyIgniter extensions your extension depends on, optional. In the example above, **
+igniter.cart** extension depends on the **igniter.local** extension.                         |
+
+See [the composer.json schema](https://getcomposer.org/doc/04-schema.md) documentation for information about other
+properties you can add to composer.json.
 
 ### Readme file
 
-If you want to publish your extension on the [TastyIgniter marketplace](https://tastyigniter.com/marketplace), you must create a **readme.md** file in a standardized format in your extension directory.
+If you want to publish your extension on the [TastyIgniter marketplace](https://tastyigniter.com/marketplace), you must
+create a **readme.md** file in a standardized format in your extension directory.
 
 ### Routes file
 
-Extensions can also provide a file named **routes.php** with custom routing logic as described in the [routing article](../advanced/routing).
+Extensions can also provide a file named **routes.php** with custom routing logic as described in
+the [routing article](../advanced/routing).
 
 ## Registration
 
@@ -92,7 +133,7 @@ An **Extension.php** file (aka *Extension registration file*) is an essential pa
 The registration script should define an extension name class which extends the class `\System\Classes\BaseExtension`. The following is an example Extension registration file.
 
 ```php
-namespace Igniter\HelloWord;
+namespace Acme\HelloWord;
 
 class Extension extends \System\Classes\BaseExtension
 {
@@ -103,7 +144,6 @@ class Extension extends \System\Classes\BaseExtension
             'author' => 'The extension author name',
             'description' => 'The extension description',
             'icon' => 'The extension icon. Any FontAwesome icon name, for example: `fa-puzzle-piece`',
-            'version' => 'The extension version'
         ];
     }
     
@@ -119,7 +159,7 @@ class Extension extends \System\Classes\BaseExtension
 }
 ```
 
-> Its recommended to define the extension metadata using the manifest file instead of overriding the `extensionMeta` method.
+> Its recommended to define the extension metadata using the `composer.json` file instead of overriding the `extensionMeta` method.
 
 ### Registration class methods
 
@@ -141,13 +181,13 @@ The following methods are supported in the extension registration class:
 | **registerMailPartials()**     | registers any mail view partials supplied by this extension. |
 | **registerPaymentGateways()**  | registers any [payment gateways](../advanced/payment-gateways) supplied by this extension. |
 
-An example registering **mail templates view** file `extensions/igniter/frontend/views/mail/contact`:
+An example registering **mail templates view** file `extensions/acme/helloworld/views/mail/contact`:
 
 ```php
     public function registerMailTemplates()
     {
         return [
-            'igniter.frontend::mail.contact' => 'Contact form email to admin',
+            'acme.helloworld::mail.contact' => 'Contact form email to admin',
         ];
     }
 
@@ -162,14 +202,14 @@ public function registerNavigation()
         'messages' => [
             'priority' => 300,
             'title' => 'Messages',
-            'href' => admin_url('igniter/helloworld/messages'),
-            'permission' => ['Igniter.HelloWorld'],
+            'href' => admin_url('acme/helloworld/messages'),
+            'permission' => ['Acme.HelloWorld'],
             'child' => [
                 'banners' => [
                     'priority' => 500,
                     'title' => 'Banners',
-                    'href' => admin_url('igniter/helloworld/banners'),
-                    'permission' => ['Igniter.HelloWorld.Banners'],
+                    'href' => admin_url('acme/helloworld/banners'),
+                    'permission' => ['Acme.HelloWorld.Banners'],
                 ],
             ],
         ],
@@ -208,32 +248,49 @@ public function register()
 }
 ```
 
-## Using Composer
+## Using Third-Party Composer Packages
 
-There are a number of scenarios that require the developer to add a composer.json file to their extension. Some of these scenarios depend on whether the extension will depend on third-party packages.
+There are a number of scenarios that require the developer to add a third-party composer packages to their extension.
 
-Here is a full example of how the **Igniter.PayRegister** extension uses composer.json to depend on the third-party package `omnipay/stripe`:
+Here is a full example of how the **Igniter.PayRegister** extension adds third-party package `omnipay/stripe`:
 
 ```json
 {
-  "name": "igniter/payregister",
-  "type": "igniter-extension",
-  "keywords": ["tastyigniter", "paypal", "stripe", "payment", "gateway"],
+  "name": "tastyigniter/ti-ext-payregister",
+  "type": "tastyigniter-extension",
+  "description": "Allows you to accept credit card payments using PayPal, Stripe, Authorize.Net and/or Mollie.",
+  "keywords": [
+    "tastyigniter",
+    "paypal",
+    "stripe",
+    "payment",
+    "gateway"
+  ],
   "license": "MIT",
   "authors": [
-      {
-          "name": "Sam Poyigi",
-          "email": "sam@sampoyigi.com",
-      }
+    {
+      "name": "Sam Poyigi",
+      "email": "sam@sampoyigi.com"
+    }
   ],
   "require": {
     "php": ">=7.0",
     "omnipay/stripe": "~3.0"
   },
+  "extra": {
+    "tastyigniter-extension": {
+      "code": "igniter.payregister",
+      "name": "Pay Register",
+      "icon": {
+        "class": "fa fa-cash-register",
+        "backgroundColor": "#88C425",
+        "color": "#1B2707"
+      },
+      "homepage": "https://tastyigniter.com/marketplace/item/igniter-payregister"
+    }
+  }
 }
 ```
-
-The **name** and the **type** are important properties used to tell the `composer/installer` package how to actually install the dependency. 
 
 > Do not commit the `/vendor` directory, the `composer.json` file should be committed to the repository.
 
@@ -243,7 +300,8 @@ The marketplace takes the following extra few steps when preparing extensions th
 
 - Injects dependencies already included in the TastyIgniter core into the `replace` property of `composer.json`
 - Executes `composer install` in the extension directory
-- Deletes `composer.json` & `composer.lock` files to prevent duplicating dependencies with the core `composer.json`, since a `/vendor` folder already exists in the extension directory.
+- Deletes `composer.lock` files to prevent duplicating dependencies with the core `composer.json`, since a `/vendor`
+  folder already exists in the extension directory.
 - Lastly, the final result is packaged and ready to be consumed via Update API by the TastyIgniter Update Manager
 
 ## Settings and Configuration
