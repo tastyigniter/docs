@@ -4,15 +4,13 @@ section: "getting-started"
 sortOrder: 40
 ---
 
-Interested in contributing to the development of TastyIgniter? That is fantastic! All contributions are appreciated and
-welcome: from opening a bug report to creating a pull request.
+Interested in contributing to the development of TastyIgniter? All contributions are appreciated and welcome: from
+opening a bug report to creating a pull request.
 
 Before contributing, please read the [code of conduct](code-of-conduct).
 
 To order to learn a little more about how TastyIgniter operates, we suggest that you read the documentation, if you're
 just beginning.
-
-This article is a guide for developers interested in contributing code to TastyIgniter.
 
 ## New features
 
@@ -50,15 +48,24 @@ rejected without reason.
 
 > **Note:** This section applies specifically to those sending pull requests to any repositories under the <a href="https://github.com/tastyigniter" target="_blank">TastyIgniter</a> organization.
 
-**All** bug fixes should be sent to the latest stable branch. Bug fixes should **never** be sent to the `master` branch.
+**All** bug fixes should be sent to the latest stable branch that supports bug fixes (currently `3.x`). Bug fixes
+should **never** be sent to the `develop` branch unless they fix features that exist only in the upcoming release.
 
-**Minor** features that are **fully backwards compatible** with the current TastyIgniter release may be sent to the
-latest stable branch.
+**Minor** features that are **fully backward compatible** with the current release may be sent to the latest stable
+branch.
 
-**Major** new features should always be sent to the `master` branch, which contains the upcoming TastyIgniter release.
+**Major** new features or features with breaking changes should always be sent to the `develop` branch, which contains
+the upcoming release.
 
-If you are planning to send pull requests via GitHub to the TastyIgniter repository, we suggest sending them to
-the `develop` branch where all the latest updates and bug fixes take place.
+If you are unsure if your feature qualifies as a major or minor, please ask Sam Poyigi in the `#core` channel of
+the [TastyIgniter Discord server.](https://tastyigniter.com/discord)
+
+## Compiled Assets
+
+If you are submitting a change that will affect a compiled file, do not commit the compiled files. Due to their large
+size, they cannot realistically be reviewed by a maintainer. This could be exploited as a way to inject malicious code
+into TastyIgniter. In order to defensively prevent this, all compiled files will be generated and committed by
+TastyIgniter maintainers.
 
 ## Development setup
 
