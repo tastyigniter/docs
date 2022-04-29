@@ -56,7 +56,9 @@ You can use the `lang` helper function to get strings from locale files. The met
 
 ## Overriding locale strings
 
-System users can override extension locale strings without altering the extension files to modify these strings. For example, you should create the locale file `lang.php` at the following location to override the locale string `sample_key` within the `lang.php` file of the `igniter/demo`  extension: 
+System users can override extension locale strings without altering the extension files to modify these strings. For
+example, you should create the locale file `default.php` at the following location to override the locale
+string `sample_key` within the `default.php` file of the `igniter/demo`  extension:
 
 > You can also easily edit core and/or extension locale strings from the admin interface on the **Localization > Languages > Translations** page
 
@@ -136,11 +138,12 @@ After downloading a language pack, you must create a new language in the admin i
 1. Create a new language from the **Localisation > Languages** page of the admin interface.
 2. Fill in the form. The value of the `Locale Code` field must match the language directory name. Using the example above, the value will be `es_ES`
 3. Lastly, toggle the **Status** switch to `Enabled` then save the form.
-4. Ensure the language appears under `Supported Languages` field on the **System > Settings > General** page of the admin interface
 
 ### Setting the Default Language
 
-You may want to set the installed language pack as the default language for new users and visitors once you are sure it works. You can do this on the **System > Settings > General** page of the admin interface, under the **Site** tab select the language you want to use as your default.
+You may want to set the installed language pack as the default language for new users and visitors. You can do this on
+the **System > Settings > General** page of the admin interface, under the **Site** tab select the language you want to
+use as your default.
 
 ### Enabling language detection
 

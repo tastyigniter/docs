@@ -266,7 +266,6 @@ Here is a full example of how the **Igniter.PayRegister** extension adds third-p
     }
   ],
   "require": {
-    "php": ">=7.0",
     "omnipay/stripe": "~3.0"
   },
   "extra": {
