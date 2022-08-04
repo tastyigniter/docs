@@ -9,7 +9,7 @@ callout: This section is incomplete. Please help to improve it.
 
 By default, Media Manager works with the `/assets/media` directory. It is possible to use external storages such as Amazon S3 or Rackspace CDN.
 
-> The [Drivers extension](http://tastyigniter.com/marketplace/item/igniter-drivers) must be installed before you can use Amazon S3 or Rackspace CDN.
+> The [Drivers extension](https://tastyigniter.com/marketplace/item/igniter-drivers) must be installed before you can use Amazon S3 or Rackspace CDN.
 
 Reset the Media Manager cache, once you change its configuration.
 
