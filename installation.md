@@ -32,7 +32,7 @@ There are two ways you can install TastyIgniter, either using the Quick or Comma
    or http://example.com/folder/setup.php
 5. Follow all onscreen instructions and make sure all installation requirements are checked.
 
-<img src="https://tastyigniter.com/assets/ui/images/mockups/SetupWizard.png" alt="TastyIgniter setup wizard screenshot" style="max-height:250px" />
+<img src="https://tastyigniter.com/images/mockups/SetupWizard.png" alt="TastyIgniter setup wizard screenshot" style="max-height:250px" />
 
 ### Command-line installation
 
@@ -58,7 +58,8 @@ the database configuration, application URL and administrator details.
 Some installations require an unattended mode so that the application can easily be built into automated infrastructure
 pipelines and build tools, e.g. Docker.
 
-To run this, its similar to the above command, just instead we provide all of the option values up-front within the projects
+To run this, its similar to the above command, just instead we provide all of the option values up-front within the
+projects
 `.env` and pass the `--no-interaction` flag to the installation script:
 
 ```bash
@@ -73,7 +74,7 @@ be deleted manually:
 
 ```yaml
 setup/      	<== Setup directory
-  setup.php     <== Setup script
+setup.php     <== Setup script
 ```
 
 ### Setting up the task scheduler
