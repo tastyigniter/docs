@@ -53,7 +53,7 @@ The component properties and methods are available on the page or layout its att
 which corresponds to the alias of the component. For example, if the `HelloBlock` component was defined on a page or
 layout as `'[helloBlock]'`, you will be able to access its `alerts` through the `$helloBlock` variable:
 
-```php+HTML
+```blade
 @foreach ($helloBlock->alerts() as $message)
     <p>{{ $message }}</p>
 @endforeach

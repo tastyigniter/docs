@@ -368,7 +368,7 @@ public function getFullNameAttribute()
 
 ## Fat models, skinny controllers
 
-Put all DB related logic into Eloquent models if you’re using Query Builder or raw SQL queries.
+Put all DB related logic into Eloquent models if you're using Query Builder or raw SQL queries.
 
 **Good:**
 

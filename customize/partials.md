@@ -22,7 +22,7 @@ themes/
 
 The Blade directive `@partial('partial-name')` renders a partial. The directive has a single parameter that is required - the name of the partial file without the `.blade.php` extension. You can specify the name of the subdirectory if you refer a partial from a subdirectory `@partial('directory/partial-name')`. You may use the `@partial` directive within a page, layout or other partials. An example of a page rendering a partial:
 
-```php+HTML
+```blade
 <div class="sidebar">
     @partial('sidebar')
 </div>
@@ -32,7 +32,7 @@ The Blade directive `@partial('partial-name')` renders a partial. The directive 
 
 You may pass variables to partials by defining them in the `@partial` directive after the partial name:
 
-```php+HTML
+```blade
 <div class="sidebar">
     @partial('sidebar', ['pages' => $pages])
 </div>
@@ -40,7 +40,7 @@ You may pass variables to partials by defining them in the `@partial` directive 
 
 You can access variables within the partial like any other markup variable: 
 
-```php+HTML
+```blade
 <ul>
 	@foreach($pages as $page)
 		<li>{{ $page->name }}</li>

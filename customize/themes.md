@@ -104,7 +104,7 @@ Create a screenshot for your theme. The screenshot should be named `screenshot.p
 
 A template is how a page is organized, and how the content of the page is displayed. Both layouts and pages templates may contain up to three sections: front-matter, PHP code and HTML markup. Sections are separated by the `---` sequence. For example:
 
-```php+HTML
+```blade
 ---
 title: Menu Items
 permalink: "/menus"
@@ -129,7 +129,7 @@ function onStart()
 
 The front matter must be the first thing in the file and must take the form of a valid YAML set between triple-dashed lines. You can set predefined variables between these triple-dashed lines (see below for a reference) or even create custom ones of your own. These variables will then be available to you to access using PHP tags both further down in the file and also in any template referenced. Here is a basic example:
 
-```php+HTML
+```blade
 ---
 title: "Menu Items"
 permalink: "/menus"
@@ -146,7 +146,7 @@ The code within the PHP section is executed each time before the template is ren
 the content depends on the type of template it is defined within. The PHP open and close tags should always be set
 within the section separator `---` on a different line. For example:
 
-```php+HTML
+```blade
 ---
 <?php
 use Acme\Menu\Models\Category;
@@ -209,7 +209,7 @@ return [
 
 The value can then be accessed inside any of the Theme templates:
 
-```php+HTML
+```blade
 <h1>Welcome to {{ $this->theme->font_family }}!</h1>
 ```
 

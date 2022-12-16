@@ -12,46 +12,26 @@ requirements.
 These are the requirements for your web hosting to run TastyIgniter:
 
 - **Apache** (with mod_rewrite enabled) or **Nginx**
-- **MySQL 5.7+** or **MariaDB 10.0.5+**
-- **PHP 7.4+** with the following extensions: pdo_mysql, curl, openssl, dom, gd, mbstring, json, pdo_mysql, tokenizer,
-  zip
+- **MySQL 5.7+** or **MariaDB 10.0.5+** or **PostgreSQL 9.6**
+- **PHP 8.0+** with the following extensions: pdo_mysql, curl, openssl, dom, gd, mbstring, json, pdo_mysql, tokenizer, zip
+- **Composer 2.0** or **higher** (for installing dependencies)
 
-## Install TastyIgniter
+## Installing TastyIgniter
 
-There are two ways you can install TastyIgniter, either using the Quick or Command-line installation instructions.
-
-### Quick Installation
-
-1. [Download](https://github.com/tastyigniter/setup/archive/master.zip) and unzip the TastyIgniter setup wizard into an
-   empty directory on your server.
-2. Create a MySQL user database for TastyIgniter on your database server.
-3. Upload the TastyIgniter folders and files to your server. Normally the setup.php file will be at the web root
-   directory.
-4. Grant write permissions on the setup directory, its subdirectories and files.
-4. Run the TastyIgniter setup script by accessing setup.php in your web browser. Example, http://example.com/setup.php
-   or http://example.com/folder/setup.php
-5. Follow all onscreen instructions and make sure all installation requirements are checked.
-
-<img src="https://tastyigniter.com/images/mockups/SetupWizard.png" alt="TastyIgniter setup wizard screenshot" style="max-height:250px" />
-
-### Command-line installation
-
-TastyIgniter also uses <a href="https://getcomposer.org/" target="_blank">composer</a> to manage its dependencies,
-you'll need to have composer installed on your machine before using the TastyIgniter command-line installation. Run this
-command in an empty location that you want TastyIgniter to be installed in:
+TastyIgniter manages its dependencies and extensions using <a href="https://getcomposer.org/" target="_blank">composer</a>. To install the platform, use the `create-project` command in the terminal to create a project. The command below creates a new project in the directory `mytasty`.
 
 ```bash
-composer create-project tastyigniter/tastyigniter .
+composer create-project tastyigniter/tastyigniter mytasty
 ```
 
-After running the above command, run the install command and follow the instructions to complete installation
+After running the above command, run the installation command and follow the instructions to complete installation
 
 ```bash
 php artisan igniter:install
 ```
 
-The install command will guide you through the process of setting up TastyIgniter for the first time. It will ask for
-the database configuration, application URL and administrator details.
+The installation command will guide you through the process of setting up TastyIgniter for the first time. It will ask
+for the database configuration, application URL and administrator details.
 
 **Command-line unattended installation**
 
@@ -65,6 +45,19 @@ projects
 ```bash
 php artisan igniter:install --no-interaction
 ```
+### Wizard Installation
+
+1. [Download](https://github.com/tastyigniter/setup/archive/master.zip) and unzip the TastyIgniter setup wizard into an
+   empty directory on your server.
+2. Create a MySQL user database for TastyIgniter on your database server.
+3. Upload the TastyIgniter folders and files to your server. Normally the setup.php file will be at the web root
+   directory.
+4. Grant write permissions on the setup directory, its subdirectories and files.
+4. Run the TastyIgniter setup script by accessing setup.php in your web browser. Example, http://example.com/setup.php
+   or http://example.com/folder/setup.php
+5. Follow all onscreen instructions and make sure all installation requirements are checked.
+
+<img src="https://tastyigniter.com/images/mockups/SetupWizard.png" alt="TastyIgniter setup wizard screenshot" style="max-height:250px" />
 
 ## Post-installation steps
 
@@ -120,7 +113,7 @@ can be found below.
 There are some extra system requirements if your webserver is running Apache, `mod_rewrite` should be installed and
 enabled and the `AllowOverride` option should be switched on.
 
-TastyIgniter includes a `.htaccess` file – make sure it’s been uploaded correctly.
+TastyIgniter includes a `.htaccess` file - make sure it's been uploaded correctly.
 
 You will need to uncomment this line in the `.htaccess` file in some cases:
 
@@ -140,7 +133,7 @@ RewriteBase /mysubdirectory/
 ### Nginx configuration
 
 Make sure that `.nginx.conf` file included with TastyIgniter has been uploaded correctly. Then, assuming you have Nginx
-setup, add the following to your server’s configuration block:
+setup, add the following to your server's configuration block:
 
 ```html
 include /path/to/tastyigniter/.nginx.conf;
@@ -174,26 +167,8 @@ the `enableCsrfProtection` parameter.
 TastyIgniter core and some marketplace extensions will introduce changes in two stages to ensure overall stability and
 integrity of the codebase. This means that besides the regular stable versions, they do have a test version.
 
-By modifying the `edgeUpdates` parameter in the `config/system.php` configuration file you can instruct the application
-to choose test versions from the marketplace.
-
-```php
-/*
-|--------------------------------------------------------------------------
-| Bleeding edge updates
-|--------------------------------------------------------------------------
-|
-| If you are developing with TastyIgniter, it is important to have the latest
-| code base, set this value to 'true' to tell the platform to download
-| and use the development copies of core files and extensions.
-|
-*/
-
-'edgeUpdates' => true,
-```
-
-When you are using Composer to handle updates, then replace the default TastyIgniter requirements in
-your `composer.json` file with the following to receive updates from the develop branch directly.
+Replace the default TastyIgniter requirements in your `composer.json` file with the following to receive updates from
+the develop branch directly.
 
 ```json
 "tastyigniter/flame": "dev-develop as 1.0",

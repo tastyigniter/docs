@@ -19,7 +19,7 @@ themes/
 
 The convention is to have a basic layout called `default.blade.php` and be used by other pages as required. Within the layout file, you should use the `@page`  tag to display the content of the page.
 
-```php+HTML
+```blade
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,7 +33,7 @@ The convention is to have a basic layout called `default.blade.php` and be used 
 
 Next you need to specify what layout to use in your page's front matter.
 
-```php+HTML
+```blade
 ---
 permalink: "/page"
 layout: default
@@ -45,7 +45,7 @@ layout: default
 
 The front matter section is optional for layouts. The optional front matter parameters are `name` and `description` and are used in the Admin user interface. For example:
 
-```php+HTML
+```blade
 ---
 name: My First Layout
 description: My first layout example
@@ -63,7 +63,7 @@ description: My first layout example
 
 You can set the front matter in layouts, the only difference is you use the layout object instead of the page. For example:
 
-```php+HTML
+```blade
 ---
 food: "Pizza"
 ---
@@ -78,7 +78,7 @@ Specific functions can be defined in the layouts PHP code section for handling t
 
 The `onInit` function is executed when all [components](../customize/components) are initialized and before AJAX requests are handled. The `onStart` function is executed at the start of the execution of the page. The `onEnd` function is executed after the page is rendered.
 
-```php+HTML
+```blade
 ---
 name: My First Layout
 description: My first layout example

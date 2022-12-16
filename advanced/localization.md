@@ -156,4 +156,4 @@ TastyIgniter includes support for language negotiation out-the-box using a varie
 
 While language packs downloaded from the **Browse Languages** page of the admin interface may usually provide translations for all recommended extensions bundled with TastyIgniter, as a rule, they will not cover any third party extensions that you may have installed. Developers are responsible for providing and maintaining translations of their extensions.
 
-So before you install a third-party extension, you should check to make sure it includes translations for each language pack you have installed. If you find that an extension doesn’t support a language you need, please contact the developer directly and arrange to have the necessary translations added.
+So before you install a third-party extension, you should check to make sure it includes translations for each language pack you have installed. If you find that an extension doesn't support a language you need, please contact the developer directly and arrange to have the necessary translations added.

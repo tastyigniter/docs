@@ -19,7 +19,7 @@ themes/
 
 The PHP code section is optional, but both front matter and HTML markup sections are required. For example:
 
-```php+HTML
+```blade
 ---
 title: My First Page
 description: "My first page example"
@@ -41,7 +41,7 @@ A number of predefined parameters can be set in the front-matter of a page.
 
 You can also set your own front-matter variables accessible in PHP. For example, if you set a food variable, you can use it on your page:
 
-```php+HTML
+```blade
 ---
 food: "Pizza"
 ---
@@ -50,11 +50,11 @@ food: "Pizza"
 
 ## Permalink syntax
 
-The simplest way to set a permalink is using front matter. You set the `permalink` variable in the front matter to the URL you’d like. Permalinks should start with the forward slash character and can contain parameters.
+The simplest way to set a permalink is using front matter. You set the `permalink` variable in the front matter to the URL you'd like. Permalinks should start with the forward slash character and can contain parameters.
 
 For example, you might have a page on your site located at `/_pages/common/about.blade.php` and you want the url to be `/about`. In front matter of the page you would set:
 
-```php+HTML
+```blade
 permalink: "/about"
 ```
 
@@ -62,37 +62,37 @@ permalink: "/about"
 
 For any address such as `/pages/my-first-page`, a page with the **permalink pattern** defined in the following example would be displayed.
 
-```php+HTML
+```blade
 permalink: "/pages/:title" - this will match /pages/page-title
 ```
 
 To make a parameter optional add the **question mark** after its name:
 
-```php+HTML
+```blade
 permalink: "/pages/:title?" - this will match /pages/page-title OR /pages
 ```
 
 Parameters can not be optional in the **middle** of the permalink:
 
-```php+HTML
+```blade
 permalink: "/pages/:title?/:slug" - this will match /pages/page-title/page-slug
 ```
 
 A default value can be specified after the **question mark** and used as fallback values in case the real parameter value is not presented. **Default values can not contain any asterisks, pipe symbols or question marks.**
 
-```php+HTML
+```blade
 permalink: "/pages/:title?default" - this will match /pages/page-title OR /pages/default
 ```
 
 You could also use regular expressions to validate parameters:
 
-```php+HTML
+```blade
 permalink: "/pages/:title|^[a-z0-9\-]+$" - this will match /pages/page-title
 ```
 
 A special wildcard parameter can be used by placing the asterisk after the parameter:
 
-```php+HTML
+```blade
 permalink: "/pages/:title*/:slug" - this will match /pages/page-title/child/page/page-slug
 ```
 
@@ -102,7 +102,7 @@ In the PHP code section of pages and layouts there are specific functions: `onIn
 
 The function `onInit` is executed when all [components](../customize/components) are initialized and before AJAX requests are handled. The `onStart` function is executed at the start of the execution of the page. The `onEnd` function is executed before the page is rendered and the page components are executed.
 
-```php+HTML
+```blade
 ---
 <?php
 function onEnd()
@@ -162,7 +162,7 @@ function onStart()
 
 In order to output the injected assets on pages or [layouts](../customize/layouts) use the `@styles` and `@scripts` tags. Example:
 
-```php+HTML
+```blade
 <head>
     ...
     @styles

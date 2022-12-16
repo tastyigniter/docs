@@ -26,45 +26,45 @@ Directives are a unique feature to Laravel Blade and are wrapped with `{{ }}` ch
 
 The `@page` tag renders the contents of a page into a layout template.
 
-```php+HTML
+```blade
 @page
 ```
 
 ### @partial
 
-```php+HTML
+```blade
 @partial('footer')
 ```
 
 ### @component
 
-```php+HTML
+```blade
 @component('cartBox')
 ```
 
-```php+HTML
+```blade
 @component('cartBox', ['checkStockCheckout' => TRUE])
 ```
 
-```php+HTML
+```blade
 @partial('cart::cartBox')
 ```
 
 ### @content
 
-```php+HTML
+```blade
 @content('welcome.htm')
 ```
 
 ### @partialIf
 
-```php+HTML
+```blade
 @partialIf('cartBox')
 ```
 
 ### @hasComponent
 
-```php+HTML
+```blade
 @hasSection('navigation')
     <div class="pull-right">
         @yield('navigation')
@@ -76,17 +76,17 @@ The `@page` tag renders the contents of a page into a layout template.
 
 ### @stack
 
-```php+HTML
+```blade
 @push('sidebar')
 	Add this content to the sidebar
 @endpush
 ```
 
-```php+HTML
+```blade
 @stack('sidebar')
 ```
 
-```php+HTML
+```blade
 @push('scripts')
     This will be second...
 @endpush
@@ -100,7 +100,7 @@ The `@page` tag renders the contents of a page into a layout template.
 
 ### @styles
 
-```php+HTML
+```blade
 @styles
 ```
 
@@ -111,7 +111,7 @@ function onStart()
 }
 ```
 
-```php+HTML
+```blade
 @push('styles')
 		<link rel="stylesheet" href="assets/css/app.css">
 @endpush
@@ -119,7 +119,7 @@ function onStart()
 
 ### @scripts
 
-```php+HTML
+```blade
 @scripts
 ```
 
@@ -130,7 +130,7 @@ function onStart()
 }
 ```
 
-```php+HTML
+```blade
 @push('scripts')
 		<script src="assets/js/app.js"></script>
 @endpush
@@ -138,11 +138,11 @@ function onStart()
 
 ### @verbatim
 
-```php+HTML
+```blade
 Hello, @{{ name }}.
 ```
 
-```php+HTML
+```blade
 @verbatim
     <div class="container">
         Hello, {{ name }}.
@@ -152,7 +152,7 @@ Hello, @{{ name }}.
 
 ### @if
 
-```php+HTML
+```blade
 @if (count($categories) === 1)
     I have one category!
 @elseif (count($categories) > 1)
@@ -164,7 +164,7 @@ Hello, @{{ name }}.
 
 ### @auth
 
-```php+HTML
+```blade
 @auth
     // The user is authenticated...
 @endauth
@@ -176,7 +176,7 @@ Hello, @{{ name }}.
 
 ### @unless
 
-```php+HTML
+```blade
 @unless (Cart::content())
     Cart is empty.
 @endunless
@@ -184,7 +184,7 @@ Hello, @{{ name }}.
 
 ### @for
 
-```php+HTML
+```blade
 @for ($i = 0; $i < 10; $i++)
     The current value is {{ '{{ $i }}' }}
 @endfor
@@ -206,7 +206,7 @@ Hello, @{{ name }}.
 
 ### @inject
 
-```php+HTML
+```blade
 @inject('metrics', 'App\Services\MetricsService')
 
 <div>

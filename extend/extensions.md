@@ -33,7 +33,7 @@ Extension.php			<=== Extension registration file
 
 ## Creating an extension
 
-This section of the article covers the steps you need to take – and some things you need to consider – when creating a well-structured TastyIgniter extension.
+This section of the article covers the steps you need to take - and some things you need to consider - when creating a well-structured TastyIgniter extension.
 
 ### Naming your extension
 
@@ -297,7 +297,7 @@ The marketplace takes the following extra few steps when preparing extensions th
 
 ## Settings and Configuration
 
-There are two ways to configure extensions – with admin settings (database settings) and configuration files.
+There are two ways to configure extensions; with admin settings (database settings) and configuration files.
 
 ### Using the settings model
 

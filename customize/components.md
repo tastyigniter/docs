@@ -30,7 +30,7 @@ The **cartBox** component in the above example initializes the property **showCa
 
 When you attach a component, a page variable that matches the component name is automatically created (`$cartBox` in the previous example). Render components HTML markup on a page or layout as follows:
 
-```php+HTML
+```blade
 @component('cartBox')
 ```
 
@@ -40,7 +40,7 @@ If two components with the same name are assigned to a page and layout together,
 
 You can attach components of the same name registered within two extensions by using its fully qualified class name and assigning it an *alias*:
 
-```php+HTML
+```blade
 '[Igniter\Cart\Components\CartBox cartBox]':
     showCartItemThumb: 1
 
@@ -54,7 +54,7 @@ You can attach components of the same name registered within two extensions by u
 
 Define multiple instances of a same component:
 
-```php+HTML
+```blade
 '[cartBox cartBoxA]':
     showCartItemThumb: 1
 
@@ -70,7 +70,7 @@ Define multiple instances of a same component:
 
 The  `@component('cartBox')` tag accepts an array of variables as its second parameter. The specifed variables will be available at the time of rendering and will explicitly override the component property values:
 
-```php+HTML
+```blade
 @component('cartBox', ['showCartItemThumb' => 0])
 ```
 
