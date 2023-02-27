@@ -139,6 +139,31 @@ setup, add the following to your server's configuration block:
 include /path/to/tastyigniter/.nginx.conf;
 ```
 
+As an example, your site conf file should look something like:
+
+```html
+server {
+
+	listen 80;
+
+	root /path/to/tastyigniter;
+	index index.php;
+
+	server_name mytastysite.com;
+
+	gzip             on;
+	gzip_proxied     expired no-cache no-store private auth;
+	gzip_types       text/plain text/css application/x-javascript application/json application/javascript image/x-icon image/png image/gif image/jpeg image/svg+xml;
+
+	charset utf-8;
+
+	access_log off;
+
+	include /path/to/tastyigniter/.nginx.conf;
+
+}
+```
+
 ## Application configuration
 
 ### Debug mode
