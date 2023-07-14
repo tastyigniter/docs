@@ -57,7 +57,7 @@ following command from the application directory to generate a basic extension d
 php artisan create:extension Igniter.HelloWorld
 ```
 
-> We strongly recommend that you follow the [TastyIgniter coding standards](../advanced/php-coding-guidelines) when creating your own extensions. It is a requirement for any changes to the TastyIgniter core code.
+> We strongly recommend that you follow the [TastyIgniter coding standards](../php-coding-guidelines) when creating your own extensions. It is a requirement for any changes to the TastyIgniter core code.
 
 ### Extension manifest file (composer.json)
 
@@ -171,7 +171,7 @@ The following methods are supported in the extension registration class:
 | **registerMailLayouts()**      | registers any mail view layouts supplied by this extension.  |
 | **registerMailTemplates()**    | registers any mail view templates supplied by this extension, see below for example. |
 | **registerMailPartials()**     | registers any mail view partials supplied by this extension. |
-| **registerPaymentGateways()**  | registers any [payment gateways](../advanced/payment-gateways) supplied by this extension. |
+| **registerPaymentGateways()**  | registers any payment gateways supplied by this extension. |
 
 An example registering **mail templates view** file `extensions/acme/helloworld/views/mail/contact`:
 
