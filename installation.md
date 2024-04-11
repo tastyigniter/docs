@@ -4,38 +4,73 @@ section: "getting-started"
 sortOrder: 10
 ---
 
-Before you proceed with installing TastyIgniter, you should check that your server meets the minimum system
-requirements.
+As of Version 4, TastyIgniter can be installed as a stand-alone application, or as a package inside an existing Laravel
+application.
 
-## Minimum Requirements
+## Stand-alone Installation
 
-These are the requirements for your web hosting to run TastyIgniter:
+### Requirements
+
+These are the requirements to run TastyIgniter:
 
 - **Apache** (with mod_rewrite enabled) or **Nginx**
-- **MySQL 5.7+** or **MariaDB 10.0.5+** or **PostgreSQL 9.6**
-- **PHP 8.0+** with the following extensions: pdo_mysql, curl, openssl, dom, gd, mbstring, json, tokenizer, zip
+- **PHP 8.2+** with the following extensions: bcmath, pdo_mysql, ctype, curl, openssl, dom, gd, exif, mbstring, json,
+  tokenizer, zip, xml
+- **MySQL 5.7+** or **MariaDB 10.3+** or **PostgreSQL 10.0**
 - **Composer 2.0** or **higher** (for installing dependencies)
 
-## Installing TastyIgniter
+### Installing TastyIgniter
 
-TastyIgniter manages its dependencies and extensions using <a href="https://getcomposer.org/" target="_blank">composer</a>. To install the platform, use the `create-project` command in the terminal to create a project. The command below creates a new project in the directory `mytasty`.
+TastyIgniter manages its dependencies and extensions using <a href="https://getcomposer.org/" target="_blank">
+composer</a>. To install the platform, use the `create-project` command in the terminal to create a project. The command
+below creates a new project in the directory `mytasty`.
 
 ```bash
 composer create-project tastyigniter/tastyigniter mytasty
 ```
 
-After running the above command, run the installation command and follow the instructions to complete installation
+From here, you can move on to the [Setting up TastyIgniter](#setting-up-tastyigniter) step.
+
+## Package Installation
+
+### Requirements
+
+These are the requirements to run TastyIgniter:
+
+- **Laravel 10+**
+- **MySQL 5.7+** or **MariaDB 10.3+** or **PostgreSQL 10.0**
+- **Composer 2.0** or **higher** (for installing dependencies)
+
+### Installing TastyIgniter
+
+To install TastyIgniter as a package from your command line, run the following command in your Laravel project
+directory:
+
+```bash
+composer require tastyigniter/core
+```
+
+From here, you can move on to the [Setting up TastyIgniter](#setting-up-tastyigniter) step.
+
+## Setting up TastyIgniter
+
+TastyIgniter comes packaged with a command-line setup utility that will get you up and running in a few minutes. It will
+attempt to automatically configure TastyIgniter and create an admin user account.
+
+In the TastyIgniter installation's root directory, run the following command:
 
 ```bash
 php artisan igniter:install
 ```
 
-The installation command will guide you through the process of setting up TastyIgniter for the first time. It will ask
+The setup command will guide you through the process of setting up TastyIgniter for the first time. It will ask
 for the database configuration, application URL and administrator details.
 
-**Command-line unattended installation**
+> You can safely run the command multiple times if needed.
 
-Some installations require an unattended mode so that the application can easily be built into automated infrastructure
+**Command-line unattended setup**
+
+Some setup require an unattended mode so that the application can easily be built into automated infrastructure
 pipelines and build tools, e.g. Docker.
 
 To run this, its similar to the above command, just instead we provide all of the option values up-front within the
@@ -45,30 +80,10 @@ projects
 ```bash
 php artisan igniter:install --no-interaction
 ```
-### Wizard Installation
-
-1. [Download](https://github.com/tastyigniter/setup/archive/master.zip) and unzip the TastyIgniter setup wizard into an
-   empty directory on your server.
-2. Create a MySQL user database for TastyIgniter on your database server.
-3. Upload the TastyIgniter folders and files to your server. Normally the setup.php file will be at the web root
-   directory.
-4. Grant write permissions on the setup directory, its subdirectories and files.
-4. Run the TastyIgniter setup script by accessing setup.php in your web browser. Example, http://example.com/setup.php
-   or http://example.com/folder/setup.php
-5. Follow all onscreen instructions and make sure all installation requirements are checked.
-
-<img src="https://tastyigniter.com/images/mockups/SetupWizard.png" alt="TastyIgniter setup wizard screenshot" style="max-height:250px" />
 
 ## Post-installation steps
 
-For security reasons, if you used the [Quick Installation Setup Wizard](#quick-installation), you should delete the
-setup files. TastyIgniter will never automatically delete files from your system, so these files and directories should
-be deleted manually:
-
-```yaml
-setup/      	<== Setup directory
-setup.php     <== Setup script
-```
+There are some things you may need to set up after the installation is complete.
 
 ### Setting up the task scheduler
 
@@ -83,7 +98,8 @@ Be sure to replace `/path/to/artisan` with the absolute path to the artisan file
 This Cron will call the command scheduler every minute. When executing the `schedule:run` command, TastyIgniter will
 assess your scheduled tasks and run the tasks that are due.
 
-> Task Scheduling is how scheduling time-based tasks are managed in TastyIgniter. Several core features of TastyIgniter, such as checking for updates, use the scheduler.
+> Task Scheduling is how scheduling time-based tasks are managed in TastyIgniter. Several core features of TastyIgniter,
+> such as checking for updates, use the scheduler.
 
 ### Setting up the queue daemon
 
@@ -144,22 +160,22 @@ As an example, your site conf file should look something like:
 ```html
 server {
 
-	listen 80;
+listen 80;
 
-	root /path/to/tastyigniter;
-	index index.php;
+root /path/to/tastyigniter;
+index index.php;
 
-	server_name mytastysite.com;
+server_name mytastysite.com;
 
-	gzip             on;
-	gzip_proxied     expired no-cache no-store private auth;
-	gzip_types       text/plain text/css application/x-javascript application/json application/javascript image/x-icon image/png image/gif image/jpeg image/svg+xml;
+gzip             on;
+gzip_proxied     expired no-cache no-store private auth;
+gzip_types       text/plain text/css application/x-javascript application/json application/javascript image/x-icon image/png image/gif image/jpeg image/svg+xml;
 
-	charset utf-8;
+charset utf-8;
 
-	access_log off;
+access_log off;
 
-	include /path/to/tastyigniter/.nginx.conf;
+include /path/to/tastyigniter/.nginx.conf;
 
 }
 ```
@@ -186,19 +202,6 @@ token is used to check that the authenticated user is the one who actually makes
 
 Although CSRF security is enabled by default, you can disable it in the `config/system.php` configuration file using
 the `enableCsrfProtection` parameter.
-
-### Bleeding edge updates
-
-TastyIgniter core and some marketplace extensions will introduce changes in two stages to ensure overall stability and
-integrity of the codebase. This means that besides the regular stable versions, they do have a test version.
-
-Replace the default TastyIgniter requirements in your `composer.json` file with the following to receive updates from
-the develop branch directly.
-
-```json
-"tastyigniter/flame": "dev-develop as 1.0",
-"laravel/framework": "6.0.*@dev",
-```
 
 ## Getting Started
 

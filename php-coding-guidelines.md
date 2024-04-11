@@ -6,11 +6,14 @@ sortOrder: 360
 
 **Consistency is key**
 
-Coding Standards are critical for achieving high code quality. We can produce a homogeneous code that is easy to read and maintain by using a consistent visual style, naming conventions, and other technical settings.
+Coding Standards are critical for achieving high code quality. We can produce a homogeneous code that is easy to read
+and maintain by using a consistent visual style, naming conventions, and other technical settings.
 
 ## General PHP Rules
 
-Code style must follow [PSR-1](http://www.php-fig.org/psr/psr-1/), [PSR-2](http://www.php-fig.org/psr/psr-2/) and [PSR-12](https://www.php-fig.org/psr/psr-12/). Generally speaking, everything string-like (except Model attributes) should use camelCase. Detailed examples on these are spread throughout the guide in their relevant sections.
+Code style must follow [PSR-1](http://www.php-fig.org/psr/psr-1/), [PSR-2](http://www.php-fig.org/psr/psr-2/)
+and [PSR-12](https://www.php-fig.org/psr/psr-12/). Generally speaking, everything string-like (except Model attributes)
+should use camelCase. Detailed examples on these are spread throughout the guide in their relevant sections.
 
 #### Class defaults
 
@@ -32,35 +35,84 @@ public ?string $variable;
 public string|null $variable;
 ```
 
+#### Void return types
+
+If a method returns nothing, it should be indicated with void. This makes it more clear to the users of your code what
+your intention was when writing it.
+
+```php
+// in a Laravel model
+public function scopeArchived(Builder $query): void
+{
+    $query->
+    ...
+}
+```
+
+#### Typed properties
+
+You should type a property whenever possible. Don't use a docblock.
+
+```php
+class Foo
+{
+    public string $bar;
+}
+```
+
+```php
+class Foo
+{
+    /** @var string */
+    public $bar;
+}
+```
+
+#### Enums
+
+Values in enums should use PascalCase.
+
+```php
+enum Suit {  
+    case Clubs;
+    case Diamonds;
+    case Hearts;
+    case Spades;
+}
+
+Suit::Diamonds;
+```
+
 ## Naming Convention
 
-Naming things is often seen as one of the harder things in programming. That's why we've established some high level guidelines for naming classes.
+Naming things is often seen as one of the harder things in programming. That's why we've established some high level
+guidelines for naming classes.
 
 Also, follow naming conventions accepted by Laravel community:
 
-| What  |  How  |  Good  |  Bad
-|-------|-------|--------|-----------------
-**Controller**  |  plural  |  `ArticlesController`  |  `ArticleController`
-**Route**  |  plural  |  `articles/1`  |  `article/1`
-**Model**  |  singular  |  `User`  |  `Users`
-**Table**  |  plural  |  `article_comments`  |  `article_comment, articleComments`
-**Pivot table**  |  singular model names  |  `article_user`  |  `articles_users`
-**Table column**  |  snake_case without model name  |  `meta_title`  |  `MetaTitle, article_meta_title`
-**Foreign key**  |  singular model name with _id suffix  |  `article_id`  |  `ArticleId, id_article, articles_id`
-**Primary key**  |  -  |  `id`  |  `custom_id`
-**Migration**  |  -  |  `2017_01_01_000000_create_articles_table`  |  `2017_01_01_000000_articles`
-**Method**  |  camelCase  |  `getAll`  |  `get_all`
-**Function**  |  snake_case  |  `abort_if`  |  `abortIf`
-**Method in test class**  |  camelCase  |  `testGuestCannotSeeArticle`  |  `test_guest_cannot_see_article`
-**Model property**  |  snake_case  |  `$model->model_property`  |  `$model->modelProperty`
-**Variable**  |  camelCase  |  `$anyOtherVariable`  |  `$any_other_variable`
-**Collection**  |  descriptive, plural  |  `$activeUsers = User::active()->get()`  |  `$active, $data`
-**Object**  |  descriptive, singular  |  `$activeUser = User::active()->first()`  |  `$users, $obj`
-**Config and language files index**  |  snake_case  |  `articles_enabled`  |  `ArticlesEnabled, articles-enabled`
-**View file name**  |  kebab-case  |  `show-filtered.blade.php`  |  `showFiltered.blade.php, show_filtered.blade.php`
-**Config file name**  |  kebab-case  |  `google-calendar.php`  |  `googleCalendar.php, google_calendar.php`
-**Contract (interface)**  |  adjective or noun  |  `Authenticatable`  |  `AuthenticationInterface, IAuthentication`
-**Trait**  |  adjective  |  `Notifiable`  |  `NotificationTrait`
+| What                                | How                                 | Good                                      | Bad                                               
+|-------------------------------------|-------------------------------------|-------------------------------------------|---------------------------------------------------
+ **Controller**                      | plural                              | `ArticlesController`                      | `ArticleController`                               
+ **Route**                           | plural                              | `articles/1`                              | `article/1`                                       
+ **Model**                           | singular                            | `User`                                    | `Users`                                           
+ **Table**                           | plural                              | `article_comments`                        | `article_comment, articleComments`                
+ **Pivot table**                     | singular model names                | `article_user`                            | `articles_users`                                  
+ **Table column**                    | snake_case without model name       | `meta_title`                              | `MetaTitle, article_meta_title`                   
+ **Foreign key**                     | singular model name with _id suffix | `article_id`                              | `ArticleId, id_article, articles_id`              
+ **Primary key**                     | -                                   | `id`                                      | `custom_id`                                       
+ **Migration**                       | -                                   | `2017_01_01_000000_create_articles_table` | `2017_01_01_000000_articles`                      
+ **Method**                          | camelCase                           | `getAll`                                  | `get_all`                                         
+ **Function**                        | snake_case                          | `abort_if`                                | `abortIf`                                         
+ **Method in test class**            | camelCase                           | `testGuestCannotSeeArticle`               | `test_guest_cannot_see_article`                   
+ **Model property**                  | snake_case                          | `$model->model_property`                  | `$model->modelProperty`                           
+ **Variable**                        | camelCase                           | `$anyOtherVariable`                       | `$any_other_variable`                             
+ **Collection**                      | descriptive, plural                 | `$activeUsers = User::active()->get()`    | `$active, $data`                                  
+ **Object**                          | descriptive, singular               | `$activeUser = User::active()->first()`   | `$users, $obj`                                    
+ **Config and language files index** | snake_case                          | `articles_enabled`                        | `ArticlesEnabled, articles-enabled`               
+ **View file name**                  | kebab-case                          | `show-filtered.blade.php`                 | `showFiltered.blade.php, show_filtered.blade.php` 
+ **Config file name**                | kebab-case                          | `google-calendar.php`                     | `googleCalendar.php, google_calendar.php`         
+ **Contract (interface)**            | adjective or noun                   | `Authenticatable`                         | `AuthenticationInterface, IAuthentication`        
+ **Trait**                           | adjective                           | `Notifiable`                              | `NotificationTrait`                               
 
 ### Jobs
 
@@ -102,30 +154,31 @@ $request->input('name');
 
 Consider using helpers instead of facades. They can clean up your code.
 
-Common syntax  |  Shorter and more readable syntax
----------------|------------------------------------
-`Session::get('foo')`  |  `session('foo')`
-`$request->session()->get('foo')`  |  `session('foo')`
-`Session::put('foo', $data)`  |  `session(['foo' => $data])`
-`$request->input('name'),Request::get('name')`  |  `$request->name,request('name')`
-`return Redirect::back()`  |  `return redirect()->back()`
-`is_null($object->relation) ? $object->relation->id : null;`  |  `optional($object->relation)->id`
-`return view('index')->with('title', $title)->with('client', $client)`  |  `return view('index', compact('title', 'client'))`
-`$request->has('value') ? $request->value : 'default';`  |  `$request->get('value','default')`
-`Carbon::now(), Carbon::today()`  |  `now(), today()`
-`App::make('Class')`  |  `app('Class')`
-`->where('column', '=', 1)`  |  `->where('column', 1)`
-`->orderBy('created_at', 'desc')`  |  `->latest()`
-`->orderBy('age', 'desc')`  |  `->latest('age')`
-`->orderBy('created_at', 'asc')`  |  `->oldest()`
-`->select('id', 'name')->get()`  |  `->get(['id', 'name'])`
-`->first()->name`  |  `->value('name')`
+ Common syntax                                                          | Shorter and more readable syntax                   
+------------------------------------------------------------------------|----------------------------------------------------
+ `Session::get('foo')`                                                  | `session('foo')`                                   
+ `$request->session()->get('foo')`                                      | `session('foo')`                                   
+ `Session::put('foo', $data)`                                           | `session(['foo' => $data])`                        
+ `$request->input('name'),Request::get('name')`                         | `$request->name,request('name')`                   
+ `return Redirect::back()`                                              | `return redirect()->back()`                        
+ `is_null($object->relation) ? $object->relation->id : null;`           | `optional($object->relation)->id`                  
+ `return view('index')->with('title', $title)->with('client', $client)` | `return view('index', compact('title', 'client'))` 
+ `$request->has('value') ? $request->value : 'default';`                | `$request->get('value','default')`                 
+ `Carbon::now(), Carbon::today()`                                       | `now(), today()`                                   
+ `App::make('Class')`                                                   | `app('Class')`                                     
+ `->where('column', '=', 1)`                                            | `->where('column', 1)`                             
+ `->orderBy('created_at', 'desc')`                                      | `->latest()`                                       
+ `->orderBy('age', 'desc')`                                             | `->latest('age')`                                  
+ `->orderBy('created_at', 'asc')`                                       | `->oldest()`                                       
+ `->select('id', 'name')->get()`                                        | `->get(['id', 'name'])`                            
+ `->first()->name`                                                      | `->value('name')`                                  
 
 ## Docblocks
 
 Don't use docblocks for methods that can be fully type hinted (unless you need a description).
 
-Only add a description when it provides more context than the method signature itself. Use full sentences for descriptions, including a period at the end.
+Only add a description when it provides more context than the method signature itself. Use full sentences for
+descriptions, including a period at the end.
 
 **Good:**
 
@@ -181,7 +234,8 @@ Always use fully qualified class names in docblocks.
  */
 ```
 
-Using multiple lines for a docblock, might draw too much attention to it. When possible, docblocks should be written on one line.
+Using multiple lines for a docblock, might draw too much attention to it. When possible, docblocks should be written on
+one line.
 
 **Good:**
 
@@ -212,7 +266,8 @@ If a variable has multiple types, the most common occurring type should be first
 
 ## Comments
 
-Comments should be avoided as much as possible by writing expressive code. If you do need to use a comment, format it like this:
+Comments should be avoided as much as possible by writing expressive code. If you do need to use a comment, format it
+like this:
 
 ```php
 // There should be a space before a single line comment.
@@ -254,7 +309,8 @@ if (count((array) $builder->getQuery()->joins) > 0)
 
 ## Whitespace
 
-Statements should be allowed to breathe. In general always add blank lines between statements, unless they're a sequence of single-line equivalent operations. This isn't something enforceable, it's a matter of what looks best in its context.
+Statements should be allowed to breathe. In general always add blank lines between statements, unless they're a sequence
+of single-line equivalent operations. This isn't something enforceable, it's a matter of what looks best in its context.
 
 **Good:**
 
@@ -424,7 +480,8 @@ use Config;
 
 ## Traits
 
-Each applied trait should go on its own line, and the `use` keyword should be used for each of them. This will result in clean diffs when traits are added or removed.
+Each applied trait should go on its own line, and the `use` keyword should be used for each of them. This will result in
+clean diffs when traits are added or removed.
 
 **Good:**
 
@@ -489,7 +546,8 @@ if ($condition)
 
 ### Happy path
 
-Generally a function should have its unhappy path first and its happy path last. In most cases this will cause the happy path being in an unindented part of the function which makes it more readable.
+Generally a function should have its unhappy path first and its happy path last. In most cases this will cause the happy
+path being in an unindented part of the function which makes it more readable.
 
 **Good:**
 
@@ -513,7 +571,8 @@ throw new Exception;
 
 ### Avoid else
 
-In general, `else` should be avoided because it makes code less readable. In most cases it can be refactored using early returns. This will also cause the happy path to go last, which is desirable.
+In general, `else` should be avoided because it makes code less readable. In most cases it can be refactored using early
+returns. This will also cause the happy path to go last, which is desirable.
 
 **Good:**
 
@@ -601,7 +660,7 @@ Configuration files must use kebab-case.
 
 ```html
 config/
-  pdf-generator.php
+pdf-generator.php
 ```
 
 Configuration keys must use snake_case.
@@ -613,7 +672,8 @@ return [
 ];
 ```
 
-Avoid using the `env` helper outside of configuration files. Create a configuration value from the `env` variable like above.
+Avoid using the `env` helper outside of configuration files. Create a configuration value from the `env` variable like
+above.
 
 **Good:**
 
@@ -663,7 +723,8 @@ php artisan delete-old-records
 php artisan deleteOldRecords
 ```
 
-A command should always give some feedback on what the result is. Minimally you should let the `handle` method spit out a comment at the end indicating that all went well.
+A command should always give some feedback on what the result is. Minimally you should let the `handle` method spit out
+a comment at the end indicating that all went well.
 
 ```php
 // in a Command
@@ -675,7 +736,9 @@ public function handle()
 }
 ```
 
-When the main function of a result is processing items, consider adding output inside of the loop, so progress can be tracked. Put the output before the actual process. If something goes wrong, this makes it easy to know which item caused the error.
+When the main function of a result is processing items, consider adding output inside of the loop, so progress can be
+tracked. Put the output before the actual process. If something goes wrong, this makes it easy to know which item caused
+the error.
 
 At the end of the command, provide a summary on how much processing was done.
 
@@ -717,7 +780,8 @@ Minimize usage of vanilla PHP in Blade templates.
 
 ## Validation
 
-When using multiple rules for one field in a form request, avoid using |, always use array notation. Using an array notation will make it easier to apply custom rule classes to a field.
+When using multiple rules for one field in a form request, avoid using |, always use array notation. Using an array
+notation will make it easier to apply custom rule classes to a field.
 
 **Good:**
 
@@ -771,7 +835,8 @@ $request->validate([
 
 ## Eloquent over raw SQL queries
 
-Eloquent is preferred over Query Builder and raw SQL queries. Eloquent allows you to write code that is both readable and maintainable. Eloquent has great built-in tools like soft deletes, events, scopes etc.
+Eloquent is preferred over Query Builder and raw SQL queries. Eloquent allows you to write code that is both readable
+and maintainable. Eloquent has great built-in tools like soft deletes, events, scopes etc.
 
 **Good:**
 
@@ -842,7 +907,6 @@ $users = User::with('profile')->get();
 // for 100 users, 101 DB queries will be executed
 $users = User::all()
 ```
-
 
 ___
 The above are sections taken from the [Spatie PHP Code Guidelines](https://spatie.be/guidelines/laravel-php).
