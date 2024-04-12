@@ -94,11 +94,6 @@ extensibility. This includes updated namespaces, relocated controllers, improved
 The admin login process now uses email addresses instead of usernames, providing a more convenient and familiar login
 experience for administrators.
 
-#### Mailable Integration
-
-Sending registered mail templates now uses Laravel's Mailable classes instead of custom logic. This provides a more
-standardized and maintainable approach to sending emails.
-
 #### Mail Template Namespaces
 
 Mail template namespaces have been renamed for consistency. `admin::` is
@@ -107,17 +102,17 @@ now `igniter.admin::`, `main::` is now `igntier.main::`, and `system::` is now `
 #### Translation String Keys
 
 Translation string keys have been updated to follow a consistent naming
-convention. `admin::lang.` is now `igniter::admin.`, `main::lang.` is now `igntier::main.`, and `system::lang.` is
+convention. `admin::lang.` is now `igniter::admin.`, `main::lang.` is now `igniter::main.`, and `system::lang.` is
 now `igniter::system.`.
 
 #### The Singleton Trait
 
-Singletons have been dropped, you can resolve Manager classes through service containter. This allows for better code
+Singletons have been dropped, you can resolve all 'Manager' classes through the service container. This allows for better code
 organization and easier unit testing. `ExtensionManager::instance()` is now `resolve(ExtensionManager::class)`.
 
 #### Blade Directives
 
-New Blade directives have been introduced to simplify theme development. The `@themeContent` directive
+New Blade directives have been introduced to simplify theme development and avoid conflicts. The `@themeContent` directive
 allows rendering of content template files, while `@themePage` replaces `@page` used for rendering page contents.
 Additionally,
 `@componentPartial` and `@themePartial` directives replace the previous `@component` and `@partial` directives.
@@ -138,6 +133,10 @@ increasing the length of varchar to 255 on existing columns.
 ### Low impact changes
 
 #### Admin Controller Actions
-
 New base view files have been introduced for common admin controller actions such as index, edit, create, and preview.
 This eliminates the need to create these view files for your custom controller action.
+
+#### Mailable Integration
+Sending registered mail templates now uses Laravel's Mailable classes instead of custom logic. This provides a more
+standardized and maintainable approach to sending emails.
+

@@ -11,7 +11,7 @@ application.
 
 ### Requirements
 
-These are the requirements to run TastyIgniter:
+These are the requirements to run TastyIgniter as a stand-alone application:
 
 - **Apache** (with mod_rewrite enabled) or **Nginx**
 - **PHP 8.2+** with the following extensions: bcmath, pdo_mysql, ctype, curl, openssl, dom, gd, exif, mbstring, json,
@@ -35,7 +35,7 @@ From here, you can move on to the [Setting up TastyIgniter](#setting-up-tastyign
 
 ### Requirements
 
-These are the requirements to run TastyIgniter:
+These are the requirements to run TastyIgniter as a package in a Laravel application:
 
 - **Laravel 10+**
 - **MySQL 5.7+** or **MariaDB 10.3+** or **PostgreSQL 10.0**
@@ -54,8 +54,8 @@ From here, you can move on to the [Setting up TastyIgniter](#setting-up-tastyign
 
 ## Setting up TastyIgniter
 
-TastyIgniter comes packaged with a command-line setup utility that will get you up and running in a few minutes. It will
-attempt to automatically configure TastyIgniter and create an admin user account.
+TastyIgniter includes a command-line setup tool that will get you up and running in a few minutes. It will attempt to
+set up TastyIgniter and create an admin user account.
 
 In the TastyIgniter installation's root directory, run the following command:
 
@@ -85,6 +85,16 @@ php artisan igniter:install --no-interaction
 
 There are some things you may need to set up after the installation is complete.
 
+### Directory permissions
+
+Once TastyIgniter is installed, you must grant the non-root user the necessary permissions so that TastyIgniter and Laravel can write to the required system directories.
+
+```bash
+sudo chmod -R 755 /path/to/tastyigniter
+sudo chown -R www-data:www-data /path/to/tastyigniter
+```
+> You should never set any folder or file to permission level **777**, as this permission level allows anyone to access the content of the folder and file regardless of user or group.
+
 ### Setting up the task scheduler
 
 You should add the following Cron entry to your server for scheduled tasks to function properly. Crontab editing is
@@ -99,14 +109,15 @@ This Cron will call the command scheduler every minute. When executing the `sche
 assess your scheduled tasks and run the tasks that are due.
 
 > Task Scheduling is how scheduling time-based tasks are managed in TastyIgniter. Several core features of TastyIgniter,
-> such as checking for updates, use the scheduler.
+> such as assigning orders and checking for updates, use the scheduler.
 
 ### Setting up the queue daemon
 
 By default, the queue in TastyIgniter is synchronous and will attempt to run tasks such as sending emails in real time.
-This behaviour can be set to an asynchronous method by changing the `default` parameter in the `config/queue.php`.
+This behaviour can be set to an asynchronous method by updating the `QUEUE_CONNECTION` variable in your application's
+`.env` file.
 
-If you are using the `database` queue, it is a good idea to run the queue process as a daemon service. Use the following
+It is a good idea to run the queue process as a daemon service. Use the following
 command:
 
 ```bash
@@ -126,12 +137,18 @@ can be found below.
 
 ### Apache configuration
 
-There are some extra system requirements if your webserver is running Apache, `mod_rewrite` should be installed and
-enabled and the `AllowOverride` option should be switched on.
-
 TastyIgniter includes a `.htaccess` file - make sure it's been uploaded correctly.
+**There are some extra system requirements if your webserver is running Apache, `mod_rewrite` should be installed and
+enabled and the `AllowOverride` option should be switched on.**
 
-You will need to uncomment this line in the `.htaccess` file in some cases:
+```apache
+<Directory "/path/to/tastyigniter/public">
+    AllowOverride All
+</Directory>
+```
+
+You will need to uncomment this line in
+the [`.htaccess`](https://github.com/tastyigniter/TastyIgniter/blob/master/public/.htaccess) file in some cases:
 
 ```html
 ## !IMPORTANT! You may need to uncomment the following line for some hosting environments,
@@ -140,7 +157,7 @@ You will need to uncomment this line in the `.htaccess` file in some cases:
 # RewriteBase /
 ```
 
-If you've created a subdirectory, you can add the subdirectory name as well:
+If you've created a subdirectory, you can specify the subdirectory name as well:
 
 ```html
 RewriteBase /mysubdirectory/
@@ -148,7 +165,8 @@ RewriteBase /mysubdirectory/
 
 ### Nginx configuration
 
-Make sure that `.nginx.conf` file included with TastyIgniter has been uploaded correctly. Then, assuming you have Nginx
+Make sure that [`.nginx.conf`](https://github.com/tastyigniter/TastyIgniter/blob/v4/.nginx.conf) file included with
+TastyIgniter has been uploaded correctly. Then, assuming you have Nginx
 setup, add the following to your server's configuration block:
 
 ```html
@@ -159,24 +177,22 @@ As an example, your site conf file should look something like:
 
 ```html
 server {
-
-listen 80;
-
-root /path/to/tastyigniter;
-index index.php;
-
-server_name mytastysite.com;
-
-gzip             on;
-gzip_proxied     expired no-cache no-store private auth;
-gzip_types       text/plain text/css application/x-javascript application/json application/javascript image/x-icon image/png image/gif image/jpeg image/svg+xml;
-
-charset utf-8;
-
-access_log off;
-
-include /path/to/tastyigniter/.nginx.conf;
-
+    listen 80;
+    
+    root /path/to/tastyigniter;
+    index index.php;
+    
+    server_name mytastysite.com;
+    
+    gzip             on;
+    gzip_proxied     expired no-cache no-store private auth;
+    gzip_types       text/plain text/css application/x-javascript application/json application/javascript image/x-icon image/png image/gif image/jpeg image/svg+xml;
+    
+    charset utf-8;
+    
+    access_log off;
+    
+    include /path/to/tastyigniter/.nginx.conf;
 }
 ```
 
@@ -184,14 +200,13 @@ include /path/to/tastyigniter/.nginx.conf;
 
 ### Debug mode
 
-The debug setting is found in the `config/app.php` configuration file with the `debug` parameter, and is disabled by
-default.
+The debug setting is found in the `config/app.php` configuration file with the `debug` parameter, and is disabled by default.
 
 When enabled, this setting will display detailed error messages when they occur along with other debugging functions.
 Debug mode should always be disabled in a live production site. This prevents the display of potentially sensitive
 information to the end user.
 
-> Important: Always set the `APP_DEBUG` setting to false in production environments.
+> **Important:** Always set the `APP_DEBUG` setting to false in production environments.
 
 ### CSRF protection
 
@@ -200,8 +215,7 @@ TastyIgniter offers a simple method to protect your application from cross-site 
 For every active user session managed by the application, TastyIgniter automatically generates a CSRF "token." This
 token is used to check that the authenticated user is the one who actually makes the client requests.
 
-Although CSRF security is enabled by default, you can disable it in the `config/system.php` configuration file using
-the `enableCsrfProtection` parameter.
+Although CSRF security is enabled by default, you can disable it by updating the `ENABLE_CSRF` variable in your application's `.env` file.
 
 ## Getting Started
 
@@ -230,4 +244,4 @@ After you've logged in you'll be able to access the administration panel to conf
 3. **Setup successful but storefront links are not working:** Check that the theme's required extensions are all
    installed.
 
-> **Note:** A detailed installation log can be found in the `setup/setup.log` file.
+> **Note:** A detailed log can be found in the `storage/logs/laravel.log` file.
