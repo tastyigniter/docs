@@ -1,7 +1,7 @@
 ---
 title: "Contribution Guide"
-section: "getting-started"
-sortOrder: 40
+section: "resources"
+sortOrder: 410
 ---
 
 Interested in contributing to the development of TastyIgniter? All contributions are appreciated and welcome: from

@@ -1,7 +1,7 @@
 ---
 title: "PHP Coding Guidelines"
-section: "getting-started"
-sortOrder: 360
+section: "resources"
+sortOrder: 460
 ---
 
 **Consistency is key**

@@ -124,7 +124,21 @@ The `$.request` object supports additional options for customizing AJAX requests
 
 Some of the common options include:
 
-### `update`
+- [update](../advanced/ajax-request#update)
+- [confirm](../advanced/ajax-request#confirm)
+- [data](../advanced/ajax-request#data)
+- [redirect](../advanced/ajax-request#redirect)
+- [headers](../advanced/ajax-request#headers)
+- [attach-loading](../advanced/ajax-request#attach-loading)
+- [replace-loading](../advanced/ajax-request#replace-loading)
+- [beforeUpdate](../advanced/ajax-request#beforeUpdate)
+- [success](../advanced/ajax-request#success)
+- [error](../advanced/ajax-request#error)
+- [complete](../advanced/ajax-request#complete)
+- [submit](../advanced/ajax-request#submit)
+- [form](../advanced/ajax-request#form)
+
+#### `update`
 
 _(Object)_ Specifies a list of partials and page elements to be updated with the response data. The key is the partial name, and the value is the CSS selector of the target element to be updated.
 
@@ -144,7 +158,7 @@ $.request('onSave', {
 
 > You may prepend the CSS Selector with `@` to append contents to the element, `^` to prepend and `~` to replace with.
 
-### `confirm`
+#### `confirm`
 
 _(string)_ Specifies a confirmation message that will be displayed to the user before sending the request. If the user confirms the request, the request will be sent; otherwise, the request will be canceled.
 
@@ -159,7 +173,7 @@ $.request('onSave', {
 <button data-request="onSave" data-request-confirm="Are you sure?">Delete</button>
 ```
 
-### `data`
+#### `data`
 
 _(Object)_ Specifies the data to be sent with the request. The data should be an object containing key-value pairs of the request data.
 
@@ -177,7 +191,7 @@ $.request('onSave', {
 <button data-request="onSave" data-request-data="'var1': 'some string', 'var2': 'another string'">Save</button>
 ```
 
-### `redirect`
+#### `redirect`
 
 _(string)_ Specifies the URL to redirect to after the request is completed.
 
@@ -192,7 +206,7 @@ $.request('onSave', {
 <button data-request="onSave" data-request-redirect="/success">Save</button>
 ```
 
-### `headers`
+#### `headers`
 
 _(Object)_ Specifies additional headers to be sent with the request.
 
@@ -205,7 +219,7 @@ $.request('onSave', {
 });
 ```
 
-### `attach-loading`
+#### `attach-loading`
 
 _(string)_ Specifies the CSS selector to add to the target element while the request is loading. The attribute value is optional, if not provided, the target element will be disabled.
 
@@ -214,7 +228,7 @@ _(string)_ Specifies the CSS selector to add to the target element while the req
 <button data-request="onSave" data-attach-loading="disabled">Save</button>
 ```
 
-### `replace-loading`
+#### `replace-loading`
 
 _(string)_ Specifies the CSS selector to replace on the target element while the request is loading.
 
@@ -223,7 +237,7 @@ _(string)_ Specifies the CSS selector to replace on the target element while the
 <button data-request="onSave" data-replace-loading="fa-spin fa-spinner">Save</button>
 ```
 
-### `beforeUpdate`
+#### `beforeUpdate`
 
 _(function)_ Specifies a callback function or Javascript code to be executed before updating the target element with the response.
 
@@ -240,7 +254,7 @@ $.request('onSave', {
 <button data-request="onSave" data-request-before-update="console.log('Before update')">Save</button>
 ```
 
-### `success`
+#### `success`
 
 _(function)_ Specifies a callback function or Javascript code to be executed after the request is successful.
 
@@ -257,7 +271,7 @@ $.request('onSave', {
 <button data-request="onSave" data-request-success="console.log('Success')">Save</button>
 ```
 
-### `error`
+#### `error`
 
 _(function)_ Specifies a callback function or Javascript code to be executed when an error occurs during the request.
 
@@ -274,7 +288,7 @@ $.request('onSave', {
 <button data-request="onSave" data-request-error="console.log('An error occurred')">Save</button>
 ```
 
-### `complete`
+#### `complete`
 
 _(function)_ Specifies a callback function or Javascript code to be executed after the request is completed.
 
@@ -291,7 +305,7 @@ $.request('onSave', {
 <button data-request="onSave" data-request-complete="console.log('Request completed')">Save</button>
 ```
 
-### `submit`
+#### `submit`
 
 When set to `true`, the form will be submitted using the default form submission method.
 
@@ -306,7 +320,7 @@ $.request('onSave', {
 <button data-request="onSave" data-request-submit="true">Save</button>
 ```
 
-### `form`
+#### `form`
 
 _(CSS Selector)_ Specifies the form element to be submitted. Useful when the request is triggered by a button outside the form.
 
@@ -325,7 +339,23 @@ $.request('onSave', {
 
 The AJAX framework triggers several events on the updated elements, the triggering element, form, and the window object. These events are triggered regardless of which API was used - the data attributes API or the JavaScript API.
 
-### `ajaxBeforeSend`
+Here are some of the global AJAX events that you can listen to:
+
+- [ajaxBeforeSend](../advanced/ajax-request#ajaxbeforesend)
+- [ajaxBeforeUpdate](../advanced/ajax-request#ajaxbeforeupdate)
+- [ajaxUpdate](../advanced/ajax-request#ajaxupdate)
+- [ajaxUpdateComplete](../advanced/ajax-request#ajaxupdatecomplete)
+- [ajaxSuccess](../advanced/ajax-request#ajaxsuccess)
+- [ajaxError](../advanced/ajax-request#ajaxerror)
+- [ajaxErrorMessage](../advanced/ajax-request#ajaxerrormessage)
+- [ajaxConfirmMessage](../advanced/ajax-request#ajaxconfirmmessage)
+- [ajaxSetup](../advanced/ajax-request#ajaxsetup)
+- [ajaxPromise](../advanced/ajax-request#ajaxpromise)
+- [ajaxDone](../advanced/ajax-request#ajaxdone)
+- [ajaxFail](../advanced/ajax-request#ajaxfail)
+- [ajaxAlways](../advanced/ajax-request#ajaxalways)
+
+#### `ajaxBeforeSend`
 
 Triggered on the window object before the AJAX request is sent. The handler receives the context object as an argument.
 
@@ -335,7 +365,7 @@ $(window).on('ajaxBeforeSend', function(context) {
 });
 ```
 
-### `ajaxBeforeUpdate`
+#### `ajaxBeforeUpdate`
 
 Triggered on the form element immediately after the request is completed but before updating the page. The event handler receives the `event` object, the `context` object, the `data` object received from the server, the `status` text string, and the `jqXHR` object as arguments.
 
@@ -345,7 +375,7 @@ $('form').on('ajaxBeforeUpdate', function(event, context, data, status, jqXHR) {
 });
 ```
 
-### `ajaxUpdate`
+#### `ajaxUpdate`
 
 Triggered on the page element after updating the element with the response data. The event handler receives the `event` object, the `context` object, the `data` object received from the server, the `status` text string, and the `jqXHR` object as arguments.
 
@@ -355,7 +385,7 @@ $('#element').on('ajaxUpdate', function(event, context, data, status, jqXHR) {
 });
 ```
 
-### `ajaxUpdateComplete`
+#### `ajaxUpdateComplete`
 
 Triggered on the window object after all element are updated. The event handler receives the `event` object, the `context` object, the `data` object received from the server, the `status` text string, and the `jqXHR` object as arguments.
 
@@ -365,7 +395,7 @@ $(window).on('ajaxUpdateComplete', function(event, context, data, status, jqXHR)
 });
 ```
 
-### `ajaxSuccess`
+#### `ajaxSuccess`
 
 Triggered on the form element after the request is successful. The event handler receives the `event` object, the `context` object, the `data` object received from the server, the `status` text string, and the `jqXHR` object as arguments.
 
@@ -375,7 +405,7 @@ $('form').on('ajaxSuccess', function(event, context, data, status, jqXHR) {
 });
 ```
 
-### `ajaxError`
+#### `ajaxError`
 
 Triggered on the form element when an error occurs during the AJAX request. The event handler receives the `event` object, the `context` object, the `error` message, the `status` text string, and the `jqXHR` object as arguments.
 
@@ -385,7 +415,7 @@ $('form').on('ajaxError', function(event, context, error, status, jqXHR) {
 });
 ```
 
-### `ajaxErrorMessage`
+#### `ajaxErrorMessage`
 
 Triggered on the window object when an error occurs during the AJAX request. The event handler receives the `event` object and `error` message as an argument.
 
@@ -395,7 +425,7 @@ $(window).on('ajaxErrorMessage', function(event, error) {
 });
 ```
 
-### `ajaxConfirmMessage`
+#### `ajaxConfirmMessage`
 
 Triggered on the window object when a `confirm` option is given. The event handler receives the event object and the confirmation message as arguments.
 
@@ -405,7 +435,7 @@ $(window).on('ajaxConfirmMessage', function(event, message) {
 });
 ```
 
-### `ajaxSetup`
+#### `ajaxSetup`
 
 Triggered on the triggering element before the AJAX request is formed. The event handler receives the `context` object as an argument.
 
@@ -415,7 +445,7 @@ $('#element').on('ajaxSetup', function(context) {
 });
 ```
 
-### `ajaxPromise`
+#### `ajaxPromise`
 
 Triggered on the triggering element before the AJAX request is sent. The event handler receives the `context` object as an argument.
 
@@ -425,7 +455,7 @@ $('#element').on('ajaxPromise', function(context) {
 });
 ```
 
-### `ajaxDone`
+#### `ajaxDone`
 
 Triggered on the triggering element when the AJAX request is successful. The event handler receives the `context` object, the `data` object received from the server, the `status` text string, and the `jqXHR` object as arguments.
 
@@ -435,7 +465,7 @@ $('#element').on('ajaxDone', function(context, data, textStatus, jqXHR) {
 });
 ```
 
-### `ajaxFail`
+#### `ajaxFail`
 
 Triggered on the triggering element when the AJAX request fails. The event handler receives the `context` object, the `status` text string, and the `jqXHR` object as arguments.
 
@@ -445,7 +475,7 @@ $('#element').on('ajaxFail', function(context, textStatus, jqXHR) {
 });
 ```
 
-### `ajaxAlways`
+#### `ajaxAlways`
 
 Triggered on the triggering element when the AJAX request is completed. The event handler receives the `context` object, the `data` object received from the server, the `status` text string, and the `jqXHR` object as arguments.
 

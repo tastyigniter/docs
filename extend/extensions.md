@@ -220,7 +220,7 @@ public function register()
 
 ## Resources
 
-### Configuration
+### Settings & Configuration
 
 There are two ways to configure extensions; with settings models (database settings) and configuration files.
 
