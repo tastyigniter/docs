@@ -130,12 +130,33 @@ command if it fails.
 For more information on configuring Supervisor and using Queues, consult
 the <a href="https://laravel.com/docs/queues#running-the-queue-listener" target="_blank">Laravel Queue docs</a>.
 
-## Web server configuration
+### Application configuration
+
+**Debug mode**
+
+The debug setting is found in the `config/app.php` configuration file with the `debug` parameter, and is disabled by default.
+
+When enabled, this setting will display detailed error messages when they occur along with other debugging functions.
+Debug mode should always be disabled in a live production site. This prevents the display of potentially sensitive
+information to the end user.
+
+> **Important:** Always set the `APP_DEBUG` setting to false in production environments.
+
+**CSRF protection**
+
+TastyIgniter offers a simple method to protect your application from cross-site request forgeries.
+
+For every active user session managed by the application, TastyIgniter automatically generates a CSRF "token." This
+token is used to check that the authenticated user is the one who actually makes the client requests.
+
+Although CSRF security is enabled by default, you can disable it by updating the `ENABLE_CSRF` variable in your application's `.env` file.
+
+### Apache/Nginx configuration
 
 TastyIgniter has basic configuration that should be applied to your webserver. Common webservers and their configuration
 can be found below.
 
-### Apache configuration
+**Apache configuration**
 
 TastyIgniter includes a `.htaccess` file - make sure it's been uploaded correctly.
 **There are some extra system requirements if your webserver is running Apache, `mod_rewrite` should be installed and
@@ -163,7 +184,7 @@ If you've created a subdirectory, you can specify the subdirectory name as well:
 RewriteBase /mysubdirectory/
 ```
 
-### Nginx configuration
+**Nginx configuration**
 
 Make sure that [`.nginx.conf`](https://github.com/tastyigniter/TastyIgniter/blob/v4/.nginx.conf) file included with
 TastyIgniter has been uploaded correctly. Then, assuming you have Nginx
@@ -195,27 +216,6 @@ server {
     include /path/to/tastyigniter/.nginx.conf;
 }
 ```
-
-## Application configuration
-
-### Debug mode
-
-The debug setting is found in the `config/app.php` configuration file with the `debug` parameter, and is disabled by default.
-
-When enabled, this setting will display detailed error messages when they occur along with other debugging functions.
-Debug mode should always be disabled in a live production site. This prevents the display of potentially sensitive
-information to the end user.
-
-> **Important:** Always set the `APP_DEBUG` setting to false in production environments.
-
-### CSRF protection
-
-TastyIgniter offers a simple method to protect your application from cross-site request forgeries.
-
-For every active user session managed by the application, TastyIgniter automatically generates a CSRF "token." This
-token is used to check that the authenticated user is the one who actually makes the client requests.
-
-Although CSRF security is enabled by default, you can disable it by updating the `ENABLE_CSRF` variable in your application's `.env` file.
 
 ## Getting Started
 

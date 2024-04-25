@@ -112,10 +112,9 @@ organization and easier unit testing. `ExtensionManager::instance()` is now `res
 
 #### Blade Directives
 
-New Blade directives have been introduced to simplify theme development and avoid conflicts. The `@themeContent` directive
-allows rendering of content template files, while `@themePage` replaces `@page` used for rendering page contents.
-Additionally,
-`@componentPartial` and `@themePartial` directives replace the previous `@component` and `@partial` directives.
+We've introduced new Blade directives to streamline theme development. We've also renamed existing directives to prevent conflicts. The `@themeContent` directive now replaces `@content`, enabling the rendering of content template files. Similarly, `@themePage` has taken over from `@page` for rendering page contents. Additionally, `@themeStyles` and `@themeScripts` directives replace `@styles` and `@scripts` respectively. Furthermore, `@themeComponent` and `@themePartial` directives now replace the previous `@component` and `@partial` directives.
+
+See [Blade Directives on Markup guide](customize/markup-guide#directives) for more details.
 
 ### Medium impact changes
 

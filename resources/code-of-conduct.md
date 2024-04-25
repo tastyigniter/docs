@@ -4,8 +4,6 @@ section: "getting-started"
 sortOrder: 20
 ---
 
-## Welcome to the TastyIgniter Community
-
 One of our main goals, as an expanding community is to include as many contributors from various backgrounds and areas. We want every single member of the TastyIgniter community to get as much out of it as possible. Therefore, we don't want to scare people off and want to make it a place where all people can co-exist regardless of religion, socio-economic status, ethnicity, ability, sexual orientation or gender.
 
 Whether you are using the TastyIgniter forum, GitHub, Discord chat or an alternative means of communication outside of our community, this code of conduct is applicable.

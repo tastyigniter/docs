@@ -90,29 +90,29 @@ guidelines for naming classes.
 
 Also, follow naming conventions accepted by Laravel community:
 
-| What                                | How                                 | Good                                      | Bad                                               
-|-------------------------------------|-------------------------------------|-------------------------------------------|---------------------------------------------------
- **Controller**                      | plural                              | `ArticlesController`                      | `ArticleController`                               
- **Route**                           | plural                              | `articles/1`                              | `article/1`                                       
- **Model**                           | singular                            | `User`                                    | `Users`                                           
- **Table**                           | plural                              | `article_comments`                        | `article_comment, articleComments`                
- **Pivot table**                     | singular model names                | `article_user`                            | `articles_users`                                  
- **Table column**                    | snake_case without model name       | `meta_title`                              | `MetaTitle, article_meta_title`                   
- **Foreign key**                     | singular model name with _id suffix | `article_id`                              | `ArticleId, id_article, articles_id`              
- **Primary key**                     | -                                   | `id`                                      | `custom_id`                                       
- **Migration**                       | -                                   | `2017_01_01_000000_create_articles_table` | `2017_01_01_000000_articles`                      
- **Method**                          | camelCase                           | `getAll`                                  | `get_all`                                         
- **Function**                        | snake_case                          | `abort_if`                                | `abortIf`                                         
- **Method in test class**            | camelCase                           | `testGuestCannotSeeArticle`               | `test_guest_cannot_see_article`                   
- **Model property**                  | snake_case                          | `$model->model_property`                  | `$model->modelProperty`                           
- **Variable**                        | camelCase                           | `$anyOtherVariable`                       | `$any_other_variable`                             
- **Collection**                      | descriptive, plural                 | `$activeUsers = User::active()->get()`    | `$active, $data`                                  
- **Object**                          | descriptive, singular               | `$activeUser = User::active()->first()`   | `$users, $obj`                                    
- **Config and language files index** | snake_case                          | `articles_enabled`                        | `ArticlesEnabled, articles-enabled`               
- **View file name**                  | kebab-case                          | `show-filtered.blade.php`                 | `showFiltered.blade.php, show_filtered.blade.php` 
- **Config file name**                | kebab-case                          | `google-calendar.php`                     | `googleCalendar.php, google_calendar.php`         
- **Contract (interface)**            | adjective or noun                   | `Authenticatable`                         | `AuthenticationInterface, IAuthentication`        
- **Trait**                           | adjective                           | `Notifiable`                              | `NotificationTrait`                               
+| What                                | How                                 | Good                                      | Bad                                               |
+|-------------------------------------|-------------------------------------|-------------------------------------------|---------------------------------------------------|
+| **Controller**                      | plural                              | `ArticlesController`                      | `ArticleController`                               |
+| **Route**                           | plural                              | `articles/1`                              | `article/1`                                       |
+| **Model**                           | singular                            | `User`                                    | `Users`                                           |
+| **Table**                           | plural                              | `article_comments`                        | `article_comment, articleComments`                |
+| **Pivot table**                     | singular model names                | `article_user`                            | `articles_users`                                  |
+| **Table column**                    | snake_case without model name       | `meta_title`                              | `MetaTitle, article_meta_title`                   |
+| **Foreign key**                     | singular model name with _id suffix | `article_id`                              | `ArticleId, id_article, articles_id`              |
+| **Primary key**                     | -                                   | `id`                                      | `custom_id`                                       |
+| **Migration**                       | -                                   | `2017_01_01_000000_create_articles_table` | `2017_01_01_000000_articles`                      |
+| **Method**                          | camelCase                           | `getAll`                                  | `get_all`                                         |
+| **Function**                        | snake_case                          | `abort_if`                                | `abortIf`                                         |
+| **Method in test class**            | camelCase                           | `testGuestCannotSeeArticle`               | `test_guest_cannot_see_article`                   |
+| **Model property**                  | snake_case                          | `$model->model_property`                  | `$model->modelProperty`                           |
+| **Variable**                        | camelCase                           | `$anyOtherVariable`                       | `$any_other_variable`                             |
+| **Collection**                      | descriptive, plural                 | `$activeUsers = User::active()->get()`    | `$active, $data`                                  |
+| **Object**                          | descriptive, singular               | `$activeUser = User::active()->first()`   | `$users, $obj`                                    |
+| **Config and language files index** | snake_case                          | `articles_enabled`                        | `ArticlesEnabled, articles-enabled`               |
+| **View file name**                  | kebab-case                          | `show-filtered.blade.php`                 | `showFiltered.blade.php, show_filtered.blade.php` |
+| **Config file name**                | kebab-case                          | `google-calendar.php`                     | `googleCalendar.php, google_calendar.php`         |
+| **Contract (interface)**            | adjective or noun                   | `Authenticatable`                         | `AuthenticationInterface, IAuthentication`        |
+| **Trait**                           | adjective                           | `Notifiable`                              | `NotificationTrait`                               |
 
 ### Jobs
 
@@ -154,24 +154,24 @@ $request->input('name');
 
 Consider using helpers instead of facades. They can clean up your code.
 
- Common syntax                                                          | Shorter and more readable syntax                   
-------------------------------------------------------------------------|----------------------------------------------------
- `Session::get('foo')`                                                  | `session('foo')`                                   
- `$request->session()->get('foo')`                                      | `session('foo')`                                   
- `Session::put('foo', $data)`                                           | `session(['foo' => $data])`                        
- `$request->input('name'),Request::get('name')`                         | `$request->name,request('name')`                   
- `return Redirect::back()`                                              | `return redirect()->back()`                        
- `is_null($object->relation) ? $object->relation->id : null;`           | `optional($object->relation)->id`                  
- `return view('index')->with('title', $title)->with('client', $client)` | `return view('index', compact('title', 'client'))` 
- `$request->has('value') ? $request->value : 'default';`                | `$request->get('value','default')`                 
- `Carbon::now(), Carbon::today()`                                       | `now(), today()`                                   
- `App::make('Class')`                                                   | `app('Class')`                                     
- `->where('column', '=', 1)`                                            | `->where('column', 1)`                             
- `->orderBy('created_at', 'desc')`                                      | `->latest()`                                       
- `->orderBy('age', 'desc')`                                             | `->latest('age')`                                  
- `->orderBy('created_at', 'asc')`                                       | `->oldest()`                                       
- `->select('id', 'name')->get()`                                        | `->get(['id', 'name'])`                            
- `->first()->name`                                                      | `->value('name')`                                  
+| Common syntax                                                          | Shorter and more readable syntax                   |
+|------------------------------------------------------------------------|----------------------------------------------------|
+| `Session::get('foo')`                                                  | `session('foo')`                                   |
+| `$request->session()->get('foo')`                                      | `session('foo')`                                   |
+| `Session::put('foo', $data)`                                           | `session(['foo' => $data])`                        |
+| `$request->input('name'),Request::get('name')`                         | `$request->name,request('name')`                   |
+| `return Redirect::back()`                                              | `return redirect()->back()`                        |
+| `is_null($object->relation) ? $object->relation->id : null;`           | `optional($object->relation)->id`                  |
+| `return view('index')->with('title', $title)->with('client', $client)` | `return view('index', compact('title', 'client'))` |
+| `$request->has('value') ? $request->value : 'default';`                | `$request->get('value','default')`                 |
+| `Carbon::now(), Carbon::today()`                                       | `now(), today()`                                   |
+| `App::make('Class')`                                                   | `app('Class')`                                     |
+| `->where('column', '=', 1)`                                            | `->where('column', 1)`                             |
+| `->orderBy('created_at', 'desc')`                                      | `->latest()`                                       |
+| `->orderBy('age', 'desc')`                                             | `->latest('age')`                                  |
+| `->orderBy('created_at', 'asc')`                                       | `->oldest()`                                       |
+| `->select('id', 'name')->get()`                                        | `->get(['id', 'name'])`                            |
+| `->first()->name`                                                      | `->value('name')`                                  |
 
 ## Docblocks
 
