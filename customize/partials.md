@@ -8,7 +8,7 @@ sortOrder: 130
 
 Partials include reusable Blade markup blocks that can be used anywhere on the website. Partials are extremely useful for page sections that appear on multiple pages or layouts.
 
-While you can use Blade's `@include` directive, [components](components.md) provide similar functionality and have several advantages over the `@include` directive, including data and attribute binding.
+While you can use Blade's `@include` directive, [components](../customize/components) provide similar functionality and have several advantages over the `@include` directive, including data and attribute binding.
 
 Partial files live in the **resources/views/includes** subdirectory of a theme directory. For example:
 

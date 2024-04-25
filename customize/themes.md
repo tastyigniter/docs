@@ -87,19 +87,19 @@ A `composer.json` file for a theme looks like this:
 }
 ```
 
-| Field                             | Description                                                                                                                                                                                                                                                                                      |
-|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **name**                          | The Composer package's name in vendor/package format, **required**. You should use a vendor name that is unique to you, such as your GitHub username. You should prefix the package part with <code><b>ti-theme-</b></code> to indicate that your package is intended for use with TastyIgniter. |
-| **type**                          | MUST be set to <code><b>tastyigniter-package</b></code>, ensures that your theme will be installed as such when someone "requires" it, **required**.                                                                                                                                             |
-| **description**                   | A one-sentence summary of what the extension does, **required**. (max. char: 130)                                                                                                                                                                                                                |
-| **authors**                       | An object to specify the name of the extension author, **required**.                                                                                                                                                                                                                             |
-| **authors.0.name**                | An object to specify the name of the extension author, **required**.                                                                                                                                                                                                                             |
-| **authors.0.email**               | An object to specify the email of the extension author, **optional**.                                                                                                                                                                                                                            |
-| **require**                       | Defines other TastyIgniter packages your theme depends on, **optional**. In the example above, **acme-purple** theme depends on the **tastyigniter/ti-theme-orange** theme.                                                                                                                      |
-| **extra.tastyigniter-theme**      | Holds TastyIgniter-specific extension metadata, such as your theme's display name and paths, **required**.                                                                                                                                                                                       |
-| **extra.tastyigniter-theme.code** | the theme code, **required**. The value is used on the TastyIgniter marketplace for setting the theme code value.                                                                                                                                                                                    |
-| **extra.tastyigniter-theme.name** | specifies the theme name, **required**.                                                                                                                                                                                                                                                              |
-| **extra.tastyigniter-theme.locked** | specifies whether a child theme must be created to customize the theme, **optional**.                                                                                                                                                                                                                          |
+| Field                               | Description                                                                                                                                                                                                                                                                                      |
+|-------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **name**                            | The Composer package's name in vendor/package format, **required**. You should use a vendor name that is unique to you, such as your GitHub username. You should prefix the package part with <code><b>ti-theme-</b></code> to indicate that your package is intended for use with TastyIgniter. |
+| **type**                            | MUST be set to <code><b>tastyigniter-package</b></code>, ensures that your theme will be installed as such when someone "requires" it, **required**.                                                                                                                                             |
+| **description**                     | A one-sentence summary of what the extension does, **required**. (max. char: 130)                                                                                                                                                                                                                |
+| **authors**                         | An object to specify the name of the extension author, **required**.                                                                                                                                                                                                                             |
+| **authors.0.name**                  | An object to specify the name of the extension author, **required**.                                                                                                                                                                                                                             |
+| **authors.0.email**                 | An object to specify the email of the extension author, **optional**.                                                                                                                                                                                                                            |
+| **require**                         | Defines other TastyIgniter packages your theme depends on, **optional**. In the example above, **acme-purple** theme depends on the **tastyigniter/ti-theme-orange** theme.                                                                                                                      |
+| **extra.tastyigniter-theme**        | Holds TastyIgniter-specific extension metadata, such as your theme's display name and paths, **required**.                                                                                                                                                                                       |
+| **extra.tastyigniter-theme.code**   | the theme code, **required**. The value is used on the TastyIgniter marketplace for setting the theme code value.                                                                                                                                                                                |
+| **extra.tastyigniter-theme.name**   | specifies the theme name, **required**.                                                                                                                                                                                                                                                          |
+| **extra.tastyigniter-theme.locked** | specifies whether a child theme must be created to customize the theme, **optional**.                                                                                                                                                                                                            |
 
 ## Assets manifest
 
@@ -146,7 +146,7 @@ A `resources/meta/assets.json` file looks like this:
 ```
 > The `$` symbol is a placeholder for the `public` path. Theme assets are published to the `public` directory of the TastyIgniter installation when you install or update the theme or run the `php artisan igniter:theme-vendor-publish --theme=your-theme` command.
 
-JavaScript code should be placed in external files whenever possible. Use [`@scripts`](../customize/markup-guide.md#themescripts) to load your scripts and [`@styles`](../customize/markup-guide#themestyles) to load your styles.
+JavaScript code should be placed in external files whenever possible. Use [`@scripts`](../customize/markup-guide#themescripts) to load your scripts and [`@styles`](../customize/markup-guide#themestyles) to load your styles.
 
 ## Template structure
 
@@ -204,7 +204,7 @@ description: Default Layout
 
 ### Front-matter section
 
-This is the first section in the file and it contains valid YAML set between triple-dashed lines. You can set predefined variables or create custom ones which will be available to you to access from component blade views. Here is a basic example:
+This is the first section in the file which contains valid YAML set between triple-dashed lines. You can set predefined variables or create custom ones which will be available to you to access from component blade views. Here is a basic example:
 
 ```blade
 ---

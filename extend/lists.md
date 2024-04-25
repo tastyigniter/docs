@@ -269,7 +269,7 @@ For each column can specify these options (where applicable):
 There are various column types that can be used to control how the list column is displayed.
 
 - [Text](../extend/lists#text)
-- [Switch](../extend/lists.md#switch-1)
+- [Switch](../extend/lists#switch-1)
 - [Money](../extend/lists#money)
 - [Currency](../extend/lists#currency)
 - [Date](../extend/lists#date-1)

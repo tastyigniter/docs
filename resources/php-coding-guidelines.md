@@ -37,7 +37,7 @@ public string|null $variable;
 
 #### Void return types
 
-If a method returns nothing, it should be indicated with void. This makes it more clear to the users of your code what
+If a method returns nothing, it should be indicated with void. This makes it clearer to the users of your code what
 your intention was when writing it.
 
 ```php
@@ -116,7 +116,7 @@ Also, follow naming conventions accepted by Laravel community:
 
 ### Jobs
 
-A job's name should describe its action and an optional `Job` suffix..
+A job's name should describe its action and an optional `Job` suffix.
 
 Example: `CreateUser` or `PerformDatabaseCleanupJob`
 
@@ -522,7 +522,7 @@ $greeting = 'Hi, I am ' . $name . '.';
 
 ### Bracket position
 
-Always use curly brackets, except its a one line if condition
+Always use curly brackets, except it is a one line if condition
 
 **Good:**
 
@@ -736,7 +736,7 @@ public function handle()
 }
 ```
 
-When the main function of a result is processing items, consider adding output inside of the loop, so progress can be
+When the main function of a result is processing items, consider adding output inside the loop, so progress can be
 tracked. Put the output before the actual process. If something goes wrong, this makes it easy to know which item caused
 the error.
 

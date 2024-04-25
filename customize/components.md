@@ -101,14 +101,14 @@ class HelloBlock extends \Livewire\Component implements \Igniter\System\Contract
     // ...
 }
 ```
-| Key             | Description                                                  |
-| --------------- | ------------------------------------------------------------ |
-| **label**       | required, the property label, it is used by the component Selector in the Admin Interface. |
+| Key             | Description                                                                                                                                                                                                            |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **label**       | required, the property label, it is used by the component Selector in the Admin Interface.                                                                                                                             |
 | **type**        | optional, specifies the property type. The type defines the form field type. Currently supported types are **<br/>text**, **number**, **checkbox**, **radio**, **select** and **selectlist**. Default value: **text**. |
-| **default**     | optional, the default property value.                        |
-| **comment**     | optional, the property description, it is used by the component Selector in the Admin Interface. |
-| **placeholder** | optional placeholder for text and select properties.         |
-| **options**     | optional array of options for checkbox, radio, select, selectlist properties. |
+| **default**     | optional, the default property value.                                                                                                                                                                                  |
+| **comment**     | optional, the property description, it is used by the component Selector in the Admin Interface.                                                                                                                       |
+| **placeholder** | optional placeholder for text and select properties.                                                                                                                                                                   |
+| **options**     | optional array of options for checkbox, radio, select, selectlist properties.                                                                                                                                          |
 
 The **options** property key can be static or dynamic. Using the `maxItems` property, let's define static options:
 
@@ -184,18 +184,18 @@ For more information, reference the [Livewire Component Actions documentation](h
 
 ### Component lifecycle handlers
 
-Livewire includes a number of lifecycle hooks that allow you to run code at specific stages of a component's lifecycle. These hooks let you to conduct activities before or after specific events, including as component initialization, property updates, and template rendering.
+Livewire includes a number of lifecycle hooks that allow you to run code at specific stages of a component's lifecycle. These hooks let you conduct activities before or after specific events, including as component initialization, property updates, and template rendering.
 
-| Hook Method      | Description                                                  |
-|------------------| ------------------------------------------------------------ |
-| **mount()** | Called when a component is created |
-| **hydrate** | Called when a component is re-hydrated at the beginning of a subsequent request |
-| **boot** | Called at the beginning of every request. Both initial, and subsequent |
-| **updating** | Called before updating a component property |
-| **updated** | Called after updating a property |
-| **rendering** | Called before render() is called |
-| **rendered** | Called after render() is called |
-| **dehydrate** | Called at the end of every component request |
+| Hook Method   | Description                                                                     |
+|---------------|---------------------------------------------------------------------------------|
+| **mount()**   | Called when a component is created                                              |
+| **hydrate**   | Called when a component is re-hydrated at the beginning of a subsequent request |
+| **boot**      | Called at the beginning of every request. Both initial, and subsequent          |
+| **updating**  | Called before updating a component property                                     |
+| **updated**   | Called after updating a property                                                |
+| **rendering** | Called before render() is called                                                |
+| **rendered**  | Called after render() is called                                                 |
+| **dehydrate** | Called at the end of every component request                                    |
 
 For more information, reference the [Livewire Component Livecycle Hooks documentation](https://livewire.laravel.com/docs/lifecycle-hooks).
 
@@ -292,7 +292,7 @@ class HelloBlock extends \Igniter\System\Classes\BaseComponent
 }
 ```
 
-The component properties and methods are available on the page or layout its attached through the component variable
+The component properties and methods are available on the page or layout it is attached to through the component variable
 which corresponds to the alias of the component. For example, if the `HelloBlock` component was defined on a page or
 layout as `'[helloBlock]'`, you will be able to access its `alerts` through the `$helloBlock` variable:
 
@@ -339,14 +339,14 @@ public function defineProperties(): array
 
 The method should return an array with the property keys as indexes and the property parameters as values. The property keys are used to access the component property values within the component class.
 
-| Key             | Description                                                  |
-| --------------- | ------------------------------------------------------------ |
-| **label**       | required, the property label, it is used by the component Selector in the Admin Interface. |
+| Key             | Description                                                                                                                                                                                                            |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **label**       | required, the property label, it is used by the component Selector in the Admin Interface.                                                                                                                             |
 | **type**        | optional, specifies the property type. The type defines the form field type. Currently supported types are **<br/>text**, **number**, **checkbox**, **radio**, **select** and **selectlist**. Default value: **text**. |
-| **default**     | optional, the default property value.                        |
-| **comment**     | optional, the property description, it is used by the component Selector in the Admin Interface. |
-| **placeholder** | optional placeholder for text and select properties.         |
-| **options**     | optional array of options for checkbox, radio, select, selectlist properties. |
+| **default**     | optional, the default property value.                                                                                                                                                                                  |
+| **comment**     | optional, the property description, it is used by the component Selector in the Admin Interface.                                                                                                                       |
+| **placeholder** | optional placeholder for text and select properties.                                                                                                                                                                   |
+| **options**     | optional array of options for checkbox, radio, select, selectlist properties.                                                                                                                                          |
 
 
 The **options** property key can be static or dynamic. Using the `maxItems` property, let's define static options:

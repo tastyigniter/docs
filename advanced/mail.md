@@ -48,10 +48,10 @@ Thank you for your order.
 
 The **configuration** section sets the mail view parameters. The following configuration parameters are supported:
 
-| Parameter 	| Description |
-|------------------|------------------|
-| `subject` 	| the mail message subject, **required**. |
-| `layout` 	| the mail layout code, **optional**. Default value is default. |
+| Parameter 	 | Description                                                   |
+|-------------|---------------------------------------------------------------|
+| `subject` 	 | the mail message subject, **required**.                       |
+| `layout` 	  | the mail layout code, **optional**. Default value is default. |
 
 The **plain text** section is optional, while the **configuration** and **HTML markup** sections are required.
 
@@ -143,7 +143,7 @@ You can include the mail partial in a mail template or layout using the `@partia
 
 ### Mail variables
 
-You may access all of the data passed to the mail view or template by using the `{{ $variable }}` syntax. For example, if you pass a `$customer_name` variable to the mail view, you can access it in the view like this:
+You may access all the data passed to the mail view or template by using the `{{ $variable }}` syntax. For example, if you pass a `$customer_name` variable to the mail view, you can access it in the view like this:
 
 ```blade
 <p>Hello {{ $customer_name }},</p>
@@ -198,7 +198,7 @@ Mail::sendTemplate('vendor.extension::mail.message', $data, function($message) u
 
 ### Queueing mail
 
-To queue a mail message, you can use the `queueTemplate` method on the `Mail` facade. This method will automatically push the email onto the queue so it will be sent in the background by a queue worker. This can help to improve the response time of your application by offloading the sending of the email to a background process:
+To queue a mail message, you can use the `queueTemplate` method on the `Mail` facade. This method will automatically push the email onto the queue, so it will be sent in the background by a queue worker. This can help to improve the response time of your application by offloading the sending of the email to a background process:
 
 ```php
 use Illuminate\Support\Facades\Mail;
@@ -212,7 +212,7 @@ Mail::queueTemplate('vendor.extension::mail.message', $data, function($message) 
 
 ## Registering mail templates, layouts & partials
 
-To register mail templates, layouts, and partials in the Extension class, you can use the [`registerMailTemplates`](../extend/extensions#extension-class-methods), [`registerMailLayouts`](../extend/extensions#extension-class-methods), and ](../extend/extensions#extension-class-methods)[`registerMailPartials`] methods, respectively. These methods allow you to define the mail templates, layouts, and partials that your extension provides, making them available for customization via the admin interface:
+To register mail templates, layouts, and partials in the Extension class, you can use the [`registerMailTemplates`](../extend/extensions#extension-class-methods), [`registerMailLayouts`](../extend/extensions#extension-class-methods), and [`registerMailPartials`](../extend/extensions#extension-class-methods) methods, respectively. These methods allow you to define the mail templates, layouts, and partials that your extension provides, making them available for customization via the admin interface:
 
 ```php
 public function registerMailTemplates(): array

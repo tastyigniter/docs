@@ -210,7 +210,7 @@ public function registerFormWidgets()
 
 ### Loading form data
 
-The primary function of a form widget is to interact with your model, by loading and saving data to the database. When a form widget is rendered, it retrieves its stored value using the `getLoadValue` method. Additionally, the `getId` and `getFieldName` methods provide a unique identifier and the name for a HTML element used in the form. These values are typically passed to the widget partial at the time of rendering.
+The primary function of a form widget is to interact with your model, by loading and saving data to the database. When a form widget is rendered, it retrieves its stored value using the `getLoadValue` method. Additionally, the `getId` and `getFieldName` methods provide a unique identifier and the name for an HTML element used in the form. These values are typically passed to the widget partial at the time of rendering.
 
 Here's how you might implement this in the `render` method:
 

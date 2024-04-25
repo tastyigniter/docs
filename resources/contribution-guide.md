@@ -7,7 +7,7 @@ sortOrder: 410
 Interested in contributing to the development of TastyIgniter? All contributions are appreciated and welcome: from
 opening a bug report to creating a pull request.
 
-Before contributing, please read the [code of conduct](code-of-conduct.md).
+Before contributing, please read the [code of conduct](../resources/code-of-conduct).
 
 To order to learn a little more about how TastyIgniter operates, we suggest that you read the documentation, if you're
 just beginning.
@@ -80,7 +80,7 @@ Follow these steps:
 - Run ./vendor/bin/phpunit to **test** your code
 - Run ./vendor/bin/pint to **fix** any code style issues
 - **Commit** your code with a descriptive message.
-- Submit in the **pull request** on Github
+- Submit in the **pull request** on GitHub
 
 ## Development tools
 
@@ -104,7 +104,7 @@ contribute. Here's how styling perfect TastyIgniter documentation pages is done:
 
 - Try not to use H1 headers.
 - A TOC list would be generated automatically for each page with at least one H2 header. The TOC would have links to all
-  of the page's H2 headers.
+  of all the page's H2 headers.
 - The introductory text would be displayed below the TOC.
 - Try to use only H2 and H3 headers.
 - Each H2 and H3 header could have a link defined as `<a name="event-handlers"></a>` or have it generated automatically.
@@ -113,7 +113,7 @@ contribute. Here's how styling perfect TastyIgniter documentation pages is done:
 - Use the inline code tags for all code-related - variable names, function names, syntax examples, etc.
 - Don't hesitate to make cross-links to other documentation articles. There is no need to add links to the same article
   in the same paragraph.
-- For your reference, see the [pages.md](https://github.com/tastyigniter/docs/blob/master/customize/pages.md)
-  or [themes.md](https://github.com/tastyigniter/docs/blob/master/customize/themes.md) files.
+- For your reference, see the [pages](https://github.com/tastyigniter/docs/blob/master/customize/pages.md)
+  or [themes](https://github.com/tastyigniter/docs/blob/master/customize/themes.md) files.
 
 > For more information on contributing, read the guide <a href="https://github.com/tastyigniter/TastyIgniter/blob/master/CONTRIBUTING.md" target="_blank">here</a>

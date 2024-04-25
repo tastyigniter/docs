@@ -11,7 +11,7 @@ every part of the codebase.
 
 ## Backing Up The Database
 
-Use this command to backup your MySQL database. For example, if the username is `root` and the database is called
+Use this command back up your MySQL database. For example, if the username is `root` and the database is called
 `database_name`. You will then be prompted to enter the password.
 
 ```bash

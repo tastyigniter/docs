@@ -172,7 +172,7 @@ You can access variables within the partial like any other template variable:
 
 ## Rendering components
 
-[Components](components.md) are reusable Blade markup blocks combining state and behavior that serve as building blocks in layouts or pages. Here, we'll cover the basics of rendering [Livewire components](components.md#livewire-component) within a page.
+[Components](../customize/components) are reusable Blade markup blocks combining state and behavior that serve as building blocks in layouts or pages. Here, we'll cover the basics of rendering [Livewire components](../customize/components#livewire-component) within a page.
 
 Livewire component consists of two files. The first is the component class `src/Livewire/HelloBlock.php` and the second is the component template file `resources/views/livewire/hello-block.blade.php`.
 
@@ -188,7 +188,7 @@ food: "Pizza"
 <p>{{ $this->page->food }}</p>
 ```
 
-For more on components, see the [Components](components.md) documentation.
+For more on components, see the [Components](../customize/components) documentation.
 
 ## Execution life cycle
 

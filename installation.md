@@ -73,7 +73,7 @@ for the database configuration, application URL and administrator details.
 Some setup require an unattended mode so that the application can easily be built into automated infrastructure
 pipelines and build tools, e.g. Docker.
 
-To run this, its similar to the above command, just instead we provide all of the option values up-front within the
+To run this, it is similar to the above command, just instead we provide all the option values up-front within the
 projects
 `.env` and pass the `--no-interaction` flag to the installation script:
 
