@@ -207,7 +207,7 @@ The following options are available for form fields (where applicable):
 - `containerAttributes`: Additional HTML attributes to apply to the field container.
 - `permissions`: The [permissions](../extend/permissions) required to view this field.
 
-## Available field types
+### Available field types
 
 The following native field types are available for form fields. For more advanced form fields, a [form widget](../extend/forms#form-widgets) can be used instead.
 
@@ -231,7 +231,7 @@ The following native field types are available for form fields. For more advance
 - [Partial](../extend/forms#partial)
 - [Widget](../extend/forms#widget)
 
-### Text
+#### Text
 
 `text` renders a simple text input field.
 
@@ -242,7 +242,7 @@ The following native field types are available for form fields. For more advance
 ],
 ```
 
-### Number
+#### Number
 
 `number` renders an input field that takes only numbers.
 
@@ -253,7 +253,7 @@ The following native field types are available for form fields. For more advance
 ],
 ```
 
-### Money
+#### Money
 
 `money` renders an input field that takes only numbers and formats the value to two decimal places. 
 
@@ -264,7 +264,7 @@ The following native field types are available for form fields. For more advance
 ],
 ```
 
-### Currency
+#### Currency
 
 `currency` renders an input field that takes only numbers and formats the value matching the active currency settings.
 
@@ -275,7 +275,7 @@ The following native field types are available for form fields. For more advance
 ],
 ```
 
-### Password
+#### Password
 
 `password` renders a password input field.
 
@@ -286,7 +286,7 @@ The following native field types are available for form fields. For more advance
 ],
 ```
 
-### Email
+#### Email
 
 `email` renders an input field that takes only email addresses.
 
@@ -297,7 +297,7 @@ The following native field types are available for form fields. For more advance
 ],
 ```
 
-### Permalink
+#### Permalink
 
 `permalink` renders an input field that only accepts alphanumeric characters, dashes, and underscores.
 
@@ -308,7 +308,7 @@ The following native field types are available for form fields. For more advance
 ],
 ```
 
-### URL
+#### URL
 
 `url` renders an input field that only accepts valid URLs.
 
@@ -319,7 +319,7 @@ The following native field types are available for form fields. For more advance
 ],
 ```
 
-### Textarea
+#### Textarea
 
 `textarea` renders a textarea input field.
 
@@ -335,7 +335,7 @@ The following native field types are available for form fields. For more advance
 ],
 ```
 
-### Select
+#### Select
 
 `select` renders a dropdown select field. There are 6 ways to provide the dropdown options. All six ways should return an array of options in the format `key => label`.
 
@@ -432,7 +432,7 @@ The following options are available for the `select` field type:
 - `showSearch`: Whether to enable search functionality in the dropdown. Default is `false`.
 - `multiOption`: Whether to allow multiple selections. Default is `false`.
 
-### Checkbox
+#### Checkbox
 
 `checkbox` renders a checkbox input field.
 
@@ -443,7 +443,7 @@ The following options are available for the `select` field type:
 ],
 ```
 
-### Checkbox list
+#### Checkbox list
 
 `checkboxlist` renders a list of checkboxes. Checkbox lists support the same methods for defining the options as the [select field type](../extend/forms#select).
 
@@ -471,7 +471,7 @@ Options for checkbox lists also support secondary descriptions using the array f
 ],
 ```
 
-### Checkbox toggle
+#### Checkbox toggle
 
 `checkboxtoggle` renders a button-like checkbox toggle. Checkbox toggles support the same methods for defining the options as the [select field type](../extend/forms#select).
 
@@ -487,7 +487,7 @@ Options for checkbox lists also support secondary descriptions using the array f
 ],
 ```
 
-### Radio list
+#### Radio list
 
 `radiolist` renders a list of radio buttons. Radio lists support the same methods for defining the options as the [select field type](../extend/forms#select). These options also support secondary descriptions just like [checkbox lists](../extend/forms#checkbox-list).
 
@@ -503,7 +503,7 @@ Options for checkbox lists also support secondary descriptions using the array f
 ],
 ```
 
-### Radio toggle
+#### Radio toggle
 
 `radiotoggle` renders a button-like radio toggle. Radio toggles support the same methods for defining the options as the [select field type](../extend/forms#select).
 
@@ -519,7 +519,7 @@ Options for checkbox lists also support secondary descriptions using the array f
 ],
 ```
 
-### Switch
+#### Switch
 
 `switch` renders a switch toggle field.
 
@@ -532,7 +532,7 @@ Options for checkbox lists also support secondary descriptions using the array f
 ],
 ```
 
-### Section
+#### Section
 
 `section` renders a section heading and subheading.
 
@@ -544,7 +544,7 @@ Options for checkbox lists also support secondary descriptions using the array f
 ],
 ```
 
-### Partial
+#### Partial
 
 `partial` renders a partial view. The `path` option should be the path to the partial view file otherwise the field name is used as the partial name. 
 
@@ -555,7 +555,7 @@ Options for checkbox lists also support secondary descriptions using the array f
 ],
 ```
 
-### Widget
+#### Widget
 
 `widget` renders a form widget. The `type` option should be the class name of the form widget or the registered alias name.
 
@@ -584,7 +584,7 @@ TastyIgniter includes several form widgets, although it is common for extensions
 - [Status editor](../extend/forms#status-editor)
 - [Template editor](../extend/forms#template-editor)
 
-### Code editor
+#### Code editor
 
 `codeeditor` renders an editor field for editing code or HTML markup.
 
@@ -600,7 +600,7 @@ The following options are available for the `codeeditor` field type:
 - `mode`: The programming language to use for syntax highlighting. Default is `css`.
 - `theme`: The color theme option passed to the CodeMirror JS library. Default is `material`.
 
-### Color picker
+#### Color picker
 
 `colorpicker` renders the browser supported color picker.
 
@@ -615,7 +615,7 @@ The following options are available for the `colorpicker` field type:
 
 - `availableColors`: An array of colors to display in the color picker for quick color selection.
 
-### Components
+#### Components
 
 `components` renders a field for selecting and managing both [theme](../customize/components#theme-component) and [livewire](../customize/components#livewire-component) components from the component library as well as rendering them to a theme template.
 
@@ -639,7 +639,7 @@ The following options are available for the `components` field type:
 - `editTitle`: The title of the edit button. Default is `Edit component`.
 - `copyPartialTitle`: The title of the override partial button. Default is `Override component partial`.
 
-### Connector
+#### Connector
 
 `connector` renders a field for attaching and managing related records from a model.
 
@@ -679,7 +679,7 @@ The following options are available for the `connector` field type:
 - `popupSize`: The size of the popup window. Options are `modal-sm`, `modal-md`, `modal-lg`, `modal-xl`.
 - `hideNewButton`: Whether to hide the new related record button. Default is `true`.
 
-### Data table
+#### Data table
 
 `datatable` renders a table for displaying and editing tabular data.
 
@@ -713,7 +713,7 @@ The following options are available for the `datatable` field type:
 - `toolbar`: The configuration of toolbar buttons to display above the table.
 - `fieldName`: The custom field name to use for the table. Default to the field alias.
 
-### Date picker
+#### Date picker
 
 `datepicker` renders the browser supported date picker field for selecting dates and times.
 
@@ -732,7 +732,7 @@ The following options are available for the `datepicker` field type:
 - `startDate`: The minimum date that can be selected.
 - `endDate`: The maximum date that can be selected.
 
-### Markdown editor
+#### Markdown editor
 
 `markdown` renders an editor field for editing markdown content.
 
@@ -747,7 +747,7 @@ The following options are available for the `markdown` field type:
 
 - `mode`: The editor view mode. Options are `tab` or `split`. Default is `tab`.
 
-### Media finder
+#### Media finder
 
 `mediafinder` renders a field for selecting media files from the media library.
 
@@ -766,7 +766,7 @@ The following options are available for the `mediafinder` field type:
 - `useAttachment`: Whether to use the attachment ID instead of the media path. Default is `false`.
 - `thumbOptions`: Configuration options for generating media thumbnails. Default is `['fit' => 'contain', 'width' => 122, 'height' => 122]`.
 
-### Record editor
+##### Record editor
 
 `recordeditor` renders a field for selecting and managing records from a model.
 
@@ -813,7 +813,7 @@ The following options are available for the `addonRight` and `addonLeft` buttons
 - `tag`: The button tag. Options are `div`, `button`, `a`. Default is `div`.
 - `attributes`: Additional HTML attributes to apply to the button. Define as an array of key-value pairs.
 
-### Relation
+#### Relation
 
 `relation` renders a single or multiple selection dropdown field for selecting related records. The label used for displaying each relation is retrieved by the `nameFrom` or `select` definition.
 
@@ -835,7 +835,7 @@ The following options are available for the `relation` field type:
 - `scope`: A custom query scope method to apply to the relation query.
 - `emptyOption`: The text to display for the empty option. Default is `-- none --`.
 
-### Repeater
+#### Repeater
 
 `repeater` renders a field for repeating a set of fields.
 
@@ -868,7 +868,7 @@ The following options are available for the `repeater` field type:
 - `showRemoveButton`: Whether to show the remove button. Default is `true`.
 - `emptyMessage`: The message to display when there are no items in the repeater. Default is `lang:igniter::admin.text_empty`.
 
-### Rich editor / WYSIWYG
+#### Rich editor / WYSIWYG
 
 `richeditor` renders a rich text editor field for editing HTML content.
 
@@ -884,7 +884,7 @@ The following options are available for the `richeditor` field type:
 - `size`: The size of the editor. Options are `small`, `large`. Default is `large`.
 - `toolbarButtons`: The buttons to display in the editor toolbar.
 
-### Status editor
+#### Status editor
 
 `statuseditor` renders a field for updating status and assignee for orders and reservations.
 
@@ -925,7 +925,7 @@ The following options are available for the `statuseditor` field type:
 - `statusRelationFrom`: The relation name to use for fetching status records.
 - `assigneeRelationFrom`: The relation name to use for fetching assignee records.
 
-### Template editor
+#### Template editor
 
 `templateeditor` renders a field for editing theme template files.
 
