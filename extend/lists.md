@@ -268,6 +268,7 @@ For each column can specify these options (where applicable):
 
 There are various column types that can be used to control how the list column is displayed.
 
+{.grid-2}
 - [Text](../extend/lists#text)
 - [Switch](../extend/lists#switch-1)
 - [Money](../extend/lists#money)

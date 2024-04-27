@@ -124,6 +124,7 @@ The `$.request` object supports additional options for customizing AJAX requests
 
 Some of the common options include:
 
+{.grid-2}
 - [update](../advanced/ajax-request#update)
 - [confirm](../advanced/ajax-request#confirm)
 - [data](../advanced/ajax-request#data)
@@ -341,6 +342,7 @@ The AJAX framework triggers several events on the updated elements, the triggeri
 
 Here are some of the global AJAX events that you can listen to:
 
+{.grid-2}
 - [ajaxBeforeSend](../advanced/ajax-request#ajaxbeforesend)
 - [ajaxBeforeUpdate](../advanced/ajax-request#ajaxbeforeupdate)
 - [ajaxUpdate](../advanced/ajax-request#ajaxupdate)

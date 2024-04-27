@@ -211,6 +211,7 @@ The following options are available for form fields (where applicable):
 
 The following native field types are available for form fields. For more advanced form fields, a [form widget](../extend/forms#form-widgets) can be used instead.
 
+{.grid-3}
 - [Text](../extend/forms#text)
 - [Number](../extend/forms#number)
 - [Money](../extend/forms#money)
@@ -569,6 +570,7 @@ Options for checkbox lists also support secondary descriptions using the array f
 
 TastyIgniter includes several form widgets, although it is common for extensions to provide their own custom form widgets. For a deeper dive into how these widgets work and how you can implement or modify them, you can refer to the [Form Widgets](../extend/widgets#using-form-widget) article.
 
+{.grid-2}
 - [Code editor](../extend/forms#code-editor)
 - [Color picker](../extend/forms#color-picker)
 - [Components](../extend/forms#components)

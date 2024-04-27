@@ -4,8 +4,7 @@ section: "getting-started"
 sortOrder: 10
 ---
 
-As of Version 4, TastyIgniter can be installed as a stand-alone application, or as a package inside an existing Laravel
-application.
+As of Version 4, TastyIgniter can be installed as a [stand-alone](#stand-alone-installation) application, or as a [package](#package-installation) inside an existing Laravel application.
 
 ## Stand-alone Installation
 

@@ -29,7 +29,7 @@ Directives are a unique feature to Laravel Blade and are prefixed with `@` chara
 
 > **Note:** The Blade directives provided by TastyIgniter are not the same as the Laravel Blade directives. The Blade directives provided by TastyIgniter are specific to TastyIgniter and are not compatible with Laravel.
 
-### @themePage
+### `@themePage`
 
 The `@themePage` tag renders the contents of a page into a layout template. The directive has no parameters.
 
@@ -37,7 +37,7 @@ The `@themePage` tag renders the contents of a page into a layout template. The 
 @themePage
 ```
 
-### @themePartial
+### `@themePartial`
 
 The `@themePartial` directive renders a partial template file located under the `_partials` subdirectory of a theme. If you are rendering blade views from the other subdirectory of a theme, use Blade's `@include` directive instead.
 
@@ -73,7 +73,7 @@ If you need to render the first partial that exists from a given array of partia
 @themePartialFirst(['custom.partial-name', 'partial-name'], ['status' => 'complete'])
 ```
 
-### @themeComponent
+### `@themeComponent`
 
 The `@themeComponent` directive renders a Theme component. The directive has a single required parameter - the name of the component. To render a Livewire component, use the `@livewire` directive instead.
 
@@ -107,7 +107,7 @@ If you need to render the first component that exists from a given array of comp
 @themeComponentFirst(['componentNameExtended', 'componentName'], ['status' => 'complete'])
 ```
 
-### @themeContent
+### `@themeContent`
 
 The `@themeContent` directive renders the contents of a static template file located under the `_content` subdirectory of a theme. If you are rendering blade views from the other subdirectory of a theme, use Blade's `@include` directive instead.
 
@@ -118,7 +118,7 @@ The directive has a single required parameter - the name of the content template
 @themeContent('content-name')
 ```
 
-### @themeStyles
+### `@themeStyles`
 
 The `@themeStyles` directive renders all stylesheets that are defined during the rendering of the page. This includes all `.css` files registered within the `resources/meta/assets.json` manifest file, as well as stylesheets injected using the controller's `addCss` method. The directive has no parameters.
 
@@ -132,7 +132,7 @@ The `@themeStyles` directive renders all stylesheets that are defined during the
 </body>
 ```
 
-### @themeScripts
+### `@themeScripts`
 
 The `@themeScripts` directive renders all scripts that are defined during the rendering of the page. This includes all `.js` files registered within the `resources/meta/assets.json` manifest file, as well as scripts injected using the controller's `addJs` method. The directive has no parameters.
 
