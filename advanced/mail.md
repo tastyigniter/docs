@@ -6,15 +6,33 @@ sortOrder: 320
 
 ## Introduction
 
-TastyIgniter uses the Laravel Mail component to send emails. The Mail component provides a clean, simple API which allows you to send emails through a variety of drivers, including SMTP, Mailgun, Postmark, Amazon SES.
+TastyIgniter uses the Laravel Mail component to send emails. The Mail component provides a clean, simple API which allows you to send emails through a variety of drivers, including SMTP, Mailgun, Postmark and Amazon SES.
 
 ### Driver prerequisites
 
-Before using the Mailgun, SparkPost or SES drivers you will need to install [Drivers extension](https://tastyigniter.com/marketplace/item/igniter-drivers).
+To use the Mailgun, Postmark and Amazon SES drivers, install the required dependencies via Composer.
+
+#### Mailgun
+
+```bash
+composer require symfony/mailgun-mailer symfony/http-client
+```
+
+#### Postmark
+
+```bash
+composer require symfony/postmark-mailer symfony/http-client
+```
+
+#### Amazon SES
+
+```bash
+composer require aws/aws-sdk-php
+```
 
 ## Configuration
 
-The mail configuration file is located at `config/mail.php`. In this file, you may configure the default mail driver, mail sending options, and mail "from" address. Next, verify that your `config/services.php` configuration file contains the required credentials for your mail service.
+Next, you can configure your mail settings from the _System > Settings > Mail_ admin settings page or through the mail configuration file located at `config/mail.php`. In this file, you may configure the default mail driver, mail sending options, and mail "from" address. Next, verify that your `config/services.php` configuration file contains the required credentials for your mail service.
 
 ## Writing mail
 
@@ -209,6 +227,57 @@ Mail::queueTemplate('vendor.extension::mail.message', $data, function($message) 
     $message->to($customer->email, $customer->name);
 });
 ```
+
+### The `SendsMailTemplate` model trait
+
+The `SendsMailTemplate` trait provides a convenient way to send mail templates from a model. To use this trait, add it to your model class and define the `mailGetData` method that returns the mail template variables:
+
+```php
+use Igniter\Flame\Mail\SendMailTemplate;
+
+class Order extends Model
+{
+    use SendMailTemplate;
+
+    public function mailGetData()
+    {
+        return [
+            'customer' => $this->customer,
+        ];
+    }
+}
+```
+
+You can use the `mailGetRecipients` method to define the recipients of the mail message. The `mailGetRecipients` method accepts a single `$recipientType` parameter and returns an array of recipients, where each recipient is an array containing the email address and name of the recipient.
+
+```php
+public function mailGetRecipients($recipientType)
+{
+    return [
+        [$this->customer->email, $this->customer->name],
+    ];
+}
+```
+
+You may also customise the reply-to address by defining the `mailGetReplyTo` method:
+
+```php
+public function mailGetReplyTo()
+{
+    return [$this->customer->email, $this->customer->name];
+}
+```
+
+To send the mail message, use the `mailSend` method on the model instance, where the first parameter is the mail template code, and the second parameter is the recipient type:
+
+```php
+$order = Order::find(1);
+
+$order->mailSend('vendor.extension::mail.message', 'customer');
+```
+
+Possible values for the recipient type are `customer`, `location` or `admin`.
+
 
 ## Registering mail templates, layouts & partials
 

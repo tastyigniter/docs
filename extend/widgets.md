@@ -12,7 +12,7 @@ In TastyIgniter, widgets are self-contained blocks of functionality used to perf
 
 Widgets in TastyIgniter are the admin equivalent of frontend [components](../customize/components). The major difference is that admin widgets use PHP arrays for configuration and are linked specifically to admin pages.
 
-Widget classes reside in the extension's `src/Widgets` directory. Widgets may include assets and partials to enhance functionality. Here's an example of a typical widget directory structure:
+Widget classes reside in the `src/Widgets` directory of an extension. Widgets may include assets and partials to enhance functionality. Here's an example of a typical widget directory structure:
 
 ```yaml
 author/
@@ -51,7 +51,7 @@ class MyWidget extends \Igniter\Admin\Classes\BaseWidget
 }
 ```
 
-The widget class must implement a `render()` method that returns the widget's markup. In this example, the `makePartial()` method will scan the extension's `resources/views/widgets`  or `resources/views` directory to render the `mywidget.blade.php` view file. The `$vars` property is used to pass data to the view file. Alternatively you may pass the variables to the second parameter of the `makePartial()` method:
+The widget class must implement a `render()` method that returns the widget's markup. In this example, the `makePartial()` method will scan the `resources/views/widgets` or `resources/views` directory of an extension to render the `mywidget.blade.php` view file. The `$vars` property is used to pass data to the view file. Alternatively you may pass the variables to the second parameter of the `makePartial()` method:
 
 ```php
 return $this->makePartial('mywidget', ['var' => 'value']);
@@ -110,7 +110,7 @@ Once a widget is bound to a backend controller in TastyIgniter, you can access i
 
 Form widgets in TastyIgniter allow you to introduce new control types to admin forms. To use form widgets, they must first be registered in the [Extension class](../extend/extensions#extension-class).
 
-Form widget classes are located in the extension's `src/FormWidgets` directory. Form widgets can also include assets and partials. Here's an example:
+Form widget classes are located in the `src/FormWidgets` directory of an extension. Form widgets can also include assets and partials. Here's an example:
 
 ```yaml
 author/
@@ -259,7 +259,7 @@ public function getSaveValue($value)
 
 Dashboard widgets in TastyIgniter are used to display information on the admin dashboard. They are similar to form widgets but are designed to be used on the dashboard page. Dashboard widgets can be registered in the [Extension class](../extend/extensions#extension-class).
 
-Dashboard widget classes are located in the extension's `src/DashboardWidgets` directory. Similarly to all form widgets, dashboard widgets can also include assets and partials. Here's an example:
+Dashboard widget classes are located in the `src/DashboardWidgets` directory of an extension. Similarly to all form widgets, dashboard widgets can also include assets and partials. Here's an example:
 
 ```yaml
 author/

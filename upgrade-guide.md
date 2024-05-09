@@ -139,3 +139,5 @@ This eliminates the need to create these view files for your custom controller a
 Sending registered mail templates now uses Laravel's Mailable classes instead of custom logic. This provides a more
 standardized and maintainable approach to sending emails.
 
+#### Notification system
+The notification system has been refactored to use Laravel's notification system. This provides a more standardized and maintainable approach to sending notifications.

@@ -166,7 +166,7 @@ In the example above, the `validate` method will return an array containing the 
 
 Form requests provide a convenient way to validate incoming HTTP requests in TastyIgniter. By defining validation rules and error messages in a single location, you can maintain and reuse the validation logic across multiple controller actions. This approach helps to keep your controller actions clean and readable by moving the validation logic out of the controller and into a separate class.
 
-Form Requests are typically stored in the extension's `src/Http/Requests` directory.
+Form Requests are typically stored in the `src/Http/Requests` directory of an extension.
 
 ### Creating a form request
 

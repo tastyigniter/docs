@@ -45,7 +45,7 @@ The configuration options listed below are optional.
 
 ### List definition file
 
-The list definition file is typically located in the extension's `resources/models` directory. The list definition file should return a `list` array of [toolbar buttons](../extend/lists#toolbar-button-options), [filter scopes](../extend/lists#scope-options) and [lists columns](../extend/lists#column-options) definitions. For example:
+The list definition file is typically stored in the `resources/models` directory of an extension. The list definition file should return a `list` array of [toolbar buttons](../extend/lists#toolbar-button-options), [filter scopes](../extend/lists#scope-options) and [lists columns](../extend/lists#column-options) definitions. For example:
 
 ```php
 return [
@@ -484,7 +484,7 @@ public function index()
 
 ### Overriding views
 
-You can override the list views by creating a new view file in the extension's `resources/views` directory. The view file should have the same name as the list view file you want to override. For example, to override the `index.blade.php` view file rendered from `MyController`, create a new view file in the `resources/views/mycontroller` directory with the same name. Here is an example adding a sidebar to the list:
+You can override the list views by creating a new view file in the `resources/views` directory of an extension. The view file should have the same name as the list view file you want to override. For example, to override the `index.blade.php` view file rendered from `MyController`, create a new view file in the `resources/views/mycontroller` directory with the same name. Here is an example adding a sidebar to the list:
 
 ```blade
 <div class="row">

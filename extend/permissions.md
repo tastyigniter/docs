@@ -95,12 +95,12 @@ Here an example using the `hasPermission` method in the controller code:
 
 ```php
 // Check if the user has any permission within the 'Author.Extension' scope
-if ($this.user.hasPermission('Author.Extension.*')) {
+if ($user->hasPermission('Author.Extension.*')) {
     //
 }
 
 // Check if the user has both 'ManagePages' and 'ManageMenus' permissions
-if ($this.user.hasPermission([
+if ($user->hasPermission([
     'Author.Extension.ManagePages',
     'Author.Extension.ManageMenus'
 ], true)) {

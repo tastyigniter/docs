@@ -6,9 +6,32 @@ sortOrder: 170
 
 ## Introduction
 
-TastyIgniter provides a flexible and configurable media management system. The Media Manager allows you to upload, organize, and manage media files. By default, Media Manager works with the `storage/app/public/media` directory. It is possible to use external storages such as Amazon S3 or Rackspace CDN.
+TastyIgniter provides a flexible and configurable media management system. The Media Manager allows you to upload, organize, and manage media files. By default, Media Manager works with the `storage/app/public/media` directory. It is possible to use external storages such as Amazon S3.
 
-> The [Drivers extension](https://tastyigniter.com/marketplace/item/igniter-drivers) must be installed to use external storage drivers.
+## Configuring external storage
+
+To use the S3 driver, install the required dependencies via Composer.
+
+```bash
+composer require league/flysystem-aws-s3-v3 "^3.0" --with-all-dependencies
+```
+
+Configure the S3 driver using the `.env` file.
+
+```dotenv
+FILESYSTEM_DISK=s3
+AWS_ACCESS_KEY_ID=<your-key-id>
+AWS_SECRET_ACCESS_KEY=<your-secret-access-key>
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=<your-bucket-name>
+AWS_USE_PATH_STYLE_ENDPOINT=false
+```
+
+Using S3 compatible storage services like DigitalOcean Spaces, configure the driver using the `.env` file.
+
+```dotenv
+AWS_ENDPOINT=https://nyc3.digitaloceanspaces.com
+```
 
 ## Media configuration options
 

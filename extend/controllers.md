@@ -8,7 +8,7 @@ sortOrder: 210
 
 TastyIgniter Admin implements the MVC pattern. Controllers manage admin pages and implement various features like forms and lists. This article describes how to develop admin controllers and how to configure controller methods.
 
-Controllers are typically stored in the extension's `src/Http/Controllers` directory. Controller views are `.blade.php` blade views that reside in the `resources/views` extension's directory. The controller view directory name matches the controller class name written in lowercase. An example of a controller directory structure:
+Controllers are typically stored in the `src/Http/Controllers` directory of an extension. Controller views are `.blade.php` blade views that reside in the `resources/views` directory of an extension. The controller view directory name matches the controller class name written in lowercase. An example of a controller directory structure:
 
 ```yaml
 author/

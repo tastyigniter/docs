@@ -50,7 +50,7 @@ The following fields are optional in the form configuration:
 
 ### Form definition file
 
-The form definition file is typically located in the extension's `resources/models` directory. The form definition file should return a `form` array of [toolbar buttons](../extend/lists#toolbar-button-options) and [form fields](../extend/lists#scope-options). For example:
+The form definition file is typically stored in the `resources/models` directory of an extension. The form definition file should return a `form` array of [toolbar buttons](../extend/lists#toolbar-button-options) and [form fields](../extend/lists#scope-options). For example:
 
 ```php
 return [
@@ -597,7 +597,7 @@ TastyIgniter includes several form widgets, although it is common for extensions
 ],
 ```
 
-The following options are available for the `codeeditor` field type:
+The following options are available for the `codeeditor` form widget type:
 
 - `mode`: The programming language to use for syntax highlighting. Default is `css`.
 - `theme`: The color theme option passed to the CodeMirror JS library. Default is `material`.
@@ -613,7 +613,7 @@ The following options are available for the `codeeditor` field type:
 ],
 ```
 
-The following options are available for the `colorpicker` field type:
+The following options are available for the `colorpicker` form widget type:
 
 - `availableColors`: An array of colors to display in the color picker for quick color selection.
 
@@ -633,7 +633,7 @@ The following options are available for the `colorpicker` field type:
 ],
 ```
 
-The following options are available for the `components` field type:
+The following options are available for the `components` form widget type:
 
 - `form`: The form definition for the component fields.
 - `prompt`: The prompt text to display when no component is selected.
@@ -664,7 +664,7 @@ The following options are available for the `components` field type:
 ],
 ```
 
-The following options are available for the `connector` field type:
+The following options are available for the `connector` form widget type:
 
 - `form`: The form definition for creating and managing related records. Either a reference to the [form definition file](../extend/forms#form-definition-file) or an array of fields.
 - `formName`: The form name to use for the record editor popup. Default is `Record`.
@@ -700,7 +700,7 @@ The following options are available for the `connector` field type:
 ],
 ```
 
-The following options are available for the `datatable` field type:
+The following options are available for the `datatable` form widget type:
 
 - `columns`: An array of columns to display in the table. Each column should have a `title` definition.
 - `defaultSort`: The default column to sort by. Example `name asc`.
@@ -726,7 +726,7 @@ The following options are available for the `datatable` field type:
 ],
 ```
 
-The following options are available for the `datepicker` field type:
+The following options are available for the `datepicker` form widget type:
 
 - `mode`: The date picker mode. Options are `date`, `time`, `datetime`. Default is `date`.
 - `dateFormat`: The date format to use when displaying the date. Default is `Y-m-d`.
@@ -745,7 +745,7 @@ The following options are available for the `datepicker` field type:
 ],
 ```
 
-The following options are available for the `markdown` field type:
+The following options are available for the `markdown` form widget type:
 
 - `mode`: The editor view mode. Options are `tab` or `split`. Default is `tab`.
 
@@ -760,7 +760,7 @@ The following options are available for the `markdown` field type:
 ],
 ```
 
-The following options are available for the `mediafinder` field type:
+The following options are available for the `mediafinder` form widget type:
 
 - `mode`: The media finder view mode. Options are `grid`, `inline`. Default is `grid`.
 - `prompt`: The prompt text to display when no media is selected.
@@ -792,7 +792,7 @@ The following options are available for the `mediafinder` field type:
 ],
 ```
 
-The following options are available for the `recordeditor` field type:
+The following options are available for the `recordeditor` form widget type:
 
 - `modelClass`: The model class to use for fetching records.
 - `form`: The form definition for creating and managing records. Either a reference to the [form definition file](../extend/forms#form-definition-file) or an array of fields.
@@ -828,7 +828,7 @@ The following options are available for the `addonRight` and `addonLeft` buttons
 ],
 ```
 
-The following options are available for the `relation` field type:
+The following options are available for the `relation` form widget type:
 
 - `relationFrom`: The relation name to use for fetching related records, if different from the field name.
 - `nameFrom`: The model attribute name to use for displaying the related label.
@@ -860,7 +860,7 @@ The following options are available for the `relation` field type:
 ],
 ```
 
-The following options are available for the `repeater` field type:
+The following options are available for the `repeater` form widget type:
 
 - `form`: The form definition for the fields to repeat. Either a reference to the [form definition file](../extend/forms#form-definition-file) or an array of fields.
 - `prompt`: The text to display for the create button. Default is `Add item`.
@@ -881,7 +881,7 @@ The following options are available for the `repeater` field type:
 ],
 ```
 
-The following options are available for the `richeditor` field type:
+The following options are available for the `richeditor` form widget type:
 
 - `size`: The size of the editor. Options are `small`, `large`. Default is `large`.
 - `toolbarButtons`: The buttons to display in the editor toolbar.
@@ -911,7 +911,7 @@ The following options are available for the `richeditor` field type:
 ],
 ```
 
-The following options are available for the `statuseditor` field type:
+The following options are available for the `statuseditor` form widget type:
 
 - `form`: The form definition for creating and managing status and assignee. Either a reference to the [form definition file](../extend/forms#form-definition-file) or an array of fields.
 - `formTitle`: The title of the popup window. Default is `Add %s`.
@@ -1128,7 +1128,7 @@ public function edit($recordId, $context = null)
 
 ### Overriding form views
 
-You can override the form views by creating a new view file in the extension's `resources/views` directory. The view file should have the same name as the form view file you want to override. For example, to override the `create.blade.php` view file rendered from `MyController`, create a new view file in the `resources/views/mycontroller` directory with the same name. Here is an example adding a sidebar to the form **create** page:
+You can override the form views by creating a new view file in the `resources/views` directory of an extension. The view file should have the same name as the form view file you want to override. For example, to override the `create.blade.php` view file rendered from `MyController`, create a new view file in the `resources/views/mycontroller` directory with the same name. Here is an example adding a sidebar to the form **create** page:
 
 ```blade
 <div class="row">
