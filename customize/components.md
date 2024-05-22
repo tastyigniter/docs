@@ -6,11 +6,11 @@ sortOrder: 140
 
 ## Introduction
 
-Components implements content and features that extend your TastyIgniter website. They can be added, removed, and rearranged from **Design > Themes > Editor** in the Administration Panel.
+Components implements content and features that extend your TastyIgniter website. They can be added, removed, and rearranged from _Design > Themes > Editor_ in the admin area.
 
-Other than displaying HTML markup on a page, components can implement the handling of [AJAX requests](../advanced/ajax-request).
+Other than displaying HTML markup on a page, components can handle [AJAX requests](../advanced/ajax-request).
 
-In this section, you'll learn the basics of building, registering and rendering both [Igniter](../customize/components#theme-component) and [Livewire](#livewire-component) components within a TastyIgniter application. Starting with version 4, Livewire components are not fully supported. You can register these using the `registerComponents` method and attach them into your site via the Admin Interface, just like the Theme components.
+In this section, you'll learn the basics of building, registering and rendering both [Igniter](../customize/components#theme-component) and [Livewire](#livewire-component) components within a TastyIgniter application. Starting with version 4, you can use Livewire components within your theme layouts or pages. You can register both Igniter and Livewire components using the `registerComponents` method and attach them into your pages or layouts via the Admin Interface.
 
 ## Livewire Component
 
@@ -35,26 +35,39 @@ vendor/
 
 To begin, you can either use your preferred file manager to create files and directory for the **HelloBlock** component.
 
-The component class file should extend the `\Livewire\Component` base class, implement `\Igniter\System\Contracts\SupportsLivewireComponent` interface and its methods, and define the properties of the component. The following is an example defines the `HelloBlock` component:
+The component class file should extend the `\Livewire\Component` base class, add `\Igniter\Main\Traits\ConfigurableComponent` trait and define method `componentMeta`. The following is an example defines the `acme.hello-world::hello-block` component:
 
 ```php
 namespace Acme\HelloWorld\Livewire;
 
-class HelloBlock extends \Livewire\Component implements \Igniter\System\Contracts\SupportsLivewireComponent
+class HelloBlock extends \Livewire\Component
 {
+    use \Igniter\Main\Traits\ConfigurableComponent;
+
     public int $maxItems = 5;
-        
-    public function alerts(): array
+    
+    public function componentMeta(): array
     {
-        return ['Success Alert', 'Warning Alert', 'Danger Alert'];
+        return [
+            'code' => 'acme.hello-world::hello-block',
+            'name' => 'Name of the hello block component',
+            'description' => 'Description of the hello block component',
+        ];
     }
     
     public function render()
     {
-        return view('igniter.helloworld::livewire.default');
+        return view('acme.helloworld::livewire.hello-block');
+    }
+
+    public function alerts(): array
+    {
+        return ['Success Alert', 'Warning Alert', 'Danger Alert'];
     }
 }
 ```
+
+The `componentMeta` method should return an array with the component code, name, and description. The `code` key is used to reference the component within blade views. The `name` and `description` keys are used to describe the component in the Admin Interface. This method is required for the component to be registered and available in the admin area.
 
 The component properties and methods will automatically be made available to the component's view. For example, you will be able to access its `alerts` method and `$maxItems` property from the `resources/views/livewire/hello-block.blade.php` blade view. For example:
 
@@ -67,40 +80,48 @@ The component properties and methods will automatically be made available to the
 
 ### Component registration
 
-Components must be registered by overriding the `registerComponents` method within the [Extension registration class](../extend/extensions#extension-class). This lets the app know about the component and so it can be attached through the Admin Interface. To register the `HelloBlock` component with the default alias name **hello-block**, you may override the `registerComponents` method:
+After defining the component with the `componentMeta` method implemented, you can register the component by overriding the `registerComponents` method within the [Extension registration class](../extend/extensions#extension-class). This lets the app know about the component and so it can be attached and properties managed through the Admin Interface. To register the `acme.hello-world::hello-block` component, you may override the `registerComponents` method of the extension class:
 
 ```php
 public function registerComponents(): array
 {
     return [
-        \Acme\HelloWorld\Livewire\HelloBlock::class => [
-            'code' => 'hello-block',
-            'name' => 'Name of the hello block component',
-            'description' => 'Description of the hello block component',
-        ],
+        \Acme\HelloWorld\Livewire\HelloBlock::class,
     ];
 }
 ```
 
 ### Component properties
 
-Components can be configured using properties defined for each component using class properties. Let's define a **maxItems** property to limit the number of alerts allowed
-
-If you want to manage your component's properties through the Admin Interface, you can use `#[DefineProperty]` attribute.
+Components can be configured using class properties. Let's define a **maxItems** property to limit the number of alerts allowed.
     
 ```php
 namespace Acme\HelloWorld\Livewire;
  
-use Igniter\System\Attributes\DefineProperty;
-
-class HelloBlock extends \Livewire\Component implements \Igniter\System\Contracts\SupportsLivewireComponent
+class HelloBlock extends \Livewire\Component
 {
-    #[DefineProperty(label: 'Max items', type: 'number', default: 5)] 
+    use \Igniter\Main\Traits\ConfigurableComponent;
+
     public int $maxItems = 5;
  
     // ...
 }
 ```
+
+To manage your component's properties through the admin area, you must implement the `defineProperties` method. The method should return an array with the property keys as indexes and the property configuration as values. The property keys must match the class property names.
+
+```php
+public function defineProperties(): array
+{
+    return [
+        'maxItems' => [
+            'label' => 'Max items',
+            'type' => 'number',
+        ]
+    ];
+}
+```
+
 | Key             | Description                                                                                                                                                                                                            |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **label**       | required, the property label, it is used by the component Selector in the Admin Interface.                                                                                                                             |
@@ -113,39 +134,34 @@ class HelloBlock extends \Livewire\Component implements \Igniter\System\Contract
 The **options** property key can be static or dynamic. Using the `maxItems` property, let's define static options:
 
 ```php
-namespace Acme\HelloWorld\Livewire;
- 
-class HelloBlock extends \Livewire\Component implements \Igniter\System\Contracts\SupportsLivewireComponent
+public function defineProperties(): array
 {
-    #[DefineProperty(label: 'Max items', type: 'select', options: [
-        20 => '20 Per page', 
-        50 => '50 Per page'
-    ])] 
-    public int $maxItems = 20;
-     
-    // ...
+    return [
+        'maxItems' => [
+            'label' => 'Max items',
+            'type' => 'select',
+            'options' => [
+                20 => '20 Per page', 
+                50 => '50 Per page'
+            ]
+        ]
+    ];
 }
 ```
 
-Dynamically, the options can be fetched by omitting the `options` key from the property definition and defining a method that returns the list of options. The method name should be the studly cased name of the property. For example, `getPropertyOptions` where **Property** is the name of the property. In this example, we'll define a method for the `maxItems` property.
+Dynamically, the options can be fetched by omitting the `options` key from the property definition and defining a static method that returns the list of options. The method name should be the studly cased name of the property. For example, `getPropertyOptions` where **Property** is the name of the property. In this example, we'll define a method for the `maxItems` property.
 
 ```php
-namespace Acme\HelloWorld\Livewire;
- 
-class HelloBlock extends \Livewire\Component implements \Igniter\System\Contracts\SupportsLivewireComponent
+public static function getMaxItemsOptions(): array
 {
-    #[DefineProperty(label: 'Max items', type: 'select')] 
-    public int $maxItems = 20;
-     
-    public function getMaxItemsOptions(): array
-    {
-        return [
-            20 => '20 Per page', 
-            50 => '50 Per page'
-        ];
-    }
+    return [
+        20 => '20 Per page', 
+        50 => '50 Per page'
+    ];
 }
 ```
+
+#### Accessing component properties
 
 Reading the property value from within the **component class**:
 
@@ -153,7 +169,7 @@ Reading the property value from within the **component class**:
 $maxItems = $this->maxItems;
 ```
 
-Accessing the property value from a **component partial**:
+Accessing the property value from a **component blade view**:
 
 ```php
 {{ $maxItems }}
@@ -174,7 +190,7 @@ public function onAddItem()
 }
 ```
 
-The action can be triggered from the blade view as follows:
+The action can be triggered from the component's blade view as follows:
 
 ```blade
 <button wire:click="onAddItem">Add Items</button>
@@ -209,7 +225,27 @@ Use the admin interface to display components on pages and layouts. You can also
 
 The **acme.hello-world** prefix in the above example presents the code of the extension that registers the component.
 
-You can pass variables to components by defining them as attributes on the component tag. For example:
+#### Passing data into components
+
+To pass data to a Livewire component rendered on a page or layout, you can define the data within the front-matter section of the page or layout template file. Here is an example passing the `maxItems` property to the `acme.helloworld::hello-block` component within a page:
+
+```blade
+---
+title: My first page
+permalink: "/page"
+
+'[acme.helloworld::hello-block]':
+  maxItems: 20
+---
+
+<p>Page content</p>
+
+<livewire:acme.hello-world::hello-block />
+```
+
+> Keep the indentation consistent when defining component properties in the front-matter section.
+
+You can pass data to components by defining them as attributes on the component tag. For example:
 
 ```blade
 <livewire:acme.hello-world::hello-block maxItems="20" />
@@ -232,6 +268,32 @@ You can access variables within the component like any other markup variable:
 ```
 
 For more information, reference the [Rendering components section of the Livewire documentation](https://livewire.laravel.com/docs/components#rendering-components).
+
+#### Rendering multiple instances of the same component
+
+To render multiple instances of the same component on a page or layout, you can assign each instance a unique alias. For example:
+
+```blade
+<livewire:acme.hello-world::hello-block />
+<livewire:acme.hello-world::hello-block :alias="unique-key" />
+```
+
+The `:alias` property behaves different from [Livewire's wire:key attribute](https://livewire.laravel.com/docs/components#adding-wirekey-to-foreach-loops) and should not be used as a substitute.
+
+You can pass data to each instance of the component by defining the data within the front-matter section of the page or layout template file. For example:
+
+```yaml
+---
+title: My first page
+permalink: "/page"
+
+'[acme.helloworld::hello-block]':
+  maxItems: 20
+
+'[acme.helloworld::hello-block unique-key]':
+  maxItems: 5
+---
+```
 
 ### Inject page assets
 
@@ -328,10 +390,10 @@ public function defineProperties(): array
 {
     return [
         'maxItems' => [
-             'title'      	=> 'Max items',
-             'description'  => 'The most number of alert items allowed',
-             'default'      => 10,
-             'type'         => 'text',
+             'title' => 'Max items',
+             'description' => 'The most number of alert items allowed',
+             'default' => 10,
+             'type' => 'text',
         ]
     ];
 }
@@ -357,7 +419,7 @@ public function defineProperties(): array
     return [
         'maxItems' => [
             ...
-            'type'   => 'select',
+            'type' => 'select',
             'options' => [
                 '20' => '20 Per page', 
                 '50' => '50 Per page'
@@ -375,12 +437,12 @@ public function defineProperties(): array
     return [
         'maxItems' => [
             ...
-            'type'   => 'select',
+            'type' => 'select',
         ]
     ];
 }
 
-public function getMaxItemsOptions(): array
+public static function getMaxItemsOptions(): array
 {
     return [
         '20' => '20 Per page', 
@@ -388,6 +450,8 @@ public function getMaxItemsOptions(): array
     ];
 }
 ```
+
+#### Accessing component properties
 
 Reading the property value from within the **component class**:
 
@@ -420,6 +484,23 @@ The following methods are supported in the component class:
 | **onRun()**         | override to hook into the page's execution life cycle.                                   |
 | **onRender()**      | override to handle specific logic before rendering the default partial of the component. |
 | **renderPartial()** | render a specified component partial or shared partial.                                  |
+
+### Component AJAX handlers
+
+Components class can define AJAX event handlers as methods prefixed with `on` followed by the event name. For example, to handle an AJAX request with the event name `onAddItem`, define a method in the component class as follows:
+
+```php
+public function onAddItem()
+{
+    $value1 = post('value1');
+    $value2 = post('value2');
+    $this->page['result'] = $value1 + $value2;
+}
+```
+
+If the alias for this component was `helloBlock` this handler can be accessed by `helloBlock::onAddItem`.
+
+> Please see the [Handling AJAX Requests](../advanced/ajax-request) article for more details.
 
 ### Component partials
 
@@ -490,23 +571,6 @@ These handlers are executed in the following sequence:
 - `onEnd` page function
 - `onEnd` layout function
 
-### Defining AJAX handlers
-
-Components class can define AJAX event handlers as methods prefixed with `on` followed by the event name. For example, to handle an AJAX request with the event name `onAddItem`, define a method in the component class as follows:
-
-```php
-public function onAddItem()
-{
-    $value1 = post('value1');
-    $value2 = post('value2');
-    $this->page['result'] = $value1 + $value2;
-}
-```
-
-If the alias for this component was `helloBlock` this handler can be accessed by `helloBlock::onAddItem`.
-
-> Please see the [Handling AJAX Requests](../advanced/ajax-request) article for more details.
-
 ### Rendering the component
 
 Use the admin interface to attach components to pages and layouts. You can also attach a component to a page or layout manually using a file editor by following the example below:
@@ -523,15 +587,15 @@ permalink: "/page"
 
 The **helloBlock** component in the above example initializes the property **maxItems** with value **20**.
 
-When you attach a component, a page variable that matches the component name is automatically created (`$helloBlock` in the previous example). 
-
 Render components HTML markup on a page or layout as follows:
 
 ```blade
 @themeComponent('helloBlock')
 ```
 
-**Component variables**
+#### Component variables
+
+When you attach a component, a page variable that matches the component name is automatically created (`$helloBlock` in the previous example). 
 
 The `@themeComponent('helloBlock')` tag accepts an array of variables as its second parameter. The specified variables will be available at the time of rendering and will explicitly override the component property values:
 
@@ -539,23 +603,28 @@ The `@themeComponent('helloBlock')` tag accepts an array of variables as its sec
 @themeComponent('helloBlock', ['maxItems' => 100])
 ```
 
-**Rendering multiple instances of the same component**
+#### Rendering multiple instances of the same component
 
 If two components with the same name are assigned to a page and layout together, the page component overrides any properties of the layout component.
 
 You can render multiple instances of the same components by assigning it an *alias*:
 
 ```blade
-'[helloBlock helloBlockA]':
-    maxItems: 1
+title: My first page
+permalink: "/page"
 
-'[helloBlock helloBlockB]':
-    maxItems: 5
+'[helloBlock helloBlockA]:
+  maxItems: 1
+
+'[helloBlock helloBlockB]:
+  maxItems: 5
 ---
 @themeComponent('helloBlockA')
 
 @themeComponent('helloBlockB')
 ```
+
+> Keep the indentation consistent when defining component properties in the front-matter section.
 
 ### Inject page assets
 
@@ -565,9 +634,9 @@ Use the `addCss` and `addJs` controller methods to add assets to the pages or la
 public function onRun()
 {
     // Assets path that begins with a slash (/) is relative to the website root directory
-    $this->addJs('acme.helloworld::/js/block.js', 'helloworld-block);
+    $this->addJs('acme.helloworld::/js/block.js', 'helloworld-block');
 
     // Paths that does not begin with a slash is relative to the component directory
-    $this->addJs('js/block.js', 'helloworld-block);
+    $this->addJs('js/block.js', 'helloworld-block');
 }
 ```

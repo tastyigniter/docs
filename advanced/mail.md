@@ -32,11 +32,11 @@ composer require aws/aws-sdk-php
 
 ## Configuration
 
-Next, you can configure your mail settings from the _System > Settings > Mail_ admin settings page or through the mail configuration file located at `config/mail.php`. In this file, you may configure the default mail driver, mail sending options, and mail "from" address. Next, verify that your `config/services.php` configuration file contains the required credentials for your mail service.
+Next, you can configure your mail settings from the _Manage > Settings > Mail_ admin settings page or through the mail configuration file located at `config/mail.php`. In this file, you may configure the default mail driver, mail sending options, and mail "from" address. Next, verify that your `config/services.php` configuration file contains the required credentials for your mail service.
 
 ## Writing mail
 
-In TastyIgniter, you can send mail messages using either mail templates or mail views. Mail templates can be managed through the **Design > Mail templates** admin page.  On the other hand, mail views supplied by the application or extension are stored in the `resources/views` directory within the extension's directory. 
+In TastyIgniter, you can send mail messages using either mail templates or mail views. Mail templates can be managed through the _Design > Mail templates_ admin page.  On the other hand, mail views supplied by the application or extension are stored in the `resources/views` directory within the extension's directory. 
 
 Optionally, you can [register mail views in the Extension class](../advanced/mail#registering-mail-templates-layouts--partials) with the `registerMailTemplates` method. This enables automatic generation of mail templates for easy customization via the admin interface.
 

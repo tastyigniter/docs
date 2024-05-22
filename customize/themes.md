@@ -10,7 +10,7 @@ TastyIgniter themes are files that work together to create a TastyIgniter websit
 
 Themes typically contains all the [pages](../customize/pages), [partials](../customize/partials), [layouts](../customize/layouts), assets files and an optional theme PHP file (`theme.php`). Additionally, a theme can have a manifest file (`theme.json`) and a meta directory (`_meta`) that contains the assets manifest file (`assets.json`) and a fields file (`fields.php`) for the Theme settings feature through the Admin Interface. 
 
-Activating a theme can be done through the **Design > Themes** Admin page with the Theme Selector or by running this command:
+Activating a theme can be done through the _Design > Themes_ Admin page with the Theme Selector or by running this command:
 
 ```bash
 php artisan igniter:util set theme --theme=your-theme
@@ -261,7 +261,7 @@ To render the `includes/sidebar.blade.php` blade view from the [directory struct
 
 ## Theme settings
 
-The theme settings feature in TastyIgniter allows you to customize the appearance and behavior of your theme directly from the admin interface. This feature is available by default for enabled TastyIgniter themes from the **Design > Themes** Admin page.
+The theme settings feature in TastyIgniter allows you to customize the appearance and behavior of your theme directly from the admin interface. This feature is available by default for enabled TastyIgniter themes from the _Design > Themes_ Admin page.
 
 To enable theme settings, you need to register form fields using the `resources/meta/fields.php` file in your theme directory. This file should return an array of form fields that will be displayed in the theme settings interface. 
 

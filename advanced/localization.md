@@ -137,7 +137,7 @@ If you want to display the integer value passed to the `trans_choice` function, 
 
 ## Overriding language strings
 
-You can customize all application language strings from the **System > Languages > Edit > Translations** admin page.
+You can customize all application language strings from the _Manage > Settings > Languages > Edit > Translations_ admin page.
 
 Some TastyIgniter extensions, themes and Laravel packages come with their own language files. If you need to customize these strings without modifying the package's core files, you can override them by placing files in the `lang/vendor/{package}/{locale}` directory.
 
@@ -163,13 +163,13 @@ return [
 
 ## Making your site multilingual
 
-In this section, we'll guide you through the steps required to make your TastyIgniter site multilingual. There are two main ways to install additional languages: directly from the **System > Languages** page in the admin interface, or manually downloading a language pack from the TastyIgniter translations <a href="https://tastyigniter.com/translate" targer="_blank">Crowdin project page</a>.
+In this section, we'll guide you through the steps required to make your TastyIgniter site multilingual. There are two main ways to install additional languages: directly from the _Manage > Settings > Languages_ page in the admin interface, or manually downloading a language pack from the TastyIgniter translations <a href="https://tastyigniter.com/translate" targer="_blank">Crowdin project page</a>.
 
 ### Installing a language pack
 
-TastyIgniter comes with a default language pack for the English language. You can install additional language packs from the **System > Languages** page of the admin interface.
+TastyIgniter comes with a default language pack for the English language. You can install additional language packs from the _Manage > Settings > Languages_ page of the admin interface.
 
-- Navigate to the **System > Languages** page in the admin interface.
+- Navigate to the _Manage > Settings > Languages_ page in the admin interface.
 - Using the searchbar at the top of the page, search for the language you wish to install. For example, let's search for **Spanish (ES)**.
 - Click on the language you wish to install, then click the **Add Language** button.
 - Once installed, you can enable the language by toggling the **Status** switch to `Enabled`.
@@ -203,7 +203,7 @@ lang/
 
 ### Configuring the default language
 
-You may want to set the installed language pack as the default language for new users and visitors. You can do this on the **System > Languages** page of the admin interface, by clicking the **Set as Default** button next to the language you want to use as the default.
+You may want to set the installed language pack as the default language for new users and visitors. You can do this on the _Manage > Settings > Languages_ page of the admin interface, by clicking the **Set as Default** button next to the language you want to use as the default.
 
 ### Enabling language detection
 
@@ -220,6 +220,6 @@ TastyIgniter comes with built-in support for language negotiation, offering vari
 
 ## Translating third-party extensions
 
-Language packs downloaded from the **System > Languages** page in the admin interface typically include translations for all TastyIgniter recommended extensions. However, it's important to note that they may be missing translations for other extensions you've installed.
+Language packs downloaded from the _Manage > Settings > Languages_ page in the admin interface typically include translations for all TastyIgniter recommended extensions. However, it's important to note that they may be missing translations for other extensions you've installed.
 
 Developers of TastyIgniter extensions are responsible for providing and maintaining translations for their extensions. Before installing a third-party extension, ensure that it includes translations for each language pack you have installed. If you find that an extension doesn't support a language you need, please contact the developer directly to arrange for the necessary translations to be added.

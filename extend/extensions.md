@@ -342,7 +342,7 @@ $cartSessionTtl = Config::get('acme.helloworld::settings.cartSessionTtl', 120);
 
 #### Registering settings navigation link
 
-An example showing how to register a system settings item which links to a settings model. Registered settings will appear on the **System > Settings** admin page.
+An example showing how to register a system settings item which links to a settings model. Registered settings will appear on the _Manage > Settings_ admin page.
 
 ```php
 public function registerSettings(): array
