@@ -152,7 +152,7 @@ public function __construct()
 
 ## Controller action classes
 
-Action classes are behaviours that can be attached to controllers to extend their functionality. Action classes are useful for sharing common controller logic across multiple controllers. To attach an action class to a controller, you can set the `$implement` property on the controller class. 
+Action classes are behaviours that can be attached to controllers to extend their functionality. Action classes are useful for sharing common controller logic across multiple controllers. To attach an action class to a controller, you can set the `$implement` property on the controller class.
 
 Here is an example of attaching an action class to a controller:
 
@@ -215,7 +215,7 @@ The AJAX handler can be triggered with the data-request attribute in the view:
 
 ## Restricting access
 
-Access to controller actions can be restricted using the `$requiredPermissions` property. This property holds an array of permission keys that determine the access level needed. If an administrator has any of the permissions listed, they are granted access to the controller pages. 
+Access to controller actions can be restricted using the `$requiredPermissions` property. This property holds an array of permission keys that determine the access level needed. If an administrator has any of the permissions listed, they are granted access to the controller pages.
 
 Here is an example of how to restrict access to a controller using permissions:
 

@@ -6,7 +6,7 @@ sortOrder: 200
 
 ## Introduction
 
-Extensions are the foundation for adding new features to TastyIgniter by extending it. The core of TastyIgniter is designed to be lean and lightweight, to maximize flexibility and minimize code bloat. With extensions, you can add specific set of features or services, such as: 
+Extensions are the foundation for adding new features to TastyIgniter by extending it. The core of TastyIgniter is designed to be lean and lightweight, to maximize flexibility and minimize code bloat. With extensions, you can add specific set of features or services, such as:
 
 - Define components, mail templates and staff permissions
 - Add, remove or replace navigation items
@@ -18,7 +18,7 @@ TastyIgniter extensions are built on the foundation of Laravel packages. They le
 
 ### Directory structure
 
-Below is an example of an extension directory structure. 
+Below is an example of an extension directory structure.
 
 ```yaml
 acme/                     <=== Author name (namespace)
@@ -40,7 +40,7 @@ code when publishing your extensions on the [TastyIgniter marketplace](https://t
 
 Both namespace and extension name must follow these important rules:
 
-- Only letters must be provided. 
+- Only letters must be provided.
 - Folder names must be lowercase, as shown in the directory structure example.
 - Should not contain spaces.
 - Must be unique. The name of your extension should not be the same with any other extension or theme.
@@ -110,7 +110,7 @@ create a **README.md** file in a standardized format in your extension directory
 
 ## Extension class
 
-An **Extension.php** file (aka *Extension class*) is an essential part of the TastyIgniter extension for providing methods for extending the TastyIgniter core. 
+An **Extension.php** file (aka *Extension class*) is an essential part of the TastyIgniter extension for providing methods for extending the TastyIgniter core.
 
 The extension class should extend the `\Igniter\System\Classes\BaseExtension` class, which in turn extends Laravel's `Illuminate\Foundation\Support\Providers\EventServiceProvider` class. This allows the Extension class to take advantage of the functionality provided by Laravel's service providers, such as registering services, event subscribers, model observers and listening for events.
 
@@ -233,10 +233,10 @@ acme/
   helloworld/
     resources/
       models/
-        settings.php    	<=== Setting model form fields
+        settings.php      <=== Setting model form fields
     src/
       Models/
-        Settings.php     	<=== Setting model class file
+        Settings.php      <=== Setting model class file
 ```
 
 By implementing the `\Igniter\System\Actions\SettingsModel` action class and extending the base `\Igniter\Flame\Database\Model` class in a model class, you can create models for storing settings in the `extension_settings` database table.
@@ -322,6 +322,7 @@ return [
     'cartSessionTtl' => 120
 ];
 ```
+
 To make the configuration file available to the application, you need to register the configuration file in the extension class `register` method.
 
 ```php
@@ -342,7 +343,7 @@ $cartSessionTtl = Config::get('acme.helloworld::settings.cartSessionTtl', 120);
 
 #### Registering settings navigation link
 
-An example showing how to register a system settings item which links to a settings model. Registered settings will appear on the _Manage > Settings_ admin page.
+An example showing how to register a system settings item which links to a settings model. Registered settings will appear on the *Manage > Settings* admin page.
 
 ```php
 public function registerSettings(): array
@@ -394,7 +395,7 @@ For more information on database migrations, refer to the [Laravel documentation
 
 ### Seeders
 
-Seeders are used to populate database tables with sample data. Just like Laravel Packages, seeders are stored in the extension's `database/seeds` directory. 
+Seeders are used to populate database tables with sample data. Just like Laravel Packages, seeders are stored in the extension's `database/seeds` directory.
 
 Here is an example of a `MessagesTableSeeder.php` seeder file located in `acme/helloworld/database/seeds`:
 
@@ -419,7 +420,7 @@ To run the seeder, you can use the `php artisan db:seed --class=Acme\\HelloWorld
 
 ### Routes
 
-If your extension includes a `routes/web.php` route file, TastyIgniter will automatically load it, adding any defined routes to the application's routing table. 
+If your extension includes a `routes/web.php` route file, TastyIgniter will automatically load it, adding any defined routes to the application's routing table.
 
 Extensions in TastyIgniter can define routes using the `routes/web.php` file or handle admin routes through admin controllers.
 

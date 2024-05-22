@@ -6,7 +6,7 @@ sortOrder: 330
 
 ## Introduction
 
-TastyIgniter's task scheduler is a powerful feature that allows you to define your command schedule within the application itself. It is built on top of the Laravel's task scheduling system, providing a fluent and expressive interface for defining your schedule. 
+TastyIgniter's task scheduler is a powerful feature that allows you to define your command schedule within the application itself. It is built on top of the Laravel's task scheduling system, providing a fluent and expressive interface for defining your schedule.
 
 When using the scheduler, only a single Cron entry is needed on your server. This eliminates the need for multiple Cron entries and allows you to keep your schedule of tasks in source control. For more detailed information, you can refer to the [Laravel Task Scheduling documentation](https://laravel.com/docs/scheduling).
 
@@ -33,7 +33,7 @@ public function registerSchedule($schedule)
 
 In this example, a closure is scheduled to run at midnight every day. Inside the closure, you can define the logic for your task, such as executing a database query to clear a table.
 
-In addition to scheduling closure calls, you may also schedule [console commands](https://laravel.com/docs/artisan), [queued jobs](https://laravel.com/docs/queues) and operating system commands. For example, to schedule a console command, you can use the `command` method: 
+In addition to scheduling closure calls, you may also schedule [console commands](https://laravel.com/docs/artisan), [queued jobs](https://laravel.com/docs/queues) and operating system commands. For example, to schedule a console command, you can use the `command` method:
 
 ```php
 $schedule->command('cache:clear')->daily();

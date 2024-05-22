@@ -10,7 +10,7 @@ We try to stick to Prettier's defaults, but have a few overrides to keep our Jav
 
 The first two rules are actually configured with `.editorconfig`. We use 4 spaces as indentation.
 
-```
+```editorconfig
 indent_size = 4
 ```
 

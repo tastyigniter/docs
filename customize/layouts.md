@@ -15,8 +15,8 @@ acme/                           <=== Theme vendor directory
   purple/                       <=== Theme directory
     resources/
       views/
-        _layouts/         	    <=== Layouts subdirectory
-          default.blade.php		<=== Layout template file
+        _layouts/              <=== Layouts subdirectory
+          default.blade.php  <=== Layout template file
 ```
 
 The convention is to have a basic layout called `default.blade.php` and be used by other pages as required. Within the layout file, you should use the `@themePage`  tag to display the content of the page.
@@ -224,4 +224,3 @@ In order to output the injected assets on pages and layouts use the `@themeStyle
 ```
 
 > The page output in the above example will also include all assets files registered within the `resources/meta/assets.json` manifest file.
-

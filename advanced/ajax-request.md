@@ -10,7 +10,7 @@ TastyIgniter provides a simple and easy way to make AJAX requests to the server 
 
 In this guide, you'll learn how to make AJAX requests using the `$.request` object, handle AJAX requests on the server, and customize AJAX requests using options.
 
-Alternatively, you can use [Livewire's Event Listeners](https://livewire.laravel.com/docs/actions#event-listeners) to make AJAX requests. 
+Alternatively, you can use [Livewire's Event Listeners](https://livewire.laravel.com/docs/actions#event-listeners) to make AJAX requests.
 
 ## How AJAX requests work
 
@@ -144,6 +144,7 @@ Some of the common options include:
 _(Object)_ Specifies a list of partials and page elements to be updated with the response data. The key is the partial name, and the value is the CSS selector of the target element to be updated.
 
 **JavaScript:**
+
 ```javascript
 $.request('onSave', {
     update: {
@@ -152,7 +153,9 @@ $.request('onSave', {
     }
 });
 ```
+
 **Data attribute**
+
 ```html
 <button data-request="onSave" data-request-update="'partial1': '#element1', 'partial2': '#element2'">Save</button>
 ```
@@ -164,12 +167,15 @@ $.request('onSave', {
 _(string)_ Specifies a confirmation message that will be displayed to the user before sending the request. If the user confirms the request, the request will be sent; otherwise, the request will be canceled.
 
 **JavaScript:**
+
 ```javascript
 $.request('onSave', {
     confirm: 'Are you sure?'
 });
 ```
+
 **Data attribute:**
+
 ```html
 <button data-request="onSave" data-request-confirm="Are you sure?">Delete</button>
 ```
@@ -179,6 +185,7 @@ $.request('onSave', {
 _(Object)_ Specifies the data to be sent with the request. The data should be an object containing key-value pairs of the request data.
 
 **JavaScript:**
+
 ```javascript
 $.request('onSave', {
     data: {
@@ -187,7 +194,9 @@ $.request('onSave', {
     }
 });
 ```
+
 **Data attribute:**
+
 ```html
 <button data-request="onSave" data-request-data="'var1': 'some string', 'var2': 'another string'">Save</button>
 ```
@@ -197,12 +206,15 @@ $.request('onSave', {
 _(string)_ Specifies the URL to redirect to after the request is completed.
 
 **JavaScript:**
+
 ```javascript
 $.request('onSave', {
     redirect: '/success'
 });
 ```
+
 **Data attribute:**
+
 ```html
 <button data-request="onSave" data-request-redirect="/success">Save</button>
 ```
@@ -212,6 +224,7 @@ $.request('onSave', {
 _(Object)_ Specifies additional headers to be sent with the request.
 
 **JavaScript:**
+
 ```javascript
 $.request('onSave', {
     headers: {
@@ -225,6 +238,7 @@ $.request('onSave', {
 _(string)_ Specifies the CSS selector to add to the target element while the request is loading. The attribute value is optional, if not provided, the target element will be disabled.
 
 **Data attribute:**
+
 ```html
 <button data-request="onSave" data-attach-loading="disabled">Save</button>
 ```
@@ -234,6 +248,7 @@ _(string)_ Specifies the CSS selector to add to the target element while the req
 _(string)_ Specifies the CSS selector to replace on the target element while the request is loading.
 
 **Data attribute:**
+
 ```html
 <button data-request="onSave" data-replace-loading="fa-spin fa-spinner">Save</button>
 ```
@@ -243,6 +258,7 @@ _(string)_ Specifies the CSS selector to replace on the target element while the
 _(function)_ Specifies a callback function or Javascript code to be executed before updating the target element with the response.
 
 **JavaScript:**
+
 ```javascript
 $.request('onSave', {
     beforeUpdate: function(data) {
@@ -250,7 +266,9 @@ $.request('onSave', {
     }
 });
 ```
+
 **Data attribute**
+
 ```html
 <button data-request="onSave" data-request-before-update="console.log('Before update')">Save</button>
 ```
@@ -260,6 +278,7 @@ $.request('onSave', {
 _(function)_ Specifies a callback function or Javascript code to be executed after the request is successful.
 
 **JavaScript:**
+
 ```javascript
 $.request('onSave', {
     success: function(data) {
@@ -267,7 +286,9 @@ $.request('onSave', {
     }
 });
 ```
+
 **Data attribute**
+
 ```html
 <button data-request="onSave" data-request-success="console.log('Success')">Save</button>
 ```
@@ -277,6 +298,7 @@ $.request('onSave', {
 _(function)_ Specifies a callback function or Javascript code to be executed when an error occurs during the request.
 
 **JavaScript:**
+
 ```javascript
 $.request('onSave', {
     error: function(xhr, status, error) {
@@ -284,7 +306,9 @@ $.request('onSave', {
     }
 });
 ```
+
 **Data attribute**
+
 ```html
 <button data-request="onSave" data-request-error="console.log('An error occurred')">Save</button>
 ```
@@ -294,6 +318,7 @@ $.request('onSave', {
 _(function)_ Specifies a callback function or Javascript code to be executed after the request is completed.
 
 **JavaScript:**
+
 ```javascript
 $.request('onSave', {
     complete: function(xhr, status) {
@@ -301,7 +326,9 @@ $.request('onSave', {
     }
 });
 ```
+
 **Data attribute**
+
 ```html
 <button data-request="onSave" data-request-complete="console.log('Request completed')">Save</button>
 ```
@@ -311,12 +338,15 @@ $.request('onSave', {
 When set to `true`, the form will be submitted using the default form submission method.
 
 **JavaScript:**
+
 ```javascript
 $.request('onSave', {
     submit: true
 });
 ```
+
 **Data attribute**
+
 ```html
 <button data-request="onSave" data-request-submit="true">Save</button>
 ```
@@ -326,12 +356,15 @@ $.request('onSave', {
 _(CSS Selector)_ Specifies the form element to be submitted. Useful when the request is triggered by a button outside the form.
 
 **JavaScript:**
+
 ```javascript
 $.request('onSave', {
     form: '#myForm'
 });
 ```
+
 **Data attribute**
+
 ```html
 <button data-request="onSave" data-request-form="#myForm">Save</button>
 ```
@@ -343,6 +376,7 @@ The AJAX framework triggers several events on the updated elements, the triggeri
 Here are some of the global AJAX events that you can listen to:
 
 {.grid-2}
+
 - [ajaxBeforeSend](../advanced/ajax-request#ajaxbeforesend)
 - [ajaxBeforeUpdate](../advanced/ajax-request#ajaxbeforeupdate)
 - [ajaxUpdate](../advanced/ajax-request#ajaxupdate)

@@ -36,7 +36,7 @@ Next, you can configure your mail settings from the _Manage > Settings > Mail_ a
 
 ## Writing mail
 
-In TastyIgniter, you can send mail messages using either mail templates or mail views. Mail templates can be managed through the _Design > Mail templates_ admin page.  On the other hand, mail views supplied by the application or extension are stored in the `resources/views` directory within the extension's directory. 
+In TastyIgniter, you can send mail messages using either mail templates or mail views. Mail templates can be managed through the _Design > Mail templates_ admin page.  On the other hand, mail views supplied by the application or extension are stored in the `resources/views` directory within the extension's directory.
 
 Optionally, you can [register mail views in the Extension class](../advanced/mail#registering-mail-templates-layouts--partials) with the `registerMailTemplates` method. This enables automatic generation of mail templates for easy customization via the admin interface.
 
@@ -66,10 +66,10 @@ Thank you for your order.
 
 The **configuration** section sets the mail view parameters. The following configuration parameters are supported:
 
-| Parameter 	 | Description                                                   |
+| Parameter   | Description                                                   |
 |-------------|---------------------------------------------------------------|
-| `subject` 	 | the mail message subject, **required**.                       |
-| `layout` 	  | the mail layout code, **optional**. Default value is default. |
+| `subject`   | the mail message subject, **required**.                       |
+| `layout`    | the mail layout code, **optional**. Default value is default. |
 
 The **plain text** section is optional, while the **configuration** and **HTML markup** sections are required.
 
@@ -277,7 +277,6 @@ $order->mailSend('vendor.extension::mail.message', 'customer');
 ```
 
 Possible values for the recipient type are `customer`, `location` or `admin`.
-
 
 ## Registering mail templates, layouts & partials
 

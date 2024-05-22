@@ -94,7 +94,7 @@ public function registerComponents(): array
 ### Component properties
 
 Components can be configured using class properties. Let's define a **maxItems** property to limit the number of alerts allowed.
-    
+
 ```php
 namespace Acme\HelloWorld\Livewire;
  
@@ -125,7 +125,7 @@ public function defineProperties(): array
 | Key             | Description                                                                                                                                                                                                            |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **label**       | required, the property label, it is used by the component Selector in the Admin Interface.                                                                                                                             |
-| **type**        | optional, specifies the property type. The type defines the form field type. Currently supported types are **<br/>text**, **number**, **checkbox**, **radio**, **select** and **selectlist**. Default value: **text**. |
+| **type**        | optional, specifies the property type. The type defines the form field type. Currently supported types are **text**, **number**, **checkbox**, **radio**, **select** and **selectlist**. Default value: **text**. |
 | **default**     | optional, the default property value.                                                                                                                                                                                  |
 | **comment**     | optional, the property description, it is used by the component Selector in the Admin Interface.                                                                                                                       |
 | **placeholder** | optional placeholder for text and select properties.                                                                                                                                                                   |
@@ -213,7 +213,7 @@ Livewire includes a number of lifecycle hooks that allow you to run code at spec
 | **rendered**  | Called after render() is called                                                 |
 | **dehydrate** | Called at the end of every component request                                    |
 
-For more information, reference the [Livewire Component Livecycle Hooks documentation](https://livewire.laravel.com/docs/lifecycle-hooks).
+For more information, reference the [Livewire Component Lifecycle Hooks documentation](https://livewire.laravel.com/docs/lifecycle-hooks).
 
 ### Rendering the component
 
@@ -342,7 +342,7 @@ namespace Acme\HelloWorld\Components;
 
 class HelloBlock extends \Igniter\System\Classes\BaseComponent
 {
-   	public function defineProperties(): array
+    public function defineProperties(): array
     {
         return [];
     }
@@ -404,12 +404,11 @@ The method should return an array with the property keys as indexes and the prop
 | Key             | Description                                                                                                                                                                                                            |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **label**       | required, the property label, it is used by the component Selector in the Admin Interface.                                                                                                                             |
-| **type**        | optional, specifies the property type. The type defines the form field type. Currently supported types are **<br/>text**, **number**, **checkbox**, **radio**, **select** and **selectlist**. Default value: **text**. |
+| **type**        | optional, specifies the property type. The type defines the form field type. Currently supported types are **text**, **number**, **checkbox**, **radio**, **select** and **selectlist**. Default value: **text**. |
 | **default**     | optional, the default property value.                                                                                                                                                                                  |
 | **comment**     | optional, the property description, it is used by the component Selector in the Admin Interface.                                                                                                                       |
 | **placeholder** | optional placeholder for text and select properties.                                                                                                                                                                   |
 | **options**     | optional array of options for checkbox, radio, select, selectlist properties.                                                                                                                                          |
-
 
 The **options** property key can be static or dynamic. Using the `maxItems` property, let's define static options:
 
@@ -504,7 +503,7 @@ If the alias for this component was `helloBlock` this handler can be accessed by
 
 ### Component partials
 
-Besides the default partial, components can also provide additional partials which can be used within other template files or in the default partial itself. 
+Besides the default partial, components can also provide additional partials which can be used within other template files or in the default partial itself.
 
 Components can share partial files by placing them in the **resources/views/_partials** subdirectory of the extension directory.
 
@@ -514,11 +513,11 @@ vendor/
     helloworld/
       resources/
         views/
-          _components/				<=== Components directory
-            helloBlock/				<=== Component partials directory
-              default.blade.php	    <=== Component default partial file
-          _partials/				<=== Component shared partials directory
-            shared.blade.php	    <=== Component shared partial file
+          _components/    <=== Components directory
+            helloBlock/    <=== Component partials directory
+              default.blade.php     <=== Component default partial file
+          _partials/    <=== Component shared partials directory
+            shared.blade.php     <=== Component shared partial file
 ```
 
 Blade's `@themePartial` directive allows you to include the **helloBlock** component partial from within another component partial:
@@ -595,7 +594,7 @@ Render components HTML markup on a page or layout as follows:
 
 #### Component variables
 
-When you attach a component, a page variable that matches the component name is automatically created (`$helloBlock` in the previous example). 
+When you attach a component, a page variable that matches the component name is automatically created (`$helloBlock` in the previous example).
 
 The `@themeComponent('helloBlock')` tag accepts an array of variables as its second parameter. The specified variables will be available at the time of rendering and will explicitly override the component property values:
 
@@ -607,7 +606,7 @@ The `@themeComponent('helloBlock')` tag accepts an array of variables as its sec
 
 If two components with the same name are assigned to a page and layout together, the page component overrides any properties of the layout component.
 
-You can render multiple instances of the same components by assigning it an *alias*:
+You can render multiple instances of the same components by assigning it an _alias_:
 
 ```blade
 title: My first page

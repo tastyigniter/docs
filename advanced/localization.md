@@ -16,8 +16,8 @@ Here is an example of how the **lang** directory might be structured:
 
 ```yaml
   lang/
-    en/           			<=== Language directory
-  custom.php    	        <=== Language file
+    en/                     <=== Language directory
+  custom.php                <=== Language file
     es/                     <=== Language directory
       custom.php            <=== Language file
 ```
@@ -33,13 +33,13 @@ All language files return an array of keyed language strings. For example:
 
 return [
     'sample_key' => 'This is a sample language string.',
-    'alert' => [		// Namespacing for alerts language strings 
+    'alert' => [  // Namespacing for alerts language strings 
         'success' => 'This is a success alert'
     ]
 ];
 ```
 
-## Accessing language strings 
+## Accessing language strings
 
 You can use the `Lang` facade, `@lang` Blade directive, `__` helper function, or `lang` helper function to retrieve strings from language files. For instance, to retrieve the `sample_key` language string from the `lang/en/custom.php` language file, you can use any of these methods.
 
@@ -103,13 +103,13 @@ return [
 
 Pluralization can be a complex issue due to the various rules across different languages. However, Laravel provides a solution to translate strings differently based on your defined pluralization rules. You can distinguish between singular and plural forms of a string using the `|` character, like this:
 
-```
+```php
 'apples' => 'There is one apple|There are many apples',
 ```
 
 You can create even more complex pluralization rules, specifying translation strings for multiple value ranges:
 
-```
+```php
 'apples' => '{0} There are none|[1,19] There are some|[20,*] There are many',
 ```
 
@@ -121,7 +121,7 @@ Once you've defined a translation string with pluralization options, you can use
 
 You can also define placeholder attributes in pluralization strings. These placeholders can be replaced by passing an array as the third argument to the `trans_choice` function:
 
-```
+```php
 'minutes_ago' => '{1} :value minute ago|[2,*] :value minutes ago',
  
 {{ trans_choice('custom.minutes_ago', 5, ['value' => 5]) }} // 5 minutes ago
@@ -129,7 +129,7 @@ You can also define placeholder attributes in pluralization strings. These place
 
 If you want to display the integer value passed to the `trans_choice` function, you can use the built-in `:count` placeholder:
 
-```
+```php
 'apples' => '{0} There are none|{1} There is one|[2,*] There are :count',
 
 {{ trans_choice('custom.minutes_ago', 5, ['value' => 5]) }} // There are 5
@@ -141,7 +141,7 @@ You can customize all application language strings from the _Manage > Settings >
 
 Some TastyIgniter extensions, themes and Laravel packages come with their own language files. If you need to customize these strings without modifying the package's core files, you can override them by placing files in the `lang/vendor/{package}/{locale}` directory.
 
-For instance, if you want to modify the language string `override_key` in `custom.php` for an extension named `acme.helloworld`, you should create a language file `lang/vendor/acme-helloworld/en/custom.php` within the root of your TastyIgniter installation. 
+For instance, if you want to modify the language string `override_key` in `custom.php` for an extension named `acme.helloworld`, you should create a language file `lang/vendor/acme-helloworld/en/custom.php` within the root of your TastyIgniter installation.
 
 ```yaml
 lang/
@@ -157,20 +157,20 @@ In this file, define only the language strings you want to change. Any strings y
 <?php
 
 return [
-    'sample_key' => 'This is an overidden language string.',
+    'sample_key' => 'This is an overridden language string.',
 ];
 ```
 
 ## Making your site multilingual
 
-In this section, we'll guide you through the steps required to make your TastyIgniter site multilingual. There are two main ways to install additional languages: directly from the _Manage > Settings > Languages_ page in the admin interface, or manually downloading a language pack from the TastyIgniter translations <a href="https://tastyigniter.com/translate" targer="_blank">Crowdin project page</a>.
+In this section, we'll guide you through the steps required to make your TastyIgniter site multilingual. There are two main ways to install additional languages: directly from the _Manage > Settings > Languages_ page in the admin interface, or manually downloading a language pack from the TastyIgniter translations <a href="https://tastyigniter.com/translate" target="_blank">Crowdin project page</a>.
 
 ### Installing a language pack
 
 TastyIgniter comes with a default language pack for the English language. You can install additional language packs from the _Manage > Settings > Languages_ page of the admin interface.
 
 - Navigate to the _Manage > Settings > Languages_ page in the admin interface.
-- Using the searchbar at the top of the page, search for the language you wish to install. For example, let's search for **Spanish (ES)**.
+- Using the searchbox at the top of the page, search for the language you wish to install. For example, let's search for **Spanish (ES)**.
 - Click on the language you wish to install, then click the **Add Language** button.
 - Once installed, you can enable the language by toggling the **Status** switch to `Enabled`.
 
@@ -184,7 +184,7 @@ php artisan igniter:language-install es
 
 Follow these steps to manually download a community translated language pack.
 
-- Join our translations <a href="https://tastyigniter.com/translate" targer="_blank">Crowdin project page</a>.
+- Join our translations <a href="https://tastyigniter.com/translate" target="_blank">Crowdin project page</a>.
 - Choose the language you wish to install. For example, let's choose **Spanish (ES)**.
 - Download and unzip the language pack. To download, you need to click on the button at the top right of the Crowdin language page.
 - The extracted language pack should have a specific folder and file structure. Copy the files and folders within the `Namespaced` directories into your TastyIgniter `lang` directory, _see below_. If you don't have a `lang` directory in your application root, create a new one.

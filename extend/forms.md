@@ -256,7 +256,7 @@ The following native field types are available for form fields. For more advance
 
 #### Money
 
-`money` renders an input field that takes only numbers and formats the value to two decimal places. 
+`money` renders an input field that takes only numbers and formats the value to two decimal places.
 
 ```php
 'price' => [
@@ -459,6 +459,7 @@ The following options are available for the `select` field type:
     ],
 ],
 ```
+
 Options for checkbox lists also support secondary descriptions using the array format `key => [label, description]`.
 
 ```php
@@ -547,7 +548,7 @@ Options for checkbox lists also support secondary descriptions using the array f
 
 #### Partial
 
-`partial` renders a partial view. The `path` option should be the path to the partial view file otherwise the field name is used as the partial name. 
+`partial` renders a partial view. The `path` option should be the path to the partial view file otherwise the field name is used as the partial name.
 
 ```php
 'partial' => [
@@ -1038,7 +1039,7 @@ The following options are available for the `preset` property:
 
 - `field`: The name of the other field that this field get its value from.
 - `type`: The type of preset to apply. Options are `exact`, `slug`, `url`, `camelCase`, and `file`.
-- `prefixInput`: The CSS Selector of the input element to get the prefix value from. 
+- `prefixInput`: The CSS Selector of the input element to get the prefix value from.
 
 ### Trigger events
 
@@ -1191,7 +1192,7 @@ public function formExtendFields(Form $widget)
 ```
 
 Or, you can use the `admin.form.extendFields` event to extend the form fields from another extension. For example:
-    
+
 ```php
 Event::listen('admin.form.extendFields', function (Form $widget, $fields) {
     if ($widget->getController() instanceof MyController) {

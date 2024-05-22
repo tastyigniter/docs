@@ -92,6 +92,7 @@ Once TastyIgniter is installed, you must grant the non-root user the necessary p
 sudo chmod -R 755 /path/to/tastyigniter
 sudo chown -R www-data:www-data /path/to/tastyigniter
 ```
+
 > You should never set any folder or file to permission level **777**, as this permission level allows anyone to access the content of the folder and file regardless of user or group.
 
 ### Setting up the task scheduler
@@ -180,7 +181,7 @@ the [`.htaccess`](https://github.com/tastyigniter/TastyIgniter/blob/master/publi
 If you've created a subdirectory, you can specify the subdirectory name as well:
 
 ```html
-RewriteBase /mysubdirectory/
+RewriteBase /subdirectory/
 ```
 
 **Nginx configuration**

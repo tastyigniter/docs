@@ -8,7 +8,7 @@ sortOrder: 100
 
 TastyIgniter themes are files that work together to create a TastyIgniter website. Each theme can be different, offering site owners many choices to change their website look instantly. Themes, just like extensions are built on the foundation of Laravel packages.
 
-Themes typically contains all the [pages](../customize/pages), [partials](../customize/partials), [layouts](../customize/layouts), assets files and an optional theme PHP file (`theme.php`). Additionally, a theme can have a manifest file (`theme.json`) and a meta directory (`_meta`) that contains the assets manifest file (`assets.json`) and a fields file (`fields.php`) for the Theme settings feature through the Admin Interface. 
+Themes typically contains all the [pages](../customize/pages), [partials](../customize/partials), [layouts](../customize/layouts), assets files and an optional theme PHP file (`theme.php`). Additionally, a theme can have a manifest file (`theme.json`) and a meta directory (`_meta`) that contains the assets manifest file (`assets.json`) and a fields file (`fields.php`) for the Theme settings feature through the Admin Interface.
 
 Activating a theme can be done through the _Design > Themes_ Admin page with the Theme Selector or by running this command:
 
@@ -47,9 +47,9 @@ acme/                         <=== Theme vendor directory
     theme.php                  <=== Theme PHP file - Loaded on every theme page request just before running the page code.
 ```
 
-TastyIgniter supports a single level subdirectory for layouts, pages and partials files (any structure can be used in the `assets` directory), making it easier to organise large websites. 
+TastyIgniter supports a single level subdirectory for layouts, pages and partials files (any structure can be used in the `assets` directory), making it easier to organise large websites.
 
-A theme can contain any number of other subdirectories as well. 
+A theme can contain any number of other subdirectories as well.
 
 **Screenshot**
 
@@ -144,6 +144,7 @@ A `resources/meta/assets.json` file looks like this:
   ]
 }
 ```
+
 > The `$` symbol is a placeholder for the `public` path. Theme assets are published to the `public` directory of the TastyIgniter installation when you install or update the theme or run the `php artisan igniter:theme-vendor-publish --theme=your-theme` command.
 
 JavaScript code should be placed in external files whenever possible. Use [`@scripts`](../customize/markup-guide#themescripts) to load your scripts and [`@styles`](../customize/markup-guide#themestyles) to load your styles.
@@ -263,7 +264,7 @@ To render the `includes/sidebar.blade.php` blade view from the [directory struct
 
 The theme settings feature in TastyIgniter allows you to customize the appearance and behavior of your theme directly from the admin interface. This feature is available by default for enabled TastyIgniter themes from the _Design > Themes_ Admin page.
 
-To enable theme settings, you need to register form fields using the `resources/meta/fields.php` file in your theme directory. This file should return an array of form fields that will be displayed in the theme settings interface. 
+To enable theme settings, you need to register form fields using the `resources/meta/fields.php` file in your theme directory. This file should return an array of form fields that will be displayed in the theme settings interface.
 
 Here's an example of a `resources/meta/fields.php` file:
 
@@ -275,7 +276,7 @@ return [
             'font_family' => [
                 'label'   => 'Font Family',
                 'type'    => 'text',
-                'default' => '"Titillium Web",Arial,sans-serif',
+                'default' => '"Inter",Arial,sans-serif',
                 'comment' => 'The font family to use for the main body text.',
                 'rules'   => 'required|string',
             ],
@@ -284,7 +285,7 @@ return [
 ];
 ```
 
-In this example, a text field is defined for customizing the font family. The field has a label, a default value, a comment, and a validation rule. 
+In this example, a text field is defined for customizing the font family. The field has a label, a default value, a comment, and a validation rule.
 
 Once the fields are defined, you can access the values inside any of your theme templates using $this->theme->field_name. For example:
 

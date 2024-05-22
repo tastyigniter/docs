@@ -15,8 +15,8 @@ acme/                           <=== Theme vendor directory
   purple/                       <=== Theme directory
     resources/
       views/
-        _pages/         	    <=== Pages subdirectory
-          home.blade.php		<=== Page template file
+        _pages/              <=== Pages subdirectory
+          home.blade.php  <=== Page template file
 ```
 
 A page file consists of three sections: front matter, PHP code (optional), and HTML markup. Here's an example of a page file:
@@ -266,4 +266,3 @@ In order to output the injected assets on pages or layouts use the `@themeStyles
 ```
 
 > The page output in the above example will also include all assets files registered within the `resources/meta/assets.json` manifest file.
-

@@ -6,7 +6,7 @@ sortOrder: 370
 
 ## Introduction
 
-Validation is an essential part of TastyIgniter. It ensures that the data entered by users is accurate and meets the required criteria. 
+Validation is an essential part of TastyIgniter. It ensures that the data entered by users is accurate and meets the required criteria.
 
 ## Defining validation rules
 
@@ -113,7 +113,7 @@ $failed = $validator->failed();
 
 You can also handle validation errors by throwing Laravel's `\Illuminate\Validation\ValidationException`. This exception automatically returns the appropriate HTTP response based on the type of request.
 
-For a traditional HTTP request, it triggers a redirect response to the previous URL, along with the validation errors. If the request is an AJAX request, it instead returns a JSON response that includes the validation errors. 
+For a traditional HTTP request, it triggers a redirect response to the previous URL, along with the validation errors. If the request is an AJAX request, it instead returns a JSON response that includes the validation errors.
 
 ```php
 $validator = Validator::make($data, $rules);
@@ -124,7 +124,7 @@ if ($validator->fails()) {
 ```
 
 As a shorter way to validate the form similar to the example above, you can use the `validate` method directly.
-    
+
 ```php
 $data = Validator::validate($data, $rules);
 ```
@@ -185,7 +185,7 @@ class RecordRequest extends \Igniter\System\Classes\FormRequest
         ];
     }
 }
-``` 
+```
 
 ### Applying the form request
 
@@ -279,4 +279,3 @@ public function attributes(): array
     ];
 }
 ```
-

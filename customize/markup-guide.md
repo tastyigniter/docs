@@ -113,7 +113,6 @@ The `@themeContent` directive renders the contents of a static template file loc
 
 The directive has a single required parameter - the name of the content template file without the `.htm` extension. You can specify the name of the subdirectory if you refer a content from a subdirectory `@themeContent('directory.content-name')`.
 
-
 ```blade
 @themeContent('content-name')
 ```

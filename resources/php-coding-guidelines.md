@@ -150,7 +150,7 @@ $request->session()->get('cart');
 $request->input('name');
 ```
 
-### More examples:
+### More examples
 
 Consider using helpers instead of facades. They can clean up your code.
 
@@ -532,7 +532,7 @@ if ($condition) {
    $this->doSomethingElse();
 }
 
-if ($conidition)
+if ($condition)
    $this->doSomething();
 ```
 
@@ -762,7 +762,7 @@ public function handle()
 
 Indent using four spaces.
 
-```
+```blade
 <a href="/open-source">
     Open Source
 </a>
@@ -770,7 +770,7 @@ Indent using four spaces.
 
 Don't add spaces after control structures.
 
-```
+```blade
 @if($condition)
     Something
 @endif

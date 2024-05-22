@@ -6,7 +6,7 @@ sortOrder: 220
 
 ## Introduction
 
-In TastyIgniter, widgets are self-contained blocks of functionality used to perform specific tasks within the Admin Interface. Widgets always have a user interface and admin controller, referred to as the widget class. The widget class is responsible for preparing data for the widget and handling AJAX requests that are initiated from the widget's user interface. 
+In TastyIgniter, widgets are self-contained blocks of functionality used to perform specific tasks within the Admin Interface. Widgets always have a user interface and admin controller, referred to as the widget class. The widget class is responsible for preparing data for the widget and handling AJAX requests that are initiated from the widget's user interface.
 
 ## Generic widget
 

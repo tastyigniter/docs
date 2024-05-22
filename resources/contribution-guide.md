@@ -71,7 +71,6 @@ in `composer.json` to `dev`.
 - Run `composer install` to install composer dependencies.
 - Finally, run `composer update "tastyigniter/*" --prefer-source` to clone TastyIgniter packages into the `vendor` directory for development.
 
-
 ## Development workflow
 
 Follow these steps:
@@ -95,7 +94,7 @@ choices.
 ## Reporting security issues
 
 If you wish to contact us about any security vulnerability in TastyIgniter you may find, please send an e-mail to
-support@tastyigniter.com
+<support@tastyigniter.com>
 
 ## Writing documentation
 

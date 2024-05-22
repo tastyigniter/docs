@@ -97,7 +97,7 @@ experience for administrators.
 #### Mail Template Namespaces
 
 Mail template namespaces have been renamed for consistency. `admin::` is
-now `igniter.admin::`, `main::` is now `igntier.main::`, and `system::` is now `igniter.system::`.
+now `igniter.admin::`, `main::` is now `igniter.main::`, and `system::` is now `igniter.system::`.
 
 #### Translation String Keys
 
@@ -132,12 +132,15 @@ increasing the length of varchar to 255 on existing columns.
 ### Low impact changes
 
 #### Admin Controller Actions
+
 New base view files have been introduced for common admin controller actions such as index, edit, create, and preview.
 This eliminates the need to create these view files for your custom controller action.
 
 #### Mailable Integration
+
 Sending registered mail templates now uses Laravel's Mailable classes instead of custom logic. This provides a more
 standardized and maintainable approach to sending emails.
 
 #### Notification system
+
 The notification system has been refactored to use Laravel's notification system. This provides a more standardized and maintainable approach to sending notifications.

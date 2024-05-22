@@ -47,13 +47,13 @@ You may pass variables to partials by defining them in the `@include` directive 
 </div>
 ```
 
-You can access variables within the partial like any other markup variable: 
+You can access variables within the partial like any other markup variable:
 
 ```blade
 <ul>
-	@foreach($pages as $page)
-		<li>{{ $page->name }}</li>
-	@endforeach
+ @foreach($pages as $page)
+  <li>{{ $page->name }}</li>
+ @endforeach
 </ul>
 ```
 

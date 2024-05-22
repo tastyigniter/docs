@@ -40,21 +40,21 @@ The Media Manager in TastyIgniter can be configured according to your preference
 The `config/igniter-system.php` configuration file contains several options that allow you to customize the behavior of the Media Manager:  
 
 - `media`: This section contains the configuration options for the media uploaded files.
-    - `disk`: This option specifies the storage disk that the Media Manager should use for uploads. By default, it uses the `public` disk.
-    - `folder`: This option specifies the folder within the storage disk where the media files should be stored. By default, it is set to `media/uploads/`.
-    - `path`: This option specifies the path to prepend to the file name when generating the file URL. By default, it is set to `media/uploads/`.
-    - `max_upload_size`: This option specifies the maximum size (in kilobytes) of the files that can be uploaded through the Media Manager. By default, it is set to 1500 (1.5 MB).
-    - `enable_uploads`: This option allows you to enable or disable file uploads. By default, it is set to `true`.
-    - `enable_new_folder`: This option allows you to enable or disable the creation of new folders through the Media Manager. By default, it is set to `true`.
-    - `enable_rename`: This option allows you to enable or disable the renaming of files and folders through the Media Manager. By default, it is set to `true`.
-    - `enable_move`: This option allows you to enable or disable the moving of files and folders through the Media Manager. By default, it is set to `true`.
-    - `enable_copy`: This option allows you to enable or disable the copying of files and folders through the Media Manager. By default, it is set to `true`.
-    - `enable_delete`: This option allows you to enable or disable the deletion of files and folders through the Media Manager. By default, it is set to `true`.
+  - `disk`: This option specifies the storage disk that the Media Manager should use for uploads. By default, it uses the `public` disk.
+  - `folder`: This option specifies the folder within the storage disk where the media files should be stored. By default, it is set to `media/uploads/`.
+  - `path`: This option specifies the path to prepend to the file name when generating the file URL. By default, it is set to `media/uploads/`.
+  - `max_upload_size`: This option specifies the maximum size (in kilobytes) of the files that can be uploaded through the Media Manager. By default, it is set to 1500 (1.5 MB).
+  - `enable_uploads`: This option allows you to enable or disable file uploads. By default, it is set to `true`.
+  - `enable_new_folder`: This option allows you to enable or disable the creation of new folders through the Media Manager. By default, it is set to `true`.
+  - `enable_rename`: This option allows you to enable or disable the renaming of files and folders through the Media Manager. By default, it is set to `true`.
+  - `enable_move`: This option allows you to enable or disable the moving of files and folders through the Media Manager. By default, it is set to `true`.
+  - `enable_copy`: This option allows you to enable or disable the copying of files and folders through the Media Manager. By default, it is set to `true`.
+  - `enable_delete`: This option allows you to enable or disable the deletion of files and folders through the Media Manager. By default, it is set to `true`.
 
 - `attachment`: This section contains the configuration options for the attachment files.
-    - `disk`: This option specifies the storage disk that the Media Manager should use for attachments. By default, it uses the `public` disk.
-    - `folder`: This option specifies the folder within the storage disk where the attachment files should be stored. By default, it is set to `media/attachments/`.
-    - `path`: This option specifies the path to prepend to the file name when generating the file URL. By default, it is set to `media/attachments/`.
+  - `disk`: This option specifies the storage disk that the Media Manager should use for attachments. By default, it uses the `public` disk.
+  - `folder`: This option specifies the folder within the storage disk where the attachment files should be stored. By default, it is set to `media/attachments/`.
+  - `path`: This option specifies the path to prepend to the file name when generating the file URL. By default, it is set to `media/attachments/`.
 
 These options provide a high level of control over how media files are handled in your application. You can customize these options according to your application's requirements.
 
@@ -64,7 +64,7 @@ To publish the config file to `config/igniter-system.php` run:
 php artisan vendor:publish --tag="igniter-config"
 ```
 
-For more information on configuring external storage, check out <a href="https://laravel.com/docs/filesystem#configuration" targer="_blank">Laravel's filesystem docs</a>.
+For more information on configuring external storage, check out <a href="https://laravel.com/docs/filesystem#configuration" target="_blank">Laravel's filesystem docs</a>.
 
 ## Defining media fields
 
@@ -124,7 +124,7 @@ class MenuItem extends Model
 
 ## Displaying media on your site
 
-To display a media file in a template, you can use the `media` method of the media model. 
+To display a media file in a template, you can use the `media` method of the media model.
 
 For a single media field, you can display the image using the following code:
 
@@ -162,4 +162,3 @@ The `getThumb` method accepts an optional parameter to specify the size of the t
     'height' => 200,
 ]) }}" alt="Gallery Image">
 ```
-
