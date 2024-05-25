@@ -156,11 +156,9 @@ Although CSRF security is enabled by default, you can disable it by updating the
 TastyIgniter has basic configuration that should be applied to your webserver. Common webservers and their configuration
 can be found below.
 
-**Apache configuration**
+#### Apache configuration
 
-TastyIgniter includes a `.htaccess` file - make sure it's been uploaded correctly.
-**There are some extra system requirements if your webserver is running Apache, `mod_rewrite` should be installed and
-enabled and the `AllowOverride` option should be switched on.**
+TastyIgniter includes a [`.htaccess`](https://github.com/tastyigniter/TastyIgniter/blob/master/public/.htaccess) file - make sure it's been uploaded correctly. The `.htaccess` file is located in the `public` directory of your TastyIgniter installation. There are some extra system requirements if your webserver is running Apache, `mod_rewrite` should be installed and enabled and the `AllowOverride` option should be switched on.
 
 ```apache
 <Directory "/path/to/tastyigniter/public">
@@ -168,8 +166,7 @@ enabled and the `AllowOverride` option should be switched on.**
 </Directory>
 ```
 
-You will need to uncomment this line in
-the [`.htaccess`](https://github.com/tastyigniter/TastyIgniter/blob/master/public/.htaccess) file in some cases:
+You will need to uncomment this line in the `.htaccess` file in some cases:
 
 ```html
 ## !IMPORTANT! You may need to uncomment the following line for some hosting environments,
@@ -184,11 +181,9 @@ If you've created a subdirectory, you can specify the subdirectory name as well:
 RewriteBase /subdirectory/
 ```
 
-**Nginx configuration**
+#### Nginx configuration
 
-Make sure that [`.nginx.conf`](https://github.com/tastyigniter/TastyIgniter/blob/v4/.nginx.conf) file included with
-TastyIgniter has been uploaded correctly. Then, assuming you have Nginx
-setup, add the following to your server's configuration block:
+Make sure that the [`.nginx.conf`](https://github.com/tastyigniter/TastyIgniter/blob/master/.nginx.conf) file included with TastyIgniter has been uploaded correctly. The `.nginx.conf` file is located in the root directory of your TastyIgniter installation. Then, assuming you have Nginx setup, add the following to your server's configuration block:
 
 ```html
 include /path/to/tastyigniter/.nginx.conf;

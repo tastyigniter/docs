@@ -328,7 +328,7 @@ To make the configuration file available to the application, you need to registe
 ```php
 public function register()
 {
-    $this->mergeConfigFrom(__DIR__.'/config/settings.php', 'acme.helloworld::settings');
+    $this->mergeConfigFrom(__DIR__.'/config/settings.php', 'helloworld-settings');
 }
 ```
 
@@ -338,7 +338,7 @@ Use the `Config` facade to access the configuration values defined in the config
 use Config;
 
 // Get a value and return a default value if it doesn't exist
-$cartSessionTtl = Config::get('acme.helloworld::settings.cartSessionTtl', 120);
+$cartSessionTtl = Config::get('helloworld-settings.cartSessionTtl', 120);
 ```
 
 #### Registering settings navigation link

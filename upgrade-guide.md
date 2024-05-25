@@ -120,8 +120,7 @@ See [Blade Directives on Markup guide](customize/markup-guide#directives) for mo
 
 #### Extension Configuration
 
-Extension configuration files are no longer merged automatically. Developers must use Laravel's
-mergeConfigFrom() method to merge configuration files from extension class `register` method.
+Extension configuration files are no longer merged automatically. Developers must use Laravel's `mergeConfigFrom()` method to merge configuration files from extension class `register` method.
 
 #### Database Changes
 
