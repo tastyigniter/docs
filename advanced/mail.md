@@ -200,30 +200,30 @@ To embed raw data in your emails, you can use the `embedData` method on the `$me
 </body>
 ```
 
-## Sending mail
+## Sending mail templates
 
 To send a mail template in TastyIgniter, you can use the `sendTemplate` method on the `Mail` facade. This method accepts the code of the mail template, an array of data to pass to the view, and a closure that receives a message instance which allows you to customize the recipients, subject, and other aspects of the mail message:
 
 ```php
-use Illuminate\Support\Facades\Mail;
+use Igniter\System\Helpers\MailHelper;
 
 $data = [];
 
-Mail::sendTemplate('vendor.extension::mail.message', $data, function($message) use ($customer) {
+MailHelper::sendTemplate('vendor.extension::mail.message', $data, function($message) use ($customer) {
     $message->to($customer->email, $customer->name);
 });
 ```
 
-### Queueing mail
+### Queueing mail templates
 
 To queue a mail message, you can use the `queueTemplate` method on the `Mail` facade. This method will automatically push the email onto the queue, so it will be sent in the background by a queue worker. This can help to improve the response time of your application by offloading the sending of the email to a background process:
 
 ```php
-use Illuminate\Support\Facades\Mail;
+use Igniter\System\Helpers\MailHelper;
 
 $data = [];
 
-Mail::queueTemplate('vendor.extension::mail.message', $data, function($message) use ($customer) {
+MailHelper::queueTemplate('vendor.extension::mail.message', $data, function($message) use ($customer) {
     $message->to($customer->email, $customer->name);
 });
 ```
