@@ -139,17 +139,16 @@ If you want to display the integer value passed to the `trans_choice` function, 
 
 You can customize all application language strings from the _Manage > Settings > Languages > Edit > Translations_ admin page.
 
-Some TastyIgniter extensions, themes and Laravel packages come with their own language files. If you need to customize these strings without modifying the package's core files, you can override them by placing files in the `lang/vendor/{author}/{package}/{locale}` directory.
+Some TastyIgniter extensions, themes and Laravel packages come with their own language files. If you need to customize these strings without modifying the package's core files, you can override them by placing files in the `lang/vendor/{author}-{package}/{locale}` directory.
 
-For instance, if you want to modify the language string `override_key` in `custom.php` for an extension named `acme.helloworld`, you should create a language file `lang/vendor/acme/helloworld/en/custom.php` within the root of your TastyIgniter installation.
+For instance, if you want to modify the language string `override_key` in `custom.php` for an extension named `acme.helloworld`, you should create a language file `lang/vendor/acme-helloworld/en/custom.php` within the root of your TastyIgniter installation.
 
 ```yaml
 lang/
   vendor/ 
-    acme/
-      helloworld/ 
-        en/                     <=== Language directory
-          custom.php            <=== Language override file
+    acme-helloworld/ 
+      en/                     <=== Language directory
+        custom.php            <=== Language override file
 ```
 
 In this file, define only the language strings you want to change. Any strings you don't override will still be loaded from the original language file.

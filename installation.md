@@ -20,12 +20,12 @@ These are the requirements to run TastyIgniter as a stand-alone application:
 
 ### Installing TastyIgniter
 
-TastyIgniter manages its dependencies and extensions using <a href="https://getcomposer.org/" target="_blank">
-composer</a>. To install the platform, use the `create-project` command in the terminal to create a project. The command
+TastyIgniter manages its dependencies and extensions using <a href="https://getcomposer.org/" target="_blank">composer</a>.
+To install the platform, use the `create-project` command in the terminal to create a project. The command
 below creates a new project in the directory `mytasty`.
 
 ```bash
-composer create-project tastyigniter/tastyigniter:v4.x-dev mytasty
+composer create-project tastyigniter/tastyigniter:^v4.0@beta mytasty
 ```
 
 From here, you can move on to the [Setting up TastyIgniter](#setting-up-tastyigniter) step.
@@ -46,7 +46,7 @@ To install TastyIgniter as a package from your command line, run the following c
 directory:
 
 ```bash
-composer require tastyigniter/core:dev-master
+composer require tastyigniter/core:^v4.0@beta
 ```
 
 From here, you can move on to the [Setting up TastyIgniter](#setting-up-tastyigniter) step.

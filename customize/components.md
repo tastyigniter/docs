@@ -532,7 +532,7 @@ Partials rendered from outside the component must use their fully qualified name
 @themePartial('componentName::component-partial')
 ```
 
-**Overriding component partials**
+#### Overriding component partials
 
 All component partials can be overridden by creating theme partials. A component defined with alias **helloBlock** can have its **default.blade.php** partial overridden by creating a theme partial called **_partials/helloBlock/default.blade.php**
 
