@@ -6,112 +6,163 @@ sortOrder: 100
 
 ## Introduction
 
-TastyIgniter themes are files that work together to create a TastyIgniter site's design and functionality. Each theme can be different, offering site owners many choices to change their website look instantly. This article is about developing themes for TastyIgniter.
+TastyIgniter themes are files that work together to create a TastyIgniter website. Each theme can be different, offering site owners many choices to change their website look instantly. Themes, just like extensions are built on the foundation of Laravel packages.
 
-Themes are by default subdirectories in the **/themes** directory. The subdirectory of the theme contains all the [pages](../customize/pages), [partials](../customize/partials), [layouts](../customize/layouts) and [assets](../customize/media-files) files and optional theme PHP file (theme.php).
+Themes typically contains all the [pages](../customize/pages), [partials](../customize/partials), [layouts](../customize/layouts), assets files and an optional theme PHP file (`theme.php`). Additionally, a theme can have a manifest file (`theme.json`) and a meta directory (`_meta`) that contains the assets manifest file (`assets.json`) and a fields file (`fields.php`) for the Theme settings feature through the Admin Interface.
 
-> The active theme is set in the config/system.php file with the defaultTheme parameter or in the **Design > Themes** Admin page with the Theme Selector.
+Activating a theme can be done through the _Design > Themes_ Admin page with the Theme Selector or by running this command:
+
+```bash
+php artisan igniter:util set theme --theme=your-theme
+```
+
+This article is about developing themes for TastyIgniter.
 
 ## Directory structure
 
 Below is an example of a theme directory structure. Every TastyIgniter theme is represented by way of a separate directory and typically a theme is activated to display the website.
 
 ```yaml
-themes/
-  your-theme/           <=== Theme starts here
-    _layouts/         	<=== Layouts directory
-      default.blade.php
-    _pages/           	<=== Pages directory contains the website pages
-      home.blade.php
-	_partials/        	<=== Partials directory contains reusable HTML chucks
-      sidebar.blade.php
-    _meta/        		<=== Meta directory
-      assets.json			<=== Registers global css, js files and HTML meta tags 
-    _content/         	<=== Content directory contains reusable HTML blocks
-      cta.blade.php
-    assets/          	<=== Assets directory contains images, CSS and JavaScript files.
-      css/
-      js/
-      images/
+acme/                         <=== Theme vendor directory
+  purple/                     <=== Theme directory
+    public/
+      css/                     <=== Directory contains compiled CSS files
+      js/                      <=== Directory contains compiled JavaScript files
+      images/                  <=== Directory contains image files
+    resources/                 <=== Theme resources directory
+      scss/                    <=== Directory contains source SCSS files
+      js/                      <=== Directory contains source JavaScript files
+      meta/                    <=== Meta directory
+        assets.json            <=== Registers global css, js files and HTML meta tags
+        fields.php             <=== Registers form fields for the theme customization
+      views/                   <=== Theme views directory
+        _layouts/              <=== Layouts directory
+          default.blade.php
+        _pages/                <=== Pages directory contains the website pages
+          home.blade.php
+        includes/             <=== Partials directory contains reusable HTML chucks
+          sidebar.blade.php
     screenshot.png
-  	theme.json        	<=== Manifest file
-  	theme.php
+    composer.json              <=== Manifest file
+    theme.php                  <=== Theme PHP file - Loaded on every theme page request just before running the page code.
 ```
 
-TastyIgniter supports a single level subdirectory for layouts, pages, partials and content files (any structure can be used in the assets directory), which simplifies organizing of large websites. 
+TastyIgniter supports a single level subdirectory for layouts, pages and partials files (any structure can be used in the `assets` directory), making it easier to organise large websites.
 
-A theme can contain any number of other subdirectories as well. 
+A theme can contain any number of other subdirectories as well.
 
-### Theme manifest file (optional)
+**Screenshot**
 
-A `theme.json` file looks like this:
+Create a screenshot for your theme. The screenshot should be named `screenshot.png` and should be placed in the top level directory. The recommended image size is 1200px wide by 900px tall. The screenshot is usually smaller but the over-size image allows high-resolution viewing on HiDPI displays.
+
+## Theme manifest
+
+A `composer.json` file for a theme looks like this:
 
 ```json
 {
-  "code": "tastyigniter-orange",
-  "name": "TastyIgniter Orange",
-  "description": "This is a front-end theme",
-  "author": "Dev Team",
-  "version": "0.1.0"
+  "name": "acme/ti-theme-purple",
+  "type": "tastyigniter-package",
+  "description": "Purple theme for TastyIgniter",
+  "authors": [
+    {
+      "name": "Acme Labs"
+    }
+  ],
+  "require": {
+    "tastyigniter/ti-theme-orange": "*"
+  },
+  "extra": {
+    "tastyigniter-theme": {
+      "code": "acme-purple",
+      "name": "Purple Theme",
+      "locked": true,
+      "source-path": "/resources/views",
+      "meta-path": "/resources/meta",
+      "publish-paths": [
+        "/public"
+      ]
+    }
+  }
 }
 ```
 
-| Field           | Description                                                  |
-| --------------- | ------------------------------------------------------------ |
-| **code**        | the theme code, required. The value is used on the TastyIgniter marketplace for setting the theme code value. |
-| **name**        | specifies the theme name, required.                          |
-| **description** | the theme description, required.                             |
-| **author**      | specifies the author name, required.                         |
-| **version**     | specifies the theme version, required.                       |
-| **homepage**    | specifies the author website URL, optional.                  |
-| **require**     | an array of extension names the theme depeneds on, optional. |
+| Field                               | Description                                                                                                                                                                                                                                                                                      |
+|-------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **name**                            | The Composer package's name in vendor/package format, **required**. You should use a vendor name that is unique to you, such as your GitHub username. You should prefix the package part with <code><b>ti-theme-</b></code> to indicate that your package is intended for use with TastyIgniter. |
+| **type**                            | MUST be set to <code><b>tastyigniter-package</b></code>, ensures that your theme will be installed as such when someone "requires" it, **required**.                                                                                                                                             |
+| **description**                     | A one-sentence summary of what the extension does, **required**. (max. char: 130)                                                                                                                                                                                                                |
+| **authors**                         | An object to specify the name of the extension author, **required**.                                                                                                                                                                                                                             |
+| **authors.0.name**                  | An object to specify the name of the extension author, **required**.                                                                                                                                                                                                                             |
+| **authors.0.email**                 | An object to specify the email of the extension author, **optional**.                                                                                                                                                                                                                            |
+| **require**                         | Defines other TastyIgniter packages your theme depends on, **optional**. In the example above, **acme-purple** theme depends on the **tastyigniter/ti-theme-orange** theme.                                                                                                                      |
+| **extra.tastyigniter-theme**        | Holds TastyIgniter-specific extension metadata, such as your theme's display name and paths, **required**.                                                                                                                                                                                       |
+| **extra.tastyigniter-theme.code**   | the theme code, **required**. The value is used on the TastyIgniter marketplace for setting the theme code value.                                                                                                                                                                                |
+| **extra.tastyigniter-theme.name**   | specifies the theme name, **required**.                                                                                                                                                                                                                                                          |
+| **extra.tastyigniter-theme.locked** | specifies whether a child theme must be created to customize the theme, **optional**.                                                                                                                                                                                                            |
 
-### Assets manifest file
+## Assets manifest
 
 Before adding your files to the theme assets manifest file, you must place them within your theme in the correct directory structure, as shown in the [theme directory structure](#directory-structure).
 
-A `_meta/assets.json` file looks like this:
+A `resources/meta/assets.json` file looks like this:
 
 ```json
 {
   "doctype": "html5",
   "favicon": "favicon.ico",
   "meta": [
-    //...
+    {
+      "name": "Content-type",
+      "content": "text/html; charset=utf-8",
+      "type": "equiv"
+    },
+    {
+      "name": "viewport",
+      "content": "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
+      "type": "name"
+    }
   ],
   "css": [
     {
-      "path": "theme/assets/css/app.css",
+      "path": "$/acme-purple/css/app.css",
       "name": "app-css"
     }
   ],
   "js": [
     {
-      "path": "theme/assets/js/app.js",
+      "path": "$/acme-purple/js/app.js",
       "name": "app-js"
+    }
+  ],
+  "bundles": [
+    {
+      "type": "scss",
+      "files": "acme-purple::/scss/app.scss",
+      "destination": "$/acme-purple/css/app.css"
     }
   ]
 }
 ```
 
-JavaScript code should be placed in external files whenever possible. Use `get_script_tags()` to load your scripts.
+> The `$` symbol is a placeholder for the `public` path. Theme assets are published to the `public` directory of the TastyIgniter installation when you install or update the theme or run the `php artisan igniter:theme-vendor-publish --theme=your-theme` command.
 
-### Screenshot
-
-Create a screenshot for your theme. The screenshot should be named `screenshot.png` and should be placed in the top level directory. The recommended image size is 1200px wide by 900px tall. The screenshot is usually smaller but the over-size image allows high-resolution viewing on HiDPI displays. 
+JavaScript code should be placed in external files whenever possible. Use [`@scripts`](../customize/markup-guide#themescripts) to load your scripts and [`@styles`](../customize/markup-guide#themestyles) to load your styles.
 
 ## Template structure
 
-A template is how a page is organized, and how the content of the page is displayed. Both layouts and pages templates may contain up to three sections: front-matter, PHP code and HTML markup. Sections are separated by the `---` sequence. For example:
+Template is a file that defines how a page or layout is organized and how its content is displayed. It can contain up to three sections: front-matter, PHP code, and HTML markup. These sections are separated by the `---` sequence.
+
+A **page template** file looks like this:
 
 ```blade
 ---
-title: Menu Items
-permalink: "/menus"
+title: Homepage
+permalink: /
 layout: default
 
-'[cartBox]':
-    showCartItemThumb: 1
+'[helloBlock]':
+    maxItems: 1
 ---
 <?php
 function onStart()
@@ -121,46 +172,72 @@ function onStart()
 ?>
 ---
 <div>
-    @component('cartBox')
+    <p>Rendering a Theme component</p>
+    @themeComponent('helloBlock')
+    
+    <p>Rendering a Livewire component</p>
+    <livewire:hello-block />
+    
+    <p>Rendering sub views</p>
+    @include('acme-purple::includes.sidebar')
 </div>
+```
+
+A **layout template** file looks like this:
+
+```blade
+---
+description: Default Layout
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ $this->page->title }}</title>
+    @themeStyles
+</head>
+<body>
+    @themePage
+    @themeScripts
+</body>
+</html>
 ```
 
 ### Front-matter section
 
-The front matter must be the first thing in the file and must take the form of a valid YAML set between triple-dashed lines. You can set predefined variables between these triple-dashed lines (see below for a reference) or even create custom ones of your own. These variables will then be available to you to access using PHP tags both further down in the file and also in any template referenced. Here is a basic example:
+This is the first section in the file which contains valid YAML set between triple-dashed lines. You can set predefined variables or create custom ones which will be available to you to access from component blade views. Here is a basic example:
 
 ```blade
 ---
-title: "Menu Items"
-permalink: "/menus"
-layout: "default"
+title: Homepage
+permalink: /
+layout: default
 
-'[cartBox]':
-    parameter: "value"
+'[helloBlock]':
+    maxItems: 1
 ---
 ```
 
 ### PHP code section
 
-The code within the PHP section is executed each time before the template is rendered. The PHP section is optional and
-the content depends on the type of template it is defined within. The PHP open and close tags should always be set
+This section is executed each time before the template is rendered. It is optional and the content depends on the type of template it is defined within. The PHP open `<?php` and close `?>` tags should always be set
 within the section separator `---` on a different line. For example:
 
 ```blade
 ---
 <?php
-use Acme\Menu\Models\Category;
 
 function onStart() {
-    $this['categories'] = Category::all();
+    $this['categories'] = ['Appetizer', 'Main Course', 'Dessert'];
 }
+
 ?>
 ---
 <h3>Categories</h3>
 <ul>
     @foreach ($categories as $category) {
-	    <li>{{ $category->name }}</li>
-	@endforeach
+        <li>{{ $category }}</li>
+    @endforeach
 </ul>
 ```
 
@@ -168,54 +245,59 @@ The PHP section is converted to a PHP class when the template is parsed, you can
 
 ### HTML markup
 
-The HTML section defines the markup to be rendered by the template. The HTML section content can contain both HTML and PHP tags, functions, the content depends on whether the template is a page, layout or partial.
+The HTML section defines the markup to be rendered by the template. The HTML section content can contain both HTML and PHP tags, functions, the content depends on whether the template is a page or layout.
 
-## Including Template files
+## Including theme partials
 
-To load a partial or content file from another template file, you can use `partial('my-partial-name')` to make it easy for a theme to reuse code sections. The template paths are always absolute. If you render a partial from the same subdirectory `blog/`, the subdirectory name still needs to be specified, `partial('blog/my-partial-name')`.
+To render the `includes/sidebar.blade.php` blade view from the [directory structure](../customize/themes#directory-structure) above within a page or layout or another partial, you can use `@include('includes.sidebar')` to make it easy for a theme to reuse code sections. The template paths are always absolute. If you render a partial from the subdirectory `includes/blog/`, the subdirectory name still needs to be specified, `@include('includes.blog.sidebar')`.
 
-## Global Variables
+## Global variables
 
-| VARIABLE       | DESCRIPTION                                                  |
-| -------------- | ------------------------------------------------------------ |
-| **theme**      | Theme object `$this->theme` for reading customization settings. |
-| **page**       | Page object `$this->page`. Custom variables set via front matter in [pages](../customize/pages) will be available here. |
+| Variable       | Description                                                                                                                     |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------|
+| **theme**      | Theme object `$this->theme` for reading customized settings.                                                                    |
+| **page**       | Page object `$this->page`. Custom variables set via front matter in [pages](../customize/pages) will be available here.         |
 | **layout**     | Layout object `$this->layout`. Custom variables set via front matter in [layouts](../customize/layouts) will be available here. |
-| **controller** | Access the underlying controller object `$this->controller`. |
-## Customization API
+| **controller** | Access the underlying `MainController` object `$this->controller`.                                                              |
 
-The Theme Customization feature is available by default for almost all TastyIgniter themes from **Design > Themes**. The Theme Customization Admin page is automatically populated with form fields that a theme registers using the `_meta/fields.php` file.
+## Theme settings
 
-> Please note that the Customize Screen is only available if the active theme supports Customization. Furthermore, this screen will probably be different for each theme that enables and builds it. 
+The theme settings feature in TastyIgniter allows you to customize the appearance and behavior of your theme directly from the admin interface. This feature is available by default for enabled TastyIgniter themes from the _Design > Themes_ Admin page.
 
-Example of a `_meta/fields.php` file:
+To enable theme settings, you need to register form fields using the `resources/meta/fields.php` file in your theme directory. This file should return an array of form fields that will be displayed in the theme settings interface.
+
+Here's an example of a `resources/meta/fields.php` file:
 
 ```php
 return [
-    // Set form fields for the admin theme customisation.
+    // Set form fields for the admin theme settings.
     'form' => [
         'fields'  => [
             'font_family' => [
                 'label'   => 'Font Family',
                 'type'    => 'text',
-                'default' => '"Titillium Web",Arial,sans-serif',
+                'default' => '"Inter",Arial,sans-serif',
                 'comment' => 'The font family to use for the main body text.',
-                'rules'   => 'required',
+                'rules'   => 'required|string',
             ],
         ]
     ]
 ];
 ```
 
-The value can then be accessed inside any of the Theme templates:
+In this example, a text field is defined for customizing the font family. The field has a label, a default value, a comment, and a validation rule.
+
+Once the fields are defined, you can access the values inside any of your theme templates using $this->theme->field_name. For example:
 
 ```blade
-<h1>Welcome to {{ $this->theme->font_family }}!</h1>
+<h1 style="font-family: {{ $this->theme->font_family }}">Welcome to our website!</h1>
 ```
 
-## Best Practices
+In this example, the font family defined in the theme settings interface is applied to a heading.
 
-- Name your main CSS and JavaScript files the same name as your theme
-- All template files (layouts, pages, partials, content) should use `.php` .
+## Best practices
+
+- All template files (layouts, pages and partials) should use `.blade.php`.
 - Use relative paths in your CSS files, for example: `url(../img/bg.png);`
 - Use lowercase filenames
+- Use hyphens `-` **NOT** underscores `_` to separate words in filenames

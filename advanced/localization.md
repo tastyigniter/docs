@@ -1,159 +1,225 @@
 ---
 title: "Localization"
 section: advanced
-sortOrder: 300
+sortOrder: 310
 ---
 
 ## Introduction
 
-TastyIgniter has a powerful translation system that allows your site to support multilingual content. When developing your extension, you should consider using locale strings even if you do not intend to use it in more than one language. You never know: if you decide to make your extension available to users around the world, it can be handy later.
+TastyIgniter features a robust translation system that leverages Laravel's localization features, providing a convenient method for retrieving strings in various languages, allowing you to easily support multiple languages in your TastyIgniter application.
 
-We strongly recommend including a complete set of English resources with each extension, also if you decide to publish your extension in the TastyIgniter marketplace.
-
-Locale files are stored within the extension **/language** subdirectory.
+Language directories and files are stored in PHP files within your application's **lang** directory.
 
 ## Directory structure
 
-Here is an example of the extension `language` directory:
+Here is an example of how the **lang** directory might be structured:
 
 ```yaml
-extensions/
-  igniter/
-    demo/             				<=== Extension directory
-      language/       				<=== Localization directory
-        en/           				<=== Language directory
-          default.php    				<=== Locale file
-        es/
-          default.php
+  lang/
+    en/                     <=== Language directory
+  custom.php                <=== Language file
+    es/                     <=== Language directory
+      custom.php            <=== Language file
 ```
 
-> Each language directory should be named using the <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" targer="_blank">ISO 639-1</a> code for the language it contains.
+In this example, the language directory contains language files. Each language has its own subdirectory named using the [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) code (e.g., `en` for English, `es` for Spanish), and each subdirectory contains a `custom.php` language file with the translation strings for that language.
 
-## Defining locale strings
+## Defining language strings
 
-All locale files return an array of keyed locale strings. For example:
+All language files return an array of keyed language strings. For example:
 
 ```php
 <?php
 
 return [
-    'sample_key' => 'This is a sample locale string.',
-    'alert' => [		// Namespacing for alerts locale strings 
+    'sample_key' => 'This is a sample language string.',
+    'alert' => [  // Namespacing for alerts language strings 
         'success' => 'This is a success alert'
     ]
 ];
 ```
 
-## Accessing locale strings 
+## Accessing language strings
 
-You can use the `lang` helper function to get strings from locale files. The method accepts the file and key of the locale string as its first argument. For example, let's the `sample_key` locale string from the locale file `extensions/igniter/demo/language/en/lang.php`:
+You can use the `Lang` facade, `@lang` Blade directive, `__` helper function, or `lang` helper function to retrieve strings from language files. For instance, to retrieve the `sample_key` language string from the `lang/en/custom.php` language file, you can use any of these methods.
 
 ```php
-@lang('igniter.demo::lang.sample_key')
+// Using the `Lang` facade
+echo Lang('custom.sample_key')
 
-@lang('igniter.demo::lang.alert.success')
+// Using the `@lang` Blade directive
+@lang('custom.sample_key')
+
+// Using the `lang` helper function
+echo lang('custom.sample_key')
+
+// Using the `lang` helper function in a Blade template
+{{ lang('custom.sample_key') }}
+
+// Using the `__` helper function
+echo __('custom.sample_key');
+
+// Using the `__` helper function in a Blade template
+{{ __('custom.sample_key') }}
 ```
 
-## Overriding locale strings
+You can also retrieve nested language strings using dot notation. For example, to retrieve the `success` language string from the `alert` namespace in the `lang/en/custom.php` language file:
 
-System users can override extension locale strings without altering the extension files to modify these strings. For
-example, you should create the locale file `default.php` at the following location to override the locale
-string `sample_key` within the `default.php` file of the `igniter/demo`  extension:
-
-> You can also easily edit core and/or extension locale strings from the admin interface on the **Localization > Languages > Translations** page
-
-```yaml
-language/                 <=== Localization directory
-  en/                     <=== Language directory
-    igniter/
-      demo/               <=== Extension directory
-        default.php          <=== Locale override file
+```php
+// Using the `Lang` facade
+{{ __('custom.alert.success') }}
 ```
 
-You should only define the locale strings you want to override in this file. Any locale strings you do not override are still loaded from the original locale files of the extension.
+### Replacing parameters in translation strings
+
+If you wish, you can define placeholders in your language strings. All placeholders are prefixed with a `:`. For example, you can define a welcome message with a placeholder name like so:
 
 ```php
 <?php
 
 return [
-    'sample_key' => 'This is an overidden locale string.',
+    'welcome' => 'Welcome, :name',
+];
+```
+
+To replace the placeholders when retrieving a language string, you may pass an array of replacements as the second argument to the `__` function:
+
+```php
+{{ __('custom.welcome', ['name' => 'dayle']) }}
+```
+
+If your placeholder contains all capital letters, or only has its first letter capitalized, the translated value will be capitalized accordingly:
+
+```php
+<?php
+
+return [
+    'welcome' => 'Welcome, :NAME', // Welcome, DAYLE
+    'goodbye' => 'Goodbye, :Name', // Goodbye, Dayle
+];
+```
+
+### Pluralization with language strings
+
+Pluralization can be a complex issue due to the various rules across different languages. However, Laravel provides a solution to translate strings differently based on your defined pluralization rules. You can distinguish between singular and plural forms of a string using the `|` character, like this:
+
+```php
+'apples' => 'There is one apple|There are many apples',
+```
+
+You can create even more complex pluralization rules, specifying translation strings for multiple value ranges:
+
+```php
+'apples' => '{0} There are none|[1,19] There are some|[20,*] There are many',
+```
+
+Once you've defined a translation string with pluralization options, you can use the `trans_choice` function to retrieve the line for a given "count". For example:
+
+```php
+{{ trans_choice('custom.apples', 10) }}
+```
+
+You can also define placeholder attributes in pluralization strings. These placeholders can be replaced by passing an array as the third argument to the `trans_choice` function:
+
+```php
+'minutes_ago' => '{1} :value minute ago|[2,*] :value minutes ago',
+ 
+{{ trans_choice('custom.minutes_ago', 5, ['value' => 5]) }} // 5 minutes ago
+```
+
+If you want to display the integer value passed to the `trans_choice` function, you can use the built-in `:count` placeholder:
+
+```php
+'apples' => '{0} There are none|{1} There is one|[2,*] There are :count',
+
+{{ trans_choice('custom.minutes_ago', 5, ['value' => 5]) }} // There are 5
+```
+
+## Overriding language strings
+
+You can customize all application language strings from the _Manage > Settings > Languages > Edit > Translations_ admin page.
+
+Some TastyIgniter extensions, themes and Laravel packages come with their own language files. If you need to customize these strings without modifying the package's core files, you can override them by placing files in the `lang/vendor/{author}-{package}/{locale}` directory.
+
+For instance, if you want to modify the language string `override_key` in `custom.php` for an extension named `acme.helloworld`, you should create a language file `lang/vendor/acme-helloworld/en/custom.php` within the root of your TastyIgniter installation.
+
+```yaml
+lang/
+  vendor/ 
+    acme-helloworld/ 
+      en/                     <=== Language directory
+        custom.php            <=== Language override file
+```
+
+In this file, define only the language strings you want to change. Any strings you don't override will still be loaded from the original language file.
+
+```php
+<?php
+
+return [
+    'sample_key' => 'This is an overridden language string.',
 ];
 ```
 
 ## Making your site multilingual
 
-In this section of the article, you will find a complete overview of the steps involved in the creation of a multilingual TastyIgniter site.
+In this section, we'll guide you through the steps required to make your TastyIgniter site multilingual. There are two main ways to install additional languages: directly from the _Manage > Settings > Languages_ page in the admin interface, or manually downloading a language pack from the TastyIgniter translations <a href="https://tastyigniter.com/translate" target="_blank">Crowdin project page</a>.
 
-### Manually download a Language Pack
+### Installing a language pack
+
+TastyIgniter comes with a default language pack for the English language. You can install additional language packs from the _Manage > Settings > Languages_ page of the admin interface.
+
+- Navigate to the _Manage > Settings > Languages_ page in the admin interface.
+- Using the searchbox at the top of the page, search for the language you wish to install. For example, let's search for **Spanish (ES)**.
+- Click on the language you wish to install, then click the **Add Language** button.
+- Once installed, you can enable the language by toggling the **Status** switch to `Enabled`.
+
+Run the following command from the application directory to install a **Spanish (ES)** language pack:
+
+```bash
+php artisan igniter:language-install es
+```
+
+### Manually download a language pack
 
 Follow these steps to manually download a community translated language pack.
 
-- Join our translations <a href="https://tastyigniter.com/translate" targer="_blank">Crowdin project page</a>.
+- Join our translations <a href="https://tastyigniter.com/translate" target="_blank">Crowdin project page</a>.
 - Choose the language you wish to install. For example, let's choose **Spanish (ES)**.
 - Download and unzip the language pack. To download, you need to click on the button at the top right of the Crowdin language page.
-- The folder and file structure of the extracted language pack should look like this.
-
-
+- The extracted language pack should have a specific folder and file structure. Copy the files and folders within the `Namespaced` directories into your TastyIgniter `lang` directory, _see below_. If you don't have a `lang` directory in your application root, create a new one.
 
 ```yaml
-TastyIgniter (es)/
-  master/
-    es-ES/                    <=== Language directory
-      master/                 <=== Branch directory
-        app/                  <=== Namespaced directory
-          admin/
-            lang.php          <=== Locale file
-          main/
-          system/
-        extensions/           <=== Namespaced directory
-          igniter/
-            demo/
-              default.php        <=== Locale file
-```
-
-
-
-- Copy the files and folders within the `Namespaced` directories into your TastyIgniter `language` directory, `see below`. If you don't have a `language` directory in your application root, create a new one.
-
-  
-
-```yaml
-language/
-  es_ES/                       <=== Language directory
-    admin/
-      lang.php                 <=== Locale file
-    main/
-    system/
+lang/
+  vendor/
     igniter/
-      demo/
-        default.php               <=== Locale file
+      es_ES/                       <=== Language directory
+        admin.php
+        main.php
+        system.php
 ```
 
-> Notice the language directory name uses **underscore** instead of an hypen (e.g. “es_ES”).
+> Notice the language directory name uses underscore `_` instead of a hyphen `-` (e.g. "es_ES").
 
-### Installing a Language Pack
+### Configuring the default language
 
-After downloading a language pack, you must create a new language in the admin interface to register the language into the system.
-
-1. Create a new language from the **Localisation > Languages** page of the admin interface.
-2. Fill in the form. The value of the `Locale Code` field must match the language directory name. Using the example above, the value will be `es_ES`
-3. Lastly, toggle the **Status** switch to `Enabled` then save the form.
-
-### Setting the Default Language
-
-You may want to set the installed language pack as the default language for new users and visitors. You can do this on
-the **System > Settings > General** page of the admin interface, under the **Site** tab select the language you want to
-use as your default.
+You may want to set the installed language pack as the default language for new users and visitors. You can do this on the _Manage > Settings > Languages_ page of the admin interface, by clicking the **Set as Default** button next to the language you want to use as the default.
 
 ### Enabling language detection
 
-TastyIgniter includes support for language negotiation out-the-box using a variety of methods without forcing the user to choose his or her language. The language is detected in the following sequence:
+TastyIgniter comes with built-in support for language negotiation, offering various methods to automatically detect the user's language without requiring manual selection. The language detection process follows this sequence:
 
-- Determine the language from the **request/session** parameter.
-- Determine the language from the user browser's language settings.
+- **On the Admin Interface**
+  - Determine the Admin Interface language from currently logged in admin user language settings.
+  - Determine the language from the user browser's language settings.
+  - Determine the language from the **default** language setting.
+- **On the FrontEnd**
+  - Determine the frontend language from the **request/session** parameter.
+  - Using the locale picker provided within the [FrontEnd extension](..extensions/frontend#locale-picker).
+  - Determine the language from the **default** language setting.
 
-## Third-Party Extensions
+## Translating third-party extensions
 
-While language packs downloaded from the **Browse Languages** page of the admin interface may usually provide translations for all recommended extensions bundled with TastyIgniter, as a rule, they will not cover any third party extensions that you may have installed. Developers are responsible for providing and maintaining translations of their extensions.
+Language packs downloaded from the _Manage > Settings > Languages_ page in the admin interface typically include translations for all TastyIgniter recommended extensions. However, it's important to note that they may be missing translations for other extensions you've installed.
 
-So before you install a third-party extension, you should check to make sure it includes translations for each language pack you have installed. If you find that an extension doesn't support a language you need, please contact the developer directly and arrange to have the necessary translations added.
+Developers of TastyIgniter extensions are responsible for providing and maintaining translations for their extensions. Before installing a third-party extension, ensure that it includes translations for each language pack you have installed. If you find that an extension doesn't support a language you need, please contact the developer directly to arrange for the necessary translations to be added.

@@ -1,104 +1,145 @@
 ---
-title: "Upgrade Guide"
+title: "Upgrade from v3.x"
 section: "getting-started"
 sortOrder: 30
 ---
 
-> As of TastyIgniter 2.0 or later, When a new version of TastyIgniter is available you will receive an update message in your TastyIgniter Admin Panel. All you have to do to update TastyIgniter is to click the **Update** notification button at the right top. After that you will be redirected to the **Update Center** page.
+The following is an instructional guide on how to upgrade your v3.x TastyIgniter installation to the latest version v4.x
 
-There are two methods for updating - the easiest is through the **Update Center**, which will work in most cases. 
-If it doesn't work, or you just prefer to be more hands-on, you can follow the manual update process.
+TastyIgniter has been rewritten as an installable Laravel package. This is a huge change that affects almost
+every part of the codebase.
 
-## Upgrading TastyIgniter v2.1.x to v3.x.x
+## Backing Up The Database
 
-This is a huge release. It contains a massive change in the codebase from CodeIgniter to Laravel with some new features
-and plenty bug fixes.
+Use this command back up your MySQL database. For example, if the username is `root` and the database is called
+`database_name`. You will then be prompted to enter the password.
 
-Listing all the improvements in v3 would be great but its a lot I lost track. So straight to upgrade!
+```bash
+mysqldump -u root -p database_name > tastyigniter_backup.sql
+```
 
-1. Follow the back up TastyIgniter steps below to back up your files and database.
-2. Delete all your existing v2+ files
-3. Follow the [quick installation](installation#quick-installation) instructions to install a fresh instance of v3.x.x
-4. Make sure you enter the credentials for the database where your v2 data are stored, to upgrade the data structure.
-5. Access your newly upgraded website.
+To restore the backup, you can use this command.
 
+```bash
+mysql -u root -p database_name < tastyigniter_backup.sql
+```
 
+## New requirements
 
-## Upgrading TastyIgniter v2.0.x to v2.1.x
+- **PHP 8.2+** with the following extensions: bcmath, pdo_mysql, ctype, curl, openssl, dom, gd, exif, mbstring, json,
+  tokenizer, zip, xml
+- **MySQL 5.7+** or **MariaDB 10.3+** or **PostgreSQL 10.0**
 
-{{alerts.callout_info}}After UPDATE make sure your layout modules are displaying on the storefront. You can use the new layout modules drag and drop under Design > Layouts.{{alerts.end}} 
+## Upgrading from v3.x
 
-## Back up TastyIgniter
+> Before you get started, it's a good idea to back up your website. This means if there are any issues you can restore
+> your website.
 
-Before you get started, it's a good idea to back up your website. This means if there are any issues you can restore your website. 
+Install TastyIgniter 4.0 in a new directory
 
-### Backing Up Your Database
-Visit your TastyIgniter admin page at /admin. Go to `Maintenance` under `System -> Tools` and `Select tables to backup` then click the `Backup` button. On the next page, make sure `Add DROP TABLE statement` is `No`, click the `Backup` button again and your backed up database file will appear under the `Exisiting Backups` Tab. You can download and keep the file on your computer.
+```bash
+composer create-project tastyigniter/tastyigniter mytasty-new
+```
 
-### Backing Up Your TastyIgniter Site
-Backup your files using FTP clients or cPanel file manager to copy or create a zip of all the existing TastyIgniter files and folders.
+To make the configuration process run smoothly, you can copy your old configuration to the new website. This step is
+optional
 
-{{alerts.warning}}The upgrade process will affect all files and folders included in the TastyIgniter installation. This includes all the core files used to run TastyIgniter. If you have made any modifications to those files, your changes will be lost.{{alerts.end}} 
+```bash
+cp mytasty/.env mytasty-new/
+```
 
-### Restoring Your Database From Backup
-Visit your TastyIgniter admin maintenance page. Under `Exisiting Backups` tab click the `Restore` button next to the database backup you wish to restore.
+To avoid broken media, you can either copy or move the `assets/media` directory to the storage directory on the new
+installation.
 
-## Manual Update
+```bash
+cp assets/media storage/
+```
 
-If the one-click upgrade doesn't work for you, don't panic! Just try a manual update.
+If you have custom extensions and themes you have developed yourself, you can copy them to the new installation after
+upgrade is complete.
 
-### **Step 1:** Replace TastyIgniter files
-1. Get the [latest TastyIgniter](https://tastyigniter.com/download) zip file
-2. Unpack the downloaded zip file
-3. Open the unpacked folder `TastyIgniter-2.x.x`
-4. Locate and `delete` the `database.php` file in `system/tastyigniter/config/` folder
-5. Using your FTP client, upload all the files and folders inside the `TastyIgniter-2.x.x` folder to your web host. Uploading all the files might take a few minutes on the FTP client.
-6. Do NOT replace/overwrite your existing `system/tastyigniter/config/database.php` file.
+Proceed through the installation and database migration. Change directory to the new installation and running the
+installation command.
 
-### **Step 2:** Update your installation
-After uploading the files of the new version to your web host, visit the setup page at "/setup" like: www.myrestaurant.com/setup. Following the instructions on the setup page will update your database to be compatible with the latest code.
+```bash
+cd mytasty-new
+php artisan igniter:install
+```
 
-{{alerts.warning}}Warning: DO NOT proceed if you see the Database page asking you to enter your database details, this means your old database.php file has changed. Fix this by restoring your old database.php file then return to Step 1{{alerts.end}}
+Finally, complete the upgrade, replace the old installation directory with the new installation.
 
+```bash
+cd ..
+mv mytasty mytasty-old
+mv mytasty-new mytasty
+```
 
-### **Step 3:** Do something nice for yourself
-Clear your site (if enabled) and browser cache at this point so the changes will go live immediately. Otherwise, visitors to your site (including you) will continue to see the old version (until the cache updates).
+### High impact changes
 
-Your TastyIgniter installation is successfully updated..
+#### TastyIgniter As A Package
 
-{{alerts.warning}}If you experience any issue, you should restore your most recent database & file backup and try again{{alerts.end}}
+TastyIgniter can now be included in an existing Laravel application as a package.
+See [Package Installation](/installation#package-installation) for more details.
 
-{{alerts.note}}THIS IS FOR UPGRADE ON EXISTING INSTALLS ONLY! IF INSTALLING NEW, BE SURE TO READ THE README.md FILE INSTEAD{{alerts.end}}
+#### Code Structure
 
+The codebase has been refactored and restructured to follow Laravel conventions which enhance maintainability and
+extensibility. This includes updated namespaces, relocated controllers, improved models, and form requests.
 
-## Upgrading TastyIgniter v1.4.x to 2.0.x
+- Classes under `Admin\\`, `Main\\`, `System\\` have moved to `Igniter\\Admin\\`, `Igniter\\Main\\`, `Igniter\\System\\`
+  respectively.
 
-1. BACKUP YOUR EXISTING STORE FILES AND DATABASE!!
-    - Backup your database via your store `Admin->Tools->Maintenance->Backup`
-    - Backup your files using FTP file copy or use cPanel filemanager to create a zip of all the existing tastyigniter files and folders
+#### Admin Login with Email
 
-2. Download the latest version of TastyIgniter and upload ALL new files on top of your current install EXCEPT your `system/tastyigniter/config/database.php`.
-    - Make sure your `system/tastyigniter/config/database.php` old file was not overwritten.
+The admin login process now uses email addresses instead of usernames, providing a more convenient and familiar login
+experience for administrators.
 
-3. Go to http://myrestaurant.com/ Replacing myrestaurant.com with your actual site (and subdirectory if applicable).
+#### Mail Template Namespaces
 
-4. You should see the TastyIgniter Setup script.
+Mail template namespaces have been renamed for consistency. `admin::` is
+now `igniter.admin::`, `main::` is now `igniter.main::`, and `system::` is now `igniter.system::`.
 
-5. Click **Continue**. After a few seconds you should see the installation success page.
-    - If you see the database configuration and/or site settings TastyIgniter Setup page, then that means you have replaced your old `system/tastyigniter/config/database.php` file. Restore them from your backup first. Then try again.
+#### Translation String Keys
 
-6. Clear any cookies in your browser
+Translation string keys have been updated to follow a consistent naming
+convention. `admin::lang.` is now `igniter::admin.`, `main::lang.` is now `igniter::main.`, and `system::lang.` is
+now `igniter::system.`.
 
-7. Go to the administrator panel and login as the main administrator. Press Ctrl+F5 3x times to refresh your browser cache. That will prevent oddly shifted elements due to stylesheet changes.
-    - If you see any errors, report them immediately in the forum before continuing.
+#### The Singleton Trait
 
-9. Go to `Admin->System` Settings
-    - Update any blank fields and click save.
-    - Even if you do not see any new fields, click save anyway to update the database with any new field names.
+Singletons have been dropped, you can resolve all 'Manager' classes through the service container. This allows for better code
+organization and easier unit testing. `ExtensionManager::instance()` is now `resolve(ExtensionManager::class)`.
 
+#### Blade Directives
 
-## Troubleshooting
+We've introduced new Blade directives to streamline theme development. We've also renamed existing directives to prevent conflicts. The `@themeContent` directive now replaces `@content`, enabling the rendering of content template files. Similarly, `@themePage` has taken over from `@page` for rendering page contents. Additionally, `@themeStyles` and `@themeScripts` directives replace `@styles` and `@scripts` respectively. Furthermore, `@themeComponent` and `@themePartial` directives now replace the previous `@component` and `@partial` directives.
 
-If you have any upgrade script errors, post them in the forum
-You should always visit the forum immediately after a fresh upgrade to see if there are any immediate bug fixes
-If nobody has reported your bug, then please report it.
+See [Blade Directives on Markup guide](customize/markup-guide#directives) for more details.
+
+### Medium impact changes
+
+#### Extension Configuration
+
+Extension configuration files are no longer merged automatically. Developers must use Laravel's `mergeConfigFrom()` method to merge configuration files from extension class `register` method.
+
+#### Database Changes
+
+Several database changes have been made, including merging `staffs` and `users` records into the `admin_users` table,
+renaming `staff_groups` to `user_groups`, prefixing user-related tables with `admin_`, dropping conflicting tables, and
+increasing the length of varchar to 255 on existing columns.
+
+### Low impact changes
+
+#### Admin Controller Actions
+
+New base view files have been introduced for common admin controller actions such as index, edit, create, and preview.
+This eliminates the need to create these view files for your custom controller action.
+
+#### Mailable Integration
+
+Sending registered mail templates now uses Laravel's Mailable classes instead of custom logic. This provides a more
+standardized and maintainable approach to sending emails.
+
+#### Notification system
+
+The notification system has been refactored to use Laravel's notification system. This provides a more standardized and maintainable approach to sending notifications.

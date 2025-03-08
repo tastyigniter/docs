@@ -1,6 +1,6 @@
 # TastyIgniter Documentation
 
-You can find the online version of the TastyIgniter documentation at https://tastyigniter.com/docs
+You can find the online version of the TastyIgniter documentation at <https://tastyigniter.com/docs>
 
 # Contribution Guidelines
 

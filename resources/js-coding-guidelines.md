@@ -1,7 +1,7 @@
 ---
 title: "Javascript Coding Guidelines"
-section: "getting-started"
-sortOrder: 370
+section: "resources"
+sortOrder: 470
 ---
 
 [Prettier](https://prettier.io/) determines our code style. While Prettier's output isn't always the prettiest, it's consistent and removes all (meaningless) discussion about code style.
@@ -10,7 +10,7 @@ We try to stick to Prettier's defaults, but have a few overrides to keep our Jav
 
 The first two rules are actually configured with `.editorconfig`. We use 4 spaces as indentation.
 
-```
+```editorconfig
 indent_size = 4
 ```
 
