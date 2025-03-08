@@ -13,19 +13,19 @@ As of Version 4, TastyIgniter can be installed as a [stand-alone](#stand-alone-i
 These are the requirements to run TastyIgniter as a stand-alone application:
 
 - **Apache** (with mod_rewrite enabled) or **Nginx**
-- **PHP 8.2+** with the following extensions: bcmath, pdo_mysql, ctype, curl, openssl, dom, gd, exif, mbstring, json,
+- **PHP 8.3+** with the following extensions: bcmath, pdo_mysql, ctype, curl, openssl, dom, gd, exif, mbstring, json,
   tokenizer, zip, xml
-- **MySQL 5.7+** or **MariaDB 10.3+** or **PostgreSQL 10.0**
+- **MySQL 8+** or **PostgreSQL 10.0**
 - **Composer 2.0** or **higher** (for installing dependencies)
 
 ### Installing TastyIgniter
 
 TastyIgniter manages its dependencies and extensions using <a href="https://getcomposer.org/" target="_blank">composer</a>.
 To install the platform, use the `create-project` command in the terminal to create a project. The command
-below creates a new project in the directory `mytasty`.
+below creates a new project in the directory `tastyigniter`.
 
 ```bash
-composer create-project tastyigniter/tastyigniter:^v4.0@beta mytasty
+composer create-project tastyigniter/tastyigniter:^v4.0 tastyigniter
 ```
 
 From here, you can move on to the [Setting up TastyIgniter](#setting-up-tastyigniter) step.
@@ -36,8 +36,8 @@ From here, you can move on to the [Setting up TastyIgniter](#setting-up-tastyign
 
 These are the requirements to run TastyIgniter as a package in a Laravel application:
 
-- **Laravel 10+**
-- **MySQL 5.7+** or **MariaDB 10.3+** or **PostgreSQL 10.0**
+- **Laravel 11+**
+- **MySQL 8+** or **PostgreSQL 10.0**
 - **Composer 2.0** or **higher** (for installing dependencies)
 
 ### Installing TastyIgniter
@@ -46,7 +46,7 @@ To install TastyIgniter as a package from your command line, run the following c
 directory:
 
 ```bash
-composer require tastyigniter/core:^v4.0@beta
+composer require tastyigniter/core:^v4.0
 ```
 
 From here, you can move on to the [Setting up TastyIgniter](#setting-up-tastyigniter) step.
