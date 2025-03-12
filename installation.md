@@ -21,7 +21,7 @@ These are the requirements for your web hosting to run TastyIgniter:
 TastyIgniter manages its dependencies and extensions using <a href="https://getcomposer.org/" target="_blank">composer</a>. To install the platform, use the `create-project` command in the terminal to create a project. The command below creates a new project in the directory `mytasty`.
 
 ```bash
-composer create-project tastyigniter/tastyigniter mytasty
+composer create-project tastyigniter/tastyigniter:^3.7 mytasty
 ```
 
 After running the above command, run the installation command and follow the instructions to complete installation
