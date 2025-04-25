@@ -25,7 +25,7 @@ To install the platform, use the `create-project` command in the terminal to cre
 below creates a new project in the directory `tastyigniter`.
 
 ```bash
-composer create-project tastyigniter/tastyigniter:^v4.0 tastyigniter
+composer create-project tastyigniter/tastyigniter tastyigniter
 ```
 
 From here, you can move on to the [Setting up TastyIgniter](#setting-up-tastyigniter) step.
@@ -46,7 +46,7 @@ To install TastyIgniter as a package from your command line, run the following c
 directory:
 
 ```bash
-composer require tastyigniter/core:^v4.0
+composer require tastyigniter/core
 ```
 
 From here, you can move on to the [Setting up TastyIgniter](#setting-up-tastyigniter) step.

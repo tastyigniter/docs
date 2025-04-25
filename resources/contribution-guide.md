@@ -60,7 +60,7 @@ size, they cannot realistically be reviewed by a maintainer. This could be explo
 into TastyIgniter. In order to defensively prevent this, all compiled files will be generated and committed by
 TastyIgniter maintainers.
 
-## Development setup
+## Development environment setup
 
 <a href="https://github.com/tastyigniter/TastyIgniter" target="_blank">tastyigniter/TastyIgniter</a> is the stand-alone
 application for installing
@@ -71,15 +71,21 @@ in `composer.json` to `dev`.
 - Run `composer install` to install composer dependencies.
 - Finally, run `composer update "tastyigniter/*" --prefer-source` to clone TastyIgniter packages into the `vendor` directory for development.
 
-## Development workflow
+## How to contribute
 
 Follow these steps:
 
-- Complete the development setup and make your **changes**
-- Run ./vendor/bin/phpunit to **test** your code
-- Run ./vendor/bin/pint to **fix** any code style issues
-- **Commit** your code with a descriptive message.
+- First you need to complete the development environment setup 
+- Identity the repository you want to contribute to
+- Fork the repository
+- Clone your forked repository into the development environment
+- Checkout the current release branch (3.x or 4.x)
+- Make your **changes**
+- Run `composer test` to run the test-suite on your changes
+- **Commit and push** your changes with a descriptive message.
 - Submit in the **pull request** on GitHub
+
+The CI/CD workflows must run successfully on your pull requests to be merged into the release branch.
 
 ## Development tools
 
