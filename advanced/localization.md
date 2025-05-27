@@ -165,14 +165,28 @@ return [
 
 In this section, we'll guide you through the steps required to make your TastyIgniter site multilingual. There are two main ways to install additional languages: directly from the _Manage > Settings > Languages_ page in the admin interface, or manually downloading a language pack from the TastyIgniter translations <a href="https://tastyigniter.com/translate" target="_blank">Crowdin project page</a>.
 
-### Installing a language pack
+### Importing translated language strings
 
-TastyIgniter comes with a default language pack for the English language. You can install additional language packs from the _Manage > Settings > Languages_ page of the admin interface.
+TastyIgniter supports the use of language packs, which are collections of translated language strings for various languages. These language packs can be imported to provide translations for the TastyIgniter admin interface and frontend.
+
+Language packs are typically provided by the TastyIgniter community and can be installed directly from the admin interface or manually downloaded from the TastyIgniter translations <a href="https://tastyigniter.com/translate" target="_blank">Crowdin project page</a>.
+
+You can import translated language strings from the _Manage > Settings > Languages_ page of the admin interface.
 
 - Navigate to the _Manage > Settings > Languages_ page in the admin interface.
-- Using the searchbox at the top of the page, search for the language you wish to install. For example, let's search for **Spanish (ES)**.
-- Click on the language you wish to install, then click the **Add Language** button.
-- Once installed, you can enable the language by toggling the **Status** switch to `Enabled`.
+- Click on the **New** button to create a new language. In the **Locale Code** field, enter the language code (e.g., `es` for Spanish) and the **Name** field, enter the language name (e.g., `Spanish`).
+- Click the **Save** button to create the new language.
+- Once the language is created, you will see the **Import Translations** button on the right side of the page. 
+- Click on the **Import Translations** button to open the import dialog.
+- In the import dialog, you will see a list of available language packs.
+- Click on the **Download translated strings** button to download the language packs.
+- Once the download is complete, click on the **Close** button to reload the page and see the newly installed translated language strings
+- Go to the _Manage > Settings > Languages_ page and click on the **Set as Default** button next to the language you just created to activate it.
+- That's it! You have successfully installed a new language pack.
+
+#### Installing a language pack from the command line
+
+You can also install a language pack from the command line using the `igniter:language-install` Artisan command. This command allows you to install a language pack directly from the TastyIgniter Crowdin project page.
 
 Run the following command from the application directory to install a **Spanish (ES)** language pack:
 
