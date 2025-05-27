@@ -10,7 +10,7 @@ In TastyIgniter, widgets are self-contained blocks of functionality used to perf
 
 ## Generic widget
 
-Widgets in TastyIgniter are the admin equivalent of frontend [components](../customize/components). The major difference is that admin widgets use PHP arrays for configuration and are linked specifically to admin pages.
+Widgets in TastyIgniter are the admin equivalent of frontend [components](../extend/components). The major difference is that admin widgets use PHP arrays for configuration and are linked specifically to admin pages.
 
 Widget classes reside in the `src/Widgets` directory of an extension. Widgets may include assets and partials to enhance functionality. Here's an example of a typical widget directory structure:
 

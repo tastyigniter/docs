@@ -10,7 +10,7 @@ Components implements content and features that extend your TastyIgniter website
 
 Other than displaying HTML markup on a page, components can handle [AJAX requests](../advanced/ajax-request).
 
-In this section, you'll learn the basics of building, registering and rendering both [Igniter](../customize/components#theme-component) and [Livewire](#livewire-component) components within a TastyIgniter application. Starting with version 4, you can use Livewire components within your theme layouts or pages. You can register both Igniter and Livewire components using the `registerComponents` method and attach them into your pages or layouts via the Admin Interface.
+In this section, you'll learn the basics of building, registering and rendering both [Igniter](../extend/components#theme-component) and [Livewire](#livewire-component) components within a TastyIgniter application. Starting with version 4, you can use Livewire components within your theme layouts or pages. You can register both Igniter and Livewire components using the `registerComponents` method and attach them into your pages or layouts via the Admin Interface.
 
 ## Livewire Component
 

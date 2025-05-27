@@ -144,7 +144,7 @@ The following methods are supported in the extension class:
 | **register()**                 | register method, called when the plugin is first registered.                                                               |
 | **boot()**                     | boot method, called right before the request route.                                                                        |
 | **registerNavigation()**       | registers admin navigation menu items for this extension, see below for example.                                           |
-| **registerPermissions()**      | registers any [staff permissions](../extend/permissions#registering-permissions) supplied by this extension.               |
+| **registerPermissions()**      | registers any [staff permissions](../customize/permissions#registering-permissions) supplied by this extension.               |
 | **registerSettings()**         | registers any [admin settings page](../extend/extensions#registering-settings-navigation-link) supplied by this extension. |
 | **registerDashboardWidgets()** | registers any [admin dashboard widgets](../extend/widgets#using-dashboard-widget), supplied by this extension.             |
 | **registerFormWidgets()**      | registers any [admin form widgets](../extend/widgets#using-form-widget) supplied by this extension.                        |
