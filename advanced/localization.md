@@ -88,33 +88,35 @@ In this section of the article, you will find a complete overview of the steps i
 
 Follow these steps to manually download a community translated language pack.
 
-- Join our translations <a href="https://tastyigniter.com/translate" targer="_blank">Crowdin project page</a>.
-- Choose the language you wish to install. For example, let's choose **Spanish (ES)**.
-- Download and unzip the language pack. To download, you need to click on the button at the top right of the Crowdin language page.
-- The folder and file structure of the extracted language pack should look like this.
-
-
+- Join our translations <a href="https://translate.tastyigniter.com/" target="_blank">TastyIgniter Community Translation project</a>.
+- From the Browse all projects page, select the project you want to install a language pack for, such as **TastyIgniter**.
+- Click on the **Languages** tab to view the available languages.
+- You will see a list of languages with their translation progress.
+- Click on the language you want to install. For example, let's choose **Spanish (ES)**.
+- You will be redirected to the language page, where you can see the translation progress.
+- Click on the **Files** tab to view the available download options for that particular language.
+- Click on the **Download original translation files as ZIP file** option to download the language pack.
+- The extracted zip file should have the following folder and file structure.
 
 ```yaml
-TastyIgniter (es)/
-  master/
-    es-ES/                    <=== Language directory
-      master/                 <=== Branch directory
-        app/                  <=== Namespaced directory
-          admin/
-            lang.php          <=== Locale file
-          main/
-          system/
-        extensions/           <=== Namespaced directory
-          igniter/
-            demo/
-              default.php        <=== Locale file
+tastyigniter/
+  v4-admin/
+    es/
+      4.x/
+        admin.php
+  v4-main/
+    es/
+      4.x/
+      main.php
+  v4-system/
+    es/
+      4.x/
+      system.php
 ```
 
+- Copy the `v4-admin/es/4.x/admin.php`, `v4-main/es/4.x/main.php`, and `v4-system/es/4.x/system.php` files to your TastyIgniter `lang/vendor/igniter/es_ES/` directory, creating the necessary directories if they do not exist.
 
-
-- Copy the files and folders within the `Namespaced` directories into your TastyIgniter `language` directory, `see below`. If you don't have a `language` directory in your application root, create a new one.
-
+- The final directory structure should look like this:
   
 
 ```yaml
