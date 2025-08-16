@@ -245,16 +245,17 @@ You may want to set the installed language pack as the default language for new 
 
 ### Enabling language detection
 
-TastyIgniter comes with built-in support for language negotiation, offering various methods to automatically detect the user's language without requiring manual selection. The language detection process follows this sequence:
+TastyIgniter can automatically detect and set the user's preferred language using several methods. The detection order differs slightly between the Admin Interface and the Frontend:
 
-- **On the Admin Interface**
-  - Determine the Admin Interface language from currently logged in admin user language settings.
-  - Determine the language from the user browser's language settings.
-  - Determine the language from the **default** language setting.
-- **On the FrontEnd**
-  - Determine the frontend language from the **request/session** parameter.
-  - Using the locale picker provided within the [FrontEnd extension](..extensions/frontend#locale-picker).
-  - Determine the language from the **default** language setting.
+- **Admin Interface**
+  1. Uses the language set in the currently logged-in admin user's profile.
+  2. If not set, falls back to the application's default language setting.
+
+- **Frontend**
+  1. Checks for a language preference in the request or session (such as a URL parameter or previously selected language).
+  2. If not found, uses the application's default language setting.
+
+This automatic detection helps ensure users see the site in their preferred language whenever possible.
 
 ## Translating third-party extensions
 
