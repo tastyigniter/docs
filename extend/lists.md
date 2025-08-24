@@ -18,11 +18,13 @@ namespace Author\Extension\Http\Controllers;
 class MyController extends \Igniter\Admin\Classes\AdminController
 {
     public array $listConfig = [
-        'model' => 'Author\Extension\Models\Record',
-        'title' => 'Records',
-        'emptyMessage' => 'No records found',
-        'defaultSort' => ['id', 'DESC'],
-        'configFile' => 'record',
+        'list' => [
+            'model' => 'Author\Extension\Models\Record',
+            'title' => 'Records',
+            'emptyMessage' => 'No records found',
+            'defaultSort' => ['id', 'DESC'],
+            'configFile' => 'record',
+        ]
     ];
 }
 ```
@@ -30,7 +32,7 @@ class MyController extends \Igniter\Admin\Classes\AdminController
 The following fields are required in the list configuration:
 
 - `model` - The model class name to use for the list.
-- `configFile` - Reference to the [list definition file](../extend/lists#list-definition-file).
+- `configFile` - Reference to the [list definition file](../extend/lists#list-definition-file). Ensure the value corresponds to a file name located at the extension's `resources/models/` path and same should be mentioned in your $formConfig.
 
 The configuration options listed below are optional.
 
