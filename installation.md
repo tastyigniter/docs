@@ -13,7 +13,7 @@ As of Version 4, TastyIgniter can be installed as a [stand-alone](#stand-alone-i
 These are the requirements to run TastyIgniter as a stand-alone application:
 
 - **Apache** (with mod_rewrite enabled) or **Nginx**
-- **PHP 8.3+** with the following extensions: bcmath, pdo_mysql, ctype, curl, openssl, dom, gd, exif, mbstring, json,
+- **PHP 8.4+** with the following extensions: bcmath, pdo_mysql, ctype, curl, openssl, dom, gd, exif, mbstring, json,
   tokenizer, zip, xml
 - **MySQL 8+** or **PostgreSQL 10.0**
 - **Composer 2.0** or **higher** (for installing dependencies)
