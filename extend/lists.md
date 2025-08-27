@@ -32,7 +32,7 @@ class MyController extends \Igniter\Admin\Classes\AdminController
 The following fields are required in the list configuration:
 
 - `model` - The model class name to use for the list.
-- `configFile` - Reference to the [list definition file](../extend/lists#list-definition-file). Ensure the value corresponds to a file name located at the extension's `resources/models/` path and same should be mentioned in your $formConfig.
+- `configFile` - Reference to the [list definition file](../extend/lists#list-definition-file). The value should correspond to a file name in your extension's `resources/models/` directory and match what's defined in your [$formConfig](../extend/forms#configuring-the-form-controller).
 
 The configuration options listed below are optional.
 
