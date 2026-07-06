@@ -205,7 +205,7 @@ The following options are available for form fields (where applicable):
 - `cssClass`: Additional CSS classes to apply to the field.
 - `attributes`: Additional HTML attributes to apply to the field.
 - `containerAttributes`: Additional HTML attributes to apply to the field container.
-- `permissions`: The [permissions](../extend/permissions) required to view this field.
+- `permissions`: The [permissions](../customize/permissions) required to view this field.
 
 ### Available field types
 
@@ -620,7 +620,7 @@ The following options are available for the `colorpicker` form widget type:
 
 #### Components
 
-`components` renders a field for selecting and managing both [theme](../customize/components#theme-component) and [livewire](../customize/components#livewire-component) components from the component library as well as rendering them to a theme template.
+`components` renders a field for selecting and managing both [theme](../extend/components#theme-component) and [livewire](../extend/components#livewire-component) components from the component library as well as rendering them to a theme template.
 
 ```php
 'components' => [
@@ -1108,7 +1108,7 @@ Additionally, you can add the `disabled` property to the field definition to pre
 
 ## Validating form fields
 
-To validate the fields of your form you should add a form request class to the `request` key in the form controller configuration `$formConfig` property. The form request class should extend the `Igniter\System\Classes\FormRequest` class and define a `rules` method that returns an array of validation rules. See [Validation](../advanced/validation) for more information on how to define validation rules.
+To validate the fields of your form you should add a form request class to the `request` key in the form controller configuration `$formConfig` property. The form request class should extend the `Igniter\System\Classes\FormRequest` class and define a `rules` method that returns an array of validation rules. See [Validation](../extend/validation) for more information on how to define validation rules.
 
 ## Extending the form controller
 

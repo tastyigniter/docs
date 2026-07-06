@@ -18,11 +18,13 @@ namespace Author\Extension\Http\Controllers;
 class MyController extends \Igniter\Admin\Classes\AdminController
 {
     public array $listConfig = [
-        'model' => 'Author\Extension\Models\Record',
-        'title' => 'Records',
-        'emptyMessage' => 'No records found',
-        'defaultSort' => ['id', 'DESC'],
-        'configFile' => 'record',
+        'list' => [
+            'model' => 'Author\Extension\Models\Record',
+            'title' => 'Records',
+            'emptyMessage' => 'No records found',
+            'defaultSort' => ['id', 'DESC'],
+            'configFile' => 'record',
+        ]
     ];
 }
 ```
@@ -30,7 +32,7 @@ class MyController extends \Igniter\Admin\Classes\AdminController
 The following fields are required in the list configuration:
 
 - `model` - The model class name to use for the list.
-- `configFile` - Reference to the [list definition file](../extend/lists#list-definition-file).
+- `configFile` - Reference to the [list definition file](../extend/lists#list-definition-file). The value should correspond to a file name in your extension's `resources/models/` directory and match what's defined in your [$formConfig](../extend/forms#configuring-the-form-controller).
 
 The configuration options listed below are optional.
 
@@ -101,7 +103,7 @@ For each toolbar button, you can specify these options:
 - `context` - The context to apply to the button. Default is `primary`.
 - `disabled` - Whether the button is disabled. Default is `false`.
 - `partial` - The partial view to render when the button is clicked.
-- `permissions` - The [permissions](../extend/permissions) required to access the button.
+- `permissions` - The [permissions](../customize/permissions) required to access the button.
 - `class` - The CSS class to apply to the button.
 - `href` - The URL to link to when the button is clicked.
 
@@ -148,7 +150,7 @@ For each scope you can specify these options (where applicable):
 - `options` - An array of options to display in the filter scope dropdown.
 - `scope` - The query scope method defined in the list model to apply to the list query.
 - `nameFrom` - The model attribute to use as the label of the filter scope.
-- `permissions` - The [permissions](../extend/permissions) required to access the filter scope.
+- `permissions` - The [permissions](../customize/permissions) required to access the filter scope.
 
 ### Available filter scope types
 
@@ -262,7 +264,7 @@ For each column can specify these options (where applicable):
 - `valueFrom` - The model attribute to use as the column value.
 - `cssClass` - The CSS class to apply to the column container.
 - `width` - The width of the column. Default is `auto`.
-- `permissions` - The [permissions](../extend/permissions) required to access the column.
+- `permissions` - The [permissions](../customize/permissions) required to access the column.
 
 ### Available column types
 

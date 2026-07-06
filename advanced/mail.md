@@ -32,7 +32,18 @@ composer require aws/aws-sdk-php
 
 ## Configuration
 
-Next, you can configure your mail settings from the _Manage > Settings > Mail_ admin settings page or through the mail configuration file located at `config/mail.php`. In this file, you may configure the default mail driver, mail sending options, and mail "from" address. Next, verify that your `config/services.php` configuration file contains the required credentials for your mail service.
+Next, you can configure your mail settings from the _Manage > Settings > Mail_ admin settings page or through the mail configuration file located at `config/mail.php`. In this file, you may configure the default mail driver, mail sending options, and mail "from" address. For API based drivers such as Mailgun, Postmark, and MailerSend, verify that your `config/services.php` configuration file contains the required credentials for your mail service.
+
+If you want to configure your mail settings through the mail configuration file instead of the admin interface, you can force the use of the configuration file by adding the following to the boot method of your `AppServiceProvider`:
+
+```php
+use Igniter\Flame\Support\Facades\Igniter;
+
+public function boot()
+{
+    Igniter::useMailerConfigFile();
+}
+```
 
 ## Writing mail
 

@@ -25,7 +25,7 @@ TastyIgniter leverages Laravel's robust validation system, which provides a vari
 
 ## Conditional validation
 
-You can conditionally apply [validation rules](../advanced/validation#available-validation-rules) based on the value of another field. To do this, you can use the `required_if`, `required_unless`, `required_with`, `required_with_all`, `required_without`, and `required_without_all` rules. For example, to require a field only if another field is present:
+You can conditionally apply [validation rules](../extend/validation#available-validation-rules) based on the value of another field. To do this, you can use the `required_if`, `required_unless`, `required_with`, `required_with_all`, `required_without`, and `required_without_all` rules. For example, to require a field only if another field is present:
 
 ```php
 $rules = [

@@ -163,16 +163,30 @@ return [
 
 ## Making your site multilingual
 
-In this section, we'll guide you through the steps required to make your TastyIgniter site multilingual. There are two main ways to install additional languages: directly from the _Manage > Settings > Languages_ page in the admin interface, or manually downloading a language pack from the TastyIgniter translations <a href="https://tastyigniter.com/translate" target="_blank">Crowdin project page</a>.
+In this section, we'll guide you through the steps required to make your TastyIgniter site multilingual. There are two main ways to install additional languages: directly from the _Manage > Settings > Languages_ page in the admin interface, or manually downloading a language pack from the TastyIgniter translations <a href="https://translate.tastyigniter.com/" target="_blank">TastyIgniter Community Translation project website</a>.
 
-### Installing a language pack
+### Importing translated language strings
 
-TastyIgniter comes with a default language pack for the English language. You can install additional language packs from the _Manage > Settings > Languages_ page of the admin interface.
+TastyIgniter supports the use of language packs, which are collections of translated language strings for various languages. These language packs can be imported to provide translations for the TastyIgniter admin interface and frontend.
+
+Language packs are typically provided by the TastyIgniter community and can be installed directly from the admin interface or manually downloaded from the TastyIgniter translations <a href="https://translate.tastyigniter.com/" target="_blank">TastyIgniter Community Translation project website</a>.
+
+You can import translated language strings from the _Manage > Settings > Languages_ page of the admin interface.
 
 - Navigate to the _Manage > Settings > Languages_ page in the admin interface.
-- Using the searchbox at the top of the page, search for the language you wish to install. For example, let's search for **Spanish (ES)**.
-- Click on the language you wish to install, then click the **Add Language** button.
-- Once installed, you can enable the language by toggling the **Status** switch to `Enabled`.
+- Click on the **New** button to create a new language. In the **Locale Code** field, enter the language code (e.g., `es` for Spanish) and the **Name** field, enter the language name (e.g., `Spanish`).
+- Click the **Save** button to create the new language.
+- Once the language is created, you will see the **Import Translations** button on the right side of the page.
+- Click on the **Import Translations** button to open the import dialog.
+- In the import dialog, you will see a list of available language packs.
+- Click on the **Download translated strings** button to download the language packs.
+- Once the download is complete, click on the **Close** button to reload the page and see the newly installed translated language strings
+- Go to the _Manage > Settings > Languages_ page and click on the **Set as Default** button next to the language you just created to activate it.
+- That's it! You have successfully installed a new language pack.
+
+#### Installing a language pack from the command line
+
+You can also install a language pack from the command line using the `igniter:language-install` Artisan command. This command allows you to install a language pack directly from the TastyIgniter Community Translation project.
 
 Run the following command from the application directory to install a **Spanish (ES)** language pack:
 
@@ -184,10 +198,34 @@ php artisan igniter:language-install es
 
 Follow these steps to manually download a community translated language pack.
 
-- Join our translations <a href="https://tastyigniter.com/translate" target="_blank">Crowdin project page</a>.
-- Choose the language you wish to install. For example, let's choose **Spanish (ES)**.
-- Download and unzip the language pack. To download, you need to click on the button at the top right of the Crowdin language page.
-- The extracted language pack should have a specific folder and file structure. Copy the files and folders within the `Namespaced` directories into your TastyIgniter `lang` directory, _see below_. If you don't have a `lang` directory in your application root, create a new one.
+- Join our translations <a href="https://translate.tastyigniter.com/" target="_blank">TastyIgniter Community Translation project</a>.
+- From the Browse all projects page, select the project you want to install a language pack for, such as **TastyIgniter**.
+- Click on the **Languages** tab to view the available languages.
+- You will see a list of languages with their translation progress.
+- Click on the language you want to install. For example, let's choose **Spanish (ES)**.
+- You will be redirected to the language page, where you can see the translation progress.
+- Click on the **Files** tab to view the available download options for that particular language.
+- Click on the **Download original translation files as ZIP file** option to download the language pack.
+- The extracted zip file should have the following folder and file structure.
+
+```yaml
+tastyigniter/
+  v4-admin/
+    es/
+      4.x/
+        admin.php
+  v4-main/
+    es/
+      4.x/
+      main.php
+  v4-system/
+    es/
+      4.x/
+      system.php
+```
+
+- Copy the `v4-admin/es/4.x/admin.php`, `v4-main/es/4.x/main.php`, and `v4-system/es/4.x/system.php` files to your TastyIgniter `lang/vendor/igniter/es_ES/` directory, creating the necessary directories if they do not exist.
+- The final directory structure should look like this:
 
 ```yaml
 lang/
@@ -207,16 +245,17 @@ You may want to set the installed language pack as the default language for new 
 
 ### Enabling language detection
 
-TastyIgniter comes with built-in support for language negotiation, offering various methods to automatically detect the user's language without requiring manual selection. The language detection process follows this sequence:
+TastyIgniter can automatically detect and set the user's preferred language using several methods. The detection order differs slightly between the Admin Interface and the Frontend:
 
-- **On the Admin Interface**
-  - Determine the Admin Interface language from currently logged in admin user language settings.
-  - Determine the language from the user browser's language settings.
-  - Determine the language from the **default** language setting.
-- **On the FrontEnd**
-  - Determine the frontend language from the **request/session** parameter.
-  - Using the locale picker provided within the [FrontEnd extension](..extensions/frontend#locale-picker).
-  - Determine the language from the **default** language setting.
+- **Admin Interface**
+  1. Uses the language set in the currently logged-in admin user's profile.
+  2. If not set, falls back to the application's default language setting.
+
+- **Frontend**
+  1. Checks for a language preference in the request or session (such as a URL parameter or previously selected language).
+  2. If not found, uses the application's default language setting.
+
+This automatic detection helps ensure users see the site in their preferred language whenever possible.
 
 ## Translating third-party extensions
 

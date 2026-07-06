@@ -152,6 +152,7 @@ The following methods are supported in the extension class:
 | **registerMailTemplates()**    | registers any mail view templates supplied by this extension, see below for example.                                       |
 | **registerMailPartials()**     | registers any mail view partials supplied by this extension.                                                               |
 | **registerSchedule()**         | registers any [scheduled tasks](../advanced/scheduling-tasks) supplied by this extension.                                  |
+| **registerPaymentGateways()**  | registers any payment gateways supplied by this extension. |
 
 An example registering **mail templates view** file `extensions/acme/helloworld/views/mail/contact`:
 

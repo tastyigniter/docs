@@ -230,4 +230,4 @@ class MyController extends \Igniter\Admin\Classes\AdminController
 }
 ```
 
-See more about [restricting access to admin pages](../extend/permissions#restricting-access-to-admin-pages) and [restricting access to admin controller actions](../extend/permissions#restricting-access-to-admin-controller-actions).
+See more about [restricting access to admin pages](../customize/permissions#restricting-access-to-admin-pages) and [restricting access to admin controller actions](../customize/permissions#restricting-access-to-admin-controller-actions).

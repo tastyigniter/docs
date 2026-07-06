@@ -172,7 +172,7 @@ You can access variables within the partial like any other template variable:
 
 ## Rendering components
 
-[Components](../customize/components) are reusable Blade markup blocks combining state and behavior that serve as building blocks in layouts or pages. Here, we'll cover the basics of rendering [Livewire components](../customize/components#livewire-component) within a page.
+[Components](../extend/components) are reusable Blade markup blocks combining state and behavior that serve as building blocks in layouts or pages. Here, we'll cover the basics of rendering [Livewire components](../extend/components#livewire-component) within a page.
 
 Livewire component consists of two files. The first is the component class `src/Livewire/HelloBlock.php` and the second is the component template file `resources/views/livewire/hello-block.blade.php`.
 
@@ -188,13 +188,13 @@ food: "Pizza"
 <p>{{ $this->page->food }}</p>
 ```
 
-For more on components, see the [Components](../customize/components) documentation.
+For more on components, see the [Components](../extend/components) documentation.
 
 ## Execution life cycle
 
 In the PHP code section of pages and layouts there are specific functions: `onInit`, `onStart` and `onEnd`.
 
-The function `onInit` is executed when all [components](../customize/components) are initialized and before AJAX requests are handled. The `onStart` function is executed at the start of the execution of the page. The `onEnd` function is executed before the page renders and the page components executed.
+The function `onInit` is executed when all [components](../extend/components) are initialized and before AJAX requests are handled. The `onStart` function is executed at the start of the execution of the page. The `onEnd` function is executed before the page renders and the page components executed.
 
 ```blade
 ---
