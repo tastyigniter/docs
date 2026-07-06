@@ -47,7 +47,7 @@ php artisan igniter:install --no-interaction
 ```
 ### Wizard Installation
 
-1. [Download](https://github.com/tastyigniter/setup/archive/master.zip) and unzip the TastyIgniter setup wizard into an
+1. [Download](https://github.com/tastyigniter/setup/archive/refs/heads/3.x.zip) and unzip the TastyIgniter setup wizard into an
    empty directory on your server.
 2. Create a MySQL user database for TastyIgniter on your database server.
 3. Upload the TastyIgniter folders and files to your server. Normally the setup.php file will be at the web root
