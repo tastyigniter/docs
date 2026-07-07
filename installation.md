@@ -21,7 +21,7 @@ Composer is **not** required for the initial wizard installation. It **is** requ
 
 ### Installing with the setup wizard
 
-1. Download the [setup wizard ZIP](https://github.com/tastyigniter/setup/archive/refs/heads/master.zip).
+1. Download the [setup wizard ZIP](https://tastyigniter.com/download/setup-wizard).
 2. Create a MySQL database and database user in your hosting control panel (new or existing TastyIgniter v3 database for upgrade).
 3. Upload and extract the wizard files to your web root so `setup.php` is accessible in the browser.
 4. Set write permissions on the `setup/` directory (typically `755` or `775`).
