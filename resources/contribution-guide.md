@@ -23,7 +23,7 @@ anywhere.
 
 ## Reporting bugs
 
-> Please don't use the main GitHub for reporting issues with extensions or themes. If you have found a bug in an extension or theme, the best place to report it is with the [author](https://tastyigniter.com/marketplace).
+> Please don't use the main GitHub for reporting issues with third party extensions or themes. If you have found a bug in an extension or theme, the best place to report it is with the [author](https://tastyigniter.com/marketplace).
 
 Issues are a quick way to point out a bug. If you find a bug in TastyIgniter then please check a few things first:
 
@@ -41,17 +41,10 @@ rejected without reason.
 
 > **Note:** This section applies specifically to those sending pull requests to any repositories under the <a href="https://github.com/tastyigniter" target="_blank">TastyIgniter</a> organization.
 
-**All** bug fixes should be sent to the latest stable branch that supports bug fixes (currently `4.x` and `master` for packages). Bug fixes
-should **never** be sent to the `develop` branch unless they fix features that exist only in the upcoming release.
+**All** bug fixes should be sent to the latest stable branch that supports bug fixes (currently `4.x` ). Bug fixes should **never** be sent to the `develop` branch unless they fix features that exist only in the upcoming release.
 
-**Minor** features that are **fully backward compatible** with the current release may be sent to the latest stable
-branch.
-
-**Major** new features or features with breaking changes should always be sent to the `develop` branch, which contains
-the upcoming release.
-
-If you are unsure if your feature qualifies as a major or minor, please ask Sam Poyigi in the `#core` channel of
-the [TastyIgniter Discord server.](https://tastyigniter.com/discord)
+If you are unsure, please ask Sam Poyigi in the `#core` channel of
+the <a href="https://tastyigniter.com/discord" target="_blank">TastyIgniter Discord</a>
 
 ## Compiled Assets
 
@@ -73,19 +66,43 @@ in `composer.json` to `dev`.
 
 ## How to contribute
 
+If this is your first contribution, start small: fix a typo, improve docs, or pick up a [good first issue]([https://github.com/tastyigniter/TastyIgniter/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22](https://github.com/tastyigniter/TastyIgniter/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)) (when available). Questions are welcome in the `#core` channel on [Discord]([https://tastyigniter.com/discord](https://tastyigniter.com/discord)).
+
 Follow these steps:
 
-- First you need to complete the development environment setup 
-- Identity the repository you want to contribute to
-- Fork the repository
-- Clone your forked repository into the development environment
-- Checkout the current release branch (3.x or 4.x)
-- Make your **changes**
-- Run `composer test` to run the test-suite on your changes
-- **Commit and push** your changes with a descriptive message.
-- Submit in the **pull request** on GitHub
+1. **Set up your environment**  
+   Complete the [Development environment setup](#development-environment-setup) above.
+   Most package code lives under `vendor/tastyigniter/` after
+   `composer update "tastyigniter/*" --prefer-source`.
+2. **Choose the right repository**  
+   Identify which [TastyIgniter](https://github.com/tastyigniter) repository owns the
+   change (for example `core`, an extension, or the stand-alone `TastyIgniter` app).
+   For third party extensions and themes from the marketplace, contribute to the author’s repository
+   instead of the main project.
+3. **Fork and clone**  
+   Fork the repository on GitHub, then work from your fork inside the development
+   environment (typically the matching path under `vendor/tastyigniter/`).
+4. **Create a branch from the correct base**  
+   See [Which Branch?](#which-branch) — usually the latest stable branch (`4.x`) for bug fixes.
+   Create a dedicated branch for your work, for example:
+   `git checkout -b fix/short-description`
+5. **Make a focused change**  
+   Keep the pull request limited to one concern.
+6. **Test your changes**  
+   From the project root, run:
+   ```bash
+   composer test
+   ```
+   Fix any failures before opening a pull request.
+7. **Commit and push**
+   Use a clear, descriptive commit message that explains why the change is needed. Push the branch to your fork.
+8. **Open a pull request**
+   Open a PR against the correct upstream branch. In the description, include:
+    - what problem you are solving
+    - how you tested it
+    - linked issue number, if any (Fixes #123)
 
-The CI/CD workflows must run successfully on your pull requests to be merged into the release branch.
+Maintainers may ask for changes — that is normal; reply on the PR and update your branch as needed.
 
 ## Development tools
 
@@ -93,14 +110,14 @@ Most TastyIgniter contributors develop with <a href="https://www.jetbrains.com/p
 PHPStorm</a>. However, feel free to use your preferred IDE.
 
 To serve a local TastyIgniter website, <a href="https://laravel.com/docs/master/valet" target="_blank">Laravel
-Valet</a> (Mac), <a href="https://www.apachefriends.org/index.html" target="_blank">XAMPP</a> (Windows),
-and <a href="https://github.com/ThisIsQasim/TastyIgniter" target="_blank">TastyIgniter Docker</a> (Linux) are popular
+Valet</a>, <a href="https://herd.laravel.com" target="_blank">Laravel Herd</a> (For Mac and Windows),
+and <a href="https://ddev.com" target="_blank">DDEV Docker</a> (Linux) are popular
 choices.
 
 ## Reporting security issues
 
 If you wish to contact us about any security vulnerability in TastyIgniter you may find, please send an e-mail to
-<support@tastyigniter.com>
+[support@tastyigniter.com](mailto:support@tastyigniter.com)
 
 ## Writing documentation
 
@@ -109,7 +126,7 @@ contribute. Here's how styling perfect TastyIgniter documentation pages is done:
 
 - Try not to use H1 headers.
 - A TOC list would be generated automatically for each page with at least one H2 header. The TOC would have links to all
-  of all the page's H2 headers.
+of all the page's H2 headers.
 - The introductory text would be displayed below the TOC.
 - Try to use only H2 and H3 headers.
 - Each H2 and H3 header could have a link defined as `<a name="event-handlers"></a>` or have it generated automatically.
@@ -117,8 +134,9 @@ contribute. Here's how styling perfect TastyIgniter documentation pages is done:
 - Avoid short paragraphs hanging below code sections. Combine these paragraphs with the text above the code blocks.
 - Use the inline code tags for all code-related - variable names, function names, syntax examples, etc.
 - Don't hesitate to make cross-links to other documentation articles. There is no need to add links to the same article
-  in the same paragraph.
+in the same paragraph.
 - For your reference, see the [pages](https://github.com/tastyigniter/docs/blob/master/customize/pages.md)
-  or [themes](https://github.com/tastyigniter/docs/blob/master/customize/themes.md) files.
+or [themes](https://github.com/tastyigniter/docs/blob/master/customize/themes.md) files.
 
-> For more information on contributing, read the guide <a href="https://github.com/tastyigniter/TastyIgniter/blob/master/CONTRIBUTING.md" target="_blank">here</a>
+> For more information on contributing, read the guide [here](https://github.com/tastyigniter/TastyIgniter/blob/master/CONTRIBUTING.md)
+
