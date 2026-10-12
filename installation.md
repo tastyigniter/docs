@@ -451,6 +451,17 @@ php /path/to/artisan queue:work
 
 See the [Laravel Queue documentation](https://laravel.com/docs/queues#running-the-queue-listener) for production setups with Supervisor.
 
+#### `composer install` fails to authenticate
+
+- *Symptom:* `composer install` or `composer update` fails to authenticate with `composer.tastyigniter.com`.
+- *Cause:* From TastyIgniter 4.3.3, Composer sends your carte key to the marketplace in the `TI-Rest-Key` header. The header is stored in `auth.json` under `custom-headers`. Composer added `custom-headers` in version 2.9, so you need Composer 2.9 or newer. An `auth.json` left over from an earlier version still uses HTTP Basic auth (your account email as the username and the carte key as the password).
+- *Fix:* Apply the carte key from the TastyIgniter Admin. That writes the `TI-Rest-Key` header Composer expects.
+  1. Run `composer --version`. Upgrade to Composer 2.9 or newer if the version is lower.
+  2. In the admin, click **Manage**, then **Updates**.
+  3. Click **Attach Carte Key**, paste the key from your Site, and attach it.
+  4. Click **Check Updates**. TastyIgniter rewrites `auth.json` for `composer.tastyigniter.com`.
+  5. Run `composer install` again.
+
 ### Getting more help
 
 If you are still stuck:
